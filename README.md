@@ -1,7 +1,7 @@
-Configuration files
-===================
+Configuration files and scripts
+===============================
 
-This repository holds configuration files that are featured on a Bunsen Labs installation. Please note that these merely represent (what we consider to be) sane defaults, so please do not make any pull request that simply changes things to your personal preference. If, however, you deem something is wrong you are of course free to raise an issue and discuss this.
+This repository holds configuration files and scripts that are featured on a Bunsen Labs installation. Please note that these merely represent (what we consider to be) sane defaults, so please do not make any pull request that simply changes things to your personal preference. If, however, you deem something is wrong you are of course free to raise an issue and discuss this.
 
 Installation
 ------------
@@ -15,7 +15,7 @@ Bugs
 For any bug or request [fill an issue][bug] on [GitHub][ghp].
 
   [bug]: https://github.com/BunsenLabs/configs/issues
-  [ghp]: htps://github.com/BunsenLabs/configs
+  [ghp]: https://github.com/BunsenLabs/configs
 
 Copyright
 ---------
