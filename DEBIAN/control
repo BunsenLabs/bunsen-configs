@@ -1,0 +1,6 @@
+Package: bunsen-configs
+Version: 20150217
+Architecture: all
+Maintainer: johnraff <john@rafflesnagoya.com>
+Description: config files for Bunsen Labs Linux, 
+ adapted from cb-configs in CrunchBang Linux.

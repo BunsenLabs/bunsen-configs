@@ -1,0 +1,94 @@
+bunsen-configs 20150217
+ * rename for Bunsen Labs
+ -- John Crawley <john@rafflesnagoya.com> Tue, 17 Feb 2015 23:18:05 +0900
+
+tb-configs 20150211-2
+ * change /etc/skel/.config/zurg to /etc/skel/.config/tinkerbox
+ --jr 150213
+
+tb-configs 20150211-1
+ * add .xsessionrc, correct theme settings, add Thunar uca.xml
+ --jr 150211
+
+tb-configs 20150211
+ * rename package and any zurg-* executables
+
+zurg-configs 20150208
+ * Rough edits for jessie
+ -- johnraff 20150208
+
+cb-configs (20130504-2) unstable; urgency=low
+
+  * Fix missing id attribute for Openbox notifications submenu.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Sat, 04 May 2013 19:57:28 +0100
+
+cb-configs (20130504-1) unstable; urgency=low
+
+  * Adjust icon settings.
+  * Adjust notification settings and add menu item.
+  * Fix VLC label.
+  * Bump standards versions.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Sat, 04 May 2013 12:06:15 +0100
+
+cb-configs (20130110-1) unstable; urgency=low
+
+  * Adjust conky startup within Openbox autostart.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Thu, 10 Jan 2013 18:43:39 +0000
+
+cb-configs (20130109-1) unstable; urgency=low
+
+  * Openbox configs to reference vlc instead of gnome-mplayer.
+  * Use xfce4-power-manager battery icon and notifications.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Wed, 09 Jan 2013 19:04:02 +0000
+
+cb-configs (20121015-1) unstable; urgency=low
+
+  * .config/compton.conf removed.
+  * .config/chromium: add first run file.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Mon, 15 Oct 2012 08:04:47 +0100
+
+cb-configs (20121012-1) unstable; urgency=low
+
+  * .config/compton.conf:
+    - fading to false.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Fri, 12 Oct 2012 14:47:33 +0100
+
+cb-configs (20121009-1) unstable; urgency=low
+
+  * .config/openbox/menu.xml:
+    - xarchiver to file roller.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Tue, 09 Oct 2012 07:32:48 +0100
+
+cb-configs (20121008-1) unstable; urgency=low
+
+  * .config/openbox/autostart:
+    - turn off system beep with 'xset b off'.
+  * .config/openbox/menu.xml:
+    - file roller to squeeze.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Mon, 08 Oct 2012 13:07:31 +0100
+
+cb-configs (20120927-3) unstable; urgency=low
+
+  * Remove bash files.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Thu, 27 Sep 2012 11:58:20 +0100
+
+cb-configs (20120927-2) unstable; urgency=low
+
+  * Adjust Openbox autostart for compton watch deamon.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Thu, 27 Sep 2012 09:42:30 +0100
+
+cb-configs (20120927-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Philip Newborough <corenominal@corenominal.org>  Thu, 27 Sep 2012 07:40:11 +0100
