@@ -1,6 +1,6 @@
-## Openbox autostart.sh
+## Openbox autostart
 ## ====================
-## When you login to your CrunchBang Openbox session, this autostart script
+## When you login to your Bunsen Labs Openbox session, this autostart script
 ## will be executed to set-up your environment and launch any applications
 ## you want to run at startup.
 ##
@@ -15,7 +15,6 @@
 ## could benefit from your hack, please consider sharing it at:
 ## http://crunchbang.org/forums/
 ##
-## Have fun & happy CrunchBangin'! :)
 
 ## GNOME PolicyKit and Keyring
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
@@ -23,27 +22,16 @@ eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 ## Set root window colour
 hsetroot -solid "#2E3436" &
 
-## Group start:
-## 1. nitrogen - restores wallpaper
-## 2. compositor - start
-## 3. sleep - give compositor time to start
-## 4. tint2 panel
-#(\
-#nitrogen --restore && \
-#cb-compositor --start && \
-#sleep 2s && \
-#tint2 \
-#) &
-
 nitrogen --restore &
-cb-compositor --start &
+bl-compositor --start &
 (sleep 2; tint2) &
 
 ## Volume control for systray
 #(sleep 2s && pnmixer) &
+(sleep 2; volumeicon) &
 
 ## Volume keys daemon
-#xfce4-volumed &
+xfce4-volumed &
 
 ## Enable power management
 xfce4-power-manager &
@@ -58,7 +46,7 @@ if egrep -iq 'touchpad' /proc/bus/input/devices; then
 fi
 
 ## Start xscreensaver
-#xscreensaver -no-splash &
+xscreensaver -no-splash &
 
 ## Start Clipboard manager
 (sleep 3s && clipit) &
@@ -74,12 +62,12 @@ xset b off &
 ## Safe to delete after installation.
 #cb-cowpowers &
 
-## cb-welcome - post-installation script, will not run in a live session and
+## bl-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
-#(sleep 10s && cb-welcome --firstrun) &
+#(sleep 10s && bl-welcome --firstrun) &
 
-## cb-fortune - have Waldorf say a little adage
-#(sleep 120s && cb-fortune) &
+## bl-fortune - have Waldorf say a little adage
+#(sleep 120s && bl-fortune) &
 
 ## Run the conky
 conky -q &

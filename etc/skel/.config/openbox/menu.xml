@@ -178,7 +178,7 @@
         </menu>
         <menu id="network" label="Network">
 <!--
-            <menu execute="cb-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
+            <menu execute="bl-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
 -->
             <item label="gFTP Client">
                 <action name="Execute">
@@ -208,13 +208,13 @@
                     </command>
                 </action>
             </item>
-            <menu execute="cb-remote-desktop-pipemenu" id="remotedesktop" label="Remote Desktop"/>
-            <menu execute="cb-sshconfig-pipemenu" id="sshconfig" label="SSH"/>
+            <menu execute="bl-remote-desktop-pipemenu" id="remotedesktop" label="Remote Desktop"/>
+            <menu execute="bl-sshconfig-pipemenu" id="sshconfig" label="SSH"/>
             <separator label="Services"/>
-            <menu execute="cb-dropbox-pipemenu" id="dropbox" label="Dropbox"/>
+            <menu execute="bl-dropbox-pipemenu" id="dropbox" label="Dropbox"/>
         </menu>
         <menu id="office" label="Office">
-            <menu id="libreoffice" label="LibreOffice" execute="cb-libreoffice-pipemenu" />
+            <menu id="libreoffice" label="LibreOffice" execute="bl-libreoffice-pipemenu" />
             <item label="Google Docs">
                 <action name="Execute">
                     <command>
@@ -252,11 +252,11 @@
             </item>
         </menu>
         <separator/>
-        <menu execute="cb-places-pipemenu" id="pipe-placesmenu" label="Places"/>
-        <menu execute="cb-recent-files-pipemenu" id="pipe-recentfilesmenu" label="Recent Files"/>
+        <menu execute="bl-places-pipemenu" id="pipe-placesmenu" label="Places"/>
+        <menu execute="bl-recent-files-pipemenu" id="pipe-recentfilesmenu" label="Recent Files"/>
         <separator/>
         <menu id="settings" label="Settings">
-            <menu execute="cb-compositor" id="CompositingPipeMenu" label="Compositor"/>
+            <menu execute="bl-compositor" id="CompositingPipeMenu" label="Compositor"/>
             <menu id="conkyconfig" label="Conky">
                 <item label="Edit .conkyrc">
                     <action name="Execute">
@@ -483,7 +483,7 @@
             </item>
         </menu>
         <menu id="system" label="System">
-            <menu execute="cb-printing-pipemenu" id="PrintingPipeMenu" label="Printers"/>
+            <menu execute="bl-printing-pipemenu" id="PrintingPipeMenu" label="Printers"/>
             <item label="GParted">
                 <action name="Execute">
                     <command>
@@ -506,19 +506,19 @@
                 </action>
             </item>
         </menu>
-        <!--<menu id="help" label="Help" execute="cb-help-pipemenu" />-->
+        <!--<menu id="help" label="Help" execute="bl-help-pipemenu" />-->
         <separator/>
         <item label="Lock Screen">
             <action name="Execute">
                 <command>
-                    cb-lock
+                    bl-lock
                 </command>
             </action>
         </item>
         <item label="Exit">
             <action name="Execute">
                 <command>
-                    tb-exit
+                    bl-exit
                 </command>
             </action>
         </item>
