@@ -5,8 +5,11 @@
 ## you want to run at startup.
 ##
 ## Note*: some programs, such as 'nm-applet' are run via XDG autostart.
-## Run '/usr/lib/openbox/openbox-xdg-autostart --list' to list any
-## XDG autostarted programs.
+## Run
+## /usr/lib/i386-linux-gnu/openbox-xdg-autostart --list
+## or
+## /usr/lib/x86_64-linux-gnu/openbox-xdg-autostart --list
+## to list any XDG autostarted programs.
 ##
 ## More information about this can be found at:
 ## http://openbox.org/wiki/Help:Autostart
@@ -19,37 +22,41 @@
 ## GNOME PolicyKit and Keyring
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
+## for authentication
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
 ## Set root window colour
 hsetroot -solid "#2E3436" &
 
 nitrogen --restore &
+
 bl-compositor --start &
+
 (sleep 2; tint2) &
 
 ## Volume control for systray
-#(sleep 2s && pnmixer) &
 (sleep 2; volumeicon) &
 
 ## Volume keys daemon
 xfce4-volumed &
 
-## Enable power management
-xfce4-power-manager &
+## Start Clipboard manager
+(sleep 3; clipit) &
 
 ## Start Thunar Daemon
 thunar --daemon &
+
+## Enable power management
+xfce4-power-manager &
+
+## Start xscreensaver
+xscreensaver -no-splash &
 
 ## Detect and configure touchpad. See 'man synclient' for more info.
 if egrep -iq 'touchpad' /proc/bus/input/devices; then
     synclient VertEdgeScroll=1 &
     synclient TapButton1=1 &
 fi
-
-## Start xscreensaver
-xscreensaver -no-splash &
-
-## Start Clipboard manager
-(sleep 3s && clipit) &
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
@@ -60,14 +67,14 @@ xset b off &
 
 ## The following command runs hacks and fixes for #! LiveCD sessions.
 ## Safe to delete after installation.
-#cb-cowpowers &
+#bl-cowpowers &
 
 ## bl-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
-#(sleep 10s && bl-welcome --firstrun) &
+#(sleep 10; bl-welcome --firstrun) &
 
-## bl-fortune - have Waldorf say a little adage
-#(sleep 120s && bl-fortune) &
+## bl-fortune - have the system come up with a little adage
+#(sleep 120; bl-fortune) &
 
 ## Run the conky
 conky -q &

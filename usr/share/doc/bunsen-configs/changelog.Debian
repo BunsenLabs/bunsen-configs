@@ -1,21 +1,27 @@
+bunsen-configs 20150225
+  * edit /etc/skel/.config/openbox/autostart 
+  * replace references to terminator with x-terminal-emulator
+ -- John Crawley <john@rafflesnagoya.com>  Tue, 17 Feb 2015 23:18:05 +0900
+
 bunsen-configs 20150217
- * rename for Bunsen Labs
- -- John Crawley <john@rafflesnagoya.com> Tue, 17 Feb 2015 23:18:05 +0900
+  * rename for Bunsen Labs
+ -- John Crawley <john@rafflesnagoya.com>  Tue, 17 Feb 2015 23:18:05 +0900
 
 tb-configs 20150211-2
- * change /etc/skel/.config/zurg to /etc/skel/.config/tinkerbox
- --jr 150213
+  * change /etc/skel/.config/zurg to /etc/skel/.config/tinkerbox
+ -- John Crawley <john@rafflesnagoya.com>  13 Feb 2015 23:18:05 +0900
 
 tb-configs 20150211-1
- * add .xsessionrc, correct theme settings, add Thunar uca.xml
- --jr 150211
+  * add .xsessionrc, correct theme settings, add Thunar uca.xml
+ -- John Crawley <john@rafflesnagoya.com>  11 Feb 2015 23:18:05 +0900
 
 tb-configs 20150211
- * rename package and any zurg-* executables
+  * rename package and any zurg-* executables
+ -- John Crawley <john@rafflesnagoya.com>  11 Feb 2015 23:18:05 +0900
 
 zurg-configs 20150208
- * Rough edits for jessie
- -- johnraff 20150208
+  * Rough edits for jessie
+ -- John Crawley <john@rafflesnagoya.com>  8 Feb 2015 23:18:05 +0900
 
 cb-configs (20130504-2) unstable; urgency=low
 
