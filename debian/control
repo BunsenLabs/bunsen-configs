@@ -1,0 +1,15 @@
+Source: bunsen-configs
+Section: misc
+Priority: extra
+Maintainer: John Crawley <john@rafflesnagoya.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/BunsenLabs/bunsen-configs
+
+Package: bunsen-configs
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: config files for BunsenLabs Linux
+ Various configuration files for BunsenLabs Linux
+ Contains mostly user config files to be placed in /etc/skel
+ Adapted from cb-configs by Philip Newborough
