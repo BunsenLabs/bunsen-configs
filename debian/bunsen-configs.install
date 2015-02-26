@@ -10,3 +10,4 @@
 .pbuilderrc etc/skel
 .xsessionrc etc/skel
 Templates etc/skel
+.profile etc/skel
