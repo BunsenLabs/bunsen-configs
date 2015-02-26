@@ -5,6 +5,8 @@ Maintainer: John Crawley <john@rafflesnagoya.com>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.5
 Homepage: https://github.com/BunsenLabs/bunsen-configs
+Vcs-Git: https://github.com/BunsenLabs/bunsen-configs.git
+Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 
 Package: bunsen-configs
 Architecture: all
