@@ -1,4 +1,2 @@
-skel/* etc/skel/
-skel/.* etc/skel/
-root/* root/
+skel etc/
 root/.* root/

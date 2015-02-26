@@ -1,3 +1,12 @@
+bunsen-configs (0.1-2) unstable; urgency=medium
+
+  * Adjustments to the package source
+  * add debian/copyright
+  * use generic debian/rules file (for now)
+  * create debian/bunsen-configs.install
+
+ -- Jens Oliver John <dev@2ion.de>  Thu, 26 Feb 2015 11:13:53 +0100
+
 bunsen-configs (0.1) unstable; urgency=low
 
   * Switch to dpkg-source 3.0 (quilt) format
