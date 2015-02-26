@@ -4,6 +4,9 @@ bunsen-configs (0.1-2) unstable; urgency=medium
   * add debian/copyright
   * use generic debian/rules file (for now)
   * create debian/bunsen-configs.install
+  * don't install into /root since we would need to register these files as
+    config files
+  * remove skel/ subdir, move all files to package root
 
  -- Jens Oliver John <dev@2ion.de>  Thu, 26 Feb 2015 11:13:53 +0100
 
