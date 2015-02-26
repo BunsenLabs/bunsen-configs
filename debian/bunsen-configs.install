@@ -1,0 +1,4 @@
+skel/* etc/skel/
+skel/.* etc/skel/
+root/* root/
+root/.* root/
