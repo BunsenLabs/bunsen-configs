@@ -1,3 +1,15 @@
+bunsen-configs (0.1-4) unstable; urgency=medium
+
+  * remove unnecessary dh_shlibdeps substitution variable in debian/control
+
+ -- Jens Oliver John <dev@2ion.de>  Thu, 26 Feb 2015 15:58:44 +0100
+
+bunsen-configs (0.1-3) unstable; urgency=medium
+
+  * re-add /etc/skel/.profile and displace file provided by the bash package
+
+ -- Jens Oliver John <dev@2ion.de>  Thu, 26 Feb 2015 15:49:17 +0100
+
 bunsen-configs (0.1-2) unstable; urgency=medium
 
   * Adjustments to the package source
