@@ -1,0 +1,13 @@
+.Xresources etc/skel
+.bash_aliases etc/skel
+.config etc/skel
+.conkyrc etc/skel
+.gmrunrc etc/skel
+.gtk-bookmarks etc/skel
+.gtkrc-2.0 etc/skel
+.gtkrc-2.0.mine etc/skel
+.local etc/skel
+.pbuilderrc etc/skel
+.xsessionrc etc/skel
+Templates etc/skel
+.profile etc/skel

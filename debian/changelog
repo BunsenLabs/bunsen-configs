@@ -1,3 +1,27 @@
+bunsen-configs (0.1-4) unstable; urgency=medium
+
+  * remove unnecessary dh_shlibdeps substitution variable in debian/control
+
+ -- Jens Oliver John <dev@2ion.de>  Thu, 26 Feb 2015 15:58:44 +0100
+
+bunsen-configs (0.1-3) unstable; urgency=medium
+
+  * re-add /etc/skel/.profile and displace file provided by the bash package
+
+ -- Jens Oliver John <dev@2ion.de>  Thu, 26 Feb 2015 15:49:17 +0100
+
+bunsen-configs (0.1-2) unstable; urgency=medium
+
+  * Adjustments to the package source
+  * add debian/copyright
+  * use generic debian/rules file (for now)
+  * create debian/bunsen-configs.install
+  * don't install into /root since we would need to register these files as
+    config files
+  * remove skel/ subdir, move all files to package root
+
+ -- Jens Oliver John <dev@2ion.de>  Thu, 26 Feb 2015 11:13:53 +0100
+
 bunsen-configs (0.1) unstable; urgency=low
 
   * Switch to dpkg-source 3.0 (quilt) format
@@ -5,28 +29,40 @@ bunsen-configs (0.1) unstable; urgency=low
  -- John Crawley <john@rafflesnagoya.com>  Thu, 26 Feb 2015 11:09:29 +0900
 
 bunsen-configs (20150225) unstable; urgency=low
+
   * edit /etc/skel/.config/openbox/autostart
   * replace references to terminator with x-terminal-emulator
+
  -- John Crawley <john@rafflesnagoya.com>  Tue, 17 Feb 2015 23:18:05 +0900
 
 bunsen-configs (20150217) unstable; urgency=low
+
   * rename for Bunsen Labs
+
  -- John Crawley <john@rafflesnagoya.com>  Tue, 17 Feb 2015 23:18:05 +0900
 
 tb-configs (20150211-2) unstable; urgency=low
+
   * change /etc/skel/.config/zurg to /etc/skel/.config/tinkerbox
+
  -- John Crawley <john@rafflesnagoya.com>  13 Feb 2015 23:18:05 +0900
 
 tb-configs (20150211-1) unstable; urgency=low
+
   * add .xsessionrc, correct theme settings, add Thunar uca.xml
+
  -- John Crawley <john@rafflesnagoya.com>  11 Feb 2015 23:18:05 +0900
 
 tb-configs (20150211) unstable; urgency=low
+
   * rename package and any zurg-* executables
+
  -- John Crawley <john@rafflesnagoya.com>  11 Feb 2015 23:18:05 +0900
 
 zurg-configs (20150208) unstable; urgency=low
+
   * Rough edits for jessie
+
  -- John Crawley <john@rafflesnagoya.com>  8 Feb 2015 23:18:05 +0900
 
 cb-configs (20130504-2) unstable; urgency=low
