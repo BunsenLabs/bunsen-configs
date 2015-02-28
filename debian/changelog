@@ -1,3 +1,9 @@
+bunsen-configs (0.1-5) unstable; urgency=medium
+
+  * add empty directories to debian/bunsen-configs.install
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 28 Feb 2015 18:48:35 +0900
+
 bunsen-configs (0.1-4) unstable; urgency=medium
 
   * remove unnecessary dh_shlibdeps substitution variable in debian/control

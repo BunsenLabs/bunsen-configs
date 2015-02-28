@@ -11,3 +11,9 @@
 .xsessionrc etc/skel
 Templates etc/skel
 .profile etc/skel
+.fonts etc/skel
+.icons etc/skel
+.themes etc/skel
+bin etc/skel
+images etc/skel
+tmp etc/skel
