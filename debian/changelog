@@ -1,3 +1,10 @@
+bunsen-configs (0.1-6) unstable; urgency=medium
+
+  * Add LICENSE
+  * Change source code license to GPL-3+ as permitted by the WTFPL
+
+ -- Jens Oliver John <dev@2ion.de>  Mon, 02 Mar 2015 12:19:25 +0100
+
 bunsen-configs (0.1-5) unstable; urgency=medium
 
   * add empty directories to debian/bunsen-configs.install
