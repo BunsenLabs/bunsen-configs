@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=/usr/bin/x-terminal-emulator
+Icon=utilities-terminal
+StartupNotify=false
+Terminal=false
+Categories=GTK;Utility;TerminalEmulator;
+Name=Terminal (default)
+Comment=Invoke x-terminal-emulator

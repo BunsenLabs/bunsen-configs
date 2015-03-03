@@ -11,3 +11,4 @@
 .xsessionrc etc/skel
 Templates etc/skel
 .profile.bunsen etc/skel
+bunsen-terminal-emulator.desktop usr/share/applications

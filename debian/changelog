@@ -1,3 +1,9 @@
+bunsen-configs (0.1-7) unstable; urgency=medium
+
+  * Add /usr/share/applications/bunsen-terminal-emulator.desktop
+
+ -- John Crawley <john@rafflesnagoya.com>  Tue, 03 Mar 2015 11:54:19 +0900
+
 bunsen-configs (0.1-6) unstable; urgency=medium
 
   * Add LICENSE
