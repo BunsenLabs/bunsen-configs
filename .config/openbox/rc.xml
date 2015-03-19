@@ -46,7 +46,7 @@
   </placement>
 
   <theme>
-    <name>Deb8</name>
+    <name>Bunsen1</name>
     <titleLayout>DSLIMC</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
