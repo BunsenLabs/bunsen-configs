@@ -3,7 +3,8 @@ etc/skel/.icons
 etc/skel/.themes 
 etc/skel/bin 
 etc/skel/images 
-etc/skel/tmp 
+etc/skel/tmp
+etc/skel/.config/bunsen
 etc/skel/.config/geany/colorschemes
 etc/skel/.config/geany/plugins
 etc/skel/.config/geany/tags
