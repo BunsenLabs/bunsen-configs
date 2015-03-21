@@ -1,3 +1,15 @@
+bunsen-configs (0.1-9) unstable; urgency=low
+
+  * Openbox: enable bl-welcome in autostart, and three pipemenus in menu.xml.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 21 Mar 2015 11:39:42 +0900
+
+bunsen-configs (0.1-8) unstable; urgency=low
+
+  * Rename bl-terminal-emulator.desktop
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 20 Mar 2015 09:54:18 +0900
+
 bunsen-configs (0.1-7) unstable; urgency=medium
 
   * Add /usr/share/applications/bunsen-terminal-emulator.desktop

@@ -100,6 +100,7 @@
             </item>
         </menu>
         <menu id="graphics" label="Graphics">
+            <menu execute="bl-graphics-pipemenu" id="bl-graphics-pipemenu" label="Graphics"/>
             <item label="GIMP">
                 <action name="Execute">
                     <command>
@@ -177,9 +178,7 @@
             </item>
         </menu>
         <menu id="network" label="Network">
-<!--
             <menu execute="bl-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
--->
             <item label="gFTP Client">
                 <action name="Execute">
                     <command>
@@ -506,7 +505,7 @@
                 </action>
             </item>
         </menu>
-        <!--<menu id="help" label="Help" execute="bl-help-pipemenu" />-->
+        <menu id="help" label="Help" execute="bl-help-pipemenu" />
         <separator/>
         <item label="Lock Screen">
             <action name="Execute">

@@ -71,7 +71,7 @@ xset b off &
 
 ## bl-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
-#(sleep 10; bl-welcome --firstrun) &
+(sleep 10; bl-welcome --firstrun) &
 
 ## bl-fortune - have the system come up with a little adage
 #(sleep 120; bl-fortune) &
