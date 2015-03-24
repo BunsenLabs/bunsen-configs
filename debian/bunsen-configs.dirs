@@ -3,6 +3,7 @@ etc/skel/.icons
 etc/skel/.themes 
 etc/skel/bin 
 etc/skel/images 
+etc/skel/images/wallpapers 
 etc/skel/tmp
 etc/skel/.config/bunsen
 etc/skel/.config/geany/colorschemes
