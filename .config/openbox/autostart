@@ -35,7 +35,7 @@ bl-compositor --start &
 (sleep 2; tint2) &
 
 ## Volume control for systray
-(sleep 2; volumeicon) &
+(sleep 2; volti) &
 
 ## Volume keys daemon
 xfce4-volumed &

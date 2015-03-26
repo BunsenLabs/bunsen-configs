@@ -264,6 +264,7 @@
                         </command>
                     </action>
                 </item>
+<!--
                 <item label="Restart Conky">
                     <action name="Execute">
                         <command>
@@ -271,6 +272,7 @@
                         </command>
                     </action>
                 </item>
+-->
                 <separator label="Help?"/>
                 <item label="man page">
                     <action name="Execute">
@@ -373,6 +375,7 @@
                     <action name="Restart"/>
                 </item>
             </menu>
+<!--
             <menu id="terminatorconfig" label="Terminator">
                 <item label="Edit config file">
                     <action name="Execute">
@@ -390,6 +393,7 @@
                     </action>
                 </item>
             </menu>
+-->
             <menu id="tint2config" label="tint2">
                 <item label="Edit config file">
                     <action name="Execute">
@@ -401,7 +405,7 @@
                 <item label="Restart tint2">
                     <action name="Execute">
                         <command>
-                            tint2restart
+                            bl-tint2restart
                         </command>
                     </action>
                 </item>
@@ -500,7 +504,7 @@
             <item label="User Login Settings">
                 <action name="Execute">
                     <command>
-                        gksudo slimconf
+                        gksudo geany /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
                     </command>
                 </action>
             </item>
