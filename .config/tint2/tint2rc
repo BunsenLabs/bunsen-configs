@@ -119,7 +119,7 @@ launcher_background_id = 0
 launcher_icon_size = 24
 # Specify icon theme names with launcher_icon_theme.
 # if you have an XSETTINGS manager running (like xfsettingsd), tint2 will follow your current theme.
-launcher_icon_theme = gnome-colors-statler
+launcher_icon_theme = Faenza-Dark-Bunsen
 
 # Each launcher_item_app must be a full path to a .desktop file
 # this will have to be made:
