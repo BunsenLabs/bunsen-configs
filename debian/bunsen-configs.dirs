@@ -2,9 +2,13 @@ etc/skel/.fonts
 etc/skel/.icons 
 etc/skel/.themes 
 etc/skel/bin 
-etc/skel/images 
-etc/skel/images/wallpapers 
 etc/skel/tmp
+etc/skel/Pictures/wallpapers
+etc/skel/Downloads
+etc/skel/Documents
+etc/skel/Music
+etc/skel/Videos
+etc/skel/Public
 etc/skel/.config/bunsen
 etc/skel/.config/geany/colorschemes
 etc/skel/.config/geany/plugins
