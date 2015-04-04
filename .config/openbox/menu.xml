@@ -223,13 +223,6 @@
                     </command>
                 </action>
             </item>
-            <item label="AbiWord Word Processor">
-                <action name="Execute">
-                    <command>
-                        abiword
-                    </command>
-                </action>
-            </item>
             <item label="Gnumeric Spreadsheet">
                 <action name="Execute">
                     <command>
