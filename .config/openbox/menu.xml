@@ -99,8 +99,9 @@
                 </action>
             </item>
         </menu>
+        <menu execute="bl-graphics-pipemenu" id="bl-graphics-pipemenu" label="Graphics"/>
+<!--
         <menu id="graphics" label="Graphics">
-            <menu execute="bl-graphics-pipemenu" id="bl-graphics-pipemenu" label="Graphics"/>
             <item label="GIMP">
                 <action name="Execute">
                     <command>
@@ -154,6 +155,7 @@
                 </item>
             </menu>
         </menu>
+-->
         <menu id="multimedia" label="Multimedia">
             <item label="VLC Media Player">
                 <action name="Execute">
@@ -252,7 +254,7 @@
         </menu>
         <separator/>
         <menu execute="bl-places-pipemenu" id="pipe-placesmenu" label="Places"/>
-        <menu execute="bl-recent-files-pipemenu" id="pipe-recentfilesmenu" label="Recent Files"/>
+        <menu execute="bl-recent-files-pipemenu -rl15" id="pipe-recentfilesmenu" label="Recent Files"/>
         <separator/>
         <menu id="settings" label="Settings">
             <menu execute="bl-compositor" id="CompositingPipeMenu" label="Compositor"/>
