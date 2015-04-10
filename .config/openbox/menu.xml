@@ -370,25 +370,6 @@
                     <action name="Restart"/>
                 </item>
             </menu>
-<!--
-            <menu id="terminatorconfig" label="Terminator">
-                <item label="Edit config file">
-                    <action name="Execute">
-                        <command>
-                            geany ~/.config/terminator/config
-                        </command>
-                    </action>
-                </item>
-                <separator label="Help?"/>
-                <item label="man page">
-                    <action name="Execute">
-                        <command>
-                            terminator --command=&quot;man terminator_config&quot;
-                        </command>
-                    </action>
-                </item>
-            </menu>
--->
             <menu id="tint2config" label="tint2">
                 <item label="Edit config file">
                     <action name="Execute">
