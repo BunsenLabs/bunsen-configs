@@ -100,85 +100,7 @@
             </item>
         </menu>
         <menu execute="bl-graphics-pipemenu" id="bl-graphics-pipemenu" label="Graphics"/>
-<!--
-        <menu id="graphics" label="Graphics">
-            <item label="GIMP">
-                <action name="Execute">
-                    <command>
-                        gimp
-                    </command>
-                </action>
-            </item>
-            <item label="Viewnior Image Viewer">
-                <action name="Execute">
-                    <command>
-                        viewnior
-                    </command>
-                </action>
-            </item>
-            <menu id="graphicsScreenshots" label="Take Screenshot">
-                <item label="Screenshooter">
-                    <action name="Execute">
-                        <command>
-                            xfce4-screenshooter
-                        </command>
-                    </action>
-                </item>
-                <separator label="scrot"/>
-                <item label="Now">
-                    <action name="Execute">
-                        <command>
-                            scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
-                        </command>
-                    </action>
-                </item>
-                <item label="In 5 Seconds...">
-                    <action name="Execute">
-                        <command>
-                            scrot -d 5 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
-                        </command>
-                    </action>
-                </item>
-                <item label="In 10 Seconds...">
-                    <action name="Execute">
-                        <command>
-                            scrot -d 10 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
-                        </command>
-                    </action>
-                </item>
-                <item label="Selected Area... (click &amp; drag mouse)">
-                    <action name="Execute">
-                        <command>
-                            scrot -s '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
-                        </command>
-                    </action>
-                </item>
-            </menu>
-        </menu>
--->
-        <menu id="multimedia" label="Multimedia">
-            <item label="VLC Media Player">
-                <action name="Execute">
-                    <command>
-                        vlc
-                    </command>
-                </action>
-            </item>
-            <item label="Volume Control">
-                <action name="Execute">
-                    <command>
-                        pavucontrol
-                    </command>
-                </action>
-            </item>
-            <item label="Xfburn">
-                <action name="Execute">
-                    <command>
-                        xfburn
-                    </command>
-                </action>
-            </item>
-        </menu>
+        <menu execute="bl-multimedia-pipemenu" id="bl-multimedia-pipemenu" label="Multimedia"/>
         <menu id="network" label="Network">
             <menu execute="bl-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
             <item label="gFTP Client">
@@ -456,7 +378,7 @@
             <item label="Choose Wallpaper">
                 <action name="Execute">
                     <command>
-                        nitrogen ~/images/wallpapers/
+                        nitrogen ~/Pictures/wallpapers/
                     </command>
                 </action>
             </item>
