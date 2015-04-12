@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Exec=/usr/bin/x-terminal-emulator
+Exec=x-terminal-emulator
 Icon=utilities-terminal
 StartupNotify=false
 Terminal=false
