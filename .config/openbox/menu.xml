@@ -409,6 +409,13 @@
         </menu>
         <menu id="help" label="Help" execute="bl-help-pipemenu" />
         <separator/>
+        <item label="HowTo edit menu">
+            <action name="Execute">
+                <command>zenity --text-info --title="How to Edit the Menu" --filename="/usr/lib/bunsen/bunsen-docs/helpfile-menu.txt" --width=900 --height=700</execute>
+            </command>
+        </item>
+        <menu execute="/usr/bin/bl-kb-pipemenu" id="keybinds" label="Display keybinds"/>
+        <separator/>
         <item label="Lock Screen">
             <action name="Execute">
                 <command>
