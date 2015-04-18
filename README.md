@@ -17,10 +17,7 @@ with content.
 Bugs
 ----
 
-For any bug or request [fill an issue][bug] on [GitHub][ghp].
-
-  [bug]: https://github.com/BunsenLabs/configs/issues
-  [ghp]: https://github.com/BunsenLabs/configs 
+For any bug or request [fill an issue](https://github.com/BunsenLabs/configs/issues) on [GitHub](https://github.com/BunsenLabs/configs).
 
 This repository is also being discussed here:
   http://crunchbang.org/forums/viewtopic.php?id=39135
