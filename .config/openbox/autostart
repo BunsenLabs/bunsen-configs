@@ -33,6 +33,8 @@ nitrogen --restore &
 bl-compositor --start &
 
 (sleep 2; tint2) &
+## To start a saved tint2 session,  comment out the line above, and uncomment:
+#(sleep 2s && bl-tint2-session --autostart) &
 
 ## Volume control for systray
 (sleep 2; volti) &
@@ -78,3 +80,5 @@ xset b off &
 
 ## Run the conky
 conky -q &
+## To start a saved Conky session, comment out the line above, and uncomment:
+#(sleep 2s && bl-conky-session --autostart) &
