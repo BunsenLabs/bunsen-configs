@@ -225,39 +225,7 @@
                 </item>
             </menu>
             <menu execute="bl-compositor" id="CompositingPipeMenu" label="Compositor"/>
-            <menu id="conkyconfig" label="Conky">
-                <item label="Edit .conkyrc">
-                    <action name="Execute">
-                        <command>
-                            geany ~/.conkyrc
-                        </command>
-                    </action>
-                </item>
-<!--
-                <item label="Restart Conky">
-                    <action name="Execute">
-                        <command>
-                            conkywonky
-                        </command>
-                    </action>
-                </item>
--->
-                <separator label="Help?"/>
-                <item label="man page">
-                    <action name="Execute">
-                        <command>
-                            x-terminal-emulator -e man conky
-                        </command>
-                    </action>
-                </item>
-                <item label="Wiki Page">
-                    <action name="Execute">
-                        <command>
-                            x-www-browser http://crunchbanglinux.org/wiki/conky
-                        </command>
-                    </action>
-                </item>
-            </menu>
+            <menu execute="bl-conky-pipemenu" id="pipe-conkymenu" label="Conky"/>
             <menu id="dmenuconfig" label="dmenu">
                 <item label="Edit start-up script">
                     <action name="Execute">
@@ -292,37 +260,7 @@
                     </action>
                 </item>
             </menu>
-            <menu id="tint2config" label="tint2">
-                <item label="Edit config file">
-                    <action name="Execute">
-                        <command>
-                            geany ~/.config/tint2/tint2rc
-                        </command>
-                    </action>
-                </item>
-                <item label="Restart tint2">
-                    <action name="Execute">
-                        <command>
-                            bl-tint2restart
-                        </command>
-                    </action>
-                </item>
-                <separator label="Help?"/>
-                <item label="man page">
-                    <action name="Execute">
-                        <command>
-                            x-terminal-emulator -e man tint2
-                        </command>
-                    </action>
-                </item>
-                <item label="Online Help">
-                    <action name="Execute">
-                        <command>
-                            x-www-browser http://code.google.com/p/tint2/wiki/Welcome
-                        </command>
-                    </action>
-                </item>
-            </menu>
+            <menu execute="bl-tint2-pipemenu" id="pipe-tint2menu" label="Tint2"/>
             <menu id="DisplaySettings" label="Display Settings">
                 <item label="ARandR Screen Layout Editor">
                     <action name="Execute">
