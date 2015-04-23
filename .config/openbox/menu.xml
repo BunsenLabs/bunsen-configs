@@ -176,21 +176,21 @@
                 <item label="Edit menu.xml">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/openbox/menu.xml
+                            bl-text-editor ~/.config/openbox/menu.xml
                         </command>
                     </action>
                 </item>
                 <item label="Edit rc.xml">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/openbox/rc.xml
+                            bl-text-editor ~/.config/openbox/rc.xml
                         </command>
                     </action>
                 </item>
                 <item label="Edit autostart">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/openbox/autostart
+                            bl-text-editor ~/.config/openbox/autostart
                         </command>
                     </action>
                 </item>
@@ -230,7 +230,7 @@
                 <item label="Edit start-up script">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/dmenu/dmenu-bind.sh
+                            bl-text-editor ~/.config/dmenu/dmenu-bind.sh
                         </command>
                     </action>
                 </item>
@@ -247,7 +247,7 @@
                 <item label="Edit config file">
                     <action name="Execute">
                         <command>
-                            geany ~/.gmrunrc
+                            bl-text-editor ~/.gmrunrc
                         </command>
                     </action>
                 </item>
@@ -333,7 +333,7 @@
             <item label="User Login Settings">
                 <action name="Execute">
                     <command>
-                        gksudo geany /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
+                        gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
                     </command>
                 </action>
             </item>
