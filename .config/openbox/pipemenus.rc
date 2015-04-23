@@ -1,0 +1,16 @@
+# pipemenu.rc holds the applications which appear in the Openbox pipemenus
+#
+# Edit the arrays to add or remove package names, making sure there are spaces
+# between each entry.
+
+# Multimedia pipemenu (bl-multimedia-pipemenu)
+MM_APPS=( 'vlc' 'mpv' 'audacious' 'smplayer' )
+MM_EDITORS=('mhwaveedit' 'audacity' 'openshot')
+MM_UTILS=('xfburn' 'gtk-recordmydesktop' 'volti' )
+
+# Graphics pipemenu (bl-graphics-pipemenu)
+GRAPHICS_APPS=( 'mirage' 'gimp' 'blender' 'inkscape' 'mandelbulber' 'viewnior' )
+GRAPHICS_SCROTS=('xfce4-screenshooter' 'scrot' )
+
+# Browsers pipemenu (bl-x-www-browser-pipemenu)
+BROWSERS=('chromium' 'iceweasel' 'google-chrome-stable' 'opera' )
