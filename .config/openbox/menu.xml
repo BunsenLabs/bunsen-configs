@@ -31,21 +31,21 @@
         <item label="File Manager">
             <action name="Execute">
                 <command>
-                    thunar
+                    bl-file-manager
                 </command>
             </action>
         </item>
         <item label="Text Editor">
             <action name="Execute">
                 <command>
-                    geany
+                    bl-text-editor
                 </command>
             </action>
         </item>
         <item label="Media Player">
             <action name="Execute">
                 <command>
-                    vlc
+                    bl-media-player
                 </command>
             </action>
         </item>
@@ -74,7 +74,7 @@
             </item>
             <item label="Task Manager (htop)">
                 <action name="Execute">
-                    <command>x-terminal-emulator -e htop</command>
+                    <command>x-terminal-emulator -T htop</command>
                 </action>
             </item>
             <item label="Terminal">
@@ -238,7 +238,7 @@
                 <item label="man page">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -e man dmenu
+                            x-terminal-emulator -T man dmenu
                         </command>
                     </action>
                 </item>
@@ -255,7 +255,7 @@
                 <item label="man page">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -e man gmrun
+                            x-terminal-emulator -T man gmrun
                         </command>
                     </action>
                 </item>
@@ -273,7 +273,7 @@
                 <item label="man xrandr">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -e man xrandr
+                            x-terminal-emulator -T man xrandr
                         </command>
                     </action>
                 </item>
