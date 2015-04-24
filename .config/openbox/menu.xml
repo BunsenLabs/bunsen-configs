@@ -31,21 +31,21 @@
         <item label="File Manager">
             <action name="Execute">
                 <command>
-                    thunar
+                    bl-file-manager
                 </command>
             </action>
         </item>
         <item label="Text Editor">
             <action name="Execute">
                 <command>
-                    geany
+                    bl-text-editor
                 </command>
             </action>
         </item>
         <item label="Media Player">
             <action name="Execute">
                 <command>
-                    vlc
+                    bl-media-player
                 </command>
             </action>
         </item>
@@ -74,7 +74,7 @@
             </item>
             <item label="Task Manager (htop)">
                 <action name="Execute">
-                    <command>x-terminal-emulator -e htop</command>
+                    <command>x-terminal-emulator -T htop</command>
                 </action>
             </item>
             <item label="Terminal">
@@ -176,21 +176,21 @@
                 <item label="Edit menu.xml">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/openbox/menu.xml
+                            bl-text-editor ~/.config/openbox/menu.xml
                         </command>
                     </action>
                 </item>
                 <item label="Edit rc.xml">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/openbox/rc.xml
+                            bl-text-editor ~/.config/openbox/rc.xml
                         </command>
                     </action>
                 </item>
                 <item label="Edit autostart">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/openbox/autostart
+                            bl-text-editor ~/.config/openbox/autostart
                         </command>
                     </action>
                 </item>
@@ -230,7 +230,7 @@
                 <item label="Edit start-up script">
                     <action name="Execute">
                         <command>
-                            geany ~/.config/dmenu/dmenu-bind.sh
+                            bl-text-editor ~/.config/dmenu/dmenu-bind.sh
                         </command>
                     </action>
                 </item>
@@ -238,7 +238,7 @@
                 <item label="man page">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -e man dmenu
+                            x-terminal-emulator -T man dmenu
                         </command>
                     </action>
                 </item>
@@ -247,7 +247,7 @@
                 <item label="Edit config file">
                     <action name="Execute">
                         <command>
-                            geany ~/.gmrunrc
+                            bl-text-editor ~/.gmrunrc
                         </command>
                     </action>
                 </item>
@@ -255,7 +255,7 @@
                 <item label="man page">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -e man gmrun
+                            x-terminal-emulator -T man gmrun
                         </command>
                     </action>
                 </item>
@@ -273,7 +273,7 @@
                 <item label="man xrandr">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -e man xrandr
+                            x-terminal-emulator -T man xrandr
                         </command>
                     </action>
                 </item>
@@ -333,7 +333,7 @@
             <item label="User Login Settings">
                 <action name="Execute">
                     <command>
-                        gksudo geany /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
+                        gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
                     </command>
                 </action>
             </item>
