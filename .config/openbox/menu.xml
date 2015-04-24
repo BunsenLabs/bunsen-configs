@@ -357,7 +357,7 @@
             <execute>zenity --text-info --title=&quot;How to Edit the Menu&quot; --filename=&quot;/usr/share/bunsen/bunsen-docs/helpfile-menu.txt&quot; --width=900 --height=700</execute>
         </action>
         </item>
-        <menu execute="/usr/bin/bl-kb-pipemenu" id="keybinds" label="Display keybinds"/>
+        <menu execute="bl-kb-pipemenu" id="keybinds" label="Display keybinds"/>
         <separator/>
         <item label="Lock Screen">
             <action name="Execute">
