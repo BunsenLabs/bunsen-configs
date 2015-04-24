@@ -390,7 +390,7 @@
           <enabled>false</enabled>
           <name>htop</name>
         </startupnotify>
-        <command>x-terminal-emulator -T 'htop Task Manager' -e htop</command>
+        <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
       </action>
     </keybind>
     <keybind key="W-v">
