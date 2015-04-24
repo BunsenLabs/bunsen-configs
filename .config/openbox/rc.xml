@@ -255,7 +255,7 @@
     </keybind>
     <keybind key="A-Print">
       <action name="Execute">
-        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/ &amp; bl-image-viewer ~/Pictures/$f'</command>
+        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl-image-viewer ~/Pictures/screenshots/$f'</command>
       </action>
     </keybind>
 
@@ -324,7 +324,7 @@
     <keybind key="A-F3">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>dmenu-bind</name>
         </startupnotify>
         <command>~/.config/dmenu/dmenu-bind.sh</command>
@@ -333,7 +333,7 @@
     <keybind key="W-f">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>File Manager</name>
         </startupnotify>
         <command>bl-file-manager</command>
@@ -351,7 +351,7 @@
     <keybind key="W-w">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>Web Browser</name>
         </startupnotify>
         <command>x-www-browser</command>
@@ -369,7 +369,7 @@
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>Editor</name>
         </startupnotify>
         <command>bl-text-editor</command>
@@ -378,7 +378,7 @@
     <keybind key="W-m">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>Mediaplayer</name>
         </startupnotify>
         <command>bl-media-player</command>
@@ -387,10 +387,10 @@
     <keybind key="W-h">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>htop</name>
         </startupnotify>
-        <command>x-terminal-emulator -T htop</command>
+        <command>x-terminal-emulator -T 'htop Task Manager' -e htop</command>
       </action>
     </keybind>
     <keybind key="W-v">
