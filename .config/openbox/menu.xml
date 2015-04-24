@@ -74,7 +74,7 @@
             </item>
             <item label="Task Manager (htop)">
                 <action name="Execute">
-                    <command>x-terminal-emulator -T htop</command>
+                    <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
                 </action>
             </item>
             <item label="Terminal">
@@ -238,7 +238,7 @@
                 <item label="man page">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -T man dmenu
+                            x-terminal-emulator -T 'man dmenu' -e man dmenu
                         </command>
                     </action>
                 </item>
@@ -255,7 +255,7 @@
                 <item label="man page">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -T man gmrun
+                            x-terminal-emulator -T 'man gmrun' -e man gmrun
                         </command>
                     </action>
                 </item>
@@ -273,7 +273,7 @@
                 <item label="man xrandr">
                     <action name="Execute">
                         <command>
-                            x-terminal-emulator -T man xrandr
+                            x-terminal-emulator -T 'man xrandr' -e man xrandr
                         </command>
                     </action>
                 </item>
@@ -333,7 +333,12 @@
             <item label="User Login Settings">
                 <action name="Execute">
                     <command>
-                        gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
+                        gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf
+                    </command>
+                </action>
+                <action name="Execute">
+                    <command>
+                        gksudo bl-text-editor /etc/lightdm/lightdm.conf
                     </command>
                 </action>
             </item>
