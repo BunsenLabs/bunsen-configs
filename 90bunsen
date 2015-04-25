@@ -1,0 +1,2 @@
+APT::Install-Recommends "true";
+DPkg::Post-Invoke { "[ -x /usr/bin/bl-alternatives ] && /usr/bin/bl-alternatives updates"; } ;

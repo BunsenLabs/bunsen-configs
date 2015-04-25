@@ -5,7 +5,7 @@
 # http://code.google.com/p/tint2/wiki/Welcome
 #
 # For more config file examples, see:
-# http://crunchbanglinux.org/forums/topic/3232/my-tint2-config/
+# http://bunsenlabs.org/topic/3232/my-tint2-config/
 
 # Background definitions
 # ID 1
@@ -59,7 +59,7 @@ border_color = #888888 20
 # Panel
 panel_monitor = all
 panel_position = top center horizontal
-panel_items = TSC
+panel_items = LTSC
 panel_size = 100% 30
 panel_margin = 0 -1
 panel_padding = 0 0
@@ -80,7 +80,7 @@ taskbar_mode = multi_desktop
 taskbar_padding = 6 0 6
 taskbar_background_id = 5
 taskbar_active_background_id = 6
-taskbar_name = 1
+taskbar_name = 0
 taskbar_name_background_id = 0
 taskbar_name_active_background_id = 0
 taskbar_name_font = Liberation Sans 9
@@ -123,11 +123,10 @@ launcher_icon_theme = Faenza-Dark-Bunsen
 
 # Each launcher_item_app must be a full path to a .desktop file
 # this will have to be made:
-launcher_item_app = /usr/share/applications/x-terminal-emulator.desktop
-
-launcher_item_app = /usr/share/applications/xfce4-file-manager.desktop
-launcher_item_app = /usr/share/applications/gedit.desktop
-launcher_item_app = /usr/share/applications/iceweasel.desktop
+launcher_item_app = /usr/share/applications/bl-terminal-emulator.desktop
+launcher_item_app = /usr/share/applications/bl-file-manager.desktop
+launcher_item_app = /usr/share/applications/bl-text-editor.desktop
+launcher_item_app = /usr/share/applications/bl-www-browser.desktop
 
 # System Tray
 systray = 1

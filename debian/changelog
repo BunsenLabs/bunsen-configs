@@ -1,3 +1,9 @@
+bunsen-configs (0.2-1) unstable; urgency=low
+
+  * Enable BunsenLabs alternatives and add .desktop files.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 25 Apr 2015 15:24:38 +0900
+
 bunsen-configs (0.1-9) unstable; urgency=low
 
   * Openbox: enable bl-welcome in autostart, and three pipemenus in menu.xml.

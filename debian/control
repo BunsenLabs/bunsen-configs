@@ -11,6 +11,7 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
+Recommends: bunsen-utilities
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Description: config files for BunsenLabs Linux
