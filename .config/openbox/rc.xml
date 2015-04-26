@@ -920,15 +920,7 @@
 
   # end of the example
 -->
-    <application name="gmessage">
-      <decor>no</decor>
-      <shade>no</shade>
-      <skip_pager>yes</skip_pager>
-      <skip_taskbar>yes</skip_taskbar>
-      <fullscreen>no</fullscreen>
-      <maximized>no</maximized>
-    </application>
-
+<!--
     <application class="Gimp" name="gimp" role="gimp-toolbox" type="utility">
       <maximized>vertical</maximized>
     </application>
@@ -954,6 +946,6 @@
         <y>center</y>
       </position>
     </application>
-
+-->
   </applications>
 </openbox_config>
