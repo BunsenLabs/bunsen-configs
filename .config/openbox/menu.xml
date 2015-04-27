@@ -333,12 +333,7 @@
             <item label="User Login Settings">
                 <action name="Execute">
                     <command>
-                        gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf
-                    </command>
-                </action>
-                <action name="Execute">
-                    <command>
-                        gksudo bl-text-editor /etc/lightdm/lightdm.conf
+                        gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
                     </command>
                 </action>
             </item>

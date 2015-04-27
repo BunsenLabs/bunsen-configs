@@ -123,10 +123,10 @@ launcher_icon_theme = Faenza-Dark-Bunsen
 
 # Each launcher_item_app must be a full path to a .desktop file
 # this will have to be made:
-launcher_item_app = /usr/share/applications/bl-terminal-emulator.desktop
+launcher_item_app = /usr/share/applications/bl-www-browser.desktop
 launcher_item_app = /usr/share/applications/bl-file-manager.desktop
 launcher_item_app = /usr/share/applications/bl-text-editor.desktop
-launcher_item_app = /usr/share/applications/bl-www-browser.desktop
+launcher_item_app = /usr/share/applications/bl-terminal-emulator.desktop
 
 # System Tray
 systray = 1
