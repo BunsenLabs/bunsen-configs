@@ -202,13 +202,6 @@
                         </command>
                     </action>
                 </item>
-                <item label="GUI Applications Settings Editor">
-                    <action name="Execute">
-                        <command>
-                            obapps
-                        </command>
-                    </action>
-                </item>
                 <item label="GUI Config Tool">
                     <action name="Execute">
                         <command>
