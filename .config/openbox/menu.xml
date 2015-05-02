@@ -65,36 +65,15 @@
                     </command>
                 </action>
             </item>
-            <item label="Geany Text Editor">
-                <action name="Execute">
-                    <command>
-                        geany
-                    </command>
-                </action>
-            </item>
             <item label="Task Manager (htop)">
                 <action name="Execute">
                     <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
                 </action>
             </item>
-            <item label="Terminal">
+            <item label="File Manager as root">
                 <action name="Execute">
                     <command>
-                        x-terminal-emulator
-                    </command>
-                </action>
-            </item>
-            <item label="Thunar File Manager">
-                <action name="Execute">
-                    <command>
-                        thunar
-                    </command>
-                </action>
-            </item>
-            <item label="Thunar File Manager (root)">
-                <action name="Execute">
-                    <command>
-                        gksudo thunar
+                        gksudo bl-file-manager
                     </command>
                 </action>
             </item>
@@ -117,10 +96,10 @@
                     </command>
                 </action>
             </item>
-            <item label="XChat IRC Client">
+            <item label="HexChat IRC Client">
                 <action name="Execute">
                     <command>
-                        xchat
+                        hexchat
                     </command>
                 </action>
             </item>
@@ -202,17 +181,17 @@
                         </command>
                     </action>
                 </item>
-                <item label="GUI Applications Settings Editor">
-                    <action name="Execute">
-                        <command>
-                            obapps
-                        </command>
-                    </action>
-                </item>
                 <item label="GUI Config Tool">
                     <action name="Execute">
                         <command>
                             obconf
+                        </command>
+                    </action>
+                </item>
+                <item label="GUI Applications Settings Editor">
+                    <action name="Execute">
+                        <command>
+                            obapps
                         </command>
                     </action>
                 </item>
@@ -340,7 +319,7 @@
             <item label="Edit Default Applications">
                 <action name="Execute">
                     <command>
-                        gksu galternatives
+                        gksudo galternatives
                     </command>
                 </action>
             </item>
