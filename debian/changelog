@@ -1,3 +1,9 @@
+bunsen-configs (0.2-3) unstable; urgency=low
+
+  * Add lightdm config files.
+
+ -- John Crawley <john@rafflesnagoya.com>  Thu, 07 May 2015 16:47:32 +0900
+
 bunsen-configs (0.2-2) unstable; urgency=low
 
   * Change path to default wallpaper for Nitrogen.
