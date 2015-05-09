@@ -20,3 +20,4 @@ bl-media-player.desktop usr/share/applications
 90bunsen etc/apt/apt.conf.d
 lightdm.conf.bunsen etc/lightdm
 lightdm-gtk-greeter.conf.bunsen etc/lightdm
+bl-user-setup usr/lib/bunsen/bunsen-configs

@@ -1,3 +1,9 @@
+bunsen-configs (0.3-1) unstable; urgency=low
+
+  * Move bl-user-setup here from bunsen-utilities.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 09 May 2015 18:28:15 +0900
+
 bunsen-configs (0.2-3) unstable; urgency=low
 
   * Add lightdm config files.
