@@ -1,3 +1,9 @@
+bunsen-configs (0.3-2) unstable; urgency=low
+
+  * Change login background.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sun, 10 May 2015 14:21:38 +0900
+
 bunsen-configs (0.3-1) unstable; urgency=low
 
   * Move bl-user-setup here from bunsen-utilities.
