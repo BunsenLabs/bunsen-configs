@@ -1,3 +1,9 @@
+bunsen-configs (0.3-3) unstable; urgency=low
+
+  * Set theme to Bunsen.
+
+ -- John Crawley <john@rafflesnagoya.com>  Mon, 11 May 2015 14:23:13 +0900
+
 bunsen-configs (0.3-2) unstable; urgency=low
 
   * Change login background.
