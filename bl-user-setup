@@ -1,0 +1,26 @@
+#!/bin/bash
+# BunsenLabs User Set-up
+
+# USER="$1" USER is exported by lightdm
+
+[ -f "/home/$USER/.config/bunsen/bl-setup" ] && exit 0
+
+cd /etc/skel
+tar cpzf skel.tar.gz .
+mv skel.tar.gz /home/$USER/skel.tar.gz
+cd /home/$USER
+tar --suffix="~$( date +%FT%T )~" -xpsf skel.tar.gz
+rm skel.tar.gz
+
+[ -f "/home/$USER/.gtk-bookmarks" ] && {
+#    rpl -q 'REPLACEME' $USER /home/$USER/.gtk-bookmarks > /dev/null 2>&1
+    sed --in-place="~$( date +%FT%T )~" "s/REPLACEME/$USER/g" "/home/$USER/.gtk-bookmarks"
+}
+
+ln -s /usr/share/backgrounds "/home/$USER/Pictures/wallpapers/shared"
+
+mkdir -p "/home/$USER/.config/bunsen" # this should already exist
+touch "/home/$USER/.config/bunsen/bl-setup"
+chown -R "$USER":"$USER" "/home/$USER"
+
+exit

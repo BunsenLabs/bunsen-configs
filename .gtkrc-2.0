@@ -1,7 +1,7 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-gtk-theme-name="Bunsen1"
+gtk-theme-name="Bunsen"
 gtk-icon-theme-name="Faenza-Dark-Bunsen"
 gtk-font-name="Liberation Sans 10"
 gtk-cursor-theme-name="DMZ-White"

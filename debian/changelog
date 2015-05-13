@@ -1,3 +1,33 @@
+bunsen-configs (0.3-3) unstable; urgency=low
+
+  * Set theme to Bunsen.
+
+ -- John Crawley <john@rafflesnagoya.com>  Mon, 11 May 2015 14:23:13 +0900
+
+bunsen-configs (0.3-2) unstable; urgency=low
+
+  * Change login background.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sun, 10 May 2015 14:21:38 +0900
+
+bunsen-configs (0.3-1) unstable; urgency=low
+
+  * Move bl-user-setup here from bunsen-utilities.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 09 May 2015 18:28:15 +0900
+
+bunsen-configs (0.2-3) unstable; urgency=low
+
+  * Add lightdm config files.
+
+ -- John Crawley <john@rafflesnagoya.com>  Thu, 07 May 2015 16:47:32 +0900
+
+bunsen-configs (0.2-2) unstable; urgency=low
+
+  * Change path to default wallpaper for Nitrogen.
+
+ -- John Crawley <john@rafflesnagoya.com>  Thu, 07 May 2015 14:44:01 +0900
+
 bunsen-configs (0.2-1) unstable; urgency=low
 
   * Enable BunsenLabs alternatives and add .desktop files.
