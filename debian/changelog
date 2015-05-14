@@ -1,3 +1,9 @@
+bunsen-configs (0.3-4) unstable; urgency=low
+
+  * Fix Conky shadow bug in ~/.config/compton.conf.
+
+ -- John Crawley <john@rafflesnagoya.com>  Thu, 14 May 2015 15:29:25 +0900
+
 bunsen-configs (0.3-3) unstable; urgency=low
 
   * Set theme to Bunsen.
