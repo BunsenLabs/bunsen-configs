@@ -21,3 +21,4 @@ bl-media-player.desktop usr/share/applications
 lightdm.conf.bunsen etc/lightdm
 lightdm-gtk-greeter.conf.bunsen etc/lightdm
 bl-user-setup usr/lib/bunsen/bunsen-configs
+bl-alternatives usr/bin

@@ -1,0 +1,134 @@
+#!/bin/sh
+#  bl-alternatives
+
+usage()
+{
+    cat <<EOF
+Usage: $EXECNAME <action>
+  Perform the given action to manage BunsenLabs alternatives.  Superuser
+  permission required to make changes.
+Action:
+  help      show help (also --help)
+  install   install BunsenLabs alternatives with default packages
+  list      list all assigned BunsenLabs alternatives
+  remove    remove all assigned BunsenLabs alternatives
+  update    update BunsenLabs alternatives with typical installed packages
+EOF
+}
+
+BLFILEMANAGER=bl-file-manager
+BLIMAGEVIEWER=bl-image-viewer
+BLMEDIAPLAYER=bl-media-player
+BLTEXTEDITOR=bl-text-editor
+BLALTS="$BLFILEMANAGER $BLIMAGEVIEWER $BLMEDIAPLAYER $BLTEXTEDITOR"
+
+OTHERFM="pcmanfm spacefm"
+OTHERIV="eog eom viewnior"
+OTHERMP="banshee dragonplayer gnome-mplayer kaffeine mplayer2 mpv parole \
+    smplayer totem"
+OTHERTE="emacs gedit jedit kate leafpad mousepad scite"
+# Note gvim handled special (wrapper and man page names differ)
+
+BLPRIO=40
+STDPRIO=30
+
+MAN1=/usr/share/man/man1
+
+bunsen_alt()
+#  Set bunsen alternatives
+{
+    update_alt /usr/bin/thunar $MAN1/thunar.1.gz $BLFILEMANAGER $BLPRIO
+    update_alt /usr/bin/mirage $MAN1/mirage.1.gz $BLIMAGEVIEWER $BLPRIO
+    update_alt /usr/bin/vlc $MAN1/vlc.1.gz $BLMEDIAPLAYER $BLPRIO
+    update_alt /usr/bin/geany $MAN1/geany.1.gz $BLTEXTEDITOR $BLPRIO
+}
+
+update_alt()
+#  Install given binary (and optional man page) as alternative when present,
+#  or remove given binary when package missing (or not executable).
+{
+    local BINPATH=$1
+    local MANPATH=$2            # optional, may be empty ""
+    local ALTNAME=$3
+    local PRIO=$4
+
+    if [ ! -x "$BINPATH" ] ; then
+        update-alternatives --remove $ALTNAME $BINPATH 2>/dev/null
+    else
+        update-alternatives --list $ALTNAME 2>/dev/null | \
+        grep -q $BINPATH && return 0
+        local ALTPATH=/usr/bin/$ALTNAME
+    if [ "$MANPATH" ] ; then
+        [ ! -f "$MANPATH" ] && \
+            echo "Bad man path ($MANPATH)" >&2 && return 1
+        local ALTMANPATH=/usr/share/man/man1/$ALTNAME.1.gz
+        update-alternatives --quiet --install $ALTPATH $ALTNAME $BINPATH \
+            $PRIO --slave $ALTMANPATH ${ALTMANPATH##*/} $MANPATH
+    else
+        update-alternatives --quiet --install $ALTPATH $ALTNAME $BINPATH \
+            $PRIO
+    fi
+    fi
+}
+
+
+EXECNAME=${0##*/}
+ACTION=$1
+
+case $ACTION in
+install)
+    [ `id -u` != 0 ] && echo "Must be superuser" >&2 && exit 0
+    bunsen_alt
+    for ALT in $BLALTS ; do
+    update-alternatives --auto $ALT
+    done
+    ;;
+list)
+    for ALT in $BLALTS ; do
+        LINK=`readlink /etc/alternatives/$ALT`
+    if [ "$LINK" ] ; then
+        printf "%-22.22s uses %s\n" $ALT $LINK
+        update-alternatives --list $ALT | xargs printf "    %s\n"
+    else
+        printf "%-22.22s unused\n" $ALT
+    fi
+    done
+    ;;
+remove)
+    [ `id -u` != 0 ] && echo "Must be superuser" >&2 && exit 0
+    for ALT in $BLALTS ; do
+        update-alternatives --remove-all $ALT
+    done
+    ;;
+update)
+    [ `id -u` != 0 ] && echo "Must be superuser" >&2 && exit 0
+    bunsen_alt
+    for BLPROG in $OTHERFM ; do
+    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLFILEMANAGER $STDPRIO
+    done
+    for BLPROG in $OTHERIV ; do
+    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLIMAGEVIEWER $STDPRIO
+    done
+    for BLPROG in $OTHERMP ; do
+    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLMEDIAPLAYER $STDPRIO
+    done
+    # gvim: wrapper doesn't match man page name
+    if type gvim >/dev/null 2>&1;then
+        chmod -f +x /usr/bin/bl-gvim
+    else
+        chmod -f -x /usr/bin/bl-gvim
+    fi
+    update_alt /usr/bin/bl-gvim $MAN1/gvim.1.gz $BLTEXTEDITOR $STDPRIO
+    for BLPROG in $OTHERTE ; do
+    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLTEXTEDITOR $STDPRIO
+    done
+    ;;
+""|*help|-h)
+    usage
+    ;;
+*)
+    echo "Unknown action ($ACTION)" >&2
+    ;;
+esac
+
+exit 0

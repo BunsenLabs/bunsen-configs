@@ -1,3 +1,9 @@
+bunsen-configs (0.3-5) unstable; urgency=low
+
+  * Add bl-alternatives, formerly in bunsen-utilities.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sun, 17 May 2015 22:43:00 +0900
+
 bunsen-configs (0.3-4) unstable; urgency=low
 
   * Fix Conky shadow bug in ~/.config/compton.conf.
