@@ -1,3 +1,9 @@
+bunsen-configs (0.3-6) unstable; urgency=low
+
+  * Add bl-gvim, formerly in bunsen-utilities.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sun, 17 May 2015 22:54:22 +0900
+
 bunsen-configs (0.3-5) unstable; urgency=low
 
   * Add bl-alternatives, formerly in bunsen-utilities.
