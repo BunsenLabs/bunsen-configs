@@ -1,3 +1,9 @@
+bunsen-configs (0.3-7) unstable; urgency=low
+
+  * Add relationship with bunsen-utilities to debian/control.
+
+ -- John Crawley <john@rafflesnagoya.com>  Mon, 18 May 2015 18:25:42 +0900
+
 bunsen-configs (0.3-6) unstable; urgency=low
 
   * Add bl-gvim, formerly in bunsen-utilities.

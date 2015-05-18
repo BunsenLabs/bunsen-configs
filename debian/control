@@ -14,6 +14,8 @@ Depends: ${misc:Depends}
 Recommends: bunsen-utilities
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
+Replaces: bunsen-utilities (<< 0.3-6)
+Breaks: bunsen-utilities (<< 0.3-6)
 Description: config files for BunsenLabs Linux
  Various configuration files for BunsenLabs Linux
  Contains user config files to be placed in /etc/skel, 
