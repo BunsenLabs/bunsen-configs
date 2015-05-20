@@ -1,3 +1,9 @@
+bunsen-configs (0.3-8) unstable; urgency=low
+
+  * Add tint2-bottom.
+
+ -- John Crawley <john@rafflesnagoya.com>  Wed, 20 May 2015 11:57:03 +0900
+
 bunsen-configs (0.3-7) unstable; urgency=low
 
   * Add relationship with bunsen-utilities to debian/control.
