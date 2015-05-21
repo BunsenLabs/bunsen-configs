@@ -1,3 +1,9 @@
+bunsen-configs (0.3-9) unstable; urgency=low
+
+  * Update ~/.conkyrc to BunsenLabs default.
+
+ -- John Crawley <john@rafflesnagoya.com>  Thu, 21 May 2015 13:33:57 +0900
+
 bunsen-configs (0.3-8) unstable; urgency=low
 
   * Add tint2-bottom.

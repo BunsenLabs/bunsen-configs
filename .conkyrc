@@ -1,74 +1,170 @@
-# conky configuration
+# For commands above TEXT check:
+# http://conky.sourceforge.net/config_settings.html
 #
-# The list of variables has been removed from this file in favour
-# of keeping the documentation more maintainable.
-# Check http://conky.sf.net for an up-to-date-list.
-#
-# For ideas about how to modify conky, please see:
-# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
-#
-# For help with conky, please see:
-# http://crunchbanglinux.org/forums/topic/2047/conky-help/
-#
+# For commands available below TEXT check:
+# http://conky.sourceforge.net/variables.html
+
+# Bunsen Labs Conky help threads
+# http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+
+# beta tested by: smacz
 # Enjoy! :)
-##############################################
-# Settings
-##############################################
-background yes
-use_xft yes
-xftfont Liberation Sans:size=9
-xftalpha 1
-update_interval 1.0
-total_run_times 0
+
+# pkill -xf "conky -q -c $HOME/.config/conky/BL-Default.conkyrc" &
+###  Begin Window Settings  #####################
 own_window yes
+own_window_type normal
 own_window_transparent yes
-own_window_type desktop
-#own_window_argb_visual yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-double_buffer yes
-minimum_size 200 200
-maximum_width 240
-draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders no
-default_color 656667
-default_shade_color 000000
-default_outline_color 828282
-alignment top_right
-gap_x 12
-gap_y 56
-no_buffers yes
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
+own_window_colour 000000
+own_window_class Conky
+own_window_title Bunsen Labs Default Conky
+
+### ARGB can be used for real transparency
+### NOTE that a composite manager is required for real transparency.
+### This option will not work as desired (in most cases) in conjunction with
+### own_window_type normal
+# own_window_argb_visual yes # Options: yes or no
+
+### When ARGB visuals are enabled, this use this to modify the alpha value
+### Use: own_window_type normal
+### Use: own_window_transparent no
+### Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
+# own_window_argb_value 50
+
+minimum_size 200 0  ### width | height
+maximum_width 200
+
+gap_x 20	### left | right
+gap_y 45	### up | down
+
+alignment tr
+#######################  End Window Settings  ###
+###  Font Settings  #############################
+# Use Xft (anti-aliased font and stuff)
+use_xft yes
+xftfont Liberation Mono:bold:size=9
+#ftfont Liberation Sans:size=9
+
+# Alpha of Xft font. Must be a value at or between 1 and 0 ###
+xftalpha 1
+# Force UTF8? requires XFT ###
+override_utf8_locale yes
+
 uppercase no
-cpu_avg_samples 2
-override_utf8_locale no
-##############################################
-#  Output
-##############################################
+#########################  End Font Settings  ###
+###  Colour Settings  ###########################
+draw_shades no #yes
+default_shade_color 000000
+
+draw_outline no # amplifies text if yes
+default_outline_color 000000
+
+#default_color 656667 # Waldorf original colour
+#default_color 7a7a7a # Flame  & Bunsen Grey
+#default_color 929292 # Labs Grey
+default_color C0C0C0 # Silver
+color0 B0E0E6 # PowderBlue
+color1 778899 # LightSlateGray
+color2 D8BFD8 # Thistle
+color3 9ACD32 # YellowGreen
+color4 FFA07A # LightSalmon
+color5 FFDEAD # NavajoWhite
+color6 00BFFF # DeepSkyBlue
+color7 5F9EA0 # CadetBlue
+color8 BDB76B # DarkKhaki
+color9 CD5C5C # IndianRed
+#######################  End Colour Settings  ###
+###  Borders Section  ###########################
+draw_borders no
+# Stippled borders?
+stippled_borders 5
+# border margins
+border_inner_margin 5
+border_outer_margin 0
+# border width
+border_width 2
+# graph borders
+draw_graph_borders yes #no
+#default_graph_size 15 40
+#######################  End Borders Section  ###
+###  Miscellaneous Section  #####################
+# Boolean value, if true, Conky will be forked to background when started.
+background yes
+
+# Adds spaces around certain objects to stop them from moving other things
+# around, this only helps if you are using a mono font
+# Options: right, left or none
+use_spacer none
+
+# Default and Minimum size is 256 - needs more for single commands that
+# "call" a lot of text IE: bash scripts
+text_buffer_size 6144
+
+# Subtract (file system) buffers from used memory?
+no_buffers yes
+
+# change GiB to G and MiB to M
+short_units yes
+
+# Like it says, ot pads the decimals on % values
+# doesn't seem to work since v1.7.1
+pad_percents 2
+
+# Imlib2 image cache size, in bytes. Default 4MiB Increase this value if you use
+# $image lots. Set to 0 to disable the image cache.
+imlib_cache_size 0
+
+# Use the Xdbe extension? (eliminates flicker)
+# It is highly recommended to use own window with this one
+# so double buffer won't be so big.
+double_buffer yes
+
+#   Maximum size of user text buffer, i.e. layout below TEXT line in config file
+#  (default is 16384 bytes)
+# max_user_text 16384
+
+# Desired output unit of all objects displaying a temperature. Parameters are
+# either "fahrenheit" or "celsius". The default unit is degree Celsius.
+# temperature_unit Fahrenheit
+
+#################  End Miscellaneous Section  ###
+#### ${font Liberation Mono:bold:size=10}${alignc}${execpi 600 $HOME/.config/conky/scripts/bunsenweather.sh}
+update_interval 1
+
 TEXT
-S Y S T E M    I N F O
+${color}${alignc}S Y S T E M    I N F O
 ${hr}
-Host:$alignr$nodename
-Uptime:$alignr$uptime
-RAM:$alignr$mem/$memmax
-Swap usage:$alignr$swap/$swapmax
-Disk usage:$alignr${fs_used /}/${fs_size /}
-CPU usage:$alignr${cpu cpu0}%
+Host:${alignr}${nodename}
+Uptime:${alignr}${uptime}
+UTC:${alignr}${utime %H:%M}
 
+${goto 60}Used${alignr}Size
+Root${goto 60}${fs_used /}${alignr}${fs_size /}
+Home${goto 60}${fs_used /home}${alignr}${fs_size /home}
 
-S H O R T C U T    K E Y S
+${goto 60}MEM${alignr}MAX
+RAM${goto 60}${mem}${alignr}${memmax}
+Swap${goto 60}${swap}${alignr}${swapmax}
+
+CPU:${goto 60}Used${alignr}GHz
+Avg${goto 60}${if_match ${cpu cpu0}<10}  ${cpu cpu0}\
+${else}${if_match ${cpu cpu0}<100} ${cpu cpu0}\
+${else}${cpu cpu0}${endif}${endif}%${alignr}${freq_g}
+
+${alignc}S H O R T C U T    K E Y S
 ${hr}
-Alt+F2$alignr Run Dialog
-Alt+F3$alignr Alt Menu
-Super+Space$alignr Main Menu
-Super+Tab$alignr Client Menu
-Super+t$alignr Terminal
-Super+f$alignr File Manager
-Super+e$alignr Editor
-Super+m$alignr Media Player
-Super+w$alignr Web Browser
-Super+h$alignr Task Manager
-Super+l$alignr Lock Screen
-Super+v$alignr Volume Control
-Super+x$alignr Logout
-PrtSc$alignr Screenshot
+[Alt] + F2${alignr}Run Dialog
+[Alt] + F3${alignr}Alt Menu
+[S] + Space${alignr}Main Menu
+[S] + Tab${alignr}Client Menu
+[S] + t${alignr}Terminal
+[S] + f${alignr}File Manager
+[S] + e${alignr}Editor
+[S] + m${alignr}Media Player
+[S] + w${alignr}Web Browser
+[S] + h${alignr}Task Manager
+[S] + l${alignr}Lock Screen
+[S] + v${alignr}Volume Control
+[S] + x${alignr}Logout
+[PrtSc]${alignr}Screenshot
