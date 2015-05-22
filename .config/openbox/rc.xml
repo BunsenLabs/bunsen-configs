@@ -49,7 +49,7 @@
     <name>Bunsen</name>
     <titleLayout>DSLIMC</titleLayout>
     <!--
-      avaible characters are NDSLIMC, each can occur at most once.
+      available characters are NDSLIMC, each can occur at most once.
       N: window icon
       L: window label (AKA title).
       I: iconify
