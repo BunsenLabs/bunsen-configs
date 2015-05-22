@@ -1,3 +1,9 @@
+bunsen-configs (0.3-10) unstable; urgency=low
+
+  * Backup menu.xml, rc.xml and autostart before editing.
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 22 May 2015 11:36:48 +0900
+
 bunsen-configs (0.3-9) unstable; urgency=low
 
   * Update ~/.conkyrc to BunsenLabs default.
