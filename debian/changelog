@@ -1,3 +1,9 @@
+bunsen-configs (0.3-12) unstable; urgency=low
+
+  * Move user config files to /usr/share/bunsen/bunsen-configs/skel.
+
+ -- John Crawley <john@rafflesnagoya.com>  Thu, 28 May 2015 22:06:18 +0900
+
 bunsen-configs (0.3-11) unstable; urgency=low
 
   * Enable conky and tint2 session scripts in autostart by default.
