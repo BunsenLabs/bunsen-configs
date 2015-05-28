@@ -11,7 +11,7 @@ BLMEDIAPLAYER=vlc
 BLTEXTEDITOR=geany
 BLPRIORITY=40
 
-OLD_CONFFILES=(/etc/skel/.Xresources
+OLD_CONFFILES='/etc/skel/.Xresources
 /etc/skel/.bash_aliases
 /etc/skel/.conkyrc
 /etc/skel/.gmrunrc
@@ -20,10 +20,10 @@ OLD_CONFFILES=(/etc/skel/.Xresources
 /etc/skel/.gtkrc-2.0.mine
 /etc/skel/.pbuilderrc
 /etc/skel/.profile.bunsen
-/etc/skel/.xsessionrc)
-OLD_CONFDIRS=(/etc/skel/.config
+/etc/skel/.xsessionrc'
+OLD_CONFDIRS='/etc/skel/.config
 /etc/skel/.local
-/etc/skel/Templates)
+/etc/skel/Templates'
 
 case $1 in
 configure)
@@ -44,11 +44,11 @@ configure)
     --slave $MAN1/bl-media-player.1.gz bl-media-player.1.gz \
     $MAN1/$BLMEDIAPLAYER.1.gz
 
-    for i in "${OLD_CONFFILES[@]}"
+    for i in $OLD_CONFFILES
     do
         rm -f "$i"
     done
-    for j in "${OLD_CONFDIRS[@]}"
+    for j in $OLD_CONFDIRS
     do
         rm -r -f "$j"
     done
