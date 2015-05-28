@@ -11,24 +11,48 @@ BLMEDIAPLAYER=vlc
 BLTEXTEDITOR=geany
 BLPRIORITY=40
 
+OLD_CONFFILES=(/etc/skel/.Xresources
+/etc/skel/.bash_aliases
+/etc/skel/.conkyrc
+/etc/skel/.gmrunrc
+/etc/skel/.gtk-bookmarks
+/etc/skel/.gtkrc-2.0
+/etc/skel/.gtkrc-2.0.mine
+/etc/skel/.pbuilderrc
+/etc/skel/.profile.bunsen
+/etc/skel/.xsessionrc)
+OLD_CONFDIRS=(/etc/skel/.config
+/etc/skel/.local
+/etc/skel/Templates)
+
 case $1 in
 configure)
     update-alternatives --quiet --install /usr/bin/bl-file-manager \
-	bl-file-manager /usr/bin/$BLFILEMANAGER $BLPRIORITY \
-	--slave $MAN1/bl-file-manager.1.gz bl-file-manager.1.gz \
-	$MAN1/$BLFILEMANAGER.1.gz
+    bl-file-manager /usr/bin/$BLFILEMANAGER $BLPRIORITY \
+    --slave $MAN1/bl-file-manager.1.gz bl-file-manager.1.gz \
+    $MAN1/$BLFILEMANAGER.1.gz
     update-alternatives --quiet --install /usr/bin/bl-image-viewer \
-	bl-image-viewer /usr/bin/$BLIMAGEVIEWER $BLPRIORITY \
-	--slave $MAN1/bl-image-viewer.1.gz bl-image-viewer.1.gz \
-	$MAN1/$BLIMAGEVIEWER.1.gz
+    bl-image-viewer /usr/bin/$BLIMAGEVIEWER $BLPRIORITY \
+    --slave $MAN1/bl-image-viewer.1.gz bl-image-viewer.1.gz \
+    $MAN1/$BLIMAGEVIEWER.1.gz
     update-alternatives --quiet --install /usr/bin/bl-text-editor \
-	bl-text-editor /usr/bin/$BLTEXTEDITOR $BLPRIORITY \
-	--slave $MAN1/bl-text-editor.1.gz bl-text-editor.1.gz \
-	$MAN1/$BLTEXTEDITOR.1.gz
+    bl-text-editor /usr/bin/$BLTEXTEDITOR $BLPRIORITY \
+    --slave $MAN1/bl-text-editor.1.gz bl-text-editor.1.gz \
+    $MAN1/$BLTEXTEDITOR.1.gz
     update-alternatives --quiet --install /usr/bin/bl-media-player \
-	bl-media-player /usr/bin/$BLMEDIAPLAYER $BLPRIORITY \
-	--slave $MAN1/bl-media-player.1.gz bl-media-player.1.gz \
-	$MAN1/$BLMEDIAPLAYER.1.gz
+    bl-media-player /usr/bin/$BLMEDIAPLAYER $BLPRIORITY \
+    --slave $MAN1/bl-media-player.1.gz bl-media-player.1.gz \
+    $MAN1/$BLMEDIAPLAYER.1.gz
+
+    for i in "${OLD_CONFFILES[@]}"
+    do
+        rm -f "$i"
+    done
+    for j in "${OLD_CONFDIRS[@]}"
+    do
+        rm -r -f "$j"
+    done
+
     ;;
 esac
 
