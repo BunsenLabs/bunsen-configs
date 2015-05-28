@@ -32,9 +32,14 @@ nitrogen --restore &
 
 bl-compositor --start &
 
-(sleep 2; tint2) &
+#(sleep 2; tint2) &
 ## To start a saved tint2 session,  comment out the line above, and uncomment:
-#(sleep 2s && bl-tint2-session --autostart) &
+(sleep 2s && bl-tint2-session --autostart) &
+
+## Run the conky
+#conky -q &
+## To start a saved Conky session, comment out the line above, and uncomment:
+(sleep 2s && bl-conky-session --autostart) &
 
 ## Volume control for systray
 (sleep 2; volti) &
@@ -75,10 +80,5 @@ xset b off &
 ## only runs once. Safe to remove.
 (sleep 10; bl-welcome --firstrun) &
 
-## bl-fortune - have the system come up with a little adage
+## bl-fortune - have the system come up with a little adage (not yet enabled)
 #(sleep 120; bl-fortune) &
-
-## Run the conky
-conky -q &
-## To start a saved Conky session, comment out the line above, and uncomment:
-#(sleep 2s && bl-conky-session --autostart) &
