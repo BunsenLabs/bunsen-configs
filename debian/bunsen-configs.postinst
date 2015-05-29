@@ -62,10 +62,14 @@ configure)
 
     for i in $OLD_CONFFILES
     do
+        pkg=$(dpkg -S "$i") || continue
+        [ "${pkg%%:*}" = 'bunsen-configs' ] || continue
         rm -f "$i"
     done
     for j in $OLD_CONFDIRS
     do
+        pkg=$(dpkg -S "$j") || continue
+        [ "${pkg%%:*}" = 'bunsen-configs' ] || continue
         rm -r -f "$j"
     done
 
