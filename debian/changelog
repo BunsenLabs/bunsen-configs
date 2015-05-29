@@ -1,3 +1,9 @@
+bunsen-configs (0.3-13) unstable; urgency=low
+
+  * Add checks in preinst before removing old conffiles.
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 12:38:13 +0900
+
 bunsen-configs (0.3-12) unstable; urgency=low
 
   * Move user config files to /usr/share/bunsen/bunsen-configs/skel.
