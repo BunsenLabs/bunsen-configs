@@ -1,3 +1,9 @@
+bunsen-configs (0.3-14) unstable; urgency=low
+
+  * Move skel to /usr/share/bunsen.
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 12:57:54 +0900
+
 bunsen-configs (0.3-13) unstable; urgency=low
 
   * Add checks in preinst before removing old conffiles.

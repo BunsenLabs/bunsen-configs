@@ -5,7 +5,7 @@
 
 [ -f "/home/$USER/.config/bunsen/bl-setup" ] && exit 0
 
-cd /usr/share/bunsen/bunsen-configs/skel
+cd /usr/share/bunsen/skel
 tar cpzf skel.tar.gz .
 mv skel.tar.gz /home/$USER/skel.tar.gz
 cd /home/$USER

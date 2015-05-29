@@ -1,4 +1,4 @@
-skel usr/share/bunsen/bunsen-configs
+skel usr/share/bunsen
 bl-terminal-emulator.desktop usr/share/applications
 bl-www-browser.desktop usr/share/applications
 bl-text-editor.desktop usr/share/applications
