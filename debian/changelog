@@ -1,3 +1,9 @@
+bunsen-configs (0.3-17) unstable; urgency=low
+
+  * Update local mimetype settings to use bl-* alternatives.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 30 May 2015 13:34:12 +0900
+
 bunsen-configs (0.3-16) unstable; urgency=low
 
   * Add skel/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
