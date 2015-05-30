@@ -1,3 +1,9 @@
+bunsen-configs (0.3-15) unstable; urgency=low
+
+  * Correct errors in debian/bunsen-configs.dirs
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 30 May 2015 12:02:48 +0900
+
 bunsen-configs (0.3-14) unstable; urgency=low
 
   * Move skel to /usr/share/bunsen.
