@@ -1,0 +1,20 @@
+[Default Applications]
+image/gif=bl-image-viewer.desktop
+image/jpeg=bl-image-viewer.desktop
+image/png=bl-image-viewer.desktop
+image/svg+xml=bl-image-viewer.desktop
+text/plain=bl-text-editor.desktop
+text/html=bl-text-editor.desktop
+application/xml=bl-text-editor.desktop
+application/javascript=bl-text-editor.desktop
+x-directory/normal=bl-file-manager.desktop
+x-directory/gnome-default-handler=bl-file-manager.desktop
+inode/directory=bl-file-manager.desktop
+audio/mpeg=bl-mediaplayer.desktop
+audio/mp4=bl-mediaplayer.desktop
+audio/x-wav=bl-mediaplayer.desktop
+audio/aac=bl-mediaplayer.desktop
+video/webm=bl-mediaplayer.desktop
+video/x-ms-asf=bl-mediaplayer.desktop
+video/x-theora+ogg=bl-mediaplayer.desktop
+application/pdf=evince.desktop
