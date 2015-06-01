@@ -11,3 +11,4 @@ lightdm-gtk-greeter.conf.bunsen etc/lightdm
 bl-user-setup usr/lib/bunsen/bunsen-configs
 bl-alternatives usr/bin
 bl-gvim usr/bin
+21-bunsen-lightdm-locale etc/X11/xsession.d

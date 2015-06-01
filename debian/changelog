@@ -1,3 +1,9 @@
+bunsen-configs (0.3-19) unstable; urgency=low
+
+  * Add workaround for lightdm locale bug.
+
+ -- John Crawley <john@rafflesnagoya.com>  Mon, 01 Jun 2015 15:08:33 +0900
+
 bunsen-configs (0.3-18) unstable; urgency=low
 
   * Moved 'How to Edit Menu' item to 'Settings/Openbox' in menu.xml.
