@@ -34,7 +34,7 @@ bl-compositor --start &
 
 #(sleep 2; tint2) &
 ## To start a saved tint2 session,  comment out the line above, and uncomment:
-(sleep 2s && bl-tint2-session --autostart) &
+(sleep 2s && bl-tint2-session) &
 
 ## Run the conky
 #conky -q &
