@@ -1,10 +1,5 @@
 skel usr/share/bunsen
-bl-terminal-emulator.desktop usr/share/applications
-bl-www-browser.desktop usr/share/applications
-bl-text-editor.desktop usr/share/applications
-bl-image-viewer.desktop usr/share/applications
-bl-file-manager.desktop usr/share/applications
-bl-media-player.desktop usr/share/applications
+applications usr/share
 90bunsen etc/apt/apt.conf.d
 lightdm.conf.bunsen etc/lightdm
 lightdm-gtk-greeter.conf.bunsen etc/lightdm
