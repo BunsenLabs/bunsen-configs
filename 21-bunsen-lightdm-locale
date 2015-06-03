@@ -1,7 +1,7 @@
 # workaround for session language selection in lightdm greeter
 
 # we need this only if lightdm is being used
-if pidof lightdm
+if pidof lightdm >/dev/null
 then
 	# use Language setting from ~/.dmrc
 	export LANG=$(awk -F '=' '/^Language=/{sub(/utf8/,"UTF-8");print $2}' "$HOME/.dmrc")
