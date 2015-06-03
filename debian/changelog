@@ -1,3 +1,12 @@
+bunsen-configs (0.4-1) unstable; urgency=low
+
+  * Remove bl-tint2-session '--autostart' arg, which is no longer used.
+  * Add volti config.
+  * Put .desktop files in "applications" in repo source.
+  * Update README
+
+ -- John Crawley <john@rafflesnagoya.com>  Wed, 03 Jun 2015 14:07:13 +0900
+
 bunsen-configs (0.3-20) unstable; urgency=low
 
   * Correct error in filepath in debian/install. 
