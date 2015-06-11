@@ -1,3 +1,9 @@
+bunsen-configs (0.5-1) unstable; urgency=low
+
+  * dmenu-bind.sh: Make string matching case-insensitive
+
+ -- Jens John <dev@2ion.de>  Thu, 11 Jun 2015 15:59:18 +0200
+
 bunsen-configs (0.4-1) unstable; urgency=low
 
   * Remove bl-tint2-session '--autostart' arg, which is no longer used.
