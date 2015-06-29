@@ -1,3 +1,9 @@
+bunsen-configs (0.5-3) unstable; urgency=low
+
+  * Remove bl-alternatives install from debian/postinst.
+
+ -- John Crawley <john@rafflesnagoya.com>  Mon, 29 Jun 2015 16:49:16 +0900
+
 bunsen-configs (0.5-2) unstable; urgency=low
 
   * Add user config for xfce4-terminal.

@@ -22,7 +22,7 @@ BLMEDIAPLAYER=bl-media-player
 BLTEXTEDITOR=bl-text-editor
 BLALTS="$BLFILEMANAGER $BLIMAGEVIEWER $BLMEDIAPLAYER $BLTEXTEDITOR"
 
-OTHERFM="pcmanfm spacefm"
+OTHERFM="pcmanfm spacefm nautilus"
 OTHERIV="eog eom viewnior"
 OTHERMP="banshee dragonplayer gnome-mplayer kaffeine mplayer2 mpv parole \
     smplayer totem"
