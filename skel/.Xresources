@@ -38,19 +38,25 @@ xscreensaver.passwd.thermometer.width:       8
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:Andale Mono:pixelsize=12
+URxvt.font: xft:Monospace:pixelsize=12
+URxvt.letterSpace: -1
 
 ! Window size and position
-urxvt*geometry: 60x22+50+100
+!urxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-!urxvt*geometry: 60x22
+urxvt*geometry: 60x22
 
 URxvt*scrollstyle: plain
 URxvt*scrollBar: true
 URxvt*scrollBar_right: true
-URxvt*iconFile: /usr/share/icons/Faenza-CrunchBang/apps/48/utilities-terminal.png
-URxvt*background: #cecece
-URxvt*foreground: #101010
+URxvt*iconFile: /usr/share/icons/Faenza-Bunsen/apps/48/utilities-terminal.png
+
+! Grey theming
+!URxvt*background: #cecece
+!URxvt*foreground: #101010
+! Terminator Crunchbang colours
+URxvt*background: #2e3436
+URxvt*foreground: #d8d8d8
 
 ! scrollback buffer lines - 65535 is max (64 is default)
 URxvt*saveLines:16384

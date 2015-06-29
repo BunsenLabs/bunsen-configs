@@ -1,3 +1,11 @@
+bunsen-configs (0.5-2) unstable; urgency=low
+
+  * Add user config for xfce4-terminal.
+  * Adjust urxvt settings in skel/.Xresources
+  * Add check for ~/.dmrc in etc/X11/Xsession.d/21-bunsen-lightdm-locale
+
+ -- John Crawley <john@rafflesnagoya.com>  Mon, 29 Jun 2015 16:28:50 +0900
+
 bunsen-configs (0.5-1) unstable; urgency=low
 
   * dmenu-bind.sh: Make string matching case-insensitive
