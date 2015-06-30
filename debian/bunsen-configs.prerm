@@ -3,12 +3,19 @@
 
 set -e
 
+BLFILEMANAGER=bl-file-manager
+BLIMAGEVIEWER=bl-image-viewer
+BLMEDIAPLAYER=bl-media-player
+BLTEXTEDITOR=bl-text-editor
+BLALTS="$BLFILEMANAGER $BLIMAGEVIEWER $BLMEDIAPLAYER $BLTEXTEDITOR"
+
 case $1 in
 remove|deconfigure)
-    update-alternatives --quiet --remove-all bl-file-manager
-    update-alternatives --quiet --remove-all bl-image-viewer
-    update-alternatives --quiet --remove-all bl-media-player
-    update-alternatives --quiet --remove-all bl-text-editor
+    for i in $BLALTS
+    do
+        update-alternatives --list "$i" >/dev/null 2>&1 || continue
+        update-alternatives --quiet --remove-all "$i"
+    done
     ;;
 esac
 

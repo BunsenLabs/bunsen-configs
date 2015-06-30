@@ -1,3 +1,9 @@
+bunsen-configs (0.5-5) unstable; urgency=low
+
+  * Test if alternative exists before removing in debian/bunsen-configs.prerm
+
+ -- John Crawley <john@rafflesnagoya.com>  Tue, 30 Jun 2015 14:51:05 +0900
+
 bunsen-configs (0.5-4) unstable; urgency=low
 
   * Add various bugfixes.
