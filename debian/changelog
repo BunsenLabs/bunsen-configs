@@ -1,3 +1,9 @@
+bunsen-configs (0.5-4) unstable; urgency=low
+
+  * Add various bugfixes.
+
+ -- John Crawley <john@rafflesnagoya.com>  Tue, 30 Jun 2015 14:00:11 +0900
+
 bunsen-configs (0.5-3) unstable; urgency=low
 
   * Remove bl-alternatives install from debian/postinst.
