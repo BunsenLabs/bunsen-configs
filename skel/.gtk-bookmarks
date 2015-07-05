@@ -1,9 +1,7 @@
-file:///home/REPLACEME/backup backup
-file:///home/REPLACEME/bin bin
-file:///home/REPLACEME/documents documents
-file:///home/REPLACEME/downloads downloads
-file:///home/REPLACEME/music music
-file:///home/REPLACEME/images images
-file:///home/REPLACEME/tmp tmp
-file:///home/REPLACEME/videos videos
-
+file:///home/REPLACEME/Documents
+file:///home/REPLACEME/Downloads
+file:///home/REPLACEME/Music
+file:///home/REPLACEME/Pictures
+file:///home/REPLACEME/Videos
+file:///home/REPLACEME/bin
+file:///home/REPLACEME/tmp

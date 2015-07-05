@@ -1,3 +1,9 @@
+bunsen-configs (0.5-7) unstable; urgency=low
+
+  * Correct .gtk-bookmarks to match directory names.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sun, 05 Jul 2015 10:25:10 +0900
+
 bunsen-configs (0.5-6) unstable; urgency=low
 
   * Add visual fixes.
