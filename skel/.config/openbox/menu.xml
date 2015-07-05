@@ -286,7 +286,7 @@
             <item label="Choose Wallpaper">
                 <action name="Execute">
                     <command>
-                        nitrogen ~/Pictures/wallpapers/
+                        nitrogen
                     </command>
                 </action>
             </item>

@@ -38,6 +38,7 @@
     <command>gksudo &quot;geany %f&quot;</command>
     <description>Open text file as root</description>
     <patterns>*</patterns>
+    <other-files />
     <text-files />
   </action>
   <action>

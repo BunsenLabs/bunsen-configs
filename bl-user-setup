@@ -12,10 +12,12 @@ cd /home/$USER
 tar --suffix="~$( date +%FT%T )~" -xpsf skel.tar.gz
 rm skel.tar.gz
 
-[ -f "/home/$USER/.gtk-bookmarks" ] && {
-#    rpl -q 'REPLACEME' $USER /home/$USER/.gtk-bookmarks > /dev/null 2>&1
-    sed --in-place="~$( date +%FT%T )~" "s/REPLACEME/$USER/g" "/home/$USER/.gtk-bookmarks"
-}
+for i in "/home/$USER/.gtk-bookmarks" "/home/$USER/.config/nitrogen/nitrogen.cfg"
+do
+    [ -f "$i" ] && {
+        sed --in-place="~$( date +%FT%T )~" "s/REPLACEME/$USER/g" "$i"
+    }
+done
 
 ln -s /usr/share/backgrounds "/home/$USER/Pictures/wallpapers/shared"
 
