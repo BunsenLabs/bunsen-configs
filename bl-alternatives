@@ -24,7 +24,7 @@ BLALTS="$BLFILEMANAGER $BLIMAGEVIEWER $BLMEDIAPLAYER $BLTEXTEDITOR"
 
 OTHERFM="pcmanfm spacefm nautilus"
 OTHERIV="eog eom viewnior"
-OTHERMP="banshee dragonplayer gnome-mplayer kaffeine mplayer2 mpv parole \
+OTHERMP="banshee dragonplayer gnome-mplayer kaffeine parole \
     smplayer totem"
 OTHERTE="emacs gedit jedit kate leafpad mousepad scite"
 # Note gvim handled special (wrapper and man page names differ)
