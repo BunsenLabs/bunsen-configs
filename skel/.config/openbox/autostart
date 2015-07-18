@@ -4,7 +4,7 @@
 ## will be executed to set-up your environment and launch any applications
 ## you want to run at startup.
 ##
-## Note*: some programs, such as 'nm-applet' are run via XDG autostart.
+## Note: some programs, such as 'nm-applet' are run via XDG autostart.
 ## Run
 ## /usr/lib/i386-linux-gnu/openbox-xdg-autostart --list
 ## or
@@ -26,20 +26,17 @@ eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 ## Set root window colour
-hsetroot -solid "#2E3436" &
+#hsetroot -solid "#2E3436" &
 
 nitrogen --restore &
 
 bl-compositor --start &
 
-#(sleep 2; tint2) &
-## To start a saved tint2 session,  comment out the line above, and uncomment:
-(sleep 2s && bl-tint2-session) &
+## Start the tint2 session (the default tint2 will run if no sessions have been set)
+(sleep 2s; bl-tint2-session) &
 
-## Run the conky
-#conky -q &
-## To start a saved Conky session, comment out the line above, and uncomment:
-(sleep 2s && bl-conky-session --autostart) &
+## Start the Conky session (the default conkyrc will run if no sessions have been set)
+(sleep 2s; bl-conky-session --autostart) &
 
 ## Volume control for systray
 (sleep 2; volti) &
@@ -50,8 +47,11 @@ xfce4-volumed &
 ## Start Clipboard manager
 (sleep 3; clipit) &
 
-## Start Thunar Daemon
-thunar --daemon &
+## Start Thunar Daemon, if set as bl-file-manager
+if [ "$(readlink -f $(which bl-file-manager))" = "$(which thunar)" ]
+then
+    thunar --daemon &
+fi
 
 ## Enable power management
 xfce4-power-manager &
@@ -62,6 +62,7 @@ xscreensaver -no-splash &
 ## Detect and configure touchpad. See 'man synclient' for more info.
 if egrep -iq 'touchpad' /proc/bus/input/devices; then
     synclient VertEdgeScroll=1 &
+    synclient HorizEdgeScroll=1 &
     synclient TapButton1=1 &
 fi
 
