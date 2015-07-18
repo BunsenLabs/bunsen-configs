@@ -70,13 +70,6 @@
                     <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
                 </action>
             </item>
-            <item label="File Manager as root">
-                <action name="Execute">
-                    <command>
-                        gksudo bl-file-manager
-                    </command>
-                </action>
-            </item>
         </menu>
         <menu execute="bl-graphics-pipemenu" id="bl-graphics-pipemenu" label="Graphics"/>
         <menu execute="bl-multimedia-pipemenu" id="bl-multimedia-pipemenu" label="Multimedia"/>
@@ -150,7 +143,7 @@
         <menu execute="bl-places-pipemenu" id="pipe-placesmenu" label="Places"/>
         <menu execute="bl-recent-files-pipemenu -rl15" id="pipe-recentfilesmenu" label="Recent Files"/>
         <separator/>
-        <menu id="settings" label="Settings">
+        <menu id="settings" label="User settings">
             <menu id="obConfig" label="Openbox">
                 <item label="Edit menu.xml">
                     <action name="Execute">
@@ -293,17 +286,17 @@
         </menu>
         <menu id="system" label="System">
             <menu execute="bl-printing-pipemenu" id="PrintingPipeMenu" label="Printers"/>
-            <item label="GParted">
-                <action name="Execute">
-                    <command>
-                        gksudo gparted
-                    </command>
-                </action>
-            </item>
             <item label="Synaptic Package Manager">
                 <action name="Execute">
                     <command>
                         gksudo synaptic
+                    </command>
+                </action>
+            </item>
+            <item label="File Manager as root">
+                <action name="Execute">
+                    <command>
+                        gksudo bl-file-manager
                     </command>
                 </action>
             </item>
@@ -314,11 +307,24 @@
                     </command>
                 </action>
             </item>
-            <item label="Edit Default Applications">
+            <item label="GParted">
+                <action name="Execute">
+                    <command>
+                        gksudo gparted
+                    </command>
+                </action>
+            </item>
+            <item label="Edit Debian Alternatives">
                 <action name="Execute">
                     <command>
                         gksudo galternatives
                     </command>
+                </action>
+            </item>
+            <separator/>
+            <item label="About Bunsen Alternatives">
+                <action name="Execute">
+                    <execute>zenity --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/bunsen-docs/helpfile-bl-alternatives.txt&quot; --width=900 --height=700</execute>
                 </action>
             </item>
         </menu>
