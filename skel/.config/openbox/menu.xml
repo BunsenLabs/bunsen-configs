@@ -204,7 +204,7 @@
             <menu execute="bl-compositor" id="CompositingPipeMenu" label="Compositor"/>
             <menu execute="bl-conky-pipemenu" id="pipe-conkymenu" label="Conky"/>
             <menu id="dmenuconfig" label="dmenu">
-                <item label="Edit start-up script">
+                <item label="Edit Start-up Script">
                     <action name="Execute">
                         <command>
                             bl-text-editor ~/.config/dmenu/dmenu-bind.sh
@@ -221,7 +221,7 @@
                 </item>
             </menu>
             <menu id="gmrunconfig" label="gmrun">
-                <item label="Edit config file">
+                <item label="Edit Config File">
                     <action name="Execute">
                         <command>
                             bl-text-editor ~/.gmrunrc
@@ -256,7 +256,7 @@
                 </item>
             </menu>
             <menu id="Notifications" label="Notifications">
-                <item label="settings">
+                <item label="Settings">
                     <action name="Execute">
                         <command>xfce4-notifyd-config</command>
                     </action>
@@ -324,7 +324,7 @@
         </menu>
         <menu id="help" label="Help" execute="bl-help-pipemenu" />
         <separator/>
-        <menu execute="bl-kb-pipemenu" id="keybinds" label="Display keybinds"/>
+        <menu execute="bl-kb-pipemenu" id="keybinds" label="Display Keybinds"/>
         <separator/>
         <item label="Lock Screen">
             <action name="Execute">
