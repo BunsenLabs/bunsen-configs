@@ -3,7 +3,7 @@
   <action>
     <icon>catfish</icon>
     <name>Find files</name>
-    <command>catfish --fileman=thunar --hidden --path=%f</command>
+    <command>catfish --fileman=bl-file-manager --hidden --path=%f</command>
     <description>Search for files with Catfish</description>
     <patterns>*</patterns>
     <directories />
@@ -25,17 +25,17 @@
     <directories />
   </action>
   <action>
-    <icon>file-manager</icon>
+    <icon>system-file-manager</icon>
     <name>Open as root</name>
-    <command>gksudo &quot;thunar %f&quot;</command>
+    <command>gksudo &quot;bl-file-manager %f&quot;</command>
     <description>Open directory as root</description>
     <patterns>*</patterns>
     <directories />
   </action>
   <action>
-    <icon>geany</icon>
+    <icon>accessories-text-editor</icon>
     <name>Open as root</name>
-    <command>gksudo &quot;geany %f&quot;</command>
+    <command>gksudo &quot;bl-text-editor %f&quot;</command>
     <description>Open text file as root</description>
     <patterns>*</patterns>
     <other-files />

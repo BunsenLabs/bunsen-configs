@@ -1,6 +1,6 @@
 
 [general]
-file_manager=thunar
+file_manager=bl-file-manager
 autoconnect_interval=60
 
 [ui]
