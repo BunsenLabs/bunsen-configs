@@ -1,3 +1,14 @@
+bunsen-configs (8.0-1) unstable; urgency=low
+
+  * Replace gftp with filezilla in openbox/menu.xml
+  * xfce-perchannel-xml/thunar.xml: initial setting not to show hidden files.
+  * Move some items in openbox/menu.xml, add help for BL alternatives.
+  * Clean up openbox/autostart.
+  * Remove hardcoded references to Thunar or Geany.
+  * Make capitalization consistent
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 24 Jul 2015 16:53:28 +0900
+
 bunsen-configs (0.5-9) unstable; urgency=low
 
   * Remove cli apps from bl-alternatives.
