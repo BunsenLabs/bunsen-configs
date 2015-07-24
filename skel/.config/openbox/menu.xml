@@ -75,10 +75,10 @@
         <menu execute="bl-multimedia-pipemenu" id="bl-multimedia-pipemenu" label="Multimedia"/>
         <menu id="network" label="Network">
             <menu execute="bl-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
-            <item label="gFTP Client">
+            <item label="Filezilla FTP Client">
                 <action name="Execute">
                     <command>
-                        gftp
+                        filezilla
                     </command>
                 </action>
             </item>
