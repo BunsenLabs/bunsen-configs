@@ -41,9 +41,6 @@ bl-compositor --start &
 ## Volume control for systray
 (sleep 2; volti) &
 
-## Start the battery applet
-(sleep 2; fdpowermon) &
-
 ## Volume keys daemon
 xfce4-volumed &
 
@@ -58,6 +55,9 @@ fi
 
 ## Enable power management
 xfce4-power-manager &
+
+## Start the battery applet
+(sleep 2; fdpowermon) &
 
 ## Start xscreensaver
 xscreensaver -no-splash &
