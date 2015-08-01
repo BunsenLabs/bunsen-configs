@@ -1,3 +1,13 @@
+bunsen-configs (8.1-1) bunsen-hydrogen; urgency=low
+
+  * Add default login icon for lightdm.
+  * Use an Open Source font for tint2's clock.
+  * Add fdpowermon to ~/.config/openbox/autostart
+  * Add configuration for fdpowermon.
+  * Update suite to bunsen-hydrogen.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 01 Aug 2015 11:57:28 +0900
+
 bunsen-configs (8.0-1) unstable; urgency=low
 
   * Replace gftp with filezilla in openbox/menu.xml
