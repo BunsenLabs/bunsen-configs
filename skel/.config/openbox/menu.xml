@@ -143,7 +143,7 @@
         <menu execute="bl-places-pipemenu" id="pipe-placesmenu" label="Places"/>
         <menu execute="bl-recent-files-pipemenu -rl15" id="pipe-recentfilesmenu" label="Recent Files"/>
         <separator/>
-        <menu id="settings" label="User settings">
+        <menu id="settings" label="Settings">
             <menu id="obConfig" label="Openbox">
                 <item label="Edit menu.xml">
                     <action name="Execute">
