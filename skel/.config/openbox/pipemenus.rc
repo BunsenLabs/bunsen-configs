@@ -13,4 +13,3 @@ GRAPHICS_SCROTS=('xfce4-screenshooter' 'scrot' )
 
 # Browsers pipemenu (bl-x-www-browser-pipemenu)
 BROWSERS=('chromium' 'iceweasel' 'google-chrome-stable' 'opera' )
-BROWSERS=('chromium' 'iceweasel' 'google-chrome-stable' 'opera' )
