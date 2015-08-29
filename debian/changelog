@@ -1,3 +1,13 @@
+bunsen-configs (8.2-1) bunsen-hydrogen; urgency=low
+
+  * Add bunsen-pipemenus, bunsen-themes and bunsen-images to recommends.
+  * openbox/autostart remove xscreensaver and bl-cowpowers entries.
+  * openbox/menu.xml rename "Settings" to "Preferences" and rearrange order.
+  * openbox/pipemenus.rc add gnome-mplayer, remove volti.
+  * openbox/rc.xml replace calls to bl-aerosnap with openbox builtins.
+
+ -- John Crawley <john@rafflesnagoya.com>  Sat, 29 Aug 2015 17:43:09 +0900
+
 bunsen-configs (8.1-1) bunsen-hydrogen; urgency=low
 
   * Add default login icon for lightdm.

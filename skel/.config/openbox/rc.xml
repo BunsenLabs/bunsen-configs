@@ -440,13 +440,21 @@
       <action name="GrowToEdgeNorth"/>
     </keybind>
     <keybind key="W-A-Left">
-      <action name="Execute">
-        <command>bl-aerosnap --left</command>
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <x>0</x>
+        <y>0</y>
       </action>
     </keybind>
     <keybind key="W-A-Right">
-      <action name="Execute">
-        <command>bl-aerosnap --right</command>
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <x>-0</x>
+        <y>0</y>
       </action>
     </keybind>
   </keyboard>

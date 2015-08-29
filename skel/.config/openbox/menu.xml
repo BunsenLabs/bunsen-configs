@@ -143,7 +143,7 @@
         <menu execute="bl-places-pipemenu" id="pipe-placesmenu" label="Places"/>
         <menu execute="bl-recent-files-pipemenu -rl15" id="pipe-recentfilesmenu" label="Recent Files"/>
         <separator/>
-        <menu id="settings" label="Settings">
+        <menu id="preferences" label="Preferences">
             <menu id="obConfig" label="Openbox">
                 <item label="Edit menu.xml">
                     <action name="Execute">
@@ -196,6 +196,33 @@
             </menu>
             <menu execute="bl-compositor" id="CompositingPipeMenu" label="Compositor"/>
             <menu execute="bl-conky-pipemenu" id="pipe-conkymenu" label="Conky"/>
+            <menu execute="bl-tint2-pipemenu" id="pipe-tint2menu" label="Tint2"/>
+            <item label="User Interface Settings">
+                <action name="Execute">
+                    <command>
+                        lxappearance
+                    </command>
+                </action>
+            </item>
+            <item label="Choose Wallpaper">
+                <action name="Execute">
+                    <command>
+                        nitrogen
+                    </command>
+                </action>
+            </item>
+            <item label="Notifications Settings">
+                <action name="Execute">
+                    <command>xfce4-notifyd-config</command>
+                </action>
+            </item>
+            <item label="Power Management">
+                <action name="Execute">
+                    <command>
+                        xfce4-power-manager-settings
+                    </command>
+                </action>
+            </item>
             <menu id="dmenuconfig" label="dmenu">
                 <item label="Edit Start-up Script">
                     <action name="Execute">
@@ -230,7 +257,6 @@
                     </action>
                 </item>
             </menu>
-            <menu execute="bl-tint2-pipemenu" id="pipe-tint2menu" label="Tint2"/>
             <menu id="DisplaySettings" label="Display Settings">
                 <item label="ARandR Screen Layout Editor">
                     <action name="Execute">
@@ -248,41 +274,6 @@
                     </action>
                 </item>
             </menu>
-            <menu id="Notifications" label="Notifications">
-                <item label="Settings">
-                    <action name="Execute">
-                        <command>xfce4-notifyd-config</command>
-                    </action>
-                </item>
-            </menu>
-            <item label="User Interface Settings">
-                <action name="Execute">
-                    <command>
-                        lxappearance
-                    </command>
-                </action>
-            </item>
-            <item label="Power Management">
-                <action name="Execute">
-                    <command>
-                        xfce4-power-manager-settings
-                    </command>
-                </action>
-            </item>
-            <item label="Screensaver">
-                <action name="Execute">
-                    <command>
-                        xscreensaver-demo
-                    </command>
-                </action>
-            </item>
-            <item label="Choose Wallpaper">
-                <action name="Execute">
-                    <command>
-                        nitrogen
-                    </command>
-                </action>
-            </item>
         </menu>
         <menu id="system" label="System">
             <menu execute="bl-printing-pipemenu" id="PrintingPipeMenu" label="Printers"/>

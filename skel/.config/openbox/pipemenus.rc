@@ -3,9 +3,9 @@
 # between each entry.
 
 # Multimedia pipemenu (bl-multimedia-pipemenu)
-MM_APPS=( 'vlc' 'audacious' 'smplayer' )
+MM_APPS=( 'vlc' 'audacious' 'smplayer' 'gnome-mplayer' )
 MM_EDITORS=('mhwaveedit' 'audacity' 'openshot' )
-MM_UTILS=('xfburn' 'gtk-recordmydesktop' 'volti' )
+MM_UTILS=('xfburn' 'gtk-recordmydesktop' )
 
 # Graphics pipemenu (bl-graphics-pipemenu)
 GRAPHICS_APPS=( 'mirage' 'gimp' 'blender' 'inkscape' 'mandelbulber' 'viewnior' )

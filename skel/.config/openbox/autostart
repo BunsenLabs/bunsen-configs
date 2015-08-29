@@ -59,8 +59,8 @@ xfce4-power-manager &
 ## Start the battery applet
 (sleep 2; fdpowermon) &
 
-## Start xscreensaver
-xscreensaver -no-splash &
+## Start xscreensaver (light-locker now used by default, run via XDG autostart.)
+#xscreensaver -no-splash &
 
 ## Detect and configure touchpad. See 'man synclient' for more info.
 if egrep -iq 'touchpad' /proc/bus/input/devices; then
@@ -75,10 +75,6 @@ xset r rate 250 25 &
 
 ## Turn on/off system beep
 xset b off &
-
-## The following command runs hacks and fixes for #! LiveCD sessions.
-## Safe to delete after installation.
-#bl-cowpowers &
 
 ## bl-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
