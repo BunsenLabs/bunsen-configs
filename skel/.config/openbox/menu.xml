@@ -197,7 +197,7 @@
             <menu execute="bl-compositor" id="CompositingPipeMenu" label="Compositor"/>
             <menu execute="bl-conky-pipemenu" id="pipe-conkymenu" label="Conky"/>
             <menu execute="bl-tint2-pipemenu" id="pipe-tint2menu" label="Tint2"/>
-            <item label="User Interface Settings">
+            <item label="Appearance">
                 <action name="Execute">
                     <command>
                         lxappearance
