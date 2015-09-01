@@ -211,7 +211,7 @@
                     </command>
                 </action>
             </item>
-            <item label="Notifications Settings">
+            <item label="Notifications">
                 <action name="Execute">
                     <command>xfce4-notifyd-config</command>
                 </action>
@@ -257,7 +257,7 @@
                     </action>
                 </item>
             </menu>
-            <menu id="DisplaySettings" label="Display Settings">
+            <menu id="DisplaySettings" label="Display">
                 <item label="ARandR Screen Layout Editor">
                     <action name="Execute">
                         <command>
@@ -291,7 +291,14 @@
                     </command>
                 </action>
             </item>
-            <item label="User Login Settings">
+            <item label="Text Editor as root">
+                <action name="Execute">
+                    <command>
+                        gksudo bl-text-editor
+                    </command>
+                </action>
+            </item>
+            <item label="Login Settings">
                 <action name="Execute">
                     <command>
                         gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
