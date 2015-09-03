@@ -5,6 +5,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# for qt5 apps
+export QT_STYLE_OVERRIDE=GTK+
 
 # include sbin in PATH
 if [ -d "/sbin" ] ; then
