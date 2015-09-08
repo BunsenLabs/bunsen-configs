@@ -1,3 +1,11 @@
+bunsen-configs (8.4-1) bunsen-hydrogen; urgency=low
+
+  * Add graphic config tweaks.
+  * Add lightdm to recommends.
+  * Small menu tweaks.
+
+ -- John Crawley <john@rafflesnagoya.com>  Tue, 08 Sep 2015 16:43:00 +0900
+
 bunsen-configs (8.3-1) bunsen-hydrogen; urgency=low
 
   * openbox/rc.xml add keybinds for Iconify and ToggleMaximize.
