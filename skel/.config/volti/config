@@ -7,17 +7,17 @@ scale_increment = 1.0
 card_index = 0
 icon_theme = Faenza
 scale_show_value = 0
-mixer = alsamixer
+mixer = pavucontrol
 show_tooltip = 1
 notify_position = 0
 keys = 0
 toggle = mute
-mixer_internal = 1
+mixer_internal = 0
 notify_body = <span font_desc="14" weight="bold">{volume}</span>
 	<small>{card}</small>
 	<small>{mixer}</small>
 keys_backend = xlib
-run_in_terminal = 1
+run_in_terminal = 0
 notify_timeout = 2.0
 show_notify = 0
 
