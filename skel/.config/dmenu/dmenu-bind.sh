@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# written for BunsenLabs by <damo> May 2015
+# written for BunsenLabs by damo <damo@bunsenlabs.org> May 2015
 #
 # -nb    normal background colour
 # -nf    normal foreground colour
