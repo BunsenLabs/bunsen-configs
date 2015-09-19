@@ -2,7 +2,7 @@ bunsen-configs (8.4.1-1) bunsen-hydrogen; urgency=medium
 
   * Adjust volti config to use pavucontrol instead of internal mixer.
 
- -- John Crawley <john@rafflesnagoya.com>  Wed, 09 Sep 2015 16:31:33 +0900
+ -- John Crawley <john@bunsenlabs.org>  Wed, 09 Sep 2015 16:31:33 +0900
 
 bunsen-configs (8.4-1) bunsen-hydrogen; urgency=low
 
@@ -10,13 +10,13 @@ bunsen-configs (8.4-1) bunsen-hydrogen; urgency=low
   * Add lightdm to recommends.
   * Small menu tweaks.
 
- -- John Crawley <john@rafflesnagoya.com>  Tue, 08 Sep 2015 16:43:00 +0900
+ -- John Crawley <john@bunsenlabs.org>  Tue, 08 Sep 2015 16:43:00 +0900
 
 bunsen-configs (8.3-1) bunsen-hydrogen; urgency=low
 
   * openbox/rc.xml add keybinds for Iconify and ToggleMaximize.
 
- -- John Crawley <john@rafflesnagoya.com>  Sun, 30 Aug 2015 15:03:03 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sun, 30 Aug 2015 15:03:03 +0900
 
 bunsen-configs (8.2-1) bunsen-hydrogen; urgency=low
 
@@ -26,7 +26,7 @@ bunsen-configs (8.2-1) bunsen-hydrogen; urgency=low
   * openbox/pipemenus.rc add gnome-mplayer, remove volti.
   * openbox/rc.xml replace calls to bl-aerosnap with openbox builtins.
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 29 Aug 2015 17:43:09 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 29 Aug 2015 17:43:09 +0900
 
 bunsen-configs (8.1-1) bunsen-hydrogen; urgency=low
 
@@ -36,7 +36,7 @@ bunsen-configs (8.1-1) bunsen-hydrogen; urgency=low
   * Add configuration for fdpowermon.
   * Update suite to bunsen-hydrogen.
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 01 Aug 2015 11:57:28 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 01 Aug 2015 11:57:28 +0900
 
 bunsen-configs (8.0-1) unstable; urgency=low
 
@@ -47,51 +47,51 @@ bunsen-configs (8.0-1) unstable; urgency=low
   * Remove hardcoded references to Thunar or Geany.
   * Make capitalization consistent
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 24 Jul 2015 16:53:28 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 24 Jul 2015 16:53:28 +0900
 
 bunsen-configs (0.5-9) unstable; urgency=low
 
   * Remove cli apps from bl-alternatives.
   * Add trailing slash to $HOME in skel/.config/user-dirs.dirs
 
- -- John Crawley <john@rafflesnagoya.com>  Wed, 08 Jul 2015 19:41:14 +0900
+ -- John Crawley <john@bunsenlabs.org>  Wed, 08 Jul 2015 19:41:14 +0900
 
 bunsen-configs (0.5-8) unstable; urgency=low
 
   * Move wallpaper directory path for nitrogen from menu to nitrogen.cfg
   * Add "other files" to Thunar "open as root" custom action.
 
- -- John Crawley <john@rafflesnagoya.com>  Sun, 05 Jul 2015 12:11:28 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sun, 05 Jul 2015 12:11:28 +0900
 
 bunsen-configs (0.5-7) unstable; urgency=low
 
   * Correct .gtk-bookmarks to match directory names.
 
- -- John Crawley <john@rafflesnagoya.com>  Sun, 05 Jul 2015 10:25:10 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sun, 05 Jul 2015 10:25:10 +0900
 
 bunsen-configs (0.5-6) unstable; urgency=low
 
   * Add visual fixes.
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 04 Jul 2015 14:23:45 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 04 Jul 2015 14:23:45 +0900
 
 bunsen-configs (0.5-5) unstable; urgency=low
 
   * Test if alternative exists before removing in debian/bunsen-configs.prerm
 
- -- John Crawley <john@rafflesnagoya.com>  Tue, 30 Jun 2015 14:51:05 +0900
+ -- John Crawley <john@bunsenlabs.org>  Tue, 30 Jun 2015 14:51:05 +0900
 
 bunsen-configs (0.5-4) unstable; urgency=low
 
   * Add various bugfixes.
 
- -- John Crawley <john@rafflesnagoya.com>  Tue, 30 Jun 2015 14:00:11 +0900
+ -- John Crawley <john@bunsenlabs.org>  Tue, 30 Jun 2015 14:00:11 +0900
 
 bunsen-configs (0.5-3) unstable; urgency=low
 
   * Remove bl-alternatives install from debian/postinst.
 
- -- John Crawley <john@rafflesnagoya.com>  Mon, 29 Jun 2015 16:49:16 +0900
+ -- John Crawley <john@bunsenlabs.org>  Mon, 29 Jun 2015 16:49:16 +0900
 
 bunsen-configs (0.5-2) unstable; urgency=low
 
@@ -99,7 +99,7 @@ bunsen-configs (0.5-2) unstable; urgency=low
   * Adjust urxvt settings in skel/.Xresources
   * Add check for ~/.dmrc in etc/X11/Xsession.d/21-bunsen-lightdm-locale
 
- -- John Crawley <john@rafflesnagoya.com>  Mon, 29 Jun 2015 16:28:50 +0900
+ -- John Crawley <john@bunsenlabs.org>  Mon, 29 Jun 2015 16:28:50 +0900
 
 bunsen-configs (0.5-1) unstable; urgency=low
 
@@ -114,164 +114,164 @@ bunsen-configs (0.4-1) unstable; urgency=low
   * Put .desktop files in "applications" in repo source.
   * Update README
 
- -- John Crawley <john@rafflesnagoya.com>  Wed, 03 Jun 2015 14:07:13 +0900
+ -- John Crawley <john@bunsenlabs.org>  Wed, 03 Jun 2015 14:07:13 +0900
 
 bunsen-configs (0.3-20) unstable; urgency=low
 
-  * Correct error in filepath in debian/install. 
+  * Correct error in filepath in debian/install.
 
- -- John Crawley <john@rafflesnagoya.com>  Mon, 01 Jun 2015 15:17:17 +0900
+ -- John Crawley <john@bunsenlabs.org>  Mon, 01 Jun 2015 15:17:17 +0900
 
 bunsen-configs (0.3-19) unstable; urgency=low
 
   * Add workaround for lightdm locale bug.
 
- -- John Crawley <john@rafflesnagoya.com>  Mon, 01 Jun 2015 15:08:33 +0900
+ -- John Crawley <john@bunsenlabs.org>  Mon, 01 Jun 2015 15:08:33 +0900
 
 bunsen-configs (0.3-18) unstable; urgency=low
 
   * Moved 'How to Edit Menu' item to 'Settings/Openbox' in menu.xml.
 
- -- John Crawley <john@rafflesnagoya.com>  Mon, 01 Jun 2015 13:19:37 +0900
+ -- John Crawley <john@bunsenlabs.org>  Mon, 01 Jun 2015 13:19:37 +0900
 
 bunsen-configs (0.3-17) unstable; urgency=low
 
   * Update local mimetype settings to use bl-* alternatives.
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 30 May 2015 13:34:12 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 30 May 2015 13:34:12 +0900
 
 bunsen-configs (0.3-16) unstable; urgency=low
 
   * Add skel/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
   * Remove skel/.config/Thunar/thunarrc
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 30 May 2015 13:06:40 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 30 May 2015 13:06:40 +0900
 
 bunsen-configs (0.3-15) unstable; urgency=low
 
   * Correct errors in debian/bunsen-configs.dirs
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 30 May 2015 12:02:48 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 30 May 2015 12:02:48 +0900
 
 bunsen-configs (0.3-14) unstable; urgency=low
 
   * Move skel to /usr/share/bunsen.
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 12:57:54 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 29 May 2015 12:57:54 +0900
 
 bunsen-configs (0.3-13) unstable; urgency=low
 
   * Add checks in preinst before removing old conffiles.
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 12:38:13 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 29 May 2015 12:38:13 +0900
 
 bunsen-configs (0.3-12) unstable; urgency=low
 
   * Move user config files to /usr/share/bunsen/bunsen-configs/skel.
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 28 May 2015 22:06:18 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 28 May 2015 22:06:18 +0900
 
 bunsen-configs (0.3-11) unstable; urgency=low
 
   * Enable conky and tint2 session scripts in autostart by default.
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 28 May 2015 13:12:23 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 28 May 2015 13:12:23 +0900
 
 bunsen-configs (0.3-10) unstable; urgency=low
 
   * Backup menu.xml, rc.xml and autostart before editing.
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 22 May 2015 11:36:48 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 22 May 2015 11:36:48 +0900
 
 bunsen-configs (0.3-9) unstable; urgency=low
 
   * Update ~/.conkyrc to BunsenLabs default.
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 21 May 2015 13:33:57 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 21 May 2015 13:33:57 +0900
 
 bunsen-configs (0.3-8) unstable; urgency=low
 
   * Add tint2-bottom.
 
- -- John Crawley <john@rafflesnagoya.com>  Wed, 20 May 2015 11:57:03 +0900
+ -- John Crawley <john@bunsenlabs.org>  Wed, 20 May 2015 11:57:03 +0900
 
 bunsen-configs (0.3-7) unstable; urgency=low
 
   * Add relationship with bunsen-utilities to debian/control.
 
- -- John Crawley <john@rafflesnagoya.com>  Mon, 18 May 2015 18:25:42 +0900
+ -- John Crawley <john@bunsenlabs.org>  Mon, 18 May 2015 18:25:42 +0900
 
 bunsen-configs (0.3-6) unstable; urgency=low
 
   * Add bl-gvim, formerly in bunsen-utilities.
 
- -- John Crawley <john@rafflesnagoya.com>  Sun, 17 May 2015 22:54:22 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sun, 17 May 2015 22:54:22 +0900
 
 bunsen-configs (0.3-5) unstable; urgency=low
 
   * Add bl-alternatives, formerly in bunsen-utilities.
 
- -- John Crawley <john@rafflesnagoya.com>  Sun, 17 May 2015 22:43:00 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sun, 17 May 2015 22:43:00 +0900
 
 bunsen-configs (0.3-4) unstable; urgency=low
 
   * Fix Conky shadow bug in ~/.config/compton.conf.
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 14 May 2015 15:29:25 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 14 May 2015 15:29:25 +0900
 
 bunsen-configs (0.3-3) unstable; urgency=low
 
   * Set theme to Bunsen.
 
- -- John Crawley <john@rafflesnagoya.com>  Mon, 11 May 2015 14:23:13 +0900
+ -- John Crawley <john@bunsenlabs.org>  Mon, 11 May 2015 14:23:13 +0900
 
 bunsen-configs (0.3-2) unstable; urgency=low
 
   * Change login background.
 
- -- John Crawley <john@rafflesnagoya.com>  Sun, 10 May 2015 14:21:38 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sun, 10 May 2015 14:21:38 +0900
 
 bunsen-configs (0.3-1) unstable; urgency=low
 
   * Move bl-user-setup here from bunsen-utilities.
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 09 May 2015 18:28:15 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 09 May 2015 18:28:15 +0900
 
 bunsen-configs (0.2-3) unstable; urgency=low
 
   * Add lightdm config files.
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 07 May 2015 16:47:32 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 07 May 2015 16:47:32 +0900
 
 bunsen-configs (0.2-2) unstable; urgency=low
 
   * Change path to default wallpaper for Nitrogen.
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 07 May 2015 14:44:01 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 07 May 2015 14:44:01 +0900
 
 bunsen-configs (0.2-1) unstable; urgency=low
 
   * Enable BunsenLabs alternatives and add .desktop files.
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 25 Apr 2015 15:24:38 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 25 Apr 2015 15:24:38 +0900
 
 bunsen-configs (0.1-9) unstable; urgency=low
 
   * Openbox: enable bl-welcome in autostart, and three pipemenus in menu.xml.
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 21 Mar 2015 11:39:42 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 21 Mar 2015 11:39:42 +0900
 
 bunsen-configs (0.1-8) unstable; urgency=low
 
   * Rename bl-terminal-emulator.desktop
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 20 Mar 2015 09:54:18 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 20 Mar 2015 09:54:18 +0900
 
 bunsen-configs (0.1-7) unstable; urgency=medium
 
   * Add /usr/share/applications/bunsen-terminal-emulator.desktop
 
- -- John Crawley <john@rafflesnagoya.com>  Tue, 03 Mar 2015 11:54:19 +0900
+ -- John Crawley <john@bunsenlabs.org>  Tue, 03 Mar 2015 11:54:19 +0900
 
 bunsen-configs (0.1-6) unstable; urgency=medium
 
@@ -284,7 +284,7 @@ bunsen-configs (0.1-5) unstable; urgency=medium
 
   * add empty directories to debian/bunsen-configs.install
 
- -- John Crawley <john@rafflesnagoya.com>  Sat, 28 Feb 2015 18:48:35 +0900
+ -- John Crawley <john@bunsenlabs.org>  Sat, 28 Feb 2015 18:48:35 +0900
 
 bunsen-configs (0.1-4) unstable; urgency=medium
 
@@ -314,44 +314,44 @@ bunsen-configs (0.1) unstable; urgency=low
 
   * Switch to dpkg-source 3.0 (quilt) format
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 26 Feb 2015 11:09:29 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 26 Feb 2015 11:09:29 +0900
 
 bunsen-configs (20150225) unstable; urgency=low
 
   * edit /etc/skel/.config/openbox/autostart
   * replace references to terminator with x-terminal-emulator
 
- -- John Crawley <john@rafflesnagoya.com>  Tue, 17 Feb 2015 23:18:05 +0900
+ -- John Crawley <john@bunsenlabs.org>  Tue, 17 Feb 2015 23:18:05 +0900
 
 bunsen-configs (20150217) unstable; urgency=low
 
   * rename for Bunsen Labs
 
- -- John Crawley <john@rafflesnagoya.com>  Tue, 17 Feb 2015 23:18:05 +0900
+ -- John Crawley <john@bunsenlabs.org>  Tue, 17 Feb 2015 23:18:05 +0900
 
 tb-configs (20150211-2) unstable; urgency=low
 
   * change /etc/skel/.config/zurg to /etc/skel/.config/tinkerbox
 
- -- John Crawley <john@rafflesnagoya.com>  13 Feb 2015 23:18:05 +0900
+ -- John Crawley <john@bunsenlabs.org>  13 Feb 2015 23:18:05 +0900
 
 tb-configs (20150211-1) unstable; urgency=low
 
   * add .xsessionrc, correct theme settings, add Thunar uca.xml
 
- -- John Crawley <john@rafflesnagoya.com>  11 Feb 2015 23:18:05 +0900
+ -- John Crawley <john@bunsenlabs.org>  11 Feb 2015 23:18:05 +0900
 
 tb-configs (20150211) unstable; urgency=low
 
   * rename package and any zurg-* executables
 
- -- John Crawley <john@rafflesnagoya.com>  11 Feb 2015 23:18:05 +0900
+ -- John Crawley <john@bunsenlabs.org>  11 Feb 2015 23:18:05 +0900
 
 zurg-configs (20150208) unstable; urgency=low
 
   * Rough edits for jessie
 
- -- John Crawley <john@rafflesnagoya.com>  8 Feb 2015 23:18:05 +0900
+ -- John Crawley <john@bunsenlabs.org>  8 Feb 2015 23:18:05 +0900
 
 cb-configs (20130504-2) unstable; urgency=low
 
