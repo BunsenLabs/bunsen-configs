@@ -1,7 +1,9 @@
 bunsen-configs (8.5-1) bunsen-hydrogen; urgency=medium
 
   * Set default fonts in skel/.config/fontconfig/fonts.conf to Droid family.
-  * Set fonts in user config files to Sans or Monospace. 
+  * Set fonts in user config files to Sans or Monospace.
+  * Adjust some default window sizes.
+  * Update developer email addresses. 
 
  -- John Crawley <john@bunsenlabs.org>  Sun, 04 Oct 2015 12:36:38 +0900
 
