@@ -83,7 +83,7 @@ taskbar_active_background_id = 6
 taskbar_name = 0
 taskbar_name_background_id = 0
 taskbar_name_active_background_id = 0
-taskbar_name_font = Liberation Sans 9
+taskbar_name_font = Sans 9
 taskbar_name_font_color = #828282 100
 taskbar_name_active_font_color = #828282 100
 
@@ -106,7 +106,7 @@ task_urgent_icon_asb = 100 0 0
 task_iconified_icon_asb = 80 0 0
 
 # Fonts
-task_font = Liberation Sans 06_55 6
+task_font = Sans 06_55 6
 task_font_color = #828282 60
 task_active_font_color = #828282 100
 task_urgent_font_color = #FFFFFF 100
@@ -138,9 +138,9 @@ systray_icon_asb = 100 0 0
 
 # Clock
 time1_format = %H:%M
-time1_font = Liberation Sans 11
+time1_font = Sans 11
 #time2_format = %A %d %B
-#time2_font = Liberation Sans 6
+#time2_font = Sans 6
 clock_font_color = #b5b5b5 100
 clock_padding = 12 4
 clock_background_id = 0
@@ -154,7 +154,7 @@ tooltip_show_timeout = 0.0
 tooltip_hide_timeout = 0.0
 tooltip_background_id = 7
 tooltip_font_color = #d8d8d8 100
-tooltip_font = Liberation Sans normal 9.0
+tooltip_font = Sans normal 9.0
 
 # Mouse
 mouse_middle = none
@@ -167,8 +167,8 @@ battery = 1
 battery_low_status = 20
 battery_low_cmd = notify-send "battery low"
 battery_hide = 96
-bat1_font = Liberation Mono 8
-bat2_font = Liberation Mono 8
+bat1_font = Monospace 8
+bat2_font = Monospace 8
 battery_font_color = #b5b5b5 100
 battery_padding = 2 0
 battery_background_id = 0

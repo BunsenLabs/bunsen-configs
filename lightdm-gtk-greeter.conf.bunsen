@@ -19,7 +19,7 @@
 background=/usr/share/backgrounds/bunsen/bunsen-images/bl-default/bl-login-1920x1200.png
 theme-name=Bunsen-lightdm
 icon-theme-name=Bunsen-lightdm
-font-name=Free Sans Bold 10
+font-name=Sans Bold 10
 xft-antialias=true
 #xft-dpi=
 xft-hintstyle=hintslight

@@ -1,5 +1,5 @@
-
 # uncomment the code below to enable steppers in gtk2 apps
+# (see ~/.config/gtk-3.0/gtk.css for gtk3)
 
 #style "scrollbar-steppers"
 #{

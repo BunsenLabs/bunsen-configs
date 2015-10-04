@@ -1,4 +1,5 @@
 /* uncomment the code below to enable steppers in gtk3 apps */
+/* (see ~/.gtkrc-2.0.mine for gtk2) */
 
 /*
 .scrollbar, .scrollbar.vertical {
