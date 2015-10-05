@@ -1,6 +1,3 @@
-usr/share/bunsen/skel/.fonts 
-usr/share/bunsen/skel/.icons 
-usr/share/bunsen/skel/.themes 
 usr/share/bunsen/skel/bin 
 usr/share/bunsen/skel/tmp
 usr/share/bunsen/skel/Pictures/wallpapers
@@ -13,3 +10,6 @@ usr/share/bunsen/skel/.config/bunsen
 usr/share/bunsen/skel/.config/geany/colorschemes
 usr/share/bunsen/skel/.config/geany/plugins
 usr/share/bunsen/skel/.config/geany/tags
+usr/share/bunsen/skel/.local/share/fonts 
+usr/share/bunsen/skel/.local/share/icons 
+usr/share/bunsen/skel/.local/share/themes 

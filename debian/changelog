@@ -1,3 +1,10 @@
+bunsen-configs (8.6-1) bunsen-hydrogen; urgency=low
+
+  * Move user fonts, icons & themes directories to ~/.local/share
+  * Fix clock font in tint2rc and tint2rc-bottom. 
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 05 Oct 2015 10:46:12 +0900
+
 bunsen-configs (8.5-1) bunsen-hydrogen; urgency=medium
 
   * Set default fonts in skel/.config/fontconfig/fonts.conf to Droid family.
