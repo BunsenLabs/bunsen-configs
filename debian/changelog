@@ -1,3 +1,11 @@
+bunsen-configs (8.6.1-1) bunsen-hydrogen; urgency=medium
+
+  * Add /usr/share/applications/mimeapps.list
+  * Move skel/.local/share/applications/mimeapps.list to skel/.config
+  * Add symlink of user mimeapps.list from old to new location.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 07 Oct 2015 17:57:43 +0900
+
 bunsen-configs (8.6-1) bunsen-hydrogen; urgency=low
 
   * Move user fonts, icons & themes directories to ~/.local/share

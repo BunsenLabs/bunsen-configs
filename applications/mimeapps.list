@@ -17,3 +17,4 @@ audio/aac=bl-mediaplayer.desktop
 video/webm=bl-mediaplayer.desktop
 video/x-ms-asf=bl-mediaplayer.desktop
 video/x-theora+ogg=bl-mediaplayer.desktop
+application/x-deb=gdebi.desktop
