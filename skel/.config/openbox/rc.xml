@@ -47,7 +47,7 @@
 
   <theme>
     <name>Bunsen</name>
-    <titleLayout>DSLIMC</titleLayout>
+    <titleLayout>NDSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
