@@ -1,3 +1,9 @@
+bunsen-configs (8.6.2-1) bunsen-hydrogen; urgency=low
+
+  * openbox/rc.xml: add icon setting('N') to <titleLayout>
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 26 Oct 2015 11:08:48 +0900
+
 bunsen-configs (8.6.1-1) bunsen-hydrogen; urgency=medium
 
   * Add /usr/share/applications/mimeapps.list
