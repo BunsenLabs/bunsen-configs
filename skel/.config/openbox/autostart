@@ -62,12 +62,8 @@ xfce4-power-manager &
 ## Start xscreensaver (light-locker now used by default, run via XDG autostart.)
 #xscreensaver -no-splash &
 
-## Detect and configure touchpad. See 'man synclient' for more info.
-if egrep -iq 'touchpad' /proc/bus/input/devices; then
-    synclient VertEdgeScroll=1 &
-    synclient HorizEdgeScroll=1 &
-    synclient TapButton1=1 &
-fi
+## Configure touchpad. See 'man synaptics' for more info.
+synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
