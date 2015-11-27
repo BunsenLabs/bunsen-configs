@@ -1,10 +1,11 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=File Manager
+Name=BL File Manager
 Comment=The BunsenLabs default, bl-file-manager
-Exec=bl-file-manager %f
+GenericName=File Manager
+Exec=bl-file-manager %F
 Icon=system-file-manager
 Terminal=false
-StartupNotify=false
-Categories=System;Utility;Core;GTK;FileTools;FileManager;
+Categories=System;Utility;Core;FileTools;FileManager;
+MimeType=inode/directory;

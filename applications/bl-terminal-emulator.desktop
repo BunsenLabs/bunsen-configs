@@ -1,10 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
+Name=X Terminal Emulator
+Comment=Invoke x-terminal-emulator
+GenericName=Terminal Emulator
 Exec=x-terminal-emulator
 Icon=utilities-terminal
-StartupNotify=false
 Terminal=false
-Categories=GTK;Utility;TerminalEmulator;
-Name=Terminal (default)
-Comment=Invoke x-terminal-emulator
+Categories=Utility;TerminalEmulator;

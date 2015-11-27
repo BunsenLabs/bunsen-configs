@@ -117,6 +117,9 @@ font_shadow = 0
 launcher_padding = 8 4 4
 launcher_background_id = 0
 launcher_icon_size = 24
+# decolorize launcher icons
+#launcher_icon_asb = 100 -100 -5
+launcher_tooltip = 1
 # Specify icon theme names with launcher_icon_theme.
 # if you have an XSETTINGS manager running (like xfsettingsd), tint2 will follow your current theme.
 launcher_icon_theme = Faenza-Dark-Bunsen

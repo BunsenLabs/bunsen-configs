@@ -25,9 +25,6 @@ eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 ## for authentication
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-## Set root window colour
-#hsetroot -solid "#2E3436" &
-
 nitrogen --restore &
 
 bl-compositor --start &

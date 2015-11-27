@@ -1,11 +1,11 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Exec=x-www-browser
+Name=X Web Browser
+Comment=Invoke x-www-browser
+GenericName=Web Browser
+Exec=x-www-browser %u
 Icon=web-browser
-StartupNotify=false
 Terminal=false
 Categories=Network;WebBrowser;
-Name=Web Browser (default)
-Comment=Invoke x-www-browser
 MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;

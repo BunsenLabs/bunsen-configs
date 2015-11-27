@@ -35,16 +35,16 @@ own_window_title Bunsen Labs Default Conky
 minimum_size 200 0  ### width | height
 maximum_width 200
 
-gap_x 20	### left | right
-gap_y 45	### up | down
+gap_x 20    ### left | right
+gap_y 45    ### up | down
 
 alignment tr
 #######################  End Window Settings  ###
 ###  Font Settings  #############################
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
-xftfont Liberation Mono:bold:size=9
-#ftfont Liberation Sans:size=9
+xftfont Monospace:bold:size=9
+#xftfont Liberation Sans:size=9
 
 # Alpha of Xft font. Must be a value at or between 1 and 0 ###
 xftalpha 1
@@ -129,7 +129,7 @@ double_buffer yes
 # temperature_unit Fahrenheit
 
 #################  End Miscellaneous Section  ###
-#### ${font Liberation Mono:bold:size=10}${alignc}${execpi 600 $HOME/.config/conky/scripts/bunsenweather.sh}
+#### ${font Monospace:bold:size=10}${alignc}${execpi 600 $HOME/.config/conky/scripts/bunsenweather.sh}
 update_interval 1
 
 TEXT
