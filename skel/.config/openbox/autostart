@@ -19,6 +19,23 @@
 ## http://bunsenlabs.org
 ##
 
+## SETTINGS START
+
+## Configure touchpad. See 'man synaptics' for more info.
+synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+## Adjust the values according to your preferances.
+xset r rate 250 25
+
+## Turn on/off system beep.
+xset b off
+
+## Add keyboard mapping.
+#xmodmap -e "keysym Insert = Multi_key"
+
+## SETTINGS END
+
 ## GNOME PolicyKit and Keyring
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
@@ -58,16 +75,6 @@ xfce4-power-manager &
 
 ## Start xscreensaver (light-locker now used by default, run via XDG autostart.)
 #xscreensaver -no-splash &
-
-## Configure touchpad. See 'man synaptics' for more info.
-synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
-
-## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
-## Adjust the values according to your preferances.
-xset r rate 250 25 &
-
-## Turn on/off system beep
-xset b off &
 
 ## bl-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
