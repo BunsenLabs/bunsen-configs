@@ -116,7 +116,7 @@ font_shadow = 0
 # Launcher
 launcher_padding = 8 4 4
 launcher_background_id = 0
-launcher_icon_size = 24
+launcher_icon_size = 0
 # decolorize launcher icons
 #launcher_icon_asb = 100 -100 -5
 launcher_tooltip = 1
@@ -136,7 +136,7 @@ systray = 1
 systray_padding = 4 2 3
 systray_sort = right2left
 systray_background_id = 0
-systray_icon_size = 24
+systray_icon_size = 0
 systray_icon_asb = 100 0 0
 
 # Clock

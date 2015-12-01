@@ -1,3 +1,12 @@
+bunsen-configs (8.6.4-1) bunsen-hydrogen; urgency=low
+
+  * Add caja to possible alternative file managers in bl-alternatives.
+  * Add symlinks from ~/.{icons,fonts,themes} to 
+    new locations in~/.local/share.
+  * Set tint2 icon sizes to 0 to allow resizing.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 01 Dec 2015 18:09:45 +0900
+
 bunsen-configs (8.6.3-1) bunsen-hydrogen; urgency=medium
 
   * Clean up .desktop files in applications/.
