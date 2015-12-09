@@ -5,6 +5,37 @@
         xsi:schemaLocation="http://openbox.org/
                 file:///usr/share/openbox/menu.xsd">
 
+    <menu id="exit-menu" label="Exit">
+        <item label="Log out">
+            <action name="Execute">
+                <command>
+                    bl-exit --logout
+                </command>
+            </action>
+        </item>
+        <item label="Suspend">
+            <action name="Execute">
+                <command>
+                    bl-exit --suspend
+                </command>
+            </action>
+        </item>
+        <item label="Reboot">
+            <action name="Execute">
+                <command>
+                    bl-exit --reboot
+                </command>
+            </action>
+        </item>
+        <item label="Power off">
+            <action name="Execute">
+                <command>
+                    bl-exit --poweroff
+                </command>
+            </action>
+        </item>
+    </menu>
+
     <menu id="root-menu" label="Openbox 3">
         <item label="Run Program">
             <action name="Execute">
@@ -344,5 +375,11 @@
                 </command>
             </action>
         </item>
+<!-- comment out or remove the preceding "Exit" item,
+and uncomment the following "exit-menu"
+for one-click exit options. -->
+<!--
+        <menu id="exit-menu"></menu>
+-->
     </menu>
 </openbox_menu>
