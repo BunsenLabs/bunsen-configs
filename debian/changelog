@@ -1,3 +1,10 @@
+bunsen-configs (8.6.5-1) bunsen-hydrogen; urgency=low
+
+  * bl-alternatives: Extend lists of alternative applications.
+  * applications/bl-www-browser.desktop: Change icon to applications-internet.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 19 Dec 2015 12:17:06 +0900
+
 bunsen-configs (8.6.4-1) bunsen-hydrogen; urgency=low
 
   * Add caja to possible alternative file managers in bl-alternatives.
