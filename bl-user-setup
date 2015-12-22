@@ -2,27 +2,37 @@
 # BunsenLabs User Set-up
 
 # USER="$1" USER is exported by lightdm
+[[ "$USER" = root || ! -d /home/"$USER" ]] && { echo "$0: variable USER has not been set correctly." >&2; exit 1;}
 
 [ -f "/home/$USER/.config/bunsen/bl-setup" ] && exit 0
 
-cd /usr/share/bunsen/skel
-tar cpzf skel.tar.gz .
-mv skel.tar.gz /home/$USER/skel.tar.gz
-cd /home/$USER
-tar --suffix="~$( date +%FT%T )~" -xpsf skel.tar.gz
-rm skel.tar.gz
+bkp_sfx="~$( date +%FT%T )~"
+
+rsync -rltb --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ /home/$USER
 
 for i in "/home/$USER/.gtk-bookmarks" "/home/$USER/.config/nitrogen/nitrogen.cfg"
 do
-    [ -f "$i" ] && {
-        sed --in-place="~$( date +%FT%T )~" "s/REPLACEME/$USER/g" "$i"
-    }
+    [ -f "${i}.template" ] || continue
+    sed --in-place "s/%USERNAME%/$USER/g" "${i}.template"
+    if [ -f "$i" ]
+    then
+        if diff -BEbZ "$i" "${i}.template" >/dev/null
+        then
+            rm "${i}.template"
+        else
+            mv "$i" "${i}${bkp_sfx}"
+            mv "${i}.template" "$i"
+        fi
+    else
+        mv "${i}.template" "$i"
+    fi
 done
 
-ln -s /usr/share/backgrounds "/home/$USER/Pictures/wallpapers/shared"
+ln -sTf /usr/share/backgrounds "/home/$USER/Pictures/wallpapers/shared"
 
 mkdir -p "/home/$USER/.config/bunsen" # this should already exist
 touch "/home/$USER/.config/bunsen/bl-setup"
+
 chown -R "$USER":"$USER" "/home/$USER"
 
 exit
