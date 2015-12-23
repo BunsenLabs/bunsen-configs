@@ -1,3 +1,9 @@
+bunsen-configs (8.6.7-1) bunsen-hydrogen; urgency=high
+
+  * skel/.config/fdpowermon/theme.cfg: Fix icon directory path.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 23 Dec 2015 16:08:30 +0900
+
 bunsen-configs (8.6.6-1) bunsen-hydrogen; urgency=low
 
   * bl-user-setup: Reduce unnecessary backups of existing files.
