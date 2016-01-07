@@ -1,3 +1,9 @@
+bunsen-configs (8.6.8-1) bunsen-hydrogen; urgency=low
+
+  * openbox/rc.xml: add keybinding Super+Esc for xkill.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 07 Jan 2016 16:15:42 +0900
+
 bunsen-configs (8.6.7-1) bunsen-hydrogen; urgency=high
 
   * skel/.config/fdpowermon/theme.cfg: Fix icon directory path.

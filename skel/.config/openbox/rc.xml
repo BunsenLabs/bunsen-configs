@@ -417,6 +417,17 @@
         <command>bl-exit</command>
       </action>
     </keybind>
+    <keybind key="W-Escape">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>false</enabled>
+          <name>xkill</name>
+        </startupnotify>
+        <command>xkill</command>
+      </action>
+    </keybind>
+
+    <!-- Keybindings for menus -->
     <keybind key="W-Tab">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
@@ -432,6 +443,7 @@
         <menu>root-menu</menu>
       </action>
     </keybind>
+
     <!-- A bit of tiling -->
     <keybind key="W-Right">
       <action name="GrowToEdgeEast"/>
