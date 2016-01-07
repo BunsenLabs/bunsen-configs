@@ -1,3 +1,10 @@
+bunsen-configs (8.6.9-1) bunsen-hydrogen; urgency=medium
+
+  * openbox/menu.xml: Damo: replace zenity with yad.
+  * openbox/menu.xml: Damo: add blobthemes to "Accessories" menu.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 07 Jan 2016 17:21:51 +0900
+
 bunsen-configs (8.6.8-1) bunsen-hydrogen; urgency=low
 
   * openbox/rc.xml: add keybinding Super+Esc for xkill.
