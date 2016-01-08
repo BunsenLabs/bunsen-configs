@@ -316,6 +316,12 @@
       <direction>down</direction>
     </action>
   </keybind>
+  <keybind key="A-r">
+    <action name="Resize"/>
+      </keybind>
+    <keybind key="A-m">
+  <action name="Move"/>
+  </keybind>
 
     <!-- Keybindings for running applications -->
     <keybind key="A-F2">
