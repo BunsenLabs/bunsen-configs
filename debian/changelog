@@ -1,3 +1,12 @@
+bunsen-configs (8.6.10-1) bunsen-hydrogen; urgency=medium
+
+  * Export XDG_CURRENT_DESKTOP=XFCE to improve xdg-open behaviour.
+  * Add nitrogen, scrot and yad to Recommends.
+  * Replace zenity with yad in various places.
+  * Add keyboard shortcut to toggle audio muting.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 25 Jan 2016 12:09:19 +0900
+
 bunsen-configs (8.6.9-1) bunsen-hydrogen; urgency=medium
 
   * openbox/menu.xml: Damo: replace zenity with yad.

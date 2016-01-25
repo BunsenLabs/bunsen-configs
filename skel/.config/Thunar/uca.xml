@@ -11,7 +11,7 @@
   <action>
     <icon>utilities-terminal</icon>
     <name>Open terminal here</name>
-    <command>sh -c 'cd %f;x-terminal-emulator'</command>
+    <command>sh -c &apos;cd %f;x-terminal-emulator&apos;</command>
     <description />
     <patterns>*</patterns>
     <directories />
@@ -19,7 +19,7 @@
   <action>
     <icon>gksu-root-terminal</icon>
     <name>Open root terminal here</name>
-    <command>sh -c 'cd %f;gksudo x-terminal-emulator'</command>
+    <command>sh -c &apos;cd %f;gksudo x-terminal-emulator&apos;</command>
     <description />
     <patterns>*</patterns>
     <directories />
@@ -44,7 +44,7 @@
   <action>
     <icon>applications-system</icon>
     <name>Check md5 sum</name>
-    <command>zenity --info --title=&quot;Check md5 for %n&quot; --text=&quot;$(md5sum %f)&quot;</command>
+    <command>yad --image=dialog-info --button=OK --title=&quot;Check md5 for %n&quot; --text=&quot;$(md5sum %f)&quot; --borders=20 --center</command>
     <description />
     <patterns>*.iso;*.img;*.sub</patterns>
     <other-files />

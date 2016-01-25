@@ -1,7 +1,7 @@
 #!/bin/sh
-#  Wrapper script to invoke gvim in GUI mode, typically used as target of a 
-#  link (like /etc/alternatives/bl-text-editor).  Rationale: only links to 
-#  /usr/bin/vim.* starting with the letter 'g' like /etc/alternatives/gvim or 
+#  Wrapper script to invoke gvim in GUI mode, typically used as target of a
+#  link (like /etc/alternatives/bl-text-editor).  Rationale: only links to
+#  /usr/bin/vim.* starting with the letter 'g' like /etc/alternatives/gvim or
 #  gnome-text-editor actually invoke GUI mode (without using the -g option).
 
 GVIM="`readlink -e /etc/alternatives/gvim`"
@@ -11,10 +11,10 @@ case $GVIM in
     ERROR="gvim is missing or not installed."
     RX="Install vim-gnome, vim-gtk, or vim-athena."
     if [ "$DISPLAY" ] ; then
-	TEXT="<big>$ERROR</big>\n\n$RX"
-	zenity --info --title="${SELF##*/}" --text="$TEXT" --width=400
+        TEXT="<big>$ERROR</big>\n\n$RX"
+        yad --image=dialog-info --button=OK --title="${SELF##*/}" --text="$TEXT" --width=400 --borders=20 --center
     else
-	echo "${SELF##*/}: $ERROR" >&2
+        echo "${SELF##*/}: $ERROR" >&2
     fi
     exit 1
     ;;
@@ -22,7 +22,7 @@ case $GVIM in
     echo "${SELF##*/}: error attempting to recursively execute self." >&2
     exit 1
     ;;
-*) 
+*)
     gvim "$@"
     ;;
 esac

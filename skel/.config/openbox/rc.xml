@@ -358,7 +358,7 @@
     <keybind key="W-w">
       <action name="Execute">
         <startupnotify>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <name>Web Browser</name>
         </startupnotify>
         <command>x-www-browser</command>
@@ -367,7 +367,7 @@
     <keybind key="W-l">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>Lock screen</name>
         </startupnotify>
         <command>bl-lock</command>
@@ -409,10 +409,15 @@
         <command>pavucontrol</command>
       </action>
     </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>amixer set -D pulse Master toggle</command>
+      </action>
+    </keybind>
     <keybind key="W-x">
       <action name="Execute">
         <startupnotify>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <name>Logout</name>
         </startupnotify>
         <command>bl-exit</command>
