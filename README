@@ -2,23 +2,23 @@ bunsen-configs
 ==============
 
 This package holds configuration files and scripts that are featured
-on a Bunsen Labs installation. Many of them have been inherited from
+on a Bunsen Labs installation. Some of them have been inherited from
 CrunchBang Linux by Philip Newborough.
 
-Please note that these merely represent (what we consider to be) sane defaults,
-so please do not make any pull request that simply changes things 
-to your personal preference. 
-If, however, you deem something is wrong you are of course free to raise an
-issue and discuss this.
+The main content is:
 
-The main content is a collection of user configuration files templates,
+*) A collection of user configuration files templates,
 stored in /usr/share/bunsen/skel
 
-There are also four new groups added to debian alternatives:
-	bl-file-manager
-	bl-image-viewer
-	bl-media-player
-	bl-text-editor
+*) Configuration for lightdm, including a workaround for language selection.
+
+*) Default mimetype configuration.
+
+*) There are four new groups added to debian alternatives:
+  bl-file-manager
+  bl-image-viewer
+  bl-media-player
+  bl-text-editor
 along with corresponding .desktop files and a mimeapps.list.
 These enable users to have more flexibility in their choice of default applications
 without having to edit menus, scripts or keyboard shortcuts.
@@ -31,7 +31,4 @@ Bugs
 For any bug or request [fill an issue][bug] on [GitHub][ghp].
 
   [bug]: https://github.com/BunsenLabs/configs/issues
-  [ghp]: https://github.com/BunsenLabs/configs 
-
-This repository is also being discussed here:
-  http://crunchbang.org/forums/viewtopic.php?id=39135
+  [ghp]: https://github.com/BunsenLabs/configs
