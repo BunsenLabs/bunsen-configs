@@ -1,3 +1,10 @@
+bunsen-configs (8.6.12-1) bunsen-hydrogen; urgency=medium
+
+  * Move gnome-keyring initialization from ~/config/openbox/autostart
+    to ~/.config/openbox/environment, and remove ssh and gpg elements.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 07 Feb 2016 11:15:46 +0900
+
 bunsen-configs (8.6.11-1) bunsen-hydrogen; urgency=low
 
   * Update README and debian/copyright.
