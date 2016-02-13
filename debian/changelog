@@ -1,3 +1,9 @@
+bunsen-configs (8.6.13-1) bunsen-hydrogen; urgency=low
+
+  * skel/.config/Thunar/uca.xml Replace md5 with sha256 in custom actions.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 13 Feb 2016 20:19:54 +0900
+
 bunsen-configs (8.6.12-1) bunsen-hydrogen; urgency=medium
 
   * Move gnome-keyring initialization from ~/config/openbox/autostart

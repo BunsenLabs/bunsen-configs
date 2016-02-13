@@ -43,8 +43,8 @@
   </action>
   <action>
     <icon>applications-system</icon>
-    <name>Check md5 sum</name>
-    <command>yad --image=dialog-info --button=OK --title=&quot;Check md5 for %n&quot; --text=&quot;$(md5sum %f)&quot; --borders=20 --center</command>
+    <name>Check sha256 sum</name>
+    <command>yad --image=dialog-info --button=OK --title=&quot;Check sha256 for %n&quot; --text=&quot;$(sha256sum %f)&quot; --borders=20 --center</command>
     <description />
     <patterns>*.iso;*.img;*.sub</patterns>
     <other-files />
