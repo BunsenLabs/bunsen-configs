@@ -1,0 +1,41 @@
+/* This is the user default calendar file, used if calendar(1)
+ * is invoked by a user with a ~/.calendar/calendar file.
+ *
+ * In the standard setup, we simply include the default calendar
+ * definitions from /usr/share/calendar/calendar.all.
+ * If you want only some of those definitions, 
+ * change the "include" lines in this file.
+ * That way, your changes will be kept next time you upgrade.
+ *
+ * The search path for include files is:
+ *   ~/.calendar
+ *   /etc/calendar
+ *   /usr/share/calendar
+
+Standard calendar files:
+
+calendar.all          International and national calendar files.
+calendar.birthday     Births and deaths of famous (and not-so-famous) people.
+calendar.christian    Christian holidays (should be updated yearly by the local system administrator so that roving holidays are set correctly for the current year).
+calendar.computer     Days of special significance to computer people.
+calendar.croatian     Croatian calendar.
+calendar.discord      Discordian calendar (all rites reversed).
+calendar.fictional    Fantasy and fiction dates (mostly LOTR).
+calendar.french       French calendar.
+calendar.german       German calendar.
+calendar.history      Miscellaneous history.
+calendar.holiday      Other holidays (including the not-well-known, obscure, and really obscure).
+calendar.judaic       Jewish holidays (should be updated yearly by the local system administrator so that roving holidays are set correctly for the current year).
+calendar.music        Musical events, births, and deaths (strongly oriented toward rock n' roll).
+calendar.openbsd      OpenBSD related events.
+calendar.pagan        Pagan holidays, celebrations and festivals.
+calendar.russian      Russian calendar.
+calendar.space        Cosmic history.
+calendar.ushistory    U.S. history.
+calendar.usholiday    U.S. holidays.
+calendar.world        World wide calendar.
+
+ */
+
+#include "calendar.all"
+#include "calendar.bunsen"

@@ -42,14 +42,14 @@ URxvt.font: xft:Monospace:pixelsize=12
 URxvt.letterSpace: -1
 
 ! Window size and position
-!urxvt*geometry: 60x22+50+100
+!URxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-urxvt*geometry: 60x22
+URxvt*geometry: 80x28
 
 URxvt*scrollstyle: plain
 URxvt*scrollBar: true
 URxvt*scrollBar_right: true
-URxvt*iconFile: /usr/share/icons/Faenza-Bunsen/apps/48/utilities-terminal.png
+URxvt*iconFile: /usr/share/icons/Faenza-Bunsen-common/apps/48/utilities-terminal.png
 
 ! Grey theming
 !URxvt*background: #cecece

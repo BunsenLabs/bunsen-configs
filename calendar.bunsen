@@ -1,0 +1,110 @@
+/*
+ *	 BunsenLabs Linux History Calendar
+ *
+ * TEST with a complete leap-year:
+ *
+ * calendar -t 20160101 -f /etc/calendar/calendar.bunsen -A 366
+ *
+ * or today:
+ *
+ * calendar -f /etc/calendar/calendar.bunsen
+ *
+*/
+
+#ifndef _calendar_bunsen_
+#define _calendar_bunsen_
+
+LANG=UTF-8
+
+/*  Jan  */
+
+/*  Feb  */
+06 Feb 	corenominal announces the end of CrunchBang. (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=38916
+08 Feb	chillicampari - first mention of "Bunsen Labs" as #! successor. (2015)
+	http://crunchbang.org/forums/viewtopic.php?pid=417290#p417290
+11 Feb	The "Wally" project (Waldorf-style Jessie) started by johnraff (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=38994
+12 Feb	pvsage said the aye's have it: BunsenLabs it is. (2015)
+	Credit to iMBeCil for coordinating the thread.
+	http://crunchbang.org/forums/viewtopic.php?pid=418469#p418469
+16 Feb	unia announces the continuation of CrunchBang: BunsenLabs (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39049
+16 Feb	BunsenLabs RC2, (Hydrogen) released (2016)
+20 Feb	Ututo releases the Bunsen Logo c/w the Flame (2015)
+	http://crunchbang.org/forums/viewtopic.php?pid=420057#p420057
+20 Feb	daosein suggests the Periodic Table for version names... (2015)
+	and it's adopted: BunsenLabs Hydrogen is our first.
+	http://crunchbang.org/forums/viewtopic.php?pid=420069#p420069
+20 Feb	BunsenLabs History calendar file created (2016)
+	https://forums.bunsenlabs.org/viewtopic.php?id=1359
+24 Feb	The bunsen-configs repo created on GitHub by johnraff (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39135
+
+/* Mar */
+
+/* Apr */
+09 Apr	bunsen-dev.sh created and released by smacz (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39444
+
+/* May */
+12 May	bunsen-on-archlinux (scripts) by twoion (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39659
+12 May	Sub-alpha BunsenLabs netinstall script released by johnraff (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39656
+23 May	Bunsen support in screenfetch by twoion (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39728
+
+/* Jun */
+
+/* Jul */
+04 Jul	hhh spends 4th of July weekend in the BLab building ISO (alpha) (2015)
+	http://crunchbang.org/forums/viewtopic.php?pid=433898#p433898
+08 Jul	hhh releases BunsenLabs 8.1 (Hydrogen) LiveISO (alpha) (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39977
+09 Jul	hhh after a crash-course learning live-builds was heard saying (2015)
+	Sue me. I want to get... this... train... rolling...
+	http://crunchbang.org/forums/viewtopic.php?pid=434019#p434019
+11 Jul	twoion announces BunsenLabs Debian Repos online (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39993
+29 Jul	hhh releases BunsenLabs 8.1 (Hydrogen) LiveISOs (alpha2) 32|64 (2015)
+	http://crunchbang.org/forums/viewtopic.php?id=39994
+
+/* Aug */
+
+/* Sep */
+09 Sep	BunsenLabs RC1, (Hydrogen) released (2015)
+13 Sep	ohnonot's CB fortune package created and carried to BL (2015)
+	Get your BL quote's in there and be famous.
+	https://forums.bunsenlabs.org/viewtopic.php?id=644
+28 Sep	twoion announces the opening of the BunsenLabs Forum (2015)
+	https://forums.bunsenlabs.org/viewtopic.php?id=17
+
+/* Oct */
+
+/* Nov */
+
+/* Dec */
+
+
+/* CrunchBang Releases */
+/* http://distrowatch.com/table.php?distribution=crunchbang	*/
+
+06 Jan	Development Release: CrunchBang Linux 10 R20110105 (2011)
+18 Jan	Distribution Release: CrunchBang Linux 8.10.02 (2009)
+19 Jan	Development Release: CrunchBang Linux 11 R20121015 (2013)
+08 Feb	Distribution Release: CrunchBang Linux 10 R20110207 (2011)
+09 Feb	Distribution Release: CrunchBang Linux 10 R20120207 (2012)
+20 Mar	Development Release: CrunchBang Linux 10 Alpha 1 (2010)
+01 May	Development Release: CrunchBang Linux 11 R20120430 (2012)
+07 May	Distribution Release: CrunchBang Linux 11 (2013)
+25 Jun	Development Release: CrunchBang Linux 10 Alpha 2 (2010)
+08 Jul	Distribution Release: CrunchBang Linux 9.04.01 (2009)
+09 Aug	Development Release: CrunchBang Linux 11 R20120806 (2012)
+25 Sep	Development Release: CrunchBang Linux 11 R20120924 (2012)
+15 Oct	Development Release: CrunchBang Linux 11 R20121015 (2013)
+27 Nov	Distribution Release: CrunchBang Linux 8.10.01 (2008)
+27 Nov	Distribution Release: CrunchBang Linux 10 R20111125 (2011)
+08 Dec	Development Release: CrunchBang Linux 10 R20101205 (2010)
+
+#endif /* !_calendar_bunsen_ */
