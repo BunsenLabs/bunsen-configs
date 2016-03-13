@@ -38,30 +38,31 @@ xscreensaver.passwd.thermometer.width:       8
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:Monospace:pixelsize=12
-URxvt.letterSpace: -1
+URxvt.font: xft:Monospace:size=11
+URxvt.letterSpace: -2
+! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
 ! Window size and position
 !urxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-urxvt*geometry: 60x22
+URxvt.geometry: 100x30
 
-URxvt*scrollstyle: plain
-URxvt*scrollBar: true
-URxvt*scrollBar_right: true
-URxvt*iconFile: /usr/share/icons/Faenza-Bunsen/apps/48/utilities-terminal.png
+URxvt.scrollstyle: plain
+URxvt.scrollBar: true
+URxvt.scrollBar_right: true
+URxvt.iconFile: /usr/share/icons/Faenza-Bunsen/apps/48/utilities-terminal.png
 
 ! Grey theming
 !URxvt*background: #cecece
 !URxvt*foreground: #101010
 ! Terminator Crunchbang colours
-URxvt*background: [85]#2e3436
-URxvt*foreground: #d8d8d8
+URxvt.background: [85]#2e3436
+URxvt.foreground: #d8d8d8
 
 ! scrollback buffer lines - 65535 is max (64 is default)
-URxvt*saveLines:16384
+URxvt.saveLines:16384
 
-! True Transparency
+! True Transparency, opacity percentage set in square brackets before URxvt.background colour
 URxvt.depth: 32
 
 ! Clickble URLs
@@ -69,19 +70,19 @@ URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/x-www-browser
 URxvt.matcher.button: 3
 
-URxvt*color0: #000000
-URxvt*color1: #9e1828
-URxvt*color2: #aece92
-URxvt*color3: #968a38
-URxvt*color4: #414171
-URxvt*color5: #963c59
-URxvt*color6: #418179
-URxvt*color7: #bebebe
-URxvt*color8: #666666
-URxvt*color9: #cf6171
-URxvt*color10: #c5f779
-URxvt*color11: #fff796
-URxvt*color12: #4186be
-URxvt*color13: #cf9ebe
-URxvt*color14: #71bebe
-URxvt*color15: #ffffff
+URxvt.color0: #000000
+URxvt.color1: #9e1828
+URxvt.color2: #aece92
+URxvt.color3: #968a38
+URxvt.color4: #414171
+URxvt.color5: #963c59
+URxvt.color6: #418179
+URxvt.color7: #bebebe
+URxvt.color8: #666666
+URxvt.color9: #cf6171
+URxvt.color10: #c5f779
+URxvt.color11: #fff796
+URxvt.color12: #4186be
+URxvt.color13: #cf9ebe
+URxvt.color14: #71bebe
+URxvt.color15: #ffffff
