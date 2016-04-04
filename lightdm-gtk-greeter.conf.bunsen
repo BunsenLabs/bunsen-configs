@@ -16,7 +16,7 @@
 # screensaver-timeout = Timeout (in seconds) until the screen blanks when the greeter is called as lockscreen
 #
 [greeter]
-background=/usr/share/backgrounds/bunsen/bunsen-images/bl-default/bl-login-1920x1200.png
+background=/usr/share/images/bunsen/login/bl-login-background
 theme-name=Bunsen-lightdm
 icon-theme-name=Bunsen-lightdm
 font-name=Sans Bold 10
