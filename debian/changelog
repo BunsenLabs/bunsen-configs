@@ -1,3 +1,12 @@
+bunsen-configs (8.7-1) bunsen-hydrogen; urgency=medium
+
+  * bl-user-setup: Change install path to /usr/lib/bunsen/configs.
+  * lightdm.conf.bunsen: adjust session-setup-script path for bl-user-setup.
+  * lightdm-gtk-greeter.conf.bunsen: adjust background image path to match
+    bunsen-images 8.5-1.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 04 Apr 2016 17:14:22 +0900
+
 bunsen-configs (8.6.15-1) bunsen-hydrogen; urgency=medium
 
   * tint2rc: fix systray icon size.

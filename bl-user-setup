@@ -28,7 +28,7 @@ do
     fi
 done
 
-ln -sTf /usr/share/backgrounds "/home/$USER/Pictures/wallpapers/shared"
+ln -sTf /usr/share/images/bunsen/wallpapers "/home/$USER/Pictures/wallpapers/bunsen"
 
 mkdir -p "/home/$USER/.config/bunsen" # this should already exist
 touch "/home/$USER/.config/bunsen/bl-setup"

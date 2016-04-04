@@ -25,7 +25,7 @@ License: GPL-3+
  as the name is changed.
 
 Files: debian/*
-Copyright: 2015 John Crawley <john@rabunsenlabs.org>
+Copyright: 2015-2016 John Crawley <john@rabunsenlabs.org>
            2015 Jens Oliver John <dev@2ion.de>
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
