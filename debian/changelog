@@ -4,6 +4,7 @@ bunsen-configs (8.7-1) bunsen-hydrogen; urgency=medium
   * lightdm.conf.bunsen: adjust session-setup-script path for bl-user-setup.
   * lightdm-gtk-greeter.conf.bunsen: adjust background image path to match
     bunsen-images 8.5-1.
+  * nitrogen/bg-saved.cfg: edit image path.
 
  -- John Crawley <john@bunsenlabs.org>  Mon, 04 Apr 2016 17:14:22 +0900
 
