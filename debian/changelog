@@ -1,3 +1,9 @@
+bunsen-configs (8.7-2) bunsen-hydrogen; urgency=low
+
+  * debian/control: Add bunsen-thunar to Recommends. (Jens John)
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 08 May 2016 17:44:49 +0900
+
 bunsen-configs (8.7-1) bunsen-hydrogen; urgency=medium
 
   * bl-user-setup: Change install path to /usr/lib/bunsen/configs.
