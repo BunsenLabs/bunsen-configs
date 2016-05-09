@@ -1,3 +1,9 @@
+bunsen-configs (8.7.1-1) bunsen-hydrogen; urgency=high
+
+  * openbox/menu.xml: Correct paths to helpfiles. (Jens John)
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 09 May 2016 09:55:59 +0900
+
 bunsen-configs (8.7-2) bunsen-hydrogen; urgency=low
 
   * debian/control: Add bunsen-thunar to Recommends. (Jens John)
