@@ -52,6 +52,9 @@ bl-compositor --start &
 ## Volume control for systray
 (sleep 2; volti) &
 
+## Check if volti works, use volumeicon if it doesn't
+(sleep 3; bash -c '[[ -z $(pgrep volti) ]] && volumeicon') &
+
 ## Volume keys daemon
 xfce4-volumed &
 

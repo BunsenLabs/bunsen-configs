@@ -414,6 +414,16 @@
         <command>amixer set -D pulse Master toggle</command>
       </action>
     </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>amixer set -D pulse Master 10%+</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>amixer set -D pulse Master 10%-</command>
+      </action>
+    </keybind>
     <keybind key="W-x">
       <action name="Execute">
         <startupnotify>
