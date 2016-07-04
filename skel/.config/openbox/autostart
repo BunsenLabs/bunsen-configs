@@ -39,7 +39,7 @@ xset b off
 ## GNOME PolicyKit authentication
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-nitrogen --restore &
+nitrogen --restore
 
 bl-compositor --start &
 
@@ -53,7 +53,7 @@ bl-compositor --start &
 (sleep 2; volti) &
 
 ## Volume keys daemon
-xfce4-volumed &
+xfce4-volumed
 
 ## Start Clipboard manager
 (sleep 3; clipit) &
@@ -61,11 +61,11 @@ xfce4-volumed &
 ## Start Thunar Daemon, if set as bl-file-manager
 if [ "$(readlink -f $(which bl-file-manager))" = "$(which thunar)" ]
 then
-    thunar --daemon &
+    thunar --daemon
 fi
 
 ## Enable power management
-xfce4-power-manager &
+xfce4-power-manager
 
 ## Start the battery applet
 (sleep 2; fdpowermon) &
