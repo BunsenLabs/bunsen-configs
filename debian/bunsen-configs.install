@@ -9,3 +9,4 @@ bl-alternatives usr/bin
 bl-gvim usr/bin
 90bunsen etc/apt/apt.conf.d
 calendar.bunsen etc/calendar
+asound.conf etc
