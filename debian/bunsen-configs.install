@@ -7,6 +7,7 @@ lightdm-gtk-greeter.conf.bunsen etc/lightdm
 bl-user-setup usr/lib/bunsen/configs
 bl-alternatives usr/bin
 bl-gvim usr/bin
+bl-start-pulseaudio-x11 usr/bin
 90bunsen etc/apt/apt.conf.d
 calendar.bunsen etc/calendar
 asound.conf etc
