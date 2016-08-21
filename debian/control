@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: bunsen-utilities, bunsen-pipemenus (>= 8.9-1), bunsen-docs (>= 8.1-1), bunsen-images (>= 8.5-1), bunsen-themes, lightdm, nitrogen, scrot, yad, bunsen-thunar
+Recommends: bunsen-utilities, bunsen-pipemenus (>= 8.9-1), bunsen-docs (>= 8.1-1), bunsen-images (>= 8.5-1), bunsen-themes, lightdm, openbox, nitrogen, scrot, yad, bunsen-thunar
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Replaces: bunsen-utilities (<< 0.3-6)
