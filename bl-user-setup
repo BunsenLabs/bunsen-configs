@@ -8,7 +8,7 @@
 
 bkp_sfx="~$( date +%FT%T )~"
 
-rsync -rltb --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ /home/$USER
+rsync -rltb --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "/home/$USER"
 
 for i in "/home/$USER/.gtk-bookmarks" "/home/$USER/.config/nitrogen/nitrogen.cfg"
 do
