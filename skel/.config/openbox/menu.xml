@@ -367,8 +367,8 @@
                 </action>
             </item>
         </menu>
-        <menu id="help" label="Help" execute="bl-help-pipemenu" />
         <separator/>
+        <menu id="help" label="Help &amp; Resources" execute="bl-help-pipemenu" />
         <menu execute="bl-kb-pipemenu" id="keybinds" label="Display Keybinds"/>
         <separator/>
         <item label="Lock Screen">
