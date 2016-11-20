@@ -13,3 +13,4 @@ bl-cli-editor usr/bin
 90bunsen etc/apt/apt.conf.d
 calendar.bunsen etc/calendar
 asound.conf etc
+sysctl.d/40-sysrq.conf etc/sysctl.d
