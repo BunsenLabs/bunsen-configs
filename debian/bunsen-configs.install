@@ -14,3 +14,4 @@ bl-start-pulseaudio-x11 usr/bin
 bl-cli-editor usr/bin
 calendar.bunsen etc/calendar
 asound.conf etc
+sysctl.d/40-sysrq.conf etc/sysctl.d
