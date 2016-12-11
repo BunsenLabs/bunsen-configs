@@ -1,1 +1,2 @@
 /etc/skel/.profile.bunsen
+/etc/lightdm/lightdm.conf.bunsen

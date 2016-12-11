@@ -1,7 +1,7 @@
 skel usr/share/bunsen
 applications usr/share
 Bunsen-lightdm usr/share/icons
-lightdm.conf.bunsen etc/lightdm
+50_bunsen.conf usr/share/lightdm/lightdm.conf.d
 lightdm-gtk-greeter.conf.bunsen etc/lightdm
 21-bunsen-lightdm-locale etc/X11/Xsession.d
 bl-user-setup usr/lib/bunsen/configs
