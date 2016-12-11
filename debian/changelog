@@ -1,3 +1,9 @@
+bunsen-configs (8.7.2-1) bunsen-hydrogen; urgency=high
+
+  * .config/mimeapps.list: Correct bl-media-player spelling.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 30 Aug 2016 09:54:12 +0900
+
 bunsen-configs (8.7.1-1) bunsen-hydrogen; urgency=high
 
   * openbox/menu.xml: Correct paths to helpfiles. (Jens John)
