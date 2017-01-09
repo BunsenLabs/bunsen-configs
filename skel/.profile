@@ -5,6 +5,9 @@
 # the files are located in the bash-doc package.
 #
 # Modified version provided by bunsen-configs.
+#
+# NOTE this file is not sourced by lightdm when logging in to X sessions.
+# Use .xsessionrc for graphical sessions.
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
