@@ -47,4 +47,25 @@ upgrade)
     ;;
 esac
 
+# Fix for incorrectly diverted conffiles
+# Add any files here which have been passed over by dpkg-divert
+# during the iso build process.
+
+SUSPECT_CONFFILES='/etc/lightdm/lightdm.conf
+/etc/lightdm/lightdm-gtk-greeter.conf'
+
+case $1 in
+upgrade)
+for file in $SUSPECT_CONFFILES
+do
+    if
+        [ "$(dpkg-divert --truename "${file}")" = "${file}.bunsen-orig" ] &&
+        [ "$(dpkg-divert --listpackage "${file}")" = 'bunsen-configs' ] &&
+        [ ! -f "${file}.bunsen-orig" ] &&
+        [ -f "${file}.dpkg-new" ]
+    then
+        cp "${file}.dpkg-new" "${file}.bunsen-orig"
+    fi
+done
+
 exit 0
