@@ -56,16 +56,18 @@ SUSPECT_CONFFILES='/etc/lightdm/lightdm.conf
 
 case $1 in
 upgrade)
-for file in $SUSPECT_CONFFILES
-do
-    if
-        [ "$(dpkg-divert --truename "${file}")" = "${file}.bunsen-orig" ] &&
-        [ "$(dpkg-divert --listpackage "${file}")" = 'bunsen-configs' ] &&
-        [ ! -f "${file}.bunsen-orig" ] &&
-        [ -f "${file}.dpkg-new" ]
-    then
-        cp "${file}.dpkg-new" "${file}.bunsen-orig"
-    fi
-done
+    for file in $SUSPECT_CONFFILES
+    do
+        if
+            [ "$(dpkg-divert --truename "${file}")" = "${file}.bunsen-orig" ] &&
+            [ "$(dpkg-divert --listpackage "${file}")" = 'bunsen-configs' ] &&
+            [ ! -f "${file}.bunsen-orig" ] &&
+            [ -f "${file}.dpkg-new" ]
+        then
+            cp "${file}.dpkg-new" "${file}.bunsen-orig"
+        fi
+    done
+    ;;
+esac
 
 exit 0
