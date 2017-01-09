@@ -1,0 +1,10 @@
+[Desktop Entry]
+NoDisplay=true
+Version=1.0
+Encoding=UTF-8
+Type=X-XFCE-Helper
+X-XFCE-Category=FileManager
+X-XFCE-CommandsWithParameter=bl-file-manager "%s"
+Icon=bl-file-manager
+Name=bl-file-manager
+X-XFCE-Commands=bl-file-manager
