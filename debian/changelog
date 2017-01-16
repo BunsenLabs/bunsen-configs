@@ -1,3 +1,9 @@
+bunsen-configs (8.7.4-2) bunsen-hydrogen; urgency=medium
+
+  * d/links: fix wrong path
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 16 Jan 2017 16:05:49 +0900
+
 bunsen-configs (8.7.4-1) bunsen-hydrogen; urgency=medium
 
   * add bl-cli-editor gui wrapper for Debian "editor".
