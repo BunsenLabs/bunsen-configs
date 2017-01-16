@@ -40,7 +40,7 @@ OTHERFM="caja nautilus pcmanfm spacefm xfe"
 OTHERIV="eog eom gpicview viewnior"
 OTHERMP="banshee dragonplayer gnome-mplayer gxine kaffeine parole \
     smplayer totem"
-OTHERTE="emacs gedit jedit kate leafpad medit mousepad scite"
+OTHERTE="bl-cli-editor emacs gedit jedit kate leafpad medit mousepad scite"
 # Note gvim handled special (wrapper and man page names differ)
 
 BLPRIO=40
