@@ -1,4 +1,21 @@
 #!/bin/sh
+#
+#    bl-gvim: a wrapper script to invoke gvim in GUI mode.
+#    Copyright: 2015 Craig Oakes <bunsen@craigoakes.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
 #  Wrapper script to invoke gvim in GUI mode, typically used as target of a
 #  link (like /etc/alternatives/bl-text-editor).  Rationale: only links to
 #  /usr/bin/vim.* starting with the letter 'g' like /etc/alternatives/gvim or
