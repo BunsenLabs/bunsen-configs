@@ -1,3 +1,9 @@
+bunsen-configs (8.8.1-1) bunsen-hydrogen; urgency=high
+
+  * openbox/rc.xml: fix bug introduced with git commit 62c5c3c
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 22 Jan 2017 10:33:28 +0900
+
 bunsen-configs (8.8-1) bunsen-hydrogen; urgency=medium
 
   * Version bump for deuterium merge
