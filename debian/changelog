@@ -1,3 +1,9 @@
+bunsen-configs (8.8.4-1) bunsen-hydrogen; urgency=low
+
+  * bl-mpv: Add title for empty window.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 13 Mar 2017 18:03:49 +0900
+
 bunsen-configs (8.8.3-1) bunsen-hydrogen; urgency=medium
 
   * bl-alternatives: fix man page for bl-mpv and bl-cli-editor.

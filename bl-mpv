@@ -17,7 +17,7 @@ then
     fi
     x-terminal-emulator -T "$title" -e mpv "$@"
 else
-    mpv --force-window --idle
+    mpv --force-window --idle --title 'Drop media files here'
 fi
 
 exit
