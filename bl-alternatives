@@ -47,11 +47,11 @@ OTHERTE="emacs gedit jedit kate leafpad medit mousepad scite"
 #
 # gvim handled special (wrapper and man page names differ)
 #
+# mpv likewise, with bl-mpv wrapper
+#
 # Built-in bl-cli-editor (calls 'editor' in 'x-terminal-emulator')
 #  is given a lower priority.
-#  $MAN1/bl-cli-editor.1.gz is a symlink to $MAN1/editor.1.gz
-#
-# Wrapper script bl-mpv used if mpv installed.
+
 
 BLPRIO=40
 STDPRIO=30
@@ -134,6 +134,13 @@ update)
     for BLPROG in $OTHERIV ; do
     update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLIMAGEVIEWER $STDPRIO
     done
+    # mpv: wrapper doesn't match man page name
+    if type mpv >/dev/null 2>&1;then
+        chmod -f +x /usr/bin/bl-mpv
+    else
+        chmod -f -x /usr/bin/bl-mpv
+    fi
+    update_alt /usr/bin/bl-mpv $MAN1/mpv.1.gz $BLMEDIAPLAYER $STDPRIO
     for BLPROG in $OTHERMP ; do
     update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLMEDIAPLAYER $STDPRIO
     done
@@ -144,14 +151,8 @@ update)
         chmod -f -x /usr/bin/bl-gvim
     fi
     update_alt /usr/bin/bl-gvim $MAN1/gvim.1.gz $BLTEXTEDITOR $STDPRIO
-    # wrapper for mpv
-    if type mpv >/dev/null 2>&1;then
-        chmod -f +x /usr/bin/bl-mpv
-    else
-        chmod -f -x /usr/bin/bl-mpv
-    fi
-    # bl-cli-editor gets lower priority
-    update_alt /usr/bin/bl-cli-editor $MAN1/bl-cli-editor.1.gz $BLTEXTEDITOR $SUBPRIO
+    # bl-cli-editor gets lower priority and 'editor' man page
+    update_alt /usr/bin/bl-cli-editor $MAN1/editor.1.gz $BLTEXTEDITOR $SUBPRIO
     for BLPROG in $OTHERTE ; do
     update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLTEXTEDITOR $STDPRIO
     done

@@ -1,3 +1,9 @@
+bunsen-configs (8.8.3-1) bunsen-hydrogen; urgency=medium
+
+  * bl-alternatives: fix man page for bl-mpv and bl-cli-editor.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 13 Mar 2017 17:09:23 +0900
+
 bunsen-configs (8.8.2-1) bunsen-hydrogen; urgency=medium
 
   * bl-alternatives: reduce priority of bl-cli-editor to 25,
