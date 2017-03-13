@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# wrapper for mpv to enable use as alternative for bl-media-player
+
+hash mpv || {
+    echo "$0: Install mpv to use this script" >&2
+    exit 1
+}
+
+if [ -n "$1" ]
+then
+    if [ "$#" -gt 1 ]
+    then
+        title='mpv'
+    else
+        title="mpv: ${1##*/}"
+    fi
+    x-terminal-emulator -T "$title" -e mpv "$@"
+else
+    mpv --force-window --idle
+fi
+
+exit

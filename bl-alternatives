@@ -1,6 +1,7 @@
 #!/bin/sh
 #    bl-alternatives: a script to manage BunsenLabs alternatives.
 #    Copyright: 2015 Craig Oakes <bunsen@craigoakes.com>
+#               2017 John Crawley <john@bunsenlabs.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -40,11 +41,21 @@ OTHERFM="caja nautilus pcmanfm spacefm xfe"
 OTHERIV="eog eom gpicview viewnior"
 OTHERMP="banshee dragonplayer gnome-mplayer gxine kaffeine parole \
     smplayer totem"
-OTHERTE="bl-cli-editor emacs gedit jedit kate leafpad medit mousepad scite"
-# Note gvim handled special (wrapper and man page names differ)
+OTHERTE="emacs gedit jedit kate leafpad medit mousepad scite"
+
+# Notes:
+#
+# gvim handled special (wrapper and man page names differ)
+#
+# Built-in bl-cli-editor (calls 'editor' in 'x-terminal-emulator')
+#  is given a lower priority.
+#  $MAN1/bl-cli-editor.1.gz is a symlink to $MAN1/editor.1.gz
+#
+# Wrapper script bl-mpv used if mpv installed.
 
 BLPRIO=40
 STDPRIO=30
+SUBPRIO=25
 
 MAN1=/usr/share/man/man1
 
@@ -133,6 +144,14 @@ update)
         chmod -f -x /usr/bin/bl-gvim
     fi
     update_alt /usr/bin/bl-gvim $MAN1/gvim.1.gz $BLTEXTEDITOR $STDPRIO
+    # wrapper for mpv
+    if type mpv >/dev/null 2>&1;then
+        chmod -f +x /usr/bin/bl-mpv
+    else
+        chmod -f -x /usr/bin/bl-mpv
+    fi
+    # bl-cli-editor gets lower priority
+    update_alt /usr/bin/bl-cli-editor $MAN1/bl-cli-editor.1.gz $BLTEXTEDITOR $SUBPRIO
     for BLPROG in $OTHERTE ; do
     update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLTEXTEDITOR $STDPRIO
     done

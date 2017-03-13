@@ -1,3 +1,10 @@
+bunsen-configs (8.8.2-1) bunsen-hydrogen; urgency=medium
+
+  * bl-alternatives: reduce priority of bl-cli-editor to 25,
+    add wrapper bl-mpv for bl-media-player.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 13 Mar 2017 15:18:59 +0900
+
 bunsen-configs (8.8.1-1) bunsen-hydrogen; urgency=high
 
   * openbox/rc.xml: fix bug introduced with git commit 62c5c3c
