@@ -2,6 +2,9 @@
 
 # wrapper for mpv to enable use as alternative for bl-media-player
 
+audio_size='35%x25%' # window for playing audio
+audio_osc='osc-scaleforcedwindow=3,osc-valign=0' # arrange the on-screen-controller
+
 hash mpv || {
     echo "$0: Install mpv to use this script" >&2
     exit 1
@@ -11,13 +14,24 @@ if [ -n "$1" ]
 then
     if [ "$#" -gt 1 ]
     then
-        title='mpv'
+        title='mpv' # $title is only needed for terminal
     else
         title="mpv: ${1##*/}"
     fi
-    x-terminal-emulator -T "$title" -e mpv "$@"
+    case "$(file --mime-type --brief "$1")" in
+    audio*)
+        geom="$audio_size"
+        luaopts="$audio_osc";;
+    *)
+        geom=''
+        luaopts='';;
+    esac
+# uncomment the next line to run mpv in a terminal
+#   x-terminal-emulator -T "$title" -e mpv "$@"
+# comment out the next line if you use x-terminal-emulator
+    mpv --no-terminal --force-window --geometry="$geom" --lua-opts="$luaopts" "$@"
 else
-    mpv --force-window --idle --title 'Drop media files here'
+    mpv --no-terminal --force-window --idle --title='mpv - ${filename:Drop media files here}'
 fi
 
 exit
