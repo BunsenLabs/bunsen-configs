@@ -1,3 +1,9 @@
+bunsen-configs (8.8.5-1) bunsen-hydrogen; urgency=medium
+
+  * bl-mpv: improve visual presentation for audio files.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 22 Mar 2017 17:16:03 +0900
+
 bunsen-configs (8.8.4-1) bunsen-hydrogen; urgency=low
 
   * bl-mpv: Add title for empty window.
