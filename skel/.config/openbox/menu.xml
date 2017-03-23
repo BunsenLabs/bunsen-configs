@@ -101,6 +101,13 @@
                     <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
                 </action>
             </item>
+            <item label="System Information (hardinfo)">
+                <action name="Execute">
+                    <command>
+                        hardinfo
+                    </command>
+                </action>
+            </item>
             <item label="BLOB Themes Manager">
                 <action name="Execute">
                     <command>
