@@ -1,0 +1,25 @@
+# custom rc file for bl-exit
+# For more info, see
+#
+#   http://www.pygtk.org/pygtk2tutorial/ch-GtkRcFiles.html
+
+style "window"
+{
+  bg[NORMAL] = '#c3c3c3'
+}
+
+
+style "button"
+{
+# This shows all the possible states for a button.  
+  
+    bg[PRELIGHT] = '#e3e3e3'
+    bg[ACTIVE] = '#e3e3e3'
+}
+
+# These set the widget types to use the styles defined above.
+# The widget types are listed in the class hierarchy, but could probably be
+# just listed in this document for the users reference.
+
+widget "blexit" style "window"
+class "GtkButton"  style:highest "button"
