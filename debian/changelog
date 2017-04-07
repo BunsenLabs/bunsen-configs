@@ -1,3 +1,11 @@
+bunsen-configs (8.8.8-1) bunsen-hydrogen; urgency=medium
+
+  * Revert addition of user bl-exit config files.
+    
+  * bl-alternatives: add ristretto to alternative image viewer list.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 07 Apr 2017 17:41:37 +0900
+
 bunsen-configs (8.8.7-1) bunsen-hydrogen; urgency=low
 
   * skel/.config: Add bl-exit configs.
