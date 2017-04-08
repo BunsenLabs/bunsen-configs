@@ -83,16 +83,14 @@ update_alt()
         update-alternatives --list $ALTNAME 2>/dev/null | \
         grep -q $BINPATH && return 0
         local ALTPATH=/usr/bin/$ALTNAME
-    if [ "$MANPATH" ] ; then
-        [ ! -f "$MANPATH" ] && \
-            echo "Bad man path ($MANPATH)" >&2 && return 1
-        local ALTMANPATH=/usr/share/man/man1/$ALTNAME.1.gz
-        update-alternatives --quiet --install $ALTPATH $ALTNAME $BINPATH \
-            $PRIO --slave $ALTMANPATH ${ALTMANPATH##*/} $MANPATH
-    else
-        update-alternatives --quiet --install $ALTPATH $ALTNAME $BINPATH \
-            $PRIO
-    fi
+        if [ -f "$MANPATH" ] ; then
+            local ALTMANPATH=/usr/share/man/man1/$ALTNAME.1.gz
+            update-alternatives --quiet --install $ALTPATH $ALTNAME $BINPATH \
+                $PRIO --slave $ALTMANPATH ${ALTMANPATH##*/} $MANPATH
+        else
+            update-alternatives --quiet --install $ALTPATH $ALTNAME $BINPATH \
+                $PRIO
+        fi
     fi
 }
 
@@ -129,10 +127,10 @@ update)
     [ `id -u` != 0 ] && echo "Must be superuser" >&2 && exit 0
     bunsen_alt
     for BLPROG in $OTHERFM ; do
-    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLFILEMANAGER $STDPRIO
+        update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLFILEMANAGER $STDPRIO
     done
     for BLPROG in $OTHERIV ; do
-    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLIMAGEVIEWER $STDPRIO
+        update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLIMAGEVIEWER $STDPRIO
     done
     # mpv: wrapper doesn't match man page name
     if type mpv >/dev/null 2>&1;then
@@ -142,7 +140,7 @@ update)
     fi
     update_alt /usr/bin/bl-mpv $MAN1/mpv.1.gz $BLMEDIAPLAYER $STDPRIO
     for BLPROG in $OTHERMP ; do
-    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLMEDIAPLAYER $STDPRIO
+        update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLMEDIAPLAYER $STDPRIO
     done
     # gvim: wrapper doesn't match man page name
     if type gvim >/dev/null 2>&1;then
@@ -154,7 +152,7 @@ update)
     # bl-cli-editor gets lower priority and 'editor' man page
     update_alt /usr/bin/bl-cli-editor $MAN1/editor.1.gz $BLTEXTEDITOR $SUBPRIO
     for BLPROG in $OTHERTE ; do
-    update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLTEXTEDITOR $STDPRIO
+        update_alt /usr/bin/$BLPROG $MAN1/$BLPROG.1.gz $BLTEXTEDITOR $STDPRIO
     done
     ;;
 ""|*help|-h)

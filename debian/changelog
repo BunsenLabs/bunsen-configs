@@ -1,3 +1,9 @@
+bunsen-configs (8.8.9-1) bunsen-hydrogen; urgency=medium
+
+  * bl-alternatives: Handle packages without man pages.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 08 Apr 2017 15:40:28 +0900
+
 bunsen-configs (8.8.8-1) bunsen-hydrogen; urgency=medium
 
   * Revert addition of user bl-exit config files.
