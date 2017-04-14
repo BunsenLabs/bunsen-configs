@@ -43,7 +43,7 @@ rsync -rltb --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "$HOME"
 for i in "$HOME/.gtk-bookmarks" "$HOME/.config/nitrogen/nitrogen.cfg"
 do
     [[ -f "${i}.template" ]] || continue
-    sed --in-place "s/%USERNAME%/$USER/g" "${i}.template"
+    sed --in-place "s|%USERHOME%|$HOME|g" "${i}.template"
     if [[ -f "$i" ]]
     then
         if diff -BEbZ "$i" "${i}.template" >/dev/null
@@ -63,6 +63,6 @@ ln -sTf /usr/share/images/bunsen/wallpapers "$HOME/Pictures/wallpapers/bunsen"
 mkdir -p "$HOME/.config/bunsen" # this should already exist
 touch "$HOME/.config/bunsen/bl-setup"
 
-chown -R "$USER":"$USERGROUP" "$HOME"
+chown -R "$USER":"$GROUP" "$HOME"
 
 exit 0
