@@ -1,15 +1,24 @@
-# pipemenu.rc holds the applications which appear in the Openbox pipemenus
-# Edit the arrays to add or remove package names, making sure there are spaces
+# pipemenu.rc holds extra applications to add to the Openbox pipemenus
+# Edit the arrays to add package names, making sure there are spaces
 # between each entry.
+# EXAMPLE:
+# ARRAY_NAME=( firstapp secondapp )
 
 # Multimedia pipemenu (bl-multimedia-pipemenu)
-MM_APPS=( 'vlc' 'audacious' 'smplayer' 'gnome-mplayer' )
-MM_EDITORS=('mhwaveedit' 'audacity' 'openshot' )
-MM_UTILS=('xfburn' 'gtk-recordmydesktop' )
+MM_APPS=()
+MM_EDITORS=()
+MM_UTILS=()
 
 # Graphics pipemenu (bl-graphics-pipemenu)
-GRAPHICS_APPS=( 'mirage' 'gimp' 'blender' 'inkscape' 'mandelbulber' 'viewnior' )
-GRAPHICS_SCROTS=('xfce4-screenshooter' 'scrot' )
+GRAPHICS_APPS=()
+GRAPHICS_SCROTS=()
 
 # Browsers pipemenu (bl-x-www-browser-pipemenu)
-BROWSERS=('chromium' 'firefox' 'google-chrome-stable' 'opera' )
+BROWSERS=()
+
+## If any of your added packages needs to be launched by a command
+## different from its name,
+## uncomment the line below and put it in the associative array,
+## like: user_package_commands=([name1]='command1' [name2]='command2')
+
+#user_package_commands=([mpv]='')

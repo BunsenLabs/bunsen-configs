@@ -1,3 +1,10 @@
+bunsen-configs (8.8.10-1) bunsen-hydrogen; urgency=low
+
+  * bl-alternatives: add geeqie to alternative image viewer list.
+  * skel/.config/openbox/pipemenus.rc: remove default apps, now handled in pipemenus.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 26 Apr 2017 16:48:25 +0900
+
 bunsen-configs (8.8.9-1) bunsen-hydrogen; urgency=medium
 
   * bl-alternatives: Handle packages without man pages.

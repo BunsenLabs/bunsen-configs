@@ -38,7 +38,7 @@ BLTEXTEDITOR=bl-text-editor
 BLALTS="$BLFILEMANAGER $BLIMAGEVIEWER $BLMEDIAPLAYER $BLTEXTEDITOR"
 
 OTHERFM="caja nautilus pcmanfm spacefm xfe"
-OTHERIV="eog eom gpicview viewnior ristretto"
+OTHERIV="eog eom geeqie gpicview ristretto viewnior"
 OTHERMP="banshee dragonplayer gnome-mplayer gxine kaffeine parole \
     smplayer totem"
 OTHERTE="emacs gedit jedit kate leafpad medit mousepad scite"
