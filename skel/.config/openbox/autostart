@@ -39,7 +39,8 @@ setxkbmap -option ctrl:nocaps
 ### TOUCHPAD: comment out the next two entries if you don't have one
 
 ## Configure touchpad. See 'man synaptics' for more info.
-synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
+## Now using libinput
+#synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
 
 ## Disable touchpad while typing
 syndaemon -i .5 -K -t -R -d &
