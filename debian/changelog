@@ -1,3 +1,9 @@
+bunsen-configs (9.0.1-1) helium; urgency=medium
+
+  * Change default theme to Bunsen-He, and wallpaper to BL-beam-grey.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 12 Jun 2017 16:58:19 +0900
+
 bunsen-configs (9.0-1) helium; urgency=medium
 
   * Version change for helium release
