@@ -1,3 +1,10 @@
+bunsen-configs (9.0-1) helium; urgency=medium
+
+  * Version change for helium release
+  * Remove references to fdpowermon, no longer used.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 12 Jun 2017 16:12:56 +0900
+
 bunsen-configs (8.8.10-1) bunsen-hydrogen; urgency=low
 
   * bl-alternatives: add geeqie to alternative image viewer list.
