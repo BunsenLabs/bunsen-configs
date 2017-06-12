@@ -74,9 +74,6 @@ volumeicon &
 ## Start the Conky session (the default conkyrc will run if no sessions have been set)
 bl-conky-session --autostart &
 
-## Start the battery applet
-fdpowermon &
-
 ## Start Clipboard manager
 clipit &
 
