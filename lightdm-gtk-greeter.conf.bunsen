@@ -17,7 +17,7 @@
 #
 [greeter]
 background=/usr/share/images/bunsen/login/bl-login-background
-theme-name=Bunsen-lightdm
+theme-name=Bunsen-He
 icon-theme-name=Bunsen-lightdm
 font-name=Sans Bold 10
 xft-antialias=true
