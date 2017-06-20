@@ -1,3 +1,9 @@
+bunsen-configs (9.0.1-2) helium; urgency=medium
+
+  * debian/bunsen-configs.preinst: remove unnecessary cleanup
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 20 Jun 2017 15:35:47 +0900
+
 bunsen-configs (9.0.1-1) helium; urgency=medium
 
   * Change default theme to Bunsen-He, and wallpaper to BL-beam-grey.
