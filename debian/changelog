@@ -1,3 +1,9 @@
+bunsen-configs (9.0.2-1) helium; urgency=medium
+
+  * Adjust nitrogen saved background syntax.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 25 Jun 2017 14:32:34 +0900
+
 bunsen-configs (9.0.1-2) helium; urgency=medium
 
   * debian/bunsen-configs.preinst: remove unnecessary cleanup
