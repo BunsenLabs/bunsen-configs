@@ -1,11 +1,12 @@
 #---------------------------------------------
 # TINT2 CONFIG FILE
 #---------------------------------------------
-# For more information about tint2, see:
-# http://code.google.com/p/tint2/wiki/Welcome
+# See https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md for 
+# full documentation of the configuration options. This is also provided
+# in the Tint2 manpages.
 #
-# For more config file examples, see:
-# http://bunsenlabs.org/topic/3232/my-tint2-config/
+# For more config file examples, see "Scripts, Tutorials & Tips » My tint2 config"
+# https://forums.bunsenlabs.org/viewtopic.php?id=254
 
 # Background definitions
 # ID 1
