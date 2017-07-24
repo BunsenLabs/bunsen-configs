@@ -32,7 +32,7 @@ xset r rate 250 25
 #xmodmap -e "keysym Insert = Multi_key"
 
 ## Disable CapsLock
-setxkbmap -option ctrl:nocaps
+#setxkbmap -option ctrl:nocaps
 # alternative: use as compose key
 #setxkbmap -option compose:caps
 
