@@ -1,5 +1,5 @@
 #---------------------------------------------
-# TINT2 CONFIG FILE
+# TINT2 CONFIG FILE "BL-default-bottom"
 #---------------------------------------------
 # See https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md for 
 # full documentation of the configuration options. This is also provided
@@ -7,19 +7,35 @@
 #
 # For more config file examples, see "Scripts, Tutorials & Tips » My tint2 config"
 # https://forums.bunsenlabs.org/viewtopic.php?id=254
+#
+# Written by damo, for BunsenLabs, July 2017
+#
+#------------------------------------
+# Gradients
+# Gradient 1
+gradient = horizontal
+start_color = #678b8b 40
+end_color = #284f63 40
+color_stop = 50 #617b78 40
+
+# Gradient 2
+gradient = radial
+start_color = #d8d8d8 20
+end_color = #133356 20
+#------------------------------------
 
 # Background definitions
-# ID 1
+# ID 1 - Panel
 rounded = 0
 border_width = 0
-background_color = #000000 40
+background_color = #284f63 40
 border_color = #828282 0
 
 # ID 2 - task active
 rounded = 1
 border_width = 0
-background_color = #d8d8d8 30
-border_color = #d8d8d8 30
+background_color = #ADD8E6 30
+border_color = #d8d8d8 0
 
 # ID 3 - task
 rounded = 1
@@ -27,7 +43,7 @@ border_width = 0
 background_color = #000000 0
 border_color = #000000 0
 
-# ID 4
+# ID 4 - task urgent
 rounded = 1
 border_width = 1
 background_color = #888888 20
@@ -36,20 +52,22 @@ border_color = #ED2323 60
 # ID 5 - taskbar
 rounded = 0
 border_width = 1
-background_color = #000000 0
-border_color = #000000 0
+gradient_id = 2
+background_color = #678b8b 20
+border_color = #4f727b 0
 
 # ID 6 - active taskbar
 rounded = 0
 border_width = 1
-background_color = #d8d8d8 8
-border_color = #d8d8d8 0
+gradient_id = 2
+background_color = #678b8b 40
+border_color = #ADD8E6 20
 
 # ID 7 - tooltip
 rounded = 3
 border_width = 0
-background_color = #222222 90
-border_color = #222222 90
+background_color = #0F374D 60
+border_color = #222222 0
 
 # ID 8
 rounded = 1
@@ -57,13 +75,15 @@ border_width = 1
 background_color = #888888 20
 border_color = #888888 20
 
+#-------------------------------------
+
 # Panel
 panel_monitor = all
 panel_position = bottom center horizontal
-panel_items = LTSC
-panel_size = 100% 30
-panel_margin = 0 -1
-panel_padding = 0 0
+panel_items = LTSCP
+panel_size = 99% 30
+panel_margin = 0 1
+panel_padding = 6 0 0
 panel_dock = 0
 wm_menu = 1
 panel_layer = bottom
@@ -76,7 +96,7 @@ autohide_hide_timeout = 1.5
 autohide_height = 6
 strut_policy = follow_size
 
-# Taskbar
+# Taskbar - Panel item = T
 taskbar_mode = multi_desktop
 taskbar_padding = 6 0 6
 taskbar_background_id = 5
@@ -84,8 +104,8 @@ taskbar_active_background_id = 6
 taskbar_name = 0
 taskbar_name_background_id = 0
 taskbar_name_active_background_id = 0
-taskbar_name_font = Sans 9
-taskbar_name_font_color = #828282 100
+taskbar_name_font = Sans 10
+taskbar_name_font_color = #ffffff 100
 taskbar_name_active_font_color = #828282 100
 
 # Tasks
@@ -93,7 +113,7 @@ urgent_nb_of_blink = 20
 task_icon = 1
 task_text = 0
 task_centered = 1
-task_maximum_size = 40 40
+task_maximum_size = 30 30
 task_padding = 2 2
 task_background_id = 3
 task_active_background_id = 2
@@ -114,7 +134,7 @@ task_urgent_font_color = #FFFFFF 100
 task_iconified_font_color = #d8d8d8 60
 font_shadow = 0
 
-# Launcher
+# Launcher  - Panel item = L
 launcher_padding = 8 4 4
 launcher_background_id = 0
 launcher_icon_size = 0
@@ -132,21 +152,21 @@ launcher_item_app = /usr/share/applications/bl-file-manager.desktop
 launcher_item_app = /usr/share/applications/bl-text-editor.desktop
 launcher_item_app = /usr/share/applications/bl-terminal-emulator.desktop
 
-# System Tray
+# System Tray - Panel item = S
 systray = 1
 systray_padding = 4 2 3
 systray_sort = right2left
 systray_background_id = 0
-systray_icon_size = 0
+systray_icon_size = 24
 systray_icon_asb = 100 0 0
 
-# Clock
+# Clock - Panel item = C
 time1_format = %H:%M
 time1_font = Sans bold 11
 #time2_format = %A %d %B
 #time2_font = Sans 6
 clock_font_color = #b5b5b5 100
-clock_padding = 12 4
+clock_padding = 8 4
 clock_background_id = 0
 clock_lclick_command = gsimplecal
 clock_rclick_command = gsimplecal
@@ -166,7 +186,7 @@ mouse_right = toggle
 mouse_scroll_up = toggle
 mouse_scroll_down = iconify
 
-# Battery
+# Battery - Panel item = B
 battery = 1
 battery_low_status = 20
 battery_low_cmd = notify-send "battery low"
@@ -176,5 +196,79 @@ bat2_font = Monospace 8
 battery_font_color = #b5b5b5 100
 battery_padding = 2 0
 battery_background_id = 0
+
+#-------------------------------------
+
+# Separators - Panel item = :
+# Separator 1
+separator = new
+separator_background_id = 0
+separator_color = #5d8185 60
+separator_style = line
+separator_size = 2
+separator_padding = 4 8
+
+# Separator 2
+separator = new
+separator_background_id = 0
+separator_color = #5d8185 60
+separator_style = line
+separator_size = 2
+separator_padding = 0 8
+
+#-------------------------------------
+
+# Buttons - Panel item = P
+# Exit dialog
+button = new
+button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
+#button_icon = system-shutdown
+button_text =
+button_tooltip = Logout/Shutdown...
+button_lclick_command = bl-exit
+button_rclick_command =
+button_mclick_command =
+button_uwheel_command =
+button_dwheel_command =
+button_font_color = #ffffff 100
+button_padding = 2 2
+button_background_id = 0
+button_centered = 1
+button_max_icon_size = 28
+
+# Show Root Menu
+button = new
+button_icon = bunsenlabs-button.svg
+button_text =
+button_tooltip = Main Menu
+button_lclick_command = xdotool key super+space
+button_rclick_command =
+button_mclick_command =
+button_uwheel_command =
+button_dwheel_command =
+button_font_color = #ffffff 100
+button_padding = 2 2
+button_background_id = 0
+button_centered = 1
+button_max_icon_size = 28
+
+#-------------------------------------
+
+# Executor - Panel item = E		Example
+execp = new
+execp_command =  echo '/usr/share/pixmaps/bunsenlabs-button.svg'
+#execp_command =  echo '<span foreground="#7f7">Click</span>'
+execp_has_icon = 1
+execp_icon_h = 30
+execp_cache_icon = 1
+execp_interval = 0
+execp_centered = 1
+execp_font = sans 9
+execp_markup = 1
+execp_font_color = #aaffaa 100
+execp_padding = 2 0
+execp_tooltip = I will tell you a secret...
+execp_lclick_command = notify-send "$(uname -srn)"
+execp_background_id = 2
 
 # End of config
