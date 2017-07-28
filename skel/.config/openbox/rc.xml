@@ -46,7 +46,7 @@
   </placement>
 
   <theme>
-    <name>Bunsen-He</name>
+    <name>Beam</name>
     <titleLayout>NDSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.

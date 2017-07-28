@@ -1,3 +1,15 @@
+bunsen-configs (9.1-1) helium; urgency=medium
+
+  * Change default theme and wallpaper to "Beam".
+  * Enable capslock in openbox/autostart.
+  * damo: Add various builtin Blob themes.
+  * damo: Add tint2 config for Beam theme.
+  * skel/.conkyrc: update to v1.10 syntax
+  * damo: dmenu-bind.sh: Update colours for Beam theme
+  * damo: Update help links in header comments
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 28 Jul 2017 10:57:14 +0900
+
 bunsen-configs (9.0.2-1) helium; urgency=medium
 
   * Adjust nitrogen saved background syntax.
