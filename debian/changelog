@@ -1,3 +1,10 @@
+bunsen-configs (9.1.1-1) helium; urgency=medium
+
+  * skel/.config: remove default user bl-exit config.
+  * Set lightdm login theme to Beam.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 04 Aug 2017 16:14:19 +0900
+
 bunsen-configs (9.1-1) helium; urgency=medium
 
   * Change default theme and wallpaper to "Beam".
