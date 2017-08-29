@@ -1,3 +1,15 @@
+bunsen-configs (9.1.3-1) helium; urgency=medium
+
+  * bl-alternatives: avoid unnecessary calls to update-alternatives.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 29 Aug 2017 16:58:56 +0900
+
+bunsen-configs (9.1.2-1) helium; urgency=medium
+
+  * damo: Fix tint2 config file paths in BLOB builtin themes.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 28 Aug 2017 16:32:49 +0900
+
 bunsen-configs (9.1.1-1) helium; urgency=medium
 
   * skel/.config: remove default user bl-exit config.
