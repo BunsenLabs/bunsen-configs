@@ -1,3 +1,11 @@
+bunsen-configs (9.1.4-1) helium; urgency=medium
+
+  * Change default icon theme to "Paper".
+  * Set default grub text colours to match background.
+  * /usr/share/bunsen/skel/.config/terminator/config: disable dbus.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 07 Sep 2017 14:32:14 +0900
+
 bunsen-configs (9.1.3-1) helium; urgency=medium
 
   * bl-alternatives: avoid unnecessary calls to update-alternatives.
