@@ -13,3 +13,4 @@ bl-cli-editor usr/bin
 90bunsen etc/apt/apt.conf.d
 calendar.bunsen etc/calendar
 asound.conf etc
+39_bunsen etc/grub.d/

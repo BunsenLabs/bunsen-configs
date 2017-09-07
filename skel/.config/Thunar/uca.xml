@@ -3,7 +3,7 @@
   <action>
     <icon>catfish</icon>
     <name>Find files</name>
-    <command>catfish --fileman=bl-file-manager --hidden --path=%f</command>
+    <command>catfish --hidden %f</command>
     <description>Search for files with Catfish</description>
     <patterns>*</patterns>
     <directories />

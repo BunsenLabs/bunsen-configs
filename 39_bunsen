@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# grub-mkconfig helper script for BunsenLabs.
+
+# We do not set the background here, just check if the
+#  default BunsenLabs image is being used.
+# This should be the canonical path.
+BL_GRUB_BACKGROUND='/usr/share/images/bunsen/grub/default.png'
+
+# Set these colours if default BL background image is detected.
+BL_TEXT_COLORS='color_normal=light-cyan/black
+color_highlight=white/black
+menu_color_normal=light-cyan/black
+menu_color_highlight=white/black'
+
+# same as defined in /usr/sbin/update-grub and passed to grub-mkconfig
+grub_cfg='/boot/grub/grub.cfg'
+
+# ${grub_cfg}.new is written by grub-mkconfig and helper scripts
+if [ ! -r "${grub_cfg}.new" ]
+then
+    echo "Cannot read ${grub_cfg}.new" >&2
+    exit 0
+fi
+
+# sometimes background_image is set twice, so take the last occurrence
+while read -r line
+do
+    bg_img="$line"
+done <<EOF
+$(sed -nr 's/^.*background_image[ \t]+((-m|--mode)[ \t]+(stretch|normal)[ \t]+)?([^; \t]+).*$/\4/p' "${grub_cfg}.new")
+EOF
+
+if [ "$bg_img" = "$BL_GRUB_BACKGROUND" ]
+then
+echo "grub background_image is BL default, setting text colors" >&2
+while read -r color
+do
+    echo "set $color"
+done <<EOF
+$BL_TEXT_COLORS
+EOF
+fi
