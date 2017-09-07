@@ -51,7 +51,7 @@ URxvt.geometry: 80x28
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
 URxvt.scrollBar_right: true
-URxvt.iconFile: /usr/share/icons/Faenza-Bunsen-common/apps/48/utilities-terminal.png
+URxvt.iconFile: /usr/share/icons/Paper/48x48/apps/utilities-terminal.png
 
 ! Grey theming
 !URxvt*background: #cecece
