@@ -125,7 +125,7 @@ launcher_icon_size = 0
 launcher_tooltip = 1
 # Specify icon theme names with launcher_icon_theme.
 # if you have an XSETTINGS manager running (like xfsettingsd), tint2 will follow your current theme.
-launcher_icon_theme = Paper
+launcher_icon_theme = Faenza-Bunsen
 
 # Each launcher_item_app must be a full path to a .desktop file
 # this will have to be made:
