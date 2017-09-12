@@ -1,3 +1,11 @@
+bunsen-configs (9.1.5-1) helium; urgency=medium
+
+  * skel/.xsessionrc: export QT_QPA_PLATFORMTHEME=gtk2 for QT5 apps.
+  * lightdm-gtk-greeter.conf.bunsen: move configuration to conf.d directory.
+  * tint2rc-crunchbang: Use Faenza-Dark-Bunsen icon theme for launcher.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 12 Sep 2017 16:48:54 +0900
+
 bunsen-configs (9.1.4-1) helium; urgency=medium
 
   * Change default icon theme to "Paper".
