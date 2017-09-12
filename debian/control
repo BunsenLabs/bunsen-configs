@@ -12,6 +12,7 @@ Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
 Recommends: bunsen-utilities, bunsen-pipemenus, bunsen-docs, bunsen-images, bunsen-themes, bunsen-conky, lightdm, openbox, paper-icon-theme, nitrogen, scrot, yad, bunsen-thunar, volumeicon-alsa, clipit
+Suggests: qt5-style-plugins, libqt5svg5
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Replaces: bunsen-utilities (<< 0.3-6)
@@ -21,4 +22,3 @@ Description: config files for BunsenLabs Linux
  Contains user config files to be copied into a new user's home directory,
  scripts and desktop files to set up the bl-alternatives system,
  and some other system configuration files.
- Originally adapted from cb-configs by Philip Newborough
