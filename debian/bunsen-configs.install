@@ -1,8 +1,8 @@
 skel usr/share/bunsen
 applications usr/share
 Bunsen-lightdm usr/share/icons
-50_bunsen.conf usr/share/lightdm/lightdm.conf.d
-51_bunsen.conf usr/share/lightdm/lightdm-gtk-greeter.conf.d
+50_bunsen-ldm.conf usr/share/lightdm/lightdm.conf.d
+50_bunsen-ldmgg.conf usr/share/lightdm/lightdm-gtk-greeter.conf.d
 21-bunsen-lightdm-locale etc/X11/Xsession.d
 90bunsen etc/apt/apt.conf.d
 39_bunsen etc/grub.d

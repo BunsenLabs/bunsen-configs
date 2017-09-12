@@ -8,7 +8,8 @@ CrunchBang Linux by Philip Newborough.
 The main content is:
 
 *) A collection of user configuration files templates,
-stored in /usr/share/bunsen/skel
+stored in /usr/share/bunsen/skel, and a user setup script to install them,
+triggered by lightdm.
 
 *) Configuration for lightdm, including a workaround for language selection.
 
@@ -22,6 +23,8 @@ stored in /usr/share/bunsen/skel
 along with corresponding .desktop files and a mimeapps.list.
 These enable users to have more flexibility in their choice of default applications
 without having to edit menus, scripts or keyboard shortcuts.
+
+*) Wrapper scripts for mpv, gvim and edit.
 
 This package also adds some other small system configuration files.
 
