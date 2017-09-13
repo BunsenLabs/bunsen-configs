@@ -1,3 +1,11 @@
+bunsen-configs (9.1.6-1) helium; urgency=medium
+
+  * bl-user-setup: add user --refresh and --help options,
+     adjust rsync options to reduce unnecessary overwrites.
+  * Small cleanups.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 13 Sep 2017 15:51:29 +0900
+
 bunsen-configs (9.1.5-2) helium; urgency=medium
 
   * Add Suggests: qt5-style-plugins and libqt5svg5 for GTK2 support in QT5 apps.
