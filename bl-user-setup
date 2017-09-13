@@ -2,7 +2,7 @@
 #
 #    bl-user-setup: a script to populate a new user's HOME directory
 #    using template files from /usr/share/bunsen/skel/
-#    Copyright: 2015-2016 John Crawley <john@bunsenlabs.org>
+#    Copyright: 2015-2017 John Crawley <john@bunsenlabs.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -17,12 +17,34 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+USAGE="bl-user-setup: a script to populate a new user's HOME directory
+using template files from /usr/share/bunsen/skel
+
+Normally this script is run automatically by lightdm
+on a user's first login, and inhibited after that by a flag file:
+~/.config/bunsen/bl-setup
+
+It can, however be run again by a user to update their config files
+from a new version of bunsen-configs. In this case backups will be made
+of any files which are overwritten.
+
+If the user has already made extensive changes to their config files
+it would be better to copy in new settings from skel by hand.
+
+Options:
+-h --help
+    Show this message.
+--refresh
+    Copy in any files in /usr/share/bunsen/skel which are different
+    from those in ~/. Overwritten files will be backed up.
+"
+
 readonly USER=${USER}
 readonly HOME=${HOME}
 readonly GROUP=$(id -ng "$USER")
 
 # Do not apply BL configs to the root account.
-if [[ "$USER" = root ]]; then 
+if [[ "$USER" = root ]]; then
     echo "$0: ERROR: USER is root, abort" >&2
     exit 1
 fi
@@ -33,12 +55,50 @@ if [[ -z "$HOME" || ! -d "$HOME" ]]; then
     exit 1
 fi
 
-# Setup already ran, do nothing.
-[[ -f "$HOME/.config/bunsen/bl-setup" ]] && exit 0
-
 bkp_sfx="~$( date +%FT%T )~"
 
-rsync -rltb --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "$HOME"
+if [[ -n $1 ]]
+then
+    case $1 in
+    -h|--help)
+        echo "$USAGE"
+        exit 0
+    ;;
+    --refresh)
+        echo "New versions of files in /usr/share/bunsen/skel will be copied into
+$HOME, overwriting files there.
+(foo.template files will be copied to foo, if different.)
+Any overwritten files will be backed up with a suffix of $bkp_sfx
+
+NB if you have already made many changes to your desktop,
+it would be easier to check /usr/share/bunsen/skel
+and copy in any new settings to $HOME by hand.
+
+Do you want to continue? (Y)
+"
+        read -r
+        case ${REPLY^} in
+        Y|YES)
+            rs_opt='--verbose'
+            :
+        ;;
+        *)
+            echo 'bye...'
+            exit 0
+        ;;
+        esac
+    ;;
+    *)
+        echo "$0: $1: bad option" >&2
+        exit 1
+    ;;
+    esac
+else
+    # If setup already run, do nothing.
+    [[ -f "$HOME/.config/bunsen/bl-setup" ]] && exit 0
+fi
+
+rsync -rlb ${rs_opt-} --checksum --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "$HOME"
 
 for i in "$HOME/.gtk-bookmarks" "$HOME/.config/nitrogen/nitrogen.cfg"
 do
