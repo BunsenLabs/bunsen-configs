@@ -1,3 +1,13 @@
+bunsen-configs (8.8.11-1.1) bunsen-hydrogen; urgency=medium
+
+  * Non-maintainer upload.
+  * bl-user-setup improvements (Jens John)
+  * Integration with skel files (John Crawley)
+  * Darkened screenshots fix (Tomislav Kućar)
+  * Misc. bug fixes
+
+ -- Jens John <dev@2ion.de>  Sun, 24 Sep 2017 22:29:22 +0200
+
 bunsen-configs (8.8.10-1) bunsen-hydrogen; urgency=low
 
   * bl-alternatives: add geeqie to alternative image viewer list.
