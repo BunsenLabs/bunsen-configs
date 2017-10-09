@@ -244,6 +244,13 @@
                     </command>
                 </action>
             </item>
+            <item label="Font configuration">
+                <action name="Execute">
+                    <command>
+                        bl-text-editor ~/.config/fontconfig/fonts.conf
+                    </command>
+                </action>
+            </item>
             <item label="BLOB Themes Manager">
                 <action name="Execute">
                     <command>
@@ -251,7 +258,7 @@
                     </command>
                 </action>
             </item>
-            <item label="Choose Wallpaper">
+            <item label="Wallpaper">
                 <action name="Execute">
                     <command>
                         nitrogen
