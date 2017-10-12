@@ -1,3 +1,12 @@
+bunsen-configs (9.1.7-1) helium; urgency=medium
+
+  * Head-on-a-Stick: Add "Font configuration" menu entry and comments in fonts.conf.
+  * Head-on-a-Stick: Match urxvt colour schemes with terminator.
+  * hhhorb: Remove tint2 horizontal padding to save space on laptops.
+  * Tomislav Kućar: Fix compositing settings for xfce4-screenshooter.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 09 Oct 2017 15:26:10 +0900
+
 bunsen-configs (9.1.6-1) helium; urgency=medium
 
   * bl-user-setup: add user --refresh and --help options,
