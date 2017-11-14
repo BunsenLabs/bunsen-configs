@@ -143,8 +143,10 @@
             </item>
             <menu execute="bl-remote-desktop-pipemenu" id="remotedesktop" label="Remote Desktop"/>
             <menu execute="bl-sshconfig-pipemenu" id="sshconfig" label="SSH"/>
+<!--
             <separator label="Services"/>
             <menu execute="bl-dropbox-pipemenu" id="dropbox" label="Dropbox"/>
+-->
         </menu>
         <menu id="office" label="Office">
             <menu id="libreoffice" label="LibreOffice" execute="bl-libreoffice-pipemenu" />
