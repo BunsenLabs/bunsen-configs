@@ -1,11 +1,6 @@
 skel usr/share/bunsen
 applications usr/share
 Bunsen-lightdm usr/share/icons
-50_bunsen-ldm.conf usr/share/lightdm/lightdm.conf.d
-50_bunsen-ldmgg.conf usr/share/lightdm/lightdm-gtk-greeter.conf.d
-21-bunsen-lightdm-locale etc/X11/Xsession.d
-90bunsen etc/apt/apt.conf.d
-39_bunsen etc/grub.d
 bl-user-setup usr/lib/bunsen/configs
 bl-alternatives usr/bin
 bl-gvim usr/bin
@@ -14,4 +9,9 @@ bl-start-pulseaudio-x11 usr/bin
 bl-cli-editor usr/bin
 calendar.bunsen etc/calendar
 asound.conf etc
+apt.conf.d/90bunsen etc/apt/apt.conf.d
+grub.d/39_bunsen etc/grub.d
+lightdm.conf.d/50_bunsen.conf usr/share/lightdm/lightdm.conf.d
+lightdm-gtk-greeter.conf.d/50_bunsen.conf usr/share/lightdm/lightdm-gtk-greeter.conf.d
 sysctl.d/40-sysrq.conf etc/sysctl.d
+Xsession.d/21-bunsen-lightdm-locale etc/X11/Xsession.d
