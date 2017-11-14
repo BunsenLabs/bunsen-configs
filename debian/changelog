@@ -1,3 +1,12 @@
+bunsen-configs (9.1.8-1) helium; urgency=medium
+
+  * Remove Dropbox pipemenu from Openbox menu.
+  * Enable all sysrq capabilities.
+  * Lightdm login: show users by default.
+  * tint2rc: set task_font to Sans 9.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 14 Nov 2017 17:48:51 +0900
+
 bunsen-configs (9.1.7-1) helium; urgency=medium
 
   * Head-on-a-Stick: Add "Font configuration" menu entry and comments in fonts.conf.
