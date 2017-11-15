@@ -6,6 +6,7 @@ usr/share/bunsen/skel/Documents
 usr/share/bunsen/skel/Music
 usr/share/bunsen/skel/Videos
 usr/share/bunsen/skel/Public
+usr/share/bunsen/skel/.config/autostart
 usr/share/bunsen/skel/.config/bunsen
 usr/share/bunsen/skel/.config/geany/colorschemes
 usr/share/bunsen/skel/.config/geany/plugins

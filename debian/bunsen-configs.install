@@ -8,7 +8,6 @@ bl-mpv usr/bin
 bl-start-pulseaudio-x11 usr/bin
 bl-cli-editor usr/bin
 calendar.bunsen etc/calendar
-asound.conf etc
 apt.conf.d/90bunsen etc/apt/apt.conf.d
 grub.d/39_bunsen etc/grub.d
 lightdm.conf.d/50_bunsen.conf usr/share/lightdm/lightdm.conf.d
