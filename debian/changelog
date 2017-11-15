@@ -1,9 +1,15 @@
+bunsen-configs (9.2-1) helium; urgency=medium
+
+  * Remove PulseAudio configuration (move to bunsen-configs-pulse).
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 15 Nov 2017 16:00:55 +0900
+
 bunsen-configs (9.1.8-1) helium; urgency=medium
 
   * Remove Dropbox pipemenu from Openbox menu.
-  * Enable all sysrq capabilities.
-  * Lightdm login: show users by default.
-  * tint2rc: set task_font to Sans 9.
+  * Jens John: Enable all sysrq capabilities.
+  * Jens John: Lightdm login: show users by default.
+  * Johan Malm: tint2rc: set task_font to Sans 9.
 
  -- John Crawley <john@bunsenlabs.org>  Tue, 14 Nov 2017 17:48:51 +0900
 
