@@ -150,13 +150,6 @@
         </menu>
         <menu id="office" label="Office">
             <menu id="libreoffice" label="LibreOffice" execute="bl-libreoffice-pipemenu" />
-            <item label="Google Docs">
-                <action name="Execute">
-                    <command>
-                        x-www-browser https://drive.google.com/
-                    </command>
-                </action>
-            </item>
             <item label="Gnumeric Spreadsheet">
                 <action name="Execute">
                     <command>
