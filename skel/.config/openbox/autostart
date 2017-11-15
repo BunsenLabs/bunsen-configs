@@ -62,12 +62,6 @@ bl-compositor --start
 ## Start the tint2 session (the default tint2 will run if no sessions have been set)
 bl-tint2-session
 
-## Start PulseAudio
-## (This replaces /etc/xdg/autostart/pulseaudio.desktop
-## which is disabled by ~/.config/autostart/pulseaudio.desktop.)
-## NOTE: PulseAudio must be started before volumeicon
-bl-start-pulseaudio-x11
-
 ## Volume control for systray
 volumeicon &
 
