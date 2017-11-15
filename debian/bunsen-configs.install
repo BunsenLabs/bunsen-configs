@@ -5,7 +5,6 @@ bl-user-setup usr/lib/bunsen/configs
 bl-alternatives usr/bin
 bl-gvim usr/bin
 bl-mpv usr/bin
-bl-start-pulseaudio-x11 usr/bin
 bl-cli-editor usr/bin
 calendar.bunsen etc/calendar
 apt.conf.d/90bunsen etc/apt/apt.conf.d
