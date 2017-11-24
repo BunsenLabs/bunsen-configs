@@ -1,3 +1,11 @@
+bunsen-configs (9.2.1-1) helium; urgency=medium
+
+  * Change icon theme from Paper to Paper-Bunsen
+  * [Johan Malm] Adjust tint2 font settings for jgmenu.
+  * Allow inactive users to suspend system.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 24 Nov 2017 17:08:49 +0900
+
 bunsen-configs (9.2-1) helium; urgency=medium
 
   * Remove PulseAudio configuration (move to bunsen-configs-pulse).
