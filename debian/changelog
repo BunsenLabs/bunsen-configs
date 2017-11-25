@@ -1,3 +1,9 @@
+bunsen-configs (9.2.3-1) helium; urgency=medium
+
+  * bl-obthemes: Add BunsenLabs_Classic theme.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 25 Nov 2017 17:22:37 +0900
+
 bunsen-configs (9.2.2-1) helium; urgency=medium
 
   * Add pnmixer config.
