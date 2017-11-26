@@ -1,3 +1,9 @@
+bunsen-configs (9.2.4-1) helium; urgency=medium
+
+  * Fix errors in stored BLOB themes.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 26 Nov 2017 15:32:19 +0900
+
 bunsen-configs (9.2.3-1) helium; urgency=medium
 
   * bl-obthemes: Add BunsenLabs_Classic theme.
