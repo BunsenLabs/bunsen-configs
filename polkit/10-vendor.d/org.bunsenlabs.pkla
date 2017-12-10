@@ -3,3 +3,9 @@ Identity=unix-user:*
 Action=org.freedesktop.login1.suspend
 ResultInactive=yes
 ResultActive=yes
+
+[Allow inactive users to shutdown]
+Identity=unix-user:*
+Action=org.freedesktop.login1.power-off
+ResultInactive=yes
+ResultActive=yes
