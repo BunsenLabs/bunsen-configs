@@ -53,3 +53,6 @@ if [ "$TERM" = "linux" ]; then
     printf "\e]PFffffff" # color15
 #   clear # removes artefacts but also removes /etc/{issue,motd}
 fi
+
+# launch desktop automatically from a console login (TTY1 only)
+[ "$(tty)" = "/dev/tty1" ] && exec startx
