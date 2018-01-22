@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: bunsen-configs-pulse, bunsen-utilities, bunsen-pipemenus, bunsen-docs, bunsen-images, bunsen-themes, bunsen-conky, lightdm, openbox, paper-icon-theme, nitrogen, scrot, yad, bunsen-thunar, volumeicon-alsa, clipit
+Recommends: bunsen-configs-pulse, bunsen-utilities, bunsen-pipemenus, bunsen-docs, bunsen-images, bunsen-themes, bunsen-conky, lightdm, openbox, paper-icon-theme, nitrogen, scrot, yad, bunsen-thunar, pnmixer, clipit
 Suggests: qt5-style-plugins, libqt5svg5
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
