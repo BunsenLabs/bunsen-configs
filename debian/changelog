@@ -1,3 +1,18 @@
+bunsen-configs (9.2.5-1) helium; urgency=medium
+
+  * debian/control: change Recommends: volumeicon to pnmixer
+  * Allow inactive users to shutdown.
+  * Remove openbox 1px top margin
+  * Symlink skel/.local/share/applications/defaults.list
+     to skel/.config/mimeapps.list for apps using deprecated location.
+  [ Matthew T Hoare ]
+  * skel/.config: Remove obsolete directories.
+  * skel/.config/pnmixer/config: add keybinds.
+  [ Jens John ]
+  * polkit: move 10-vendor.d under a meaningfully named directory.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 26 Jan 2018 17:16:09 +0900
+
 bunsen-configs (9.2.4-1) helium; urgency=medium
 
   * Fix errors in stored BLOB themes.
