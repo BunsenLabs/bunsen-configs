@@ -1,3 +1,9 @@
+bunsen-configs (9.2.6-1) helium; urgency=medium
+
+  * grub.d/39_bunsen: Add grub menu item "High Contrast Text".
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 26 Jan 2018 18:32:31 +0900
+
 bunsen-configs (9.2.5-1) helium; urgency=medium
 
   * debian/control: change Recommends: volumeicon to pnmixer
