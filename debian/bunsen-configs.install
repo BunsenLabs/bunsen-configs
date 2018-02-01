@@ -7,10 +7,10 @@ bl-gvim usr/bin
 bl-mpv usr/bin
 bl-cli-editor usr/bin
 calendar.bunsen etc/calendar
-polkit/10-vendor.d/org.bunsenlabs.pkla var/lib/polkit-1/localauthority/10-vendor.d
-apt.conf.d/90bunsen etc/apt/apt.conf.d
-grub.d/39_bunsen etc/grub.d
-lightdm.conf.d/50_bunsen.conf usr/share/lightdm/lightdm.conf.d
-lightdm-gtk-greeter.conf.d/50_bunsen.conf usr/share/lightdm/lightdm-gtk-greeter.conf.d
-sysctl.d/40-sysrq.conf etc/sysctl.d
-Xsession.d/21-bunsen-lightdm-locale etc/X11/Xsession.d
+polkit/10-vendor.d var/lib/polkit-1/localauthority
+apt.conf.d etc/apt
+grub.d etc
+lightdm.conf.d usr/share/lightdm
+lightdm-gtk-greeter.conf.d usr/share/lightdm
+sysctl.d etc
+Xsession.d etc/X11
