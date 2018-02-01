@@ -19,4 +19,4 @@ if (( $# > 0 )); then
     fi
 fi
 
-exec mpv --terminal=no --input-terminal=no --profile=$PROFILE "$@"
+exec mpv --terminal=no --input-terminal=no --profile=$MPV_PROFILE "$@"
