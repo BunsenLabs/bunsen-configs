@@ -26,21 +26,28 @@ set -e
 CUSTOM_TITLE='TTY'
 
 # custom boot command arguments, appended to ${GRUB_CMDLINE_LINUX}
-# NB 'quiet' has been omitted - add it if you want.
+# NB 'quiet' has been omitted - add it if you want:
+# CUSTOM_ARGS='quiet systemd.unit=multi-user.target'
 CUSTOM_ARGS='systemd.unit=multi-user.target'
 
 ##############################
 
-prefix="/usr"
-exec_prefix="/usr"
 datarootdir="/usr/share"
 ubuntu_recovery="0"
 quiet_boot="0"
 quick_boot="0"
 gfxpayload_dynamic="0"
-vt_handoff="0"
 
-. "$pkgdatadir/grub-mkconfig_lib"
+# pkgdatadir exported by grub-mkconfig in Debian Stretch
+if [ "x${pkgdatadir}" != x ] && [ -f "$pkgdatadir/grub-mkconfig_lib" ]; then
+  . "$pkgdatadir/grub-mkconfig_lib"
+elif [ -f "${datarootdir}/grub/grub-mkconfig_lib" ]; then
+  . "${datarootdir}/grub/grub-mkconfig_lib"
+else
+  # no file, so we notify and exit gracefully
+  echo "Cannot find grub-mkconfig_lib, not adding custom entry." >&2
+  exit 0
+fi
 
 CLASS="--class gnu-linux --class gnu --class os"
 
@@ -94,8 +101,6 @@ case x"$GRUB_FS" in
   LINUX_ROOT_DEVICE="ZFS=${rpool}${bootfs}"
   ;;
 esac
-
-title_correction_code=
 
 ## This function unchanged from 10_linux ##
 linux_entry ()
