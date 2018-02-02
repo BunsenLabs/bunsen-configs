@@ -1,37 +1,22 @@
-#!/bin/sh
+#!/bin/bash
 
 # wrapper for mpv to enable use as alternative for bl-media-player
 
-audio_size='35%x25%' # window for playing audio
-audio_osc='osc-scaleforcedwindow=3,osc-valign=0' # arrange the on-screen-controller
+MPV_PROFILE=pseudo-gui
 
-hash mpv || {
-    echo "$0: Install mpv to use this script" >&2
+if ! hash mpv; then
+    echo "$0: mpv binary is missing. Please issue 'sudo apt-get install mpv'." >&2
     exit 1
-}
-
-if [ -n "$1" ]
-then
-    if [ "$#" -gt 1 ]
-    then
-        title='mpv' # $title is only needed for terminal
-    else
-        title="mpv: ${1##*/}"
-    fi
-    case "$(file --mime-type --brief "$1")" in
-    audio*)
-        geom="$audio_size"
-        luaopts="$audio_osc";;
-    *)
-        geom=''
-        luaopts='';;
-    esac
-# uncomment the next line to run mpv in a terminal
-#   x-terminal-emulator -T "$title" -e mpv "$@"
-# comment out the next line if you use x-terminal-emulator
-    mpv --no-terminal --force-window --geometry="$geom" --lua-opts="$luaopts" "$@"
-else
-    mpv --no-terminal --force-window --idle --title='mpv - ${filename:Drop media files here}'
 fi
 
-exit
+if (( $# > 0 )); then
+    FILE=$1
+
+    # Use the MIME type of the first file passed to us to determine the
+    # playback profile.
+    if [[ -s "$FILE" && "$(file --mime-type --brief "$FILE")" =~ ^audio/ ]]; then
+        MPV_PROFILE=audio-only
+    fi
+fi
+
+exec mpv --terminal=no --input-terminal=no --profile=$MPV_PROFILE "$@"
