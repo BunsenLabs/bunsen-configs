@@ -15,7 +15,7 @@ if (( $# > 0 )); then
     # Use the MIME type of the first file passed to us to determine the
     # playback profile.
     if [[ -s "$FILE" && "$(file --mime-type --brief "$FILE")" =~ ^audio/ ]]; then
-        MPV_PROFILE=audioonly
+        MPV_PROFILE=audio-only
     fi
 fi
 
