@@ -39,16 +39,16 @@ conky.config = {
     own_window_title = 'BunsenLabs Default Conky',
 
 -- ARGB can be used for real transparency
--- NOTE that a composite manager is required for real transparency.
--- This option will not work as desired (in most cases) in conjunction with
--- own_window_type normal
 --own_window_argb_visual = true, -- Options: true|false
 
--- When ARGB visuals are enabled, use this to modify the alpha value
--- Use: own_window_type = 'normal'
--- Use: own_window_transparent = false,
--- Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
---own_window_argb_value = 50,
+-- NOTE that a composite manager is required for real transparency and ARGB will not
+-- work as desired (in most cases) in conjunction with 'own_window_type override'.
+-- Use with: own_window_type = 'normal',
+-- Use with: own_window_transparent = false,
+
+-- When ARGB visuals are enabled, use the following to modify the alpha value. Valid
+-- range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
+--own_window_argb_value = 150,
 
     minimum_width = 200, minimum_height = 0,-- width | height
     maximum_width = 200,
