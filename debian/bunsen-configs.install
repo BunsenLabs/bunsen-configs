@@ -2,10 +2,7 @@ skel usr/share/bunsen
 applications usr/share
 Bunsen-lightdm usr/share/icons
 bl-user-setup usr/lib/bunsen/configs
-bl-alternatives usr/bin
-bl-gvim usr/bin
-bl-mpv usr/bin
-bl-cli-editor usr/bin
+bin usr
 calendar.bunsen etc/calendar
 polkit/10-vendor.d var/lib/polkit-1/localauthority
 apt.conf.d etc/apt
