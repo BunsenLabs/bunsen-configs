@@ -5,6 +5,7 @@ bl-user-setup usr/lib/bunsen/configs
 bin usr
 calendar.bunsen etc/calendar
 polkit/10-vendor.d var/lib/polkit-1/localauthority
+polkit/org.bunsenlabs.pkexec.policy /usr/share/polkit-1/actions
 apt.conf.d etc/apt
 grub.d etc
 lightdm.conf.d usr/share/lightdm

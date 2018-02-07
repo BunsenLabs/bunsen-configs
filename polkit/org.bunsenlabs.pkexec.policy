@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/software/polkit/policyconfig-1.dtd">
+<policyconfig>
+  <vendor>BunsenLabs</vendor>
+  <vendor_url>https://www.bunsenlabs.org/</vendor_url>
+
+  <action id="org.bunsenlabs.pkexec.bl-text-editor">
+    <description>Run BunsenLabs default text editor as root</description>
+    <message>Authentication is required to run bl-text-editor as root.</message>
+    <icon_name>accessories-text-editor</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/bl-text-editor</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+</policyconfig>
