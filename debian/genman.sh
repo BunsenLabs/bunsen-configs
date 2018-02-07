@@ -128,16 +128,18 @@ mk_man() {
     local exec="$1"
     local cmd=${1##*/}
     local manfile="${manpg_dir}/${cmd}.${section}"
+    local execflag=false
     grep "${cmd}\(.[1-8]\)\? *\$" "${manpages_file}" >/dev/null 2>&1 && {
         echo "$0: ${cmd} already in ${manpages_file}, skipping"
         return 0
     }
-    chmod +x "$exec"
+    [ -x "$exec" ] && execflag=true
+    [ "$execflag" = false ] && chmod +x "$exec"
     default_desc="a script provided by ${pkg_name}"
-    desc="$( "$exec" --help | sed -rn "/^ *$cmd/ {s/^ *$cmd( -|:| is)? *//p;q}")"
+    desc="$( ./"$exec" --help | sed -rn "/^ *$cmd/ {s/^ *$cmd( -|:| is)? *//p;q}")"
     [ -z "$desc" ] && desc="$default_desc"
-    help2man "$exec" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" > "$manfile"
-    chmod -x "$exec"
+    help2man ./"$exec" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" > "$manfile"
+    [ "$execflag" = false ] && chmod -x "$exec"
     echo "$manfile" >> "${manpages_file}"
 }
 
