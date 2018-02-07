@@ -1,3 +1,9 @@
+bunsen-configs (9.3.2-2) helium; urgency=medium
+
+  * Use pkexec in Openbox and Thunar menus.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 07 Feb 2018 17:12:40 +0900
+
 bunsen-configs (9.3.1-1) helium; urgency=medium
 
   * Add polkit permission for 'pkexec bl-text-editor'.
