@@ -17,17 +17,9 @@
     <directories />
   </action>
   <action>
-    <icon>gksu-root-terminal</icon>
-    <name>Open root terminal here</name>
-    <command>sh -c &apos;cd %f;gksudo x-terminal-emulator&apos;</command>
-    <description />
-    <patterns>*</patterns>
-    <directories />
-  </action>
-  <action>
     <icon>system-file-manager</icon>
     <name>Open as root</name>
-    <command>gksudo &quot;bl-file-manager %f&quot;</command>
+    <command>pkexec thunar %f</command>
     <description>Open directory as root</description>
     <patterns>*</patterns>
     <directories />
@@ -35,8 +27,8 @@
   <action>
     <icon>accessories-text-editor</icon>
     <name>Open as root</name>
-    <command>gksudo &quot;bl-text-editor %f&quot;</command>
-    <description>Open text file as root</description>
+    <command>pkexec bl-text-editor %F</command>
+    <description>Open text files as root</description>
     <patterns>*</patterns>
     <other-files />
     <text-files />
