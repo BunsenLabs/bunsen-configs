@@ -2,7 +2,7 @@ Source: bunsen-configs
 Section: misc
 Priority: optional
 Maintainer: John Crawley <john@bunsenlabs.org>
-Build-Depends: debhelper (>= 9), config-package-dev (>= 5.1)
+Build-Depends: debhelper (>= 9), config-package-dev (>= 5.1), help2man
 Standards-Version: 3.9.5
 Homepage: https://github.com/BunsenLabs/bunsen-configs
 Vcs-Git: https://github.com/BunsenLabs/bunsen-configs.git
@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: bunsen-configs-pulse, bunsen-utilities, bunsen-pipemenus, bunsen-docs, bunsen-images, bunsen-themes, bunsen-conky, lightdm, openbox, paper-icon-theme, nitrogen, scrot, yad, bunsen-thunar, pnmixer, clipit
+Recommends: bunsen-configs-pulse, bunsen-utilities, bunsen-pipemenus, bunsen-docs, bunsen-images, bunsen-themes, bunsen-paper-icon-theme, bunsen-conky, lightdm, openbox, nitrogen, scrot, yad, bunsen-thunar, pnmixer, clipit
 Suggests: qt5-style-plugins, libqt5svg5
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}

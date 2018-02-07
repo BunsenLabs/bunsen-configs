@@ -7,7 +7,7 @@
 # -sb    selected background colour
 # -sf    selected foreground colour
 #
-# -b    place menu at bottom (otherwise top)
+# -b    place menu at bottom (otherwise appears at top)
 #
 # See 'man dmenu' for more information.
 
