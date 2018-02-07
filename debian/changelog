@@ -1,3 +1,9 @@
+bunsen-configs (9.3.1-1) helium; urgency=medium
+
+  * Add polkit permission for 'pkexec bl-text-editor'.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 07 Feb 2018 16:48:44 +0900
+
 bunsen-configs (9.3-1) helium; urgency=medium
 
   * Add simple auto-generated man pages for bl-alternatives and bl-user-setup.
