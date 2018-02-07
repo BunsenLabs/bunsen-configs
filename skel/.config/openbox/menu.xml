@@ -329,42 +329,28 @@
             <item label="Synaptic Package Manager">
                 <action name="Execute">
                     <command>
-                        gksudo synaptic
-                    </command>
-                </action>
-            </item>
-            <item label="File Manager as root">
-                <action name="Execute">
-                    <command>
-                        gksudo bl-file-manager
-                    </command>
-                </action>
-            </item>
-            <item label="Text Editor as root">
-                <action name="Execute">
-                    <command>
-                        gksudo bl-text-editor
+                        pkexec synaptic
                     </command>
                 </action>
             </item>
             <item label="Login Settings">
                 <action name="Execute">
                     <command>
-                        gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
+                        pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
                     </command>
                 </action>
             </item>
             <item label="GParted">
                 <action name="Execute">
                     <command>
-                        gksudo gparted
+                        pkexec gparted
                     </command>
                 </action>
             </item>
             <item label="Edit Debian Alternatives">
                 <action name="Execute">
                     <command>
-                        gksudo galternatives
+                        galternatives
                     </command>
                 </action>
             </item>
