@@ -1,3 +1,14 @@
+bunsen-configs (9.3-1) helium; urgency=medium
+
+  * Add simple auto-generated man pages for bl-alternatives and bl-user-setup.
+  * Add TTY boot option to grub menu.
+  [Head-on-a-Stick]
+  * Set Inconsolata as the default monospace font (instead of Noto Mono).
+  [Jens John]
+  * bl-mpv: Redo configuration for Stretch's v0.23 (Closes GitHub #64)
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 07 Feb 2018 15:48:08 +0900
+
 bunsen-configs (9.2.6-1) helium; urgency=medium
 
   * grub.d/39_bunsen: Add grub menu item "High Contrast Text".
