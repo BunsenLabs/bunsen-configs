@@ -1,0 +1,119 @@
+#  custom startup options for compton
+
+#  System administrators can add startup options for compton here.
+#  Any words - space, tab, or newline separated - will be appended to
+#  compton's command line when it is started by bl-compositor.
+#  (Any content after a # symbol is treated as a comment and ignored.)
+#
+#  While any of the options listed in 'man compton' will be applied,
+#  it is recommended to leave settings related to desktop appearance
+#  (shadows, transparency, fading etc.) for individual users to set
+#  in ~/.config/compton.conf, and to use this file only for
+#  system-wide settings to optimize performance on this machine's hardware.
+#
+#  Various people have contributed to this file,
+#  so the meaning of "I" is not well defined.
+#
+#  Settings here will take priority over users' ~/.config/compton.conf.
+#
+#  NB Do not use the -b (daemonize) option: it is buggy.
+#  bl-compositor forks compton in a subshell anyway.
+#
+#  Examples:
+#  vsync can be used to control screen tearing:
+#  --backend glx will activate the OpenGL backend for superior performance,
+#  search for VSYNC_METHOD in compton(1) for details of the various methods available.
+#
+#  These settings are reported to work well with Intel Haswell hardware:
+#  --vsync opengl-mswc
+#  --backend glx
+
+#################################
+#
+#  Backend
+#
+#################################
+
+#  Backend to use: "xrender", "glx" or "xr_glx_hybrid". xrender is the default one.
+#  GLX backend is typically much faster but depends on a sane driver.
+
+#--backend glx
+
+
+#  Set VSync method. VSync methods currently available:
+#  none: No VSync
+#  drm: VSync with DRM_IOCTL_WAIT_VBLANK. May only work on some drivers.
+#  opengl: Try to VSync with SGI_video_sync OpenGL extension. Only work on some drivers.
+#  opengl-oml: Try to VSync with OML_sync_control OpenGL extension. Only work on some drivers.
+#  opengl-swc: Try to VSync with SGI_swap_control OpenGL extension. Only work on some drivers. Works only with GLX backend. Known to be most effective on many drivers. Does not actually control paint timing, only buffer swap is affected, so it doesn’t have the effect of --sw-opti unlike other methods. Experimental.
+#  opengl-mswc: Try to VSync with MESA_swap_control OpenGL extension. Basically the same as opengl-swc above, except the extension we use.
+#  (Note some VSync methods may not be enabled at compile time.)
+
+#  --vsync opengl does NOT cause lag with Nvidia vsync disabled. I can turn
+#  Nvidia vsync on after launching compton with --vsync opengl and I do not
+#  get lag, but if I do it in the other order, I do get lag.
+#  It still tears though in both situations.
+#  I have seen various reports like the above.
+#  Some nvidia drivers seem to create significant slowdowns.
+#  Sometimes it might be useful to visit nvidia-settings if running
+#  nvidia's proprietary drivers.
+
+#--vsync opengl
+
+#################################
+#
+#  GLX backend
+#
+#################################
+
+#  GLX backend: Avoid using stencil buffer. This may not work with --blur-background. Tests show a 15% performance boost. Recommended.
+#--glx-no-stencil
+
+#  GLX backend: Copy unmodified regions from front buffer instead of redrawing them all.
+#  My tests with nvidia-drivers show a 10% decrease in performance when the whole screen is modified,
+#  but a 20% increase when only 1/4 is.
+#  My tests on nouveau show terrible slowdown.
+#  Useful with --glx-swap-method, as well.
+#--glx-copy-from-front
+
+#  GLX backend: Use MESA_copy_sub_buffer to do partial screen update.
+#  My tests on nouveau shows a 200% performance boost when only 1/4 of the screen is updated.
+#  May break VSync and is not available on some drivers.
+#  Overrides --glx-copy-from-front.
+#--glx-use-copysubbuffermesa
+
+#  GLX backend: Avoid rebinding pixmap on window damage.
+#  Probably could improve performance on rapid window content changes, but is known to break things on some drivers (LLVMpipe).
+#  Recommended if it works. < -- This option causes lockups in Virtualbox.
+#--glx-no-rebind-pixmap
+
+#  GLX backend: GLX buffer swap method we assume: undefined/exchange/copy/3/4/5/6/buffer-age
+#  Could be undefined (0), copy (1), exchange (2), 3-6, or buffer-age (-1).
+#  undefined is the slowest and the safest, and the default value.
+#  copy is fastest, but may fail on some drivers,
+#  2-6 are gradually slower but safer (6 is still faster than 0).
+#  Usually, double buffer means 2, triple buffer means 3.
+#  buffer-age means auto-detect using GLX_EXT_buffer_age, supported by some drivers.
+#  Useless with --glx-use-copysubbuffermesa.
+#  Partially breaks --resize-damage.
+#  Defaults to undefined.
+#  I am using double-buffering here. This is a typical scenario wherein the
+#  screen is drawn into memory before being painted on the screen.
+#  Better machines might want to use triple buffering if they have native
+#  hardware support for it on their graphics card.
+#
+#--glx-swap-method exchange
+
+#################################
+
+#  Enable DBE painting mode, intended to use with VSync to (hopefully) eliminate tearing.
+#  Reported to have no effect, though.
+#--dbe
+
+#  Painting on X Composite overlay window. Recommended.
+#--paint-on-overlay
+
+#  Limit compton to repaint at most once every 1 / refresh_rate second to boost performance.
+#  This should not be used with --vsync drm/opengl/opengl-oml as they essentially does --sw-opti's job already,
+#  unless you wish to specify a lower refresh rate than the actual value.
+#--sw-opti

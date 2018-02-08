@@ -13,3 +13,4 @@ lightdm-gtk-greeter.conf.d usr/share/lightdm
 sysctl.d etc
 Xsession.d etc/X11
 mpv etc
+bunsen etc
