@@ -1,3 +1,9 @@
+bunsen-configs (9.3.3-1) helium; urgency=medium
+
+  * Add new compton configuration files.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 08 Feb 2018 15:23:43 +0900
+
 bunsen-configs (9.3.2-2) helium; urgency=medium
 
   * Use pkexec in Openbox and Thunar menus.
