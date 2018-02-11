@@ -193,7 +193,7 @@ S H O R T C U T    K E Y S
 ${hr}
 Alt + F2${alignr}Run Dialog
 Alt + F3${alignr}Alt Menu
-Super + Space${alignr}Main Menu
+Super${alignr}Main Menu
 Super + Tab${alignr}Client Menu
 Super + t${alignr}Terminal
 Super + f${alignr}File Manager

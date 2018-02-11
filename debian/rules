@@ -25,12 +25,12 @@ override_dh_install:
 	dh_install -X .gitignore
 
 override_dh_installman:
-	sh debian/genman.sh
+	debian/genman.sh
 	dh_installman
 
 override_dh_clean:
 	dh_clean
-	sh debian/genman.sh --clean
+	debian/genman.sh --clean
 
 # debmake generated override targets
 # This is example for Cmake (See http://bugs.debian.org/641051 )

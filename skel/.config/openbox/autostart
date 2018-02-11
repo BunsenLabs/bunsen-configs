@@ -36,10 +36,14 @@ xset r rate 250 25
 # alternative: use as compose key
 #setxkbmap -option compose:caps
 
+# Alias Super key to Super+Space for single-key menu.
+# See 'man xcape' for other possibilities.
+xcape -e 'Super_L=Super_L|space'
+
 ### TOUCHPAD: comment out the next two entries if you don't have one
 
 ## Configure touchpad. See 'man synaptics' for more info.
-## Now might be using libinput
+## (Now might be using libinput instead of synaptics.)
 synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
 
 ## Disable touchpad while typing
