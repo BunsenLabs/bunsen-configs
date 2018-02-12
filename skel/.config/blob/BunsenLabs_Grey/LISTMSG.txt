@@ -1,9 +1,12 @@
 <b>Configuration name: BunsenLabs_Grey</b>	
-Saved at Sun 23 Jul 16:47:21 BST 2017
+Released with BunsenLabs Helium
 
-dmenu config:  ~/.config/dmenu/dmenu-bind.sh\n
 Openbox theme:  Bunsen-He\n
-GTK theme:  Bunsen-He\n
-Running Conkys:\t\n\t~/.config/conky/BL-Left.conkyrc;\n
+GTK theme:  Bunsen-He;  Icon Theme: Paper-Bunsen\n
+Background set with nitrogen:\n/usr/share/images/bunsen/wallpapers/default/BL-beam-grey.png;\n
+Running Conkys:\t\n\t~/.config/conky/BL-Default.conkyrc;\n
 Running Tint2s:\t\n\t~/.config/tint2/tint2rc-minimal\n
-Background set with nitrogen:\n/usr/share/images/bunsen/wallpapers/default/flame-text-1920x1200-right.png;\n
+dmenu config:  ~/.config/dmenu/dmenu-bind.sh\n
+bl-exitrc config:  ~/.config/bl-exit/bl-exitrc\n
+X terminal config:  ~/.Xresources\n
+Terminator config:  ~/.config/terminator/config\n

@@ -1,9 +1,12 @@
-<b>Configuration name: Helium_Dark</b>	  (Existing session overwritten)
-Saved at Sun 23 Jul 16:29:47 BST 2017
+<b>Configuration name: Helium_Dark</b>	
+Released with BunsenLabs Helium
 
-dmenu config:  ~/.config/dmenu/dmenu-bind.sh\n
 Openbox theme:  Bunsen-Dark-He\n
-GTK theme:  Bunsen-Dark-He\n
+GTK theme:  Bunsen-Dark-He;  Icon Theme: Paper-Bunsen\n\n
+Background set with nitrogen:\n/usr/share/images/bunsen/wallpapers/default/BL-beam-plain-grey.png;\n
 Running Conkys:\t\n\t~/.config/conky/BL-Ellipses-Time-Grey.conkyrc;\n\t~/.config/conky/BL-Def-Cal.conkyrc;\n
 Running Tint2s:\t\n\t~/.config/tint2/tint2rc-bottom-minimal\n
-Background set with nitrogen:\n/usr/share/images/bunsen/wallpapers/default/BL-Beam-plain-grey.png;\n
+dmenu config:  ~/.config/dmenu/dmenu-bind.sh\n
+bl-exitrc config:  ~/.config/bl-exit/bl-exitrc\n
+X terminal config:  ~/.Xresources\n
+Terminator config:  ~/.config/terminator/config\n

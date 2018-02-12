@@ -1,13 +1,14 @@
 #!/bin/bash
 #
 # written for BunsenLabs by damo <damo@bunsenlabs.org> May 2015
+# modified July 2017
 #
 # -nb    normal background colour
 # -nf    normal foreground colour
 # -sb    selected background colour
 # -sf    selected foreground colour
 #
-# -b    place menu at bottom (otherwise top)
+# -b    place menu at bottom (otherwise appears at top)
 #
 # See 'man dmenu' for more information.
 
@@ -30,5 +31,10 @@ if [[ $# = 1 ]]; then
     esac
 fi
 
-# Beam
-dmenu_run -b -i -nb '#082B4A' -nf '#ADD8E6' -sb '#446F6C' -sf '#ADD8E6' 
+# BL-Hydrogen (Crunchbang):
+#dmenu_run -b -i -nb '#151617' -nf '#d8d8d8' -sb '#d8d8d8' -sf '#151617'
+# BL-Helium Beam theme
+# Bottom
+dmenu_run -i -b -nb '#082B4A' -nf '#ADD8E6' -sb '#446F6C' -sf '#151617'
+# Top
+#dmenu_run -i -nb '#082B4A' -nf '#ADD8E6' -sb '#446F6C' -sf '#151617'

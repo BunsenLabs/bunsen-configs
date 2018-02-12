@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # written for BunsenLabs by damo <damo@bunsenlabs.org> May 2015
+# modified July 2017
 #
 # -nb    normal background colour
 # -nf    normal foreground colour
@@ -30,4 +31,11 @@ if [[ $# = 1 ]]; then
     esac
 fi
 
+# BL-Hydrogen (Crunchbang):
 dmenu_run -b -i -nb '#151617' -nf '#d8d8d8' -sb '#d8d8d8' -sf '#151617'
+
+# BL-Helium Beam theme
+# Bottom
+#dmenu_run -i -b -nb '#082B4A' -nf '#ADD8E6' -sb '#446F6C' -sf '#151617'
+# Top
+#dmenu_run -i -nb '#082B4A' -nf '#ADD8E6' -sb '#446F6C' -sf '#151617'
