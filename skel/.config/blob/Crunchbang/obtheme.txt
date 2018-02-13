@@ -15,7 +15,7 @@
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Sans</name>
-      <size>9</size>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -24,7 +24,7 @@
     </font>
     <font place="InactiveWindow">
       <name>Sans</name>
-      <size>9</size>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -33,7 +33,7 @@
     </font>
     <font place="MenuHeader">
       <name>Sans</name>
-      <size>9</size>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -42,7 +42,7 @@
     </font>
     <font place="MenuItem">
       <name>Sans</name>
-      <size>9</size>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -51,7 +51,7 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>Sans</name>
-      <size>9</size>
+        <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -60,11 +60,11 @@
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Sans</name>
-      <size>9</size>
+        <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>Normal</slant>
+        <slant>normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
