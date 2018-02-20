@@ -1,29 +1,33 @@
 [global_config]
-  title_transmit_bg_color = "#000000"
-  title_inactive_bg_color = "#000000"
+  dbus = False
+  title_font = Monospace 11
+  title_inactive_bg_color = "#2e3436"
+  title_inactive_fg_color = "#888a85"
+  title_receive_bg_color = "#2e3436"
+  title_transmit_bg_color = "#2e3436"
+  title_transmit_fg_color = "#6daaaa"
+  title_use_system_font = False
 [keybindings]
   hide_window = <Shift><Control>a
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    scrollback_lines = 5000
-    use_system_font = False
-    cursor_color = "#d8d8d8"
-    foreground_color = "#d8d8d8"
-    scroll_on_output = False
-    show_titlebar = False
-    color_scheme = custom
-    font = Monospace 10
-    background_color = "#2e3436"
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
-      size = 680, 540
+      size = 680, 535
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    show_titlebar = False
+    background_darkness = 0.90
+    background_type = transparent
+    background_color = "#082B4A"
+    cursor_color = "#6ab3b3"
+    cursor_color_fg = False
+    foreground_color = "#ADD8E6"
+    font = Monospace 11
+    palette = "#5f5f5f:#d96468:#a2d964:#d9c964:#64a2d9:#9a64d9:#64d9d5:#989898:#828282:#d98f93:#b8d98f:#d9cf8f:#8f99d9:#b08fd9:#8fd9d5:#c5c5c5"
+    use_system_font = False
