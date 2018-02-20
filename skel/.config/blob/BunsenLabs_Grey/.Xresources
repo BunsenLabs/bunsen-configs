@@ -8,45 +8,18 @@ Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-! xscreensaver ---------------------------------------------------------------
-
-!font settings
-xscreensaver.Dialog.headingFont: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont: -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont: -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
-!general dialog box (affects main hostname, username, password text)
-xscreensaver.Dialog.foreground: #101010
-xscreensaver.Dialog.background: #D8D8D8
-xscreensaver.Dialog.topShadowColor: #D8D8D8
-xscreensaver.Dialog.bottomShadowColor: #D8D8D8
-xscreensaver.Dialog.Button.foreground: #101010
-xscreensaver.Dialog.Button.background: #E5E5E5
-!username/password input box and date text colour
-xscreensaver.Dialog.text.foreground: #101010
-xscreensaver.Dialog.text.background: #E5E5E5
-xscreensaver.Dialog.internalBorderWidth: 24
-xscreensaver.Dialog.borderWidth: 0
-xscreensaver.Dialog.shadowThickness: 2
-!timeout bar (background is actually determined by Dialog.text.background)
-xscreensaver.passwd.thermometer.foreground: #101010
-xscreensaver.passwd.thermometer.background: #2E2E2E
-xscreensaver.passwd.thermometer.width: 8
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:Monospace:size=10
-URxvt.boldFont: xft:Monospace:Bold:size=10
-URxvt.letterSpace: -1
+URxvt.font: xft:Monospace:size=11
+URxvt.boldFont: xft:Monospace:Bold:size=11
+URxvt.letterSpace: -2
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
 ! Window size and position
 !URxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-URxvt.geometry: 84x36
+URxvt.geometry: 94x33
 
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
@@ -59,8 +32,8 @@ URxvt.fading: 20
 !URxvt*background: #cecece
 !URxvt*foreground: #101010
 ! Terminator Crunchbang colours
-URxvt.background: [85]#2e3436
-URxvt.foreground: #d3d7cf
+URxvt.background: [90]#2e3436
+URxvt.foreground: #d8d8d8
 
 ! scrollback buffer lines - 65535 is max (64 is default)
 URxvt.saveLines: 16384
