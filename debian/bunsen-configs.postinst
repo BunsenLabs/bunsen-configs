@@ -3,11 +3,17 @@
 
 set -e
 
+DEFAULT_CURSOR_THEME='/usr/share/icons/DMZ-White/cursor.theme'
+
 case $1 in
 configure)
     if [ -x /usr/bin/bl-alternatives ]
     then
         /usr/bin/bl-alternatives update
+    fi
+    if update-alternatives --list x-cursor-theme 2>/dev/null | grep -q "$DEFAULT_CURSOR_THEME"
+    then
+        update-alternatives --set x-cursor-theme "$DEFAULT_CURSOR_THEME"
     fi
     ;;
 esac
