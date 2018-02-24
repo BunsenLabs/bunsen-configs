@@ -1,6 +1,6 @@
 <b>Configuration name: Crunchbang</b>	
-Released with BunsenLabs Helium
-(This theme needs the 'bunsen-faenza-icon-theme' package to be installed.)
+Released with BunsenLabs Helium.
+(This theme needs the '<b>bunsen-faenza-icon-theme</b>' package to be installed.)
 
 Openbox theme:  Bunsen-He\n
 GTK theme:  Bunsen-He;  Icon Theme: Faenza-Dark-Bunsen\n
