@@ -1,3 +1,9 @@
+bunsen-configs (9.3.7-1) helium; urgency=medium
+
+  * Revert Terminator palette to CrunchBang colours.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 28 Feb 2018 18:02:19 +0900
+
 bunsen-configs (9.3.6-1) helium; urgency=medium
 
   * Set DMZ-White as default cursor theme.
