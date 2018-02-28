@@ -29,5 +29,5 @@
     cursor_color_fg = False
     foreground_color = "#ADD8E6"
     font = Monospace 11
-    palette = "#5f5f5f:#d96468:#a2d964:#d9c964:#64a2d9:#9a64d9:#64d9d5:#989898:#828282:#d98f93:#b8d98f:#d9cf8f:#8f99d9:#b08fd9:#8fd9d5:#c5c5c5"
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     use_system_font = False
