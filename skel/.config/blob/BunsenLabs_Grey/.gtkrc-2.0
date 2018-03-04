@@ -1,11 +1,11 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include ".gtkrc-2.0.mine"
-gtk-theme-name="Bunsen-He"
+include "/home/empty/.gtkrc-2.0.mine"
+gtk-theme-name="Bunsen-He-flatish"
 gtk-icon-theme-name="Paper-Bunsen"
 gtk-font-name="Sans 10"
-gtk-cursor-theme-name="DMZ-White"
+gtk-cursor-theme-name="DMZ-Black"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
 gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
