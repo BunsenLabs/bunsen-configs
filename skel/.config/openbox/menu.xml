@@ -200,14 +200,14 @@
                     </action>
                 </item>
                 <separator/>
-                <item label="GUI Menu Editor">
+                <item label="Menu Editor">
                     <action name="Execute">
                         <command>
                             obmenu
                         </command>
                     </action>
                 </item>
-                <item label="GUI Config Tool">
+                <item label="WM Preferences">
                     <action name="Execute">
                         <command>
                             obconf
@@ -280,7 +280,7 @@
                         </command>
                     </action>
                 </item>
-                <separator label="Help?"/>
+                <separator label="Help"/>
                 <item label="man page">
                     <action name="Execute">
                         <command>
@@ -297,7 +297,7 @@
                         </command>
                     </action>
                 </item>
-                <separator label="Help?"/>
+                <separator label="Help"/>
                 <item label="man page">
                     <action name="Execute">
                         <command>
@@ -314,7 +314,7 @@
                         </command>
                     </action>
                 </item>
-                <separator label="Help?"/>
+                <separator label="Help"/>
                 <item label="man xrandr">
                     <action name="Execute">
                         <command>
