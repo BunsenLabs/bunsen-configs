@@ -8,6 +8,33 @@ Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
+! xscreensaver ---------------------------------------------------------------
+
+!font settings
+xscreensaver.Dialog.headingFont:        -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #101010
+xscreensaver.Dialog.background:         #D8D8D8
+xscreensaver.Dialog.topShadowColor:     #D8D8D8
+xscreensaver.Dialog.bottomShadowColor:  #D8D8D8
+xscreensaver.Dialog.Button.foreground:  #101010
+xscreensaver.Dialog.Button.background:  #E5E5E5
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #101010
+xscreensaver.Dialog.text.background:    #E5E5E5
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #101010
+xscreensaver.passwd.thermometer.background:  #2E2E2E
+xscreensaver.passwd.thermometer.width:       8
 
 ! urxvt -------------------------------------------
 
@@ -19,24 +46,22 @@ URxvt.letterSpace: -2
 ! Window size and position
 !URxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-URxvt.geometry: 94x33
+URxvt.geometry: 80x28
 
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
 URxvt.scrollBar_right: true
-URxvt.iconFile: /usr/share/icons/Paper/48x48/apps/utilities-terminal.png
-URxvt.cursorBlink: true
-URxvt.fading: 20
+URxvt.iconFile: /usr/share/icons/Faenza-Bunsen-common/apps/48/utilities-terminal.png
 
 ! Grey theming
 !URxvt*background: #cecece
 !URxvt*foreground: #101010
-! Terminator Beam colours
-URxvt.background: [90]#082B4A
-URxvt.foreground: #ADD8E6
+! Terminator Crunchbang colours
+URxvt.background: [85]#2e3436
+URxvt.foreground: #d8d8d8
 
 ! scrollback buffer lines - 65535 is max (64 is default)
-URxvt.saveLines: 16384
+URxvt.saveLines:16384
 
 ! True Transparency, opacity percentage set in square brackets before URxvt.background colour
 URxvt.depth: 32
@@ -50,35 +75,35 @@ URxvt.matcher.button: 3
 
 ! Black
 URxvt.color0: #000000
-URxvt.color8: #555753
+URxvt.color8: #666666
 
 ! Red
-URxvt.color1: #cc0000
-URxvt.color9: #ef2929
+URxvt.color1: #9e1828
+URxvt.color9: #cf6171
 
 ! Green
-URxvt.color2: #4e9a06
-URxvt.color10: #8ae234
+URxvt.color2: #aece92
+URxvt.color10: #c5f779
 
 ! Yellow
-URxvt.color3: #c4a000
-URxvt.color11: #fce94f
+URxvt.color3: #968a38
+URxvt.color11: #fff796
 
 ! Blue
-URxvt.color4: #3465a4
-URxvt.color12: #729fcf
+URxvt.color4: #414171
+URxvt.color12: #4186be
 
 ! Magenta
-URxvt.color5: #75507b
-URxvt.color13: #ad7fa8
+URxvt.color5: #963c59
+URxvt.color13: #cf9ebe
 
 !Cyan
-URxvt.color6: #06989a
-URxvt.color14: #34e2e2
+URxvt.color6: #418179
+URxvt.color14: #71bebe
 
 ! White
-URxvt.color7: #d3d7cf
-URxvt.color15: #eeeeec
+URxvt.color7: #bebebe
+URxvt.color15: #ffffff
 
 ! Colourised man pages, also changes scheme for htop(1) and others.
 !
