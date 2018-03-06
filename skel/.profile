@@ -53,3 +53,16 @@ if [ "$TERM" = "linux" ]; then
     printf "\e]PFffffff" # color15
 #   clear # removes artefacts but also removes /etc/{issue,motd}
 fi
+
+if [[  ! -f "${HOME}/.config/bunsen/bl-setup" && "$TERM" = "linux" ]]; then
+   echo'
+   ########################################################
+   #                                                      #
+   #    Warning: no user configuration files detected!    #
+   #                                                      #
+   # Please run `bl-user-setup` to configure the desktop. #
+   #                                                      #
+   ########################################################
+   '
+fi
+
