@@ -19,7 +19,7 @@ URxvt.letterSpace: -2
 ! Window size and position
 !URxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-URxvt.geometry: 90x30
+URxvt.geometry: 94x33
 
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
@@ -42,8 +42,8 @@ URxvt.saveLines: 16384
 URxvt.depth: 32
 
 ! Clickble URLs
-URxvt.perl.ext:default,matcher
-URxvt.perl-ext-common:/usr/bin/x-www-browser
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/x-www-browser
 URxvt.matcher.button:3
 
 ! Custom colourscheme, see http://terminal.sexy/ for more ideas.
