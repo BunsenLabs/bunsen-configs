@@ -1,0 +1,1 @@
+rm_conffile /etc/grub.d/39_bunsen 9.3.7-2~ bunsen-configs
