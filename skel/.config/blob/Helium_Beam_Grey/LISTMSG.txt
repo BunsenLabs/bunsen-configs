@@ -1,4 +1,4 @@
-<b>Configuration name: BunsenLabs_Grey</b>	
+<b>Configuration name: Helium_Beam_Grey</b>	
 Released with BunsenLabs Helium
 
 Openbox theme:  Bunsen-He\n
