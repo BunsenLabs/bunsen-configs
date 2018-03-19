@@ -20,8 +20,8 @@
 USAGE="bl-user-setup: a script to populate a new user's HOME directory
 using template files from /usr/share/bunsen/skel
 
-Normally this script is run automatically by lightdm
-on a user's first login, and inhibited after that by a flag file:
+Normally this script is run automatically on a user's first login,
+and inhibited after that by a flag file:
 ~/.config/bunsen/bl-setup
 
 It can, however be run again by a user to update their config files
@@ -97,6 +97,8 @@ else
     # If setup already run, do nothing.
     [[ -f "$HOME/.config/bunsen/bl-setup" ]] && exit 0
 fi
+
+echo 'Running bl-user-setup to import configuration files.' > "$HOME/.xsession-errors"
 
 rsync -rlb ${rs_opt-} --checksum --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "$HOME"
 
