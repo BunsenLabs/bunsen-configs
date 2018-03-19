@@ -1,1 +1,2 @@
 rm_conffile /etc/grub.d/39_bunsen 9.3.7-2~ bunsen-configs
+rm_conffile /etc/profile.d/bunsen.sh 9.4-1~ bunsen-configs
