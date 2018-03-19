@@ -1,3 +1,17 @@
+bunsen-configs (9.4-1) helium; urgency=medium
+
+  * Increase geany font sizes 1 point to match terminal.
+  * Remove preset BLOB themes, now in bunsen-utilities.
+  * Use Xsession.d/22bunsen-user-setup to trigger user setup script.
+  [William Bradley]
+  * Improve colour schemes for Terminator and urxvt.
+  [Matthew T Hoare]
+  * Add grey themes for tint2 and conky.
+  [Jens John]
+  * Add small improvements to Openbox menu.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 19 Mar 2018 22:46:10 +0900
+
 bunsen-configs (9.3.7-2) helium; urgency=medium
 
   * Remove obsolete conffile /etc/grub.d/39_bunsen
