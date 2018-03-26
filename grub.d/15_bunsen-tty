@@ -26,9 +26,9 @@ set -e
 CUSTOM_TITLE='TTY'
 
 # custom boot command arguments, appended to ${GRUB_CMDLINE_LINUX}
-# NB 'quiet' has been omitted - add it if you want:
-# CUSTOM_ARGS='quiet systemd.unit=multi-user.target'
-CUSTOM_ARGS='systemd.unit=multi-user.target'
+# NB 'quiet' has been included - omit it if you want more boot data:
+# CUSTOM_ARGS='systemd.unit=multi-user.target'
+CUSTOM_ARGS='quiet systemd.unit=multi-user.target'
 
 ##############################
 
