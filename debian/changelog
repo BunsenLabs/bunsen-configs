@@ -1,3 +1,12 @@
+bunsen-configs (9.4.1-1) helium; urgency=medium
+
+  * Change default wallpaper to BL-beam.jpg.
+  * tint2: Lighten clock text for visibility.
+  * applications/bl-www-browser.desktop: change icon to "web-browser".
+  * grub.d/15_bunsen-tty: Use "quiet" option for TTY boot.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 29 Mar 2018 15:54:17 +0900
+
 bunsen-configs (9.4-1) helium; urgency=medium
 
   * Increase geany font sizes 1 point to match terminal.
