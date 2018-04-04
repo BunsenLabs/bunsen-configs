@@ -1,3 +1,9 @@
+bunsen-configs (9.4.2-1) helium; urgency=medium
+
+  * skel/.config/compton.conf: restore xfce notification shadows.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 04 Apr 2018 14:08:47 +0900
+
 bunsen-configs (9.4.1-1) helium; urgency=medium
 
   * Change default wallpaper to BL-beam.jpg.
