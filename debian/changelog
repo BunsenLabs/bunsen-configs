@@ -1,3 +1,13 @@
+bunsen-configs (9.4.3~early-1) helium; urgency=medium
+
+  * Remove user bl-exit/ config directory (provided by /etc/bl-exit).
+  [brontosaurusrex]
+  * Add geany custom colorschemes.
+  [Vinzenz Vietzke]
+  * Add config for HiDPI screens.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 07 Apr 2018 11:58:18 +0900
+
 bunsen-configs (9.4.2-1) helium; urgency=medium
 
   * skel/.config/compton.conf: restore xfce notification shadows.
