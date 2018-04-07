@@ -14,3 +14,4 @@ sysctl.d etc
 Xsession.d etc/X11
 mpv etc
 bunsen etc
+geany usr/share
