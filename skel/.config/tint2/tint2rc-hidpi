@@ -2,100 +2,94 @@
 # See https://gitlab.com/o9000/tint2/wikis/Configure for 
 # full documentation of the configuration options.
 #-------------------------------------
-# Note:
-# Options border_sides border_color_* are commented out as tint2 
-# v0.12.12 can't and the executors will cause ~/xsession-errors 
-# to fill up. The options are left in for future reference until
-# Debian Stretch ships tint2 in a version >0.12.12
-#-------------------------------------
 # Backgrounds
 # Background 1: Panel
 rounded = 0
 border_width = 0
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #284f63 40
-# border_color = #828282 0
+border_color = #828282 0
 background_color_hover = #284f63 40
-# border_color_hover = #828282 0
+border_color_hover = #828282 0
 background_color_pressed = #284f63 40
-# border_color_pressed = #828282 0
+border_color_pressed = #828282 0
 
 # Background 2: Active task, Executor
 rounded = 1
 border_width = 0
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #add8e6 30
-# border_color = #d8d8d8 0
+border_color = #d8d8d8 0
 background_color_hover = #add8e6 30
-# border_color_hover = #d8d8d8 0
+border_color_hover = #d8d8d8 0
 background_color_pressed = #add8e6 30
-# border_color_pressed = #d8d8d8 0
+border_color_pressed = #d8d8d8 0
 
 # Background 3: Default task, Iconified task
 rounded = 1
 border_width = 0
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #000000 0
-# border_color = #000000 0
+border_color = #000000 0
 background_color_hover = #000000 0
-# border_color_hover = #000000 0
+border_color_hover = #000000 0
 background_color_pressed = #000000 0
-# border_color_pressed = #000000 0
+border_color_pressed = #000000 0
 
 # Background 4: Urgent task
 rounded = 1
 border_width = 1
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #888888 20
-# border_color = #ed2323 60
+border_color = #ed2323 60
 background_color_hover = #888888 20
-# border_color_hover = #ed2323 60
+border_color_hover = #ed2323 60
 background_color_pressed = #888888 20
-# border_color_pressed = #ed2323 60
+border_color_pressed = #ed2323 60
 
 # Background 5: Inactive taskbar
 rounded = 0
 border_width = 1
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #678b8b 20
-# border_color = #4f727b 0
+border_color = #4f727b 0
 background_color_hover = #678b8b 20
-# border_color_hover = #4f727b 0
+border_color_hover = #4f727b 0
 background_color_pressed = #678b8b 20
-# border_color_pressed = #4f727b 0
+border_color_pressed = #4f727b 0
 
 # Background 6: Active taskbar
 rounded = 0
 border_width = 1
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #678b8b 40
-# border_color = #add8e6 20
+border_color = #add8e6 20
 background_color_hover = #678b8b 40
-# border_color_hover = #add8e6 20
+border_color_hover = #add8e6 20
 background_color_pressed = #678b8b 40
-# border_color_pressed = #add8e6 20
+border_color_pressed = #add8e6 20
 
 # Background 7: Tooltip
 rounded = 3
 border_width = 0
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #082b4a 60
-# border_color = #222222 0
+border_color = #222222 0
 background_color_hover = #082b4a 60
-# border_color_hover = #222222 0
+border_color_hover = #222222 0
 background_color_pressed = #082b4a 60
-# border_color_pressed = #222222 0
+border_color_pressed = #222222 0
 
 # Background 8: 
 rounded = 1
 border_width = 1
-# border_sides = TBLR
+border_sides = TBLR
 background_color = #888888 20
-# border_color = #888888 20
+border_color = #888888 20
 background_color_hover = #888888 20
-# border_color_hover = #888888 20
+border_color_hover = #888888 20
 background_color_pressed = #888888 20
-# border_color_pressed = #888888 20
+border_color_pressed = #888888 20
 
 #-------------------------------------
 # Panel
