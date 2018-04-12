@@ -1,12 +1,13 @@
-bunsen-configs (9.4.3~early-1) helium; urgency=medium
+bunsen-configs (9.4.3-1) helium; urgency=medium
 
+  * Restore default wallpaper to BL-beam.png.
   * Remove user bl-exit/ config directory (provided by /etc/bl-exit).
   [brontosaurusrex]
   * Add geany custom colorschemes.
   [Vinzenz Vietzke]
   * Add config for HiDPI screens.
 
- -- John Crawley <john@bunsenlabs.org>  Sat, 07 Apr 2018 11:58:18 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 12 Apr 2018 17:09:53 +0900
 
 bunsen-configs (9.4.2-1) helium; urgency=medium
 
