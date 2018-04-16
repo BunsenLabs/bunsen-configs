@@ -58,13 +58,13 @@ URxvt.color8: #babdb6
 ! Red
 ! URxvt.color1: #cc0000
 ! URxvt.color9: #ef2929
-URxvt.color1: #a40000
+URxvt.color1: #b44444
 URxvt.color9: #d98f93
 
 ! Green
 ! URxvt.color2: #4e9a06
 ! URxvt.color10: #8ae234
-URxvt.color2: #729fcf
+URxvt.color2: #5ecb8c
 URxvt.color10: #13b9b9
 
 ! Yellow
