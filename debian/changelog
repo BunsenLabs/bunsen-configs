@@ -1,7 +1,7 @@
 bunsen-configs (9.4.4-1) helium; urgency=medium
 
   [ Mehdi El Fadil ]
-  * Adjust terminator and urxvt color profiles for better readability.
+  * Adjust terminator and rxvt-unicode color profiles for better readability.
 
  -- John Crawley <john@bunsenlabs.org>  Tue, 17 Apr 2018 17:03:37 +0900
 
