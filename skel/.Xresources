@@ -13,7 +13,7 @@ Xft.lcdfilter: lcddefault
 
 URxvt.font: xft:Monospace:size=11
 URxvt.boldFont: xft:Monospace:Bold:size=11
-URxvt.letterSpace: -2
+URxvt.letterSpace: -1
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
 ! Window size and position
