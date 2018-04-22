@@ -23,7 +23,7 @@
     cursor_color_fg = False
     font = Monospace 11
     foreground_color = "#add8e6"
-    palette = "#555753:#b44444:#5ecb8c:#d9c964:#204a87:#9a64d9:#64d9d5:#d3d7cf:#babdb6:#d98f93:#13b9b9:#d9cf8f:#8f99d9:#b08fd9:#8fd9d5:#c5c5c5"
+    palette = "#555753:#b44444:#5ecb8c:#d9c964:#3d6aac:#9a64d9:#64d9d5:#d3d7cf:#babdb6:#d98f93:#13b9b9:#d9cf8f:#8f99d9:#b08fd9:#8fd9d5:#c5c5c5"
     scrollback_infinite = True
     scrollback_lines = 5000
     scrollbar_position = hidden
