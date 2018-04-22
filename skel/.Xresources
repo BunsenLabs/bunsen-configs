@@ -76,7 +76,7 @@ URxvt.color11: #d9cf8f
 ! Blue
 ! URxvt.color4: #3465a4
 ! URxvt.color12: #729fcf
-URxvt.color4: #204a87
+URxvt.color4: #3d6aac
 URxvt.color12: #8f99d9
 
 ! Magenta
