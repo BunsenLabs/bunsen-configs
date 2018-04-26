@@ -1,3 +1,9 @@
+bunsen-configs (9.4.5-1) helium; urgency=medium
+
+  * Adjust monospace font settings to improve display in urxvt.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 26 Apr 2018 16:54:41 +0900
+
 bunsen-configs (9.4.4-1) helium; urgency=medium
 
   [ Mehdi El Fadil ]
