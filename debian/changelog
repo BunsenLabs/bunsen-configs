@@ -1,3 +1,9 @@
+bunsen-configs (9.4.6-1) helium; urgency=medium
+
+  * Bugfix: Replace non-existent font in fonts.conf.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 26 Apr 2018 18:51:55 +0900
+
 bunsen-configs (9.4.5-1) helium; urgency=medium
 
   * Adjust monospace font settings to improve display in urxvt.
