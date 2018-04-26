@@ -11,10 +11,15 @@ Xft.lcdfilter: lcddefault
 
 ! urxvt -------------------------------------------
 
-URxvt.font: xft:Monospace:size=11
-URxvt.boldFont: xft:Monospace:Bold:size=11
-URxvt.letterSpace: -1
+! "monospace" is an alias defined in ~/.config/fontconfig/fonts.conf
+URxvt.font: xft:monospace:size=10
+URxvt.boldFont: xft:monospace:bold:size=10
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
+
+URxvt.letterSpace: -2
+URxvt.lineSpace: 1
+! The letterSpace and lineSpace settings are highly dependent on the font(s) configured above
+! and should be changed or removed as necessary.
 
 ! Window size and position
 !URxvt*geometry: 60x22+50+100
