@@ -16,15 +16,15 @@ URxvt.font: xft:monospace:size=10
 URxvt.boldFont: xft:monospace:bold:size=10
 ! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
 
-URxvt.letterSpace: -2
-URxvt.lineSpace: 1
+URxvt.letterSpace: -1
+!URxvt.lineSpace: 1
 ! The letterSpace and lineSpace settings are highly dependent on the font(s) configured above
 ! and should be changed or removed as necessary.
 
 ! Window size and position
 !URxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-URxvt.geometry: 94x33
+URxvt.geometry: 83x35
 
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
