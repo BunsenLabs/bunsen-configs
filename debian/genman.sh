@@ -1,8 +1,10 @@
 #!/bin/sh
 # genman.sh
-# script to generate man files from executables' --help options,
+# This is a script for Debian packagers,
+# to generate man files from executables' --help options,
 # using help2man.
 # Tested on Dash, should work with other POSIX shells.
+# Version 20180531
 
 # Put this script in the package source debian/ directory
 # (or some other location, to taste),
@@ -33,13 +35,21 @@
 #	dh_clean
 #	debian/genman.sh --clean
 #
+# Also add help2man to Build-Depends in debian/control.
 
 set -e
 
-# default if genman-list has no digit in name
+src_name=$(dpkg-parsechangelog -S Source) || {
+    echo "$0: Not in debian source directory?" >&2
+    exit 1
+}
+pkg_name="$src_name" # will be replaced if <packagename>.*.genman-list found
+pkg_ver=$(dpkg-parsechangelog -S Version)
+# default if genman-list file has no digit in name
 default_section=1
 
 # BunsenLabs generic content
+# Other vendors, please edit to taste.
 includes="[authors]
 Written by the BunsenLabs team.
 
@@ -48,19 +58,27 @@ Please report bugs at
 https://github.com/BunsenLabs/${src_name}/issues
 
 [see also]
-The BunsenLabs forums may be able to answer your questions
+The BunsenLabs forums may be able to answer your questions:
 
 https://forums.bunsenlabs.org
 "
 
 HELP="    genman.sh: generate man pages from executables \"--help\" options
 Options:
-    --clean     Return everything in the package debian/ directory
+    <no arguments>
+                Generate the necessary files in the source directory.
+    --clean
+                Return everything in the package debian/ directory
                 to the state it was in before running the script.
-    -h --help   Show this message.
+    --test <file>
+                Display the manpage that would be generated for this file.
+                Nothing is changed in the source directory.
+    -h --help
+                Show this message.
 
-This is a wrapper script around help2man which automates the
-generation of simple man pages from the output of the \"--help\" option,
+This is a wrapper script around help2man for debian packagers,
+which automates the generation of simple man pages
+from the output of executables' \"--help\" option,
 along with information from dpkg,
 and configuration files in the package source debian/ directory.
 
@@ -96,6 +114,7 @@ override_dh_clean:
 	dh_clean
 	debian/genman.sh --clean
 
+Also add help2man to Build-Depends in debian/control.
 "
 
 ### it may not be necessary to edit below this line ###
@@ -123,7 +142,7 @@ build_mans() {
     done < "$1"
 }
 
-# pass executable file
+# pass "executable" file (it need not actually be executable in the source)
 mk_man() {
     local exec="$1"
     local cmd=${1##*/}
@@ -136,11 +155,26 @@ mk_man() {
     [ -x "$exec" ] && execflag=true
     [ "$execflag" = false ] && chmod +x "$exec"
     default_desc="a script provided by ${pkg_name}"
-    desc="$( ./"$exec" --help | sed -rn "/^ *$cmd/ {s/^ *$cmd( -|:| is)? *//p;q}")"
+    desc="$( ./"$exec" --help 2>&1 | sed -rn "/^ *$cmd/ {s/^ *$cmd( -|:| is)? *//p;q}")"
     [ -z "$desc" ] && desc="$default_desc"
     help2man ./"$exec" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" > "$manfile"
     [ "$execflag" = false ] && chmod -x "$exec"
     echo "$manfile" >> "${manpages_file}"
+}
+
+# pass "executable" file
+# output is piped to 'man -l -' for inspection
+test_man() {
+    local exec="$1"
+    local cmd=${1##*/}
+    local execflag=false
+    [ -x "$exec" ] && execflag=true
+    [ "$execflag" = false ] && chmod +x "$exec"
+    default_desc="a script provided by ${pkg_name}"
+    desc="$( ./"$exec" --help 2>&1 | sed -rn "/^ *$cmd/ {s/^ *$cmd( -|:| is)? *//p;q}")"
+    [ -z "$desc" ] && desc="$default_desc"
+    help2man ./"$exec" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" | man -l -
+    [ "$execflag" = false ] && chmod -x "$exec"
 }
 
 ### script starts here ###
@@ -150,7 +184,7 @@ case $1 in
     rm -rf "$manpg_dir"
     # avoid cleaning existing files
     [ -f "$include_file" ] && rm -f debian/*manpages
-    rm -rf "$include_file"
+    rm -f "$include_file"
     for i in debian/*.genman.bckp # restore backups
     do
         [ -f "$i" ] || continue
@@ -158,18 +192,23 @@ case $1 in
     done
     exit 0
     ;;
+--test)
+    [ -n "$2" ] || { echo "Please pass a file to test." >&2; exit 1;}
+    section="$default_section"
+    include_file="$(mktemp)"
+    cat <<EOF > "$include_file"
+$includes
+EOF
+    test_man "$2"
+    rm -f "$include_file"
+    exit
+    ;;
 --help|-h)
-	echo "$HELP"
-	exit 0
-	;;
+    echo "$HELP"
+    exit 0
+    ;;
 esac
 
-src_name=$(dpkg-parsechangelog -S Source) || {
-    echo "$0: Not in debian source directory?" >&2
-    exit 1
-}
-pkg_name="$src_name" # will be replaced if <packagename>.*.genman-list found
-pkg_ver=$(dpkg-parsechangelog -S Version)
 
 mkdir -p "$manpg_dir"
 
@@ -214,6 +253,7 @@ done
 # simple option
 if [ "$found_list" != true ] && [ -f debian/genman-list ]
 then
+    section="$default_section"
     manpages_file=debian/manpages
     build_mans debian/genman-list
 fi
