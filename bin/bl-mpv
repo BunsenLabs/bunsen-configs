@@ -18,9 +18,15 @@ if (( $# > 0 )); then
         MPV_PROFILE=audio-only
     else
         case "$URI" in
-        http://*|https://*)
-            MPV_PROFILE=http-https
-           ;;
+        http://*)
+            MPV_PROFILE=bl-http
+            ;;
+        https://*)
+            MPV_PROFILE=bl-https
+            ;;
+        ytdl://*)
+            MPV_PROFILE=bl-ytdl
+            ;;
         esac
     fi
 fi
