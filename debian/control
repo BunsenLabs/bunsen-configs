@@ -12,7 +12,7 @@ Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
 Recommends: bunsen-configs-pulse, bunsen-utilities, bunsen-pipemenus, bunsen-docs, bunsen-images, bunsen-themes, bunsen-paper-icon-theme, bunsen-conky, lightdm, openbox, nitrogen, scrot, yad, bunsen-thunar, pnmixer, clipit, xcape, dmz-cursor-theme
-Suggests: qt5-style-plugins, libqt5svg5
+Suggests: qt5-style-plugins, libqt5svg5, xfce4-notifyd
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Replaces: bunsen-utilities (<< 0.3-6)
