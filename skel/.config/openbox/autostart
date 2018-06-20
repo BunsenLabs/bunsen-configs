@@ -75,6 +75,12 @@ bl-conky-session --autostart &
 ## Start Clipboard manager
 clipit &
 
+## Start Thunar Daemon, if set as bl-file-manager
+if [ "$(readlink -f $(which bl-file-manager))" = "$(which thunar)" ]
+then
+    thunar --daemon &
+fi
+
 ## bl-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
 (sleep 10; bl-welcome --firstrun) &
