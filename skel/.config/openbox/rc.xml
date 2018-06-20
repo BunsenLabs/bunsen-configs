@@ -961,6 +961,12 @@
 
   # end of the example
 -->
+    <!-- Ensure new windows are always given focus.
+    See: https://wiki.archlinux.org/index.php/openbox#Windows_load_behind_the_active_window
+    Remove this entry if it conflicts with some app's configuration. -->
+    <application class="*">
+      <focus>yes</focus>
+    </application>
 <!--
     <application class="Gimp" name="gimp" role="gimp-toolbox" type="utility">
       <maximized>vertical</maximized>
