@@ -2,7 +2,7 @@
 
 # wrapper for mpv to enable use as alternative for bl-media-player
 
-MPV_PROFILE=pseudo-gui
+MPV_PROFILE=bl-pseudo-gui
 
 if ! hash mpv; then
     echo "$0: mpv binary is missing. Please issue 'sudo apt-get install mpv'." >&2
@@ -10,13 +10,25 @@ if ! hash mpv; then
 fi
 
 if (( $# > 0 )); then
-    FILE=$1
+    URI=$1
 
     # Use the MIME type of the first file passed to us to determine the
     # playback profile.
-    if [[ -s "$FILE" && "$(file --mime-type --brief "$FILE")" =~ ^audio/ ]]; then
+    if [[ -s "$URI" && "$(file --mime-type --brief "$URI")" =~ ^audio/ ]]; then
         MPV_PROFILE=audio-only
+    else
+        case "$URI" in
+        http://*)
+            MPV_PROFILE=bl-http
+            ;;
+        https://*)
+            MPV_PROFILE=bl-https
+            ;;
+        ytdl://*)
+            MPV_PROFILE=bl-ytdl
+            ;;
+        esac
     fi
 fi
 
-exec mpv --terminal=no --input-terminal=no --profile=$MPV_PROFILE "$@"
+exec mpv --profile=$MPV_PROFILE "$@"
