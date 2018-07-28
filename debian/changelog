@@ -1,3 +1,13 @@
+bunsen-configs (9.5-1) helium; urgency=medium
+
+  * debian/genman.sh: update to version 20180531.
+  * mpv: Fix unwanted window when playing audio stream from terminal.
+  * debian/control: Add Suggests: xfce4-notifyd.
+  * openbox/rc.xml: Add new-window-focus-bug workaround.
+  * openbox/autostart: Start Thunar daemon for automounting of external devices.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 28 Jul 2018 17:08:38 +0900
+
 bunsen-configs (9.4.7-1) helium; urgency=medium
 
   * Adjust monospace font settings for urxvt.
