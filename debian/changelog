@@ -1,3 +1,9 @@
+bunsen-configs (9.5-2) helium; urgency=medium
+
+  * Add bunsen-openbox to Recommends.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 29 Jul 2018 14:31:38 +0900
+
 bunsen-configs (9.5-1) helium; urgency=medium
 
   * debian/genman.sh: update to version 20180531.
