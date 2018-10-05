@@ -98,7 +98,7 @@ else
     [[ -f "$HOME/.config/bunsen/bl-setup" ]] && exit 0
 fi
 
-echo 'Running bl-user-setup to import configuration files.' > "$HOME/.xsession-errors"
+echo 'Running bl-user-setup to import configuration files.' >> "$HOME/.xsession-errors"
 
 rsync -rlb ${rs_opt-} --checksum --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "$HOME"
 
