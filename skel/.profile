@@ -33,7 +33,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set tty colours to match .Xresources scheme.
+# set tty colours.
 if [ "$TERM" = "linux" ]; then
     printf "\e]P0000000" # color0
     printf "\e]P19e1828" # color1
