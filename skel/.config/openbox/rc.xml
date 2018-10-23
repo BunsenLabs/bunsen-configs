@@ -967,6 +967,14 @@
     <application class="*">
       <focus>yes</focus>
     </application>
+
+    <!-- no decorations for bl-exit, even with "classic" theme -->
+    <application name="bl-exit">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <layer>above</layer>
+    </application>
+
 <!--
     <application class="Gimp" name="gimp" role="gimp-toolbox" type="utility">
       <maximized>vertical</maximized>
