@@ -1,3 +1,14 @@
+bunsen-configs (9.6-1) helium; urgency=medium
+
+  * Improve appearance of bl-exit "classic" window.
+  * Bugfix: Thunar context menu "Open terminal here" now works
+     with spaces in path.
+  * Default conky: use window type "desktop".
+  * Bugfix: bl-user-setup does not overwrite ~/.xsession-errors.
+  * Add some other small fixes.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 05 Nov 2018 14:43:24 +0900
+
 bunsen-configs (9.5-2) helium; urgency=medium
 
   * Add bunsen-openbox to Recommends.
