@@ -9,7 +9,7 @@ The main content is:
 
 *) A collection of user configuration files templates,
 stored in /usr/share/bunsen/skel, and a user setup script to install them,
-triggered by lightdm.
+triggered from the Xsession login.
 
 *) Configuration for lightdm, including a workaround for language selection.
 
