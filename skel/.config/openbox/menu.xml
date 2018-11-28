@@ -357,8 +357,9 @@
             <separator/>
             <item label="About Bunsen Alternatives">
                 <action name="Execute">
-                    <execute>yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace
-                    </execute>
+                    <command>
+                        yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace
+                    </command>
                 </action>
             </item>
         </menu>
