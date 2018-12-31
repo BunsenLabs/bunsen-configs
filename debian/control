@@ -15,8 +15,6 @@ Recommends: bunsen-configs-pulse, bunsen-utilities, bunsen-pipemenus, bunsen-doc
 Suggests: qt5-style-plugins, libqt5svg5, xfce4-notifyd
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
-Replaces: bunsen-utilities (<< 0.3-6)
-Breaks: bunsen-utilities (<< 0.3-6)
 Description: config files for BunsenLabs Linux
  Various configuration files for BunsenLabs Linux.
  Contains user config files to be copied into a new user's home directory,
