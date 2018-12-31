@@ -1,3 +1,11 @@
+bunsen-configs (10.0-1) lithium; urgency=medium
+
+  * Migrate to Lithium.
+  * Raise debhelper level to 10, standards version to 4.3.0.
+  * Remove unused diversion mechanism.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 31 Dec 2018 18:00:29 +0900
+
 bunsen-configs (9.6-1) helium; urgency=medium
 
   * Improve appearance of bl-exit "classic" window.
