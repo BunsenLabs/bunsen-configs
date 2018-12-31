@@ -1,3 +1,9 @@
+bunsen-configs (10.0-2) lithium; urgency=medium
+
+  * Remove Recommends: bunsen-openbox (no longer needed).
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 31 Dec 2018 18:30:36 +0900
+
 bunsen-configs (10.0-1) lithium; urgency=medium
 
   * Migrate to Lithium.
