@@ -2,8 +2,8 @@ Source: bunsen-configs
 Section: misc
 Priority: optional
 Maintainer: John Crawley <john@bunsenlabs.org>
-Build-Depends: debhelper (>= 9), config-package-dev (>= 5.1), help2man
-Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 10), config-package-dev (>= 5.1), help2man
+Standards-Version: 4.3.0
 Homepage: https://github.com/BunsenLabs/bunsen-configs
 Vcs-Git: https://github.com/BunsenLabs/bunsen-configs.git
 Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
