@@ -1,3 +1,11 @@
+bunsen-configs (10.0.1-1) lithium; urgency=medium
+
+  * Move default conky file to ~/.config/conky/conky.conf
+  * Rename LightDM background image to
+     /usr/share/images/bunsen/login/default.png
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 11 Jan 2019 16:38:16 +0900
+
 bunsen-configs (10.0-2) lithium; urgency=medium
 
   * Remove Recommends: bunsen-openbox (no longer needed).
