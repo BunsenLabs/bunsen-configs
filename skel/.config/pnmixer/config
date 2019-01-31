@@ -25,6 +25,7 @@ MouseNotifications=true
 PopupNotifications=false
 ExternalNotifications=false
 NotificationTimeout=1500
+SystemTheme=true
 
 [(default)]
 Channel=Master
