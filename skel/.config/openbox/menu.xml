@@ -340,6 +340,13 @@
                     </command>
                 </action>
             </item>
+            <item label="Login Greeter">
+                <action name="Execute">
+                    <command>
+                        lightdm-gtk-greeter-settings-pkexec
+                    </command>
+                </action>
+            </item>
             <item label="GParted">
                 <action name="Execute">
                     <command>
