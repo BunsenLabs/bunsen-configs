@@ -3,7 +3,7 @@ set -e
 
 # grub-mkconfig helper script.
 # Copyright (C) 2006,2007,2008,2009,2010  Free Software Foundation, Inc.
-# Copyright: 2018 John Crawley <john@bunsenlabs.org>
+# Copyright: 2018-2019 John Crawley <john@bunsenlabs.org>
 #
 # GRUB is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,12 +23,12 @@ set -e
 # with customized command arguments and title.
 
 # custom entry title will be: "${GRUB_DISTRIBUTOR} ${CUSTOM_TITLE}"
-CUSTOM_TITLE='TTY'
+CUSTOM_TITLE='TTY login'
 
 # custom boot command arguments, appended to ${GRUB_CMDLINE_LINUX}
-# NB 'quiet' has been included - omit it if you want more boot data:
-# CUSTOM_ARGS='systemd.unit=multi-user.target'
-CUSTOM_ARGS='quiet systemd.unit=multi-user.target'
+# NB 'quiet' has been omitted - add it if you want a simpler boot screen:
+# CUSTOM_ARGS='quiet systemd.unit=multi-user.target'
+CUSTOM_ARGS='systemd.unit=multi-user.target'
 
 ##############################
 
