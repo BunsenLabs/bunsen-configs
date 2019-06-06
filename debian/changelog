@@ -1,3 +1,16 @@
+bunsen-configs (10.1-1) lithium; urgency=medium
+
+  * Grub login menu: remove "quiet" from TTY entry.
+  * Fix obsolete lightdm config syntax.
+  * Compton: allow drop shadows for jgmenu.
+  * Add Recommends: lightdm-gtk-greeter-settings, and menu entry.
+  * Add policykit policy for bl-cli-editor to act as root.
+  * Add some small bugfixes and code cleanups.
+  [Johan Malm]
+  * Clean up openbox menu.xml syntax.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 06 Jun 2019 15:57:22 +0900
+
 bunsen-configs (10.0.1-1) lithium; urgency=medium
 
   * Move default conky file to ~/.config/conky/conky.conf
