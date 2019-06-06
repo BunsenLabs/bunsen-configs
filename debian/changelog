@@ -1,3 +1,9 @@
+bunsen-configs (10.1.1-1) lithium; urgency=medium
+
+  * Replace Paper-Bunsen icon theme settings with Papirus-Bunsen-grey.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 06 Jun 2019 16:20:42 +0900
+
 bunsen-configs (10.1-1) lithium; urgency=medium
 
   * Grub login menu: remove "quiet" from TTY entry.
