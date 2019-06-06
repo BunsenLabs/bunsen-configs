@@ -31,7 +31,6 @@ Recommends: bunsen-configs-pulse,
  pnmixer,
  clipit,
  xcape
-
 Suggests: qt5-style-plugins, libqt5svg5, xfce4-notifyd
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
