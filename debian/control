@@ -20,17 +20,18 @@ Recommends: bunsen-configs-pulse,
  bunsen-papirus-icon-theme,
  bunsen-conky,
  bunsen-thunar,
+ clipit,
  dmz-cursor-theme,
+ jgmenu,
  lightdm,
  lightdm-gtk-greeter,
  lightdm-gtk-greeter-settings,
- openbox,
  nitrogen,
- scrot,
- yad,
+ openbox,
  pnmixer,
- clipit,
- xcape
+ scrot,
+ xcape,
+ yad
 Suggests: qt5-style-plugins, libqt5svg5, xfce4-notifyd
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}

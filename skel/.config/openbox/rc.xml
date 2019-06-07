@@ -436,16 +436,29 @@
     </keybind>
 
     <!-- Keybindings for menus -->
+
+    <keybind key="W-space">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>false</enabled>
+          <name>jgmenu</name>
+        </startupnotify>
+        <command>jgmenu_run</command>
+      </action>
+    </keybind>
+
     <keybind key="W-Tab">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
       </action>
     </keybind>
+<!--
     <keybind key="W-space">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
     </keybind>
+-->
     <keybind key="A-C-q">
       <action name="ShowMenu">
         <menu>root-menu</menu>
@@ -827,9 +840,13 @@
         </action>
       </mousebind>
       <mousebind button="Right" action="Press">
-        <action name="ShowMenu">
-          <menu>root-menu</menu>
-        </action>
+      <action name="Execute">
+        <startupnotify>
+          <enabled>false</enabled>
+          <name>jgmenu</name>
+        </startupnotify>
+        <command>jgmenu_run</command>
+      </action>
       </mousebind>
     </context>
 
