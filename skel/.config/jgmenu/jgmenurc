@@ -1,6 +1,6 @@
 tint2_look          = 0
 at_pointer          = 1
-csv_cmd             = pmenu
+csv_cmd             = lx
 menu_width          = 134
 menu_padding_top    = 24
 menu_padding_right  = 0

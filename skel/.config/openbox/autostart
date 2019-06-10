@@ -81,8 +81,12 @@ then
     thunar --daemon &
 fi
 
-## bl-welcome - post-installation script, will not run in a live session and
-## only runs once. Safe to remove.
+## If the first jgmenu popup is very slow to appear,
+## try uncommenting the next line:
+#(sleep 4; jgmenu --hide-on-startup) &
+
+## bl-welcome - post-installation script, will not run in a live session
+## and only runs once. Safe to remove.
 (sleep 10; bl-welcome --firstrun) &
 
 ## bl-fortune - have the system come up with a little adage (not yet enabled)
