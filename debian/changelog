@@ -1,3 +1,12 @@
+bunsen-configs (10.2.1-1) lithium; urgency=medium
+
+  * Add jgmenu entries to edit menu settings, remove openbox menu items.
+  * Use jgmenu lx module for "applications" menu.
+  * Add Recommends: lxmenu-data.
+  * Add lightdm-gtk-greeter-settings entry to menu.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 10 Jun 2019 16:50:27 +0900
+
 bunsen-configs (10.2-1) lithium; urgency=medium
 
   * Make jgmenu the default menu.
