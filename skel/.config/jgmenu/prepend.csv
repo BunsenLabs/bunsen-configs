@@ -33,10 +33,12 @@ WWW Browsers,^pipe(jgmenu_run ob --cmd="bl-x-www-browser-pipemenu" --tag="bl-x-w
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu")
 LibreOffice,^pipe(jgmenu_run ob --cmd="bl-libreoffice-pipemenu" --tag="bl-libreoffice-pipemenu")
+#Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu")
 
 Preferences,^tag(bl-preferences)
 Back,^back()
 Openbox,^checkout(bl-obConfig)
+jgmenu,^checkout(bl-jgmenuConfig)
 Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor")
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu")
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu")
@@ -52,16 +54,21 @@ Display,^checkout(bl-DisplaySettings)
 
 Openbox,^tag(bl-obConfig)
 Back,^back()
-Edit menu.xml,bl-text-editor ~/.config/openbox/menu.xml
 Edit rc.xml,bl-text-editor ~/.config/openbox/rc.xml
 Edit autostart,bl-text-editor ~/.config/openbox/autostart
 ^sep()
-Menu Editor,obmenu
 WM Preferences,obconf
-How to Edit Menu,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="How to Edit the Menu" --filename="/usr/share/bunsen/docs/helpfile-menu.txt" --width=900 --height=700 --fontname=Monospace
 ^sep()
 Reconfigure,openbox --reconfigure
 Restart,openbox --restart
+
+jgmenu,^tag(bl-jgmenuConfig)
+Back,^back()
+Edit Menu Content,bl-text-editor ~/.config/jgmenu/prepend.csv
+Edit Menu Settings,bl-text-editor ~/.config/jgmenu/jgmenurc
+^sep(Help)
+man page,x-terminal-emulator -T 'man jgmenu' -e man jgmenu
+tutorial,x-terminal-emulator -T 'man jgmenututorial' -e man jgmenututorial
 
 dmenu,^tag(bl-dmenuconfig)
 Back,^back()
@@ -87,6 +94,7 @@ Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pip
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop
 Synaptic Package Manager,pkexec synaptic
 Login Settings,pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
+Login Interface,lightdm-gtk-greeter-settings-pkexec
 GParted,pkexec gparted
 Edit Debian Alternatives,galternatives
 ^sep()
