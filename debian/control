@@ -31,9 +31,11 @@ Recommends: bunsen-configs-pulse,
  openbox,
  pnmixer,
  scrot,
+ xbindkeys,
+ xbindkeys-config,
  xcape,
  yad
-Suggests: qt5-style-plugins, libqt5svg5, xfce4-notifyd
+Suggests: qt5-style-plugins, libqt5svg5, xfce4-notifyd, xfce4-screenshooter
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Description: config files for BunsenLabs Linux

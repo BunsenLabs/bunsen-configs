@@ -100,7 +100,7 @@
         <name>Sans</name>
         <size>10</size>
         <!-- font size in points -->
-        <weight>Normal</weight>
+        <weight>normal</weight>
         <!-- 'bold' or 'normal' -->
         <slant>normal</slant>
         <!-- 'italic' or 'normal' -->
@@ -109,7 +109,7 @@
         <name>Sans</name>
         <size>10</size>
         <!-- font size in points -->
-        <weight>Normal</weight>
+        <weight>normal</weight>
         <!-- 'bold' or 'normal' -->
         <slant>normal</slant>
         <!-- 'italic' or 'normal' -->
@@ -254,16 +254,6 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-    <keybind key="Print">
-      <action name="Execute">
-        <command>xfce4-screenshooter</command>
-      </action>
-    </keybind>
-    <keybind key="A-Print">
-      <action name="Execute">
-        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl-image-viewer ~/Pictures/screenshots/$f'</command>
-      </action>
-    </keybind>
 
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
@@ -319,124 +309,14 @@
     </keybind>
 
     <!-- Keybindings for running applications -->
-    <keybind key="A-F2">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Run Program</name>
-        </startupnotify>
-        <command>gmrun</command>
-      </action>
-    </keybind>
-    <keybind key="A-F3">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>dmenu-bind</name>
-        </startupnotify>
-        <command>~/.config/dmenu/dmenu-bind.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-f">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>File Manager</name>
-        </startupnotify>
-        <command>bl-file-manager</command>
-      </action>
-    </keybind>
-    <keybind key="W-t">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>Terminal</name>
-        </startupnotify>
-        <command>x-terminal-emulator</command>
-      </action>
-    </keybind>
-    <keybind key="W-w">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Web Browser</name>
-        </startupnotify>
-        <command>x-www-browser</command>
-      </action>
-    </keybind>
-    <keybind key="W-l">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>Lock screen</name>
-        </startupnotify>
-        <command>bl-lock</command>
-      </action>
-    </keybind>
-    <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>Editor</name>
-        </startupnotify>
-        <command>bl-text-editor</command>
-      </action>
-    </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>Mediaplayer</name>
-        </startupnotify>
-        <command>bl-media-player</command>
-      </action>
-    </keybind>
-    <keybind key="W-h">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>htop</name>
-        </startupnotify>
-        <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
-      </action>
-    </keybind>
-    <keybind key="W-v">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Volume</name>
-        </startupnotify>
-        <command>pavucontrol</command>
-      </action>
-    </keybind>
 <!--
-    <keybind key="XF86AudioMute">
-      <action name="Execute">
-        <command>amixer set -D pulse Master toggle</command>
-      </action>
-    </keybind>
+  In BunsenLabs, global keybinds, for running applications
+  are now handled by xbindkeys. See ~/.xbindkeysrc
 -->
-    <keybind key="W-x">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>Logout</name>
-        </startupnotify>
-        <command>bl-exit</command>
-      </action>
-    </keybind>
-    <keybind key="W-Escape">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>false</enabled>
-          <name>xkill</name>
-        </startupnotify>
-        <command>xkill</command>
-      </action>
-    </keybind>
 
     <!-- Keybindings for menus -->
-
+<!-- jgmenu is now launched by Mod4 + space in ~/.xbindkeysrc -->
+<!--
     <keybind key="W-space">
       <action name="Execute">
         <startupnotify>
@@ -446,12 +326,7 @@
         <command>jgmenu_run</command>
       </action>
     </keybind>
-
-    <keybind key="W-Tab">
-      <action name="ShowMenu">
-        <menu>client-list-combined-menu</menu>
-      </action>
-    </keybind>
+-->
 <!--
     <keybind key="W-space">
       <action name="ShowMenu">
@@ -459,9 +334,16 @@
       </action>
     </keybind>
 -->
+<!-- This keybind remains to launch the native OpenBox menu -->
     <keybind key="A-C-q">
       <action name="ShowMenu">
         <menu>root-menu</menu>
+      </action>
+    </keybind>
+
+    <keybind key="W-Tab">
+      <action name="ShowMenu">
+        <menu>client-list-combined-menu</menu>
       </action>
     </keybind>
 
@@ -514,8 +396,8 @@
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
-  <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
-  <!-- Set this to TRUE to move the mouse pointer across the desktop when
+    <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
+    <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
 
     <context name="Frame">
@@ -545,24 +427,24 @@
         <action name="Unfocus"/>
       </mousebind>
 
-    <mousebind button="A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="C-A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="C-A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="A-S-Up" action="Click">
-      <action name="SendToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-S-Down" action="Click">
-      <action name="SendToDesktop"><to>next</to></action>
-    </mousebind>
+      <mousebind button="A-Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="A-Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+      <mousebind button="C-A-Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="C-A-Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+      <mousebind button="A-S-Up" action="Click">
+        <action name="SendToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="A-S-Down" action="Click">
+        <action name="SendToDesktop"><to>next</to></action>
+      </mousebind>
     </context>
 
     <context name="Titlebar">
@@ -583,26 +465,26 @@
         <action name="Unfocus"/>
       </mousebind>
 
-    <mousebind button="Up" action="Click">
-      <action name="if">
-        <shaded>no</shaded>
-        <then>
-          <action name="Shade"/>
-          <action name="FocusToBottom"/>
-          <action name="Unfocus"/>
-          <action name="Lower"/>
-        </then>
-      </action>
-    </mousebind>
-    <mousebind button="Down" action="Click">
-      <action name="if">
-        <shaded>yes</shaded>
-        <then>
-          <action name="Unshade"/>
-          <action name="Raise"/>
-        </then>
-      </action>
-    </mousebind>
+      <mousebind button="Up" action="Click">
+        <action name="if">
+          <shaded>no</shaded>
+          <then>
+            <action name="Shade"/>
+            <action name="FocusToBottom"/>
+            <action name="Unfocus"/>
+            <action name="Lower"/>
+          </then>
+        </action>
+      </mousebind>
+      <mousebind button="Down" action="Click">
+        <action name="if">
+          <shaded>yes</shaded>
+          <then>
+            <action name="Unshade"/>
+            <action name="Raise"/>
+          </then>
+        </action>
+      </mousebind>
 
       <mousebind button="Right" action="Press">
         <action name="Focus"/>
@@ -613,25 +495,25 @@
       </mousebind>
     </context>
 
-  <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
-    <mousebind button="Left" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="Unshade"/>
-    </mousebind>
+    <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
 
-    <mousebind button="Middle" action="Press">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
-    </mousebind>
+      <mousebind button="Middle" action="Press">
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
+      </mousebind>
 
-    <mousebind button="Right" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="ShowMenu"><menu>client-menu</menu></action>
-    </mousebind>
-  </context>
+      <mousebind button="Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="ShowMenu"><menu>client-menu</menu></action>
+      </mousebind>
+    </context>
 
     <context name="Top">
       <mousebind button="Left" action="Press">
@@ -694,16 +576,16 @@
       </mousebind>
     </context>
 
-  <context name="TRCorner BRCorner TLCorner BLCorner">
-    <mousebind button="Left" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="Unshade"/>
-    </mousebind>
-    <mousebind button="Left" action="Drag">
-      <action name="Resize"/>
-    </mousebind>
-  </context>
+    <context name="TRCorner BRCorner TLCorner BLCorner">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"/>
+      </mousebind>
+    </context>
 
     <context name="Client">
       <mousebind button="Left" action="Press">
@@ -788,12 +670,12 @@
       <mousebind button="Left" action="Click">
         <action name="ToggleMaximize"/>
       </mousebind>
-    <mousebind button="Middle" action="Click">
-      <action name="ToggleMaximize"><direction>vertical</direction></action>
-    </mousebind>
-    <mousebind button="Right" action="Click">
-      <action name="ToggleMaximize"><direction>horizontal</direction></action>
-    </mousebind>
+      <mousebind button="Middle" action="Click">
+        <action name="ToggleMaximize"><direction>vertical</direction></action>
+      </mousebind>
+      <mousebind button="Right" action="Click">
+        <action name="ToggleMaximize"><direction>horizontal</direction></action>
+      </mousebind>
     </context>
 
     <context name="Close">
@@ -808,24 +690,24 @@
     </context>
 
     <context name="Desktop">
-    <mousebind button="Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="C-A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="C-A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
+      <mousebind button="Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+      <mousebind button="A-Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="A-Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+      <mousebind button="C-A-Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="C-A-Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -851,18 +733,18 @@
     </context>
 
     <context name="MoveResize">
-    <mousebind button="Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
+      <mousebind button="Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+      <mousebind button="A-Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="A-Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
     </context>
   </mouse>
 
@@ -892,7 +774,7 @@
        submenu will not be hidden until a different submenu is opened -->
     <applicationIcons>yes</applicationIcons>
   <!-- controls if icons appear in the client-list-(combined-)menu -->
-  <manageDesktops>yes</manageDesktops>
+    <manageDesktops>yes</manageDesktops>
   <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
 

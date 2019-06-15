@@ -39,6 +39,7 @@ Preferences,^tag(bl-preferences)
 Back,^back()
 Openbox,^checkout(bl-obConfig)
 jgmenu,^checkout(bl-jgmenuConfig)
+Keybinds,^checkout(bl-xbindkeysConfig)
 Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor")
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu")
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu")
@@ -71,6 +72,16 @@ Sync Theme w. Openbox,jgmenu init --apply-obtheme
 ^sep(Help)
 man page,x-terminal-emulator -T 'man jgmenu' -e man jgmenu
 tutorial,x-terminal-emulator -T 'man jgmenututorial' -e man jgmenututorial
+
+Keybinds,^tag(bl-xbindkeysConfig)
+Back,^back()
+Edit .xbindkeysrc,bl-text-editor ~/.xbindkeysrc
+Reconfigure,killall -HUP xbindkeys
+^sep()
+Show Keybinds,xbindkeys_show
+GUI Keybinds editor,xbindkeys-config
+^sep(Help)
+man page,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys
 
 dmenu,^tag(bl-dmenuconfig)
 Back,^back()
