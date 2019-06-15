@@ -1,3 +1,9 @@
+bunsen-configs (10.2.2-1) lithium; urgency=medium
+
+  * Use xbindkeys for application launch keybinds, instead of openbox.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 15 Jun 2019 18:13:16 +0900
+
 bunsen-configs (10.2.1-1) lithium; urgency=medium
 
   * Add jgmenu entries to edit menu settings, remove openbox menu items.
