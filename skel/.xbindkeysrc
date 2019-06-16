@@ -103,11 +103,11 @@
     Print
 
 # Print Screen (scrot)
-"scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Images/screenshots/ ; bl-image-viewer ~/Images/screenshots/$f'"
+"scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl-image-viewer ~/Pictures/screenshots/$f'"
     Control + Print
 
 # Scrot with 10s delay
-"scrot -d 10 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Images/screenshots/ ; bl-image-viewer ~/Images/screenshots/$f'"
+"scrot -d 10 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl-image-viewer ~/Pictures/screenshots/$f'"
     Alt + Print
 
 # Show xbindkeys settings
