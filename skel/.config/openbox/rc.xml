@@ -310,7 +310,7 @@
 
     <!-- Keybindings for running applications -->
 <!--
-  In BunsenLabs, global keybinds, for running applications
+  In BunsenLabs, global keybinds for running applications
   are now handled by xbindkeys. See ~/.xbindkeysrc
 -->
 
@@ -334,7 +334,7 @@
       </action>
     </keybind>
 -->
-<!-- This keybind remains to launch the native OpenBox menu -->
+<!-- This keybind remains to launch the native OpenBox menu if needed -->
     <keybind key="A-C-q">
       <action name="ShowMenu">
         <menu>root-menu</menu>
