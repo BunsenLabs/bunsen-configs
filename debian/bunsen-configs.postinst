@@ -1,12 +1,20 @@
 #!/bin/sh
 # postinst script for bunsen-configs
 
+# Summary of ways this script is called:
+#    postinst configure most-recently-configured-version(null if not upgrade)
+#    old-postinst abort-upgrade new-version
+#    conflictor's-postinst abort-remove in-favour package new-version
+#    deconfigured's-postinst abort-deconfigure in-favour failed-install-package version removing conflicting-package version
+
 set -e
 
 DEFAULT_CURSOR_THEME='/usr/share/icons/DMZ-White/cursor.theme'
+BUNSEN_SESSION='/usr/bin/bunsenlabs-session'
+MAN1='/usr/share/man/man1'
 
 case $1 in
-configure)
+configure|abort-upgrade)
     if [ -x /usr/bin/bl-alternatives ]
     then
         /usr/bin/bl-alternatives update
@@ -14,6 +22,12 @@ configure)
     if update-alternatives --list x-cursor-theme 2>/dev/null | grep -q "$DEFAULT_CURSOR_THEME"
     then
         update-alternatives --set x-cursor-theme "$DEFAULT_CURSOR_THEME"
+    fi
+    if [ -x "$BUNSEN_SESSION" ]
+    then
+        update-alternatives --install /usr/bin/x-session-manager x-session-manager "$BUNSEN_SESSION" 50\
+         --slave "$MAN1/x-session-manager.1.gz" x-session-manager.1.gz "$MAN1/bunsenlabs-session.1.gz"
+        update-alternatives --set x-session-manager "$BUNSEN_SESSION"
     fi
     ;;
 esac

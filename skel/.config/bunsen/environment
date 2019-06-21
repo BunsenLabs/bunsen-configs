@@ -1,6 +1,7 @@
 #
-# User-specific variables should be placed in $HOME/.config/openbox/environment
-#
+# User-specific variables for a BunsenLabs session
+# can be placed here in ~/.config/bunsen/environment.
+# If set in ~/.xsessionrc instead, they will apply for all sessions.
 
 # To set your language for displaying messages and time/date formats, use the following:
 #LANG=en_CA.UTF8

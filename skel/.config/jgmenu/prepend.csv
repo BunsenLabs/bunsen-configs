@@ -37,6 +37,7 @@ LibreOffice,^pipe(jgmenu_run ob --cmd="bl-libreoffice-pipemenu" --tag="bl-libreo
 
 Preferences,^tag(bl-preferences)
 Back,^back()
+BunsenLabs,^checkout(bl-blConfig)
 Openbox,^checkout(bl-obConfig)
 jgmenu,^checkout(bl-jgmenuConfig)
 Keybinds,^checkout(bl-xbindkeysConfig)
@@ -53,10 +54,17 @@ dmenu,^checkout(bl-dmenuconfig)
 gmrun,^checkout(bl-gmrunconfig)
 Display,^checkout(bl-DisplaySettings)
 
+BunsenLabs Session,^tag(bl-blConfig)
+Back,^back()
+Edit autostart,bl-text-editor ~/.config/bunsen/autostart
+Edit environment,bl-text-editor ~/.config/bunsen/environment
+^sep(Manuals)
+bunsenlabs-session,x-terminal-emulator -T 'man bunsenlabs-session' -e man bunsenlabs-session
+xdg-autostart,x-terminal-emulator -T 'man bl-xdg-autostart' -e man bl-xdg-autostart
+
 Openbox,^tag(bl-obConfig)
 Back,^back()
-Edit rc.xml,bl-text-editor ~/.config/openbox/rc.xml
-Edit autostart,bl-text-editor ~/.config/openbox/autostart
+Edit bl-rc.xml,bl-text-editor ~/.config/openbox/bl-rc.xml
 ^sep()
 WM Preferences,obconf
 ^sep()

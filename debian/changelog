@@ -1,3 +1,17 @@
+bunsen-configs (10.3-1~test) lithium; urgency=medium
+
+  * Add support for a BunsenLabs session at startup:
+     - set bunsenlabs-session as default x-session-manager
+     - add xdg-autostart script from openbox
+     - add new menu entries
+     - update README with short explanation
+     - add man page for bunsenlabs-session
+     - use BL-specific config files for openbox
+     - move user autostart and environment files to ~/.config/bunsen
+     - import default user config files from skel if missing
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 21 Jun 2019 14:46:52 +0900
+
 bunsen-configs (10.2.2-1) lithium; urgency=medium
 
   * Use xbindkeys for application launch keybinds, instead of openbox.

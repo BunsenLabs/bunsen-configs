@@ -1,0 +1,130 @@
+## BunsenLabs autostart
+## ====================
+## When you login to your BunsenLabs session, this autostart script
+## will be executed to launch any applications
+## you want to run at startup.
+##
+## NB, like openbox's autostart script, this uses the default shell,
+## so "bashisms" are not supported.
+##
+## (Environment variables are set in ~/.config/bunsen/environment.)
+##
+## Note: some programs, such as 'nm-applet' are run via XDG autostart,
+## from .desktop files in /etc/xdg/autostart and ~/.config/autostart.
+## To disable this, comment out the last line in this file:
+## "bl-xdg-autostart"
+##
+## Run 'bl-xdg-autostart --list' to list any XDG autostarted programs.
+##
+## If you do something cool with your autostart script and you think others
+## could benefit from your hack, please consider sharing it at:
+## http://forums.bunsenlabs.org (registration required)
+##
+
+## WINDOW MANAGER
+## Do not edit the next line unless you have also installed any
+## necessary other programs for the different window manager,
+## and edited the window-manager-dependent section later in this file.
+## Use the window manager's actual command, not name:
+window_manager=openbox
+
+# test if chosen window manager is actually running (do not edit this line)
+pgrep -x "$window_manager" || { echo "$0: Window manager $window_manager is not running." >&2 ; exit 1;}
+
+### SETTINGS START
+
+## Turn on/off system beep.
+xset b off
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+## Adjust the values according to your preferances.
+xset r rate 250 25
+
+## Add keyboard mapping.
+#xmodmap -e "keysym Insert = Multi_key"
+
+## Disable CapsLock
+#setxkbmap -option ctrl:nocaps
+# alternative: use as compose key
+#setxkbmap -option compose:caps
+
+### TOUCHPAD: comment out the next two entries if you don't have one
+
+## Configure touchpad. See 'man synaptics' for more info.
+## (Now might be using libinput instead of synaptics.)
+synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
+
+## Disable touchpad while typing
+syndaemon -i .5 -K -t -R -d &
+
+### TOUCHPAD END
+
+### SETTINGS END
+
+## GNOME PolicyKit authentication
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+## window-manager-dependent applications
+case "$window_manager" in
+openbox)
+    ## The following applications will only be started in an openbox session.
+    ## Add a new clause for your window manager, if different.
+
+    ## Alias Super key to Super+Space for single-key menu.
+    ## See 'man xcape' for other possibilities.
+    xcape -e 'Super_L=Super_L|space'
+
+    ## Set a wallpaper
+    nitrogen --restore
+
+    ## Compton
+    ## NOTE: composition must be started before tint2
+    bl-compositor --start
+
+    ## Start the tint2 session (the default tint2 will run if no sessions have been set)
+    bl-tint2-session
+
+    ## Start the Conky session (the default conkyrc will run if no sessions have been set)
+    bl-conky-session --autostart &
+    ;;
+    # End of openbox application group.
+
+## Vague possibility for XFCE window manager
+#xfwm4)
+#   xcape -e 'Super_L=Super_L|space'
+#   (sleep 3; xfdesktop) &
+#   bl-tint2-session
+#   bl-conky-session --autostart &
+#   ;;
+
+## Vague possibility for Awesome window manager
+#awesome)
+#    bl-compositor --start
+#    xfce4-panel &
+#    bl-conky-session --autostart &
+#    ;;
+esac
+
+## Volume control for systray
+pnmixer &
+
+## Start Clipboard manager
+clipit &
+
+## Start Thunar Daemon, if set as bl-file-manager
+if [ "$(readlink -f $(which bl-file-manager))" = "$(which thunar)" ]
+then
+    thunar --daemon &
+fi
+
+## bl-welcome - post-installation script, will not run in a live session
+## and only runs once. Safe to remove.
+(sleep 10; bl-welcome --firstrun) &
+
+## bl-fortune - have the system come up with a little adage
+## Uncomment the following line to enable this.
+#(sleep 120; bl-fortune) &
+
+## Run the XDG autostart stuff. This requires python-xdg to be installed.
+## See bl-xdg-autostart --help for more details.
+bl-xdg-autostart

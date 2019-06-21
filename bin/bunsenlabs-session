@@ -1,0 +1,66 @@
+#!/bin/sh
+
+if test -n "$1"; then
+    echo "Syntax: bunsenlabs-session"
+    echo
+    echo "See the bunsenlabs-session(1) manpage for help."
+  exit
+fi
+
+# Clean up after GDM (GDM sets the number of desktops to one).
+xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
+      -remove _NET_DESKTOP_NAMES \
+      -remove _NET_CURRENT_DESKTOP 2> /dev/null
+
+usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
+sys_confdir="/usr/share/bunsen/skel/.config"
+# Import new user config files if they do not exist.
+# This is for users upgrading or installing with the Bunsenlabs metapackage.
+for i in bunsen/autostart bunsen/environment openbox/bl-rc.xml openbox/bl-menu.xml jgmenu/prepend.csv jgmenu/jgmenurc
+do
+    mkdir -p "$usr_confdir/${i%/*}"
+    [ -e "$usr_confdir/$i" ] || cp "$sys_confdir/$i" "$usr_confdir/$i"
+done
+[ -e "$HOME/.xbindkeysrc" ] || cp /usr/share/bunsen/skel/.xbindkeysrc "$HOME"
+
+usr_autostart="$usr_confdir/bunsen/autostart"
+usr_envfile="$usr_confdir/bunsen/environment"
+
+# Check if user has set an alternative window manager.
+# This would be the first setting in ~/.config/bunsen/autostart.
+win_man=openbox
+# just use first uncommented line of file, then break
+while read -r first rest
+do
+    case "$first" in
+    \#*|'')
+        continue
+        ;;
+    window_manager=*)
+        win_man="${first#window_manager=}"
+        ;;
+    esac
+    break
+done < "$usr_autostart"
+
+hash "$win_man" 2>/dev/null || { echo "$0: Window manager \"$win_man\" not found" >&2; exit 1;}
+
+# Set up the environment.
+test -r "$usr_envfile" && . "$usr_envfile"
+
+# Run the window manager.
+case "$win_man" in
+openbox)
+    exec /usr/bin/openbox --config-file "$usr_confdir/openbox/bl-rc.xml" --startup /usr/lib/bunsen/configs/bunsen-autostart
+    ;;
+*)
+    (
+    until pgrep -x "$win_man"
+    do
+        sleep 0.5s
+    done
+    /usr/lib/bunsen/configs/bunsen-autostart
+    ) &
+    exec "$win_man"
+    ;;
+esac

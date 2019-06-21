@@ -1,0 +1,59 @@
+.TH "BUNSENLABS" "1"
+.SH "NAME"
+bunsenlabs-session \(em Starts a BunsenLabs session.
+
+.SH "DESCRIPTION"
+.PP
+\fBbunsenlabs-session\fR runs a BunsenLabs session, calling openbox and
+starting the necessary auxiliary applications.
+There is no full session manager, so you will not be able
+to save your state from one log in to the next.
+Although openbox is the default BunsenLabs window manager,
+users can select others while continuing to use the BunsenLabs
+menu, keyboard shortcuts and autostarted applications (see below).
+.PP
+\fBbunsenlabs-session\fR does not take any command line
+arguments.
+.PP
+On log in, \fBbunsenlabs-session\fR will run the
+~/.config/bunsen/autostart script if it exists, and will copy in the
+default file from /usr/share/bunsen/skel/.config/bunsen/autostart otherwise. You may
+place anything you want to run automatically in this file, for example:
+
+.PP
+.RS
+.PP
+.nf
+xset -b off
+clipit &
+.fi
+.RE
+.PP
+Make sure that each command that does not return quickly is followed by a "&" or else the script will
+stop there and further commands will not be executed. You can use the
+/usr/share/bunsen/skel/.config/bunsen/autostart file as an example for creating your
+own.
+.PP
+\fBWindow Manager:\fR users can choose another window manager than the
+default openbox by editing the line:
+
+.PP
+.RS
+.PP
+.nf
+window_manager=openbox
+.fi
+.RE
+.PP
+near the top of ~/.config/bunsen/autostart. In such cases they will
+probably want to adjust the autostarted applications, likely with a
+new "case" clause for the new window manager. (See autostart for examples.)
+
+.SH "SEE ALSO"
+.PP
+bl-xdg-autostart(1), openbox(1), jgmenu(1), xbindkeys(1).
+
+.PP
+Please report bugs to: \fBhttps://github.com/BunsenLabs/configs/issues
+\fP
+.\" written by John Crawley, Tue 18 June 2019, 17:30

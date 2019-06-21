@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+    <menu id="root-menu" label="Openbox 3">
+        <separator label="This is the old OpenBox menu. "/>
+        <separator label="BunsenLabs now uses jgmenu. "/>
+        <separator label="Run 'jgmenu_run' to display it."/>
+        <separator/>
+        <item label="jgmenu">
+            <action name="Execute">
+                <command>
+                    jgmenu_run
+                </command>
+            </action>
+        </item>
+        <separator/>
+        <item label="Run Program">
+            <action name="Execute">
+                <command>
+                    gmrun
+                </command>
+            </action>
+        </item>
+        <separator/>
+        <item label="Terminal">
+            <action name="Execute">
+                <command>
+                    x-terminal-emulator
+                </command>
+            </action>
+        </item>
+        <item label="Web Browser">
+            <action name="Execute">
+                <command>
+                    x-www-browser
+                </command>
+            </action>
+        </item>
+        <item label="File Manager">
+            <action name="Execute">
+                <command>
+                    bl-file-manager
+                </command>
+            </action>
+        </item>
+        <item label="Text Editor">
+            <action name="Execute">
+                <command>
+                    bl-text-editor
+                </command>
+            </action>
+        </item>
+        <item label="Media Player">
+            <action name="Execute">
+                <command>
+                    bl-media-player
+                </command>
+            </action>
+        </item>
+        <item label="Exit">
+            <action name="Execute">
+                <command>
+                    bl-exit
+                </command>
+            </action>
+        </item>
+<!-- comment out or remove the preceding "Exit" item,
+and uncomment the following "exit-menu"
+for one-click exit options. -->
+<!--
+        <menu id="exit-menu"></menu>
+-->
+    </menu>
+</openbox_menu>

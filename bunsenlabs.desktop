@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=BunsenLabs
+Comment=Log in to a BunsenLabs session
+Exec=/usr/bin/bunsenlabs-session
+TryExec=/usr/bin/bunsenlabs-session
+Icon=bunsenlabs
+Type=Application

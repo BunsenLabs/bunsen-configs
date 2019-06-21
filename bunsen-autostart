@@ -1,0 +1,15 @@
+#!/bin/sh
+# Run the user BunsenLabs autostart script
+
+bl_usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}/bunsen"
+usr_autostart="$bl_usr_confdir/autostart"
+
+# Run the user autostart script
+if test -f "$usr_autostart"; then
+    sh "$usr_autostart"
+else
+    echo "$0: no autostart file found in $bl_usr_confdir" >&2
+    exit 1
+fi
+
+# xdg autostart will be run from the user autostart file

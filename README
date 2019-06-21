@@ -11,6 +11,12 @@ The main content is:
 stored in /usr/share/bunsen/skel, and a user setup script to install them,
 triggered from the Xsession login.
 
+*) Configuration for a BunsenLabs session at startup, triggered from
+a desktop file in /usr/share/xsessions, and allowing the user to run
+alternative window managers while keeping the menu, keybinds
+and autostarted applications. The default openbox rc.xml and menu.xml
+files are left untouched.
+
 *) Configuration for lightdm, including a workaround for language selection.
 
 *) Default mimetype configuration.
@@ -25,6 +31,9 @@ These enable users to have more flexibility in their choice of default applicati
 without having to edit menus, scripts or keyboard shortcuts.
 
 *) Wrapper scripts for mpv, gvim and edit.
+
+*) Note: /usr/bin/bl-xdg-autostart was written by Dana Jansens in 2008,
+and originally provided in openbox under the GPL-2 licence.
 
 This package also adds some other small system configuration files.
 

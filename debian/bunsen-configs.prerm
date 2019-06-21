@@ -1,6 +1,13 @@
 #!/bin/sh
 # prerm script for bunsen-configs
 
+# Summary of ways this script is called:
+#    prerm remove
+#    old-prerm upgrade new-version
+#    new-prerm failed-upgrade old-version
+#    conflictor's-prerm remove in-favour package new-version
+#    deconfigured's-prerm deconfigure in-favour package-being-installed version removing conflicting-package version
+
 set -e
 
 BLFILEMANAGER=bl-file-manager
@@ -9,6 +16,8 @@ BLMEDIAPLAYER=bl-media-player
 BLTEXTEDITOR=bl-text-editor
 BLALTS="$BLFILEMANAGER $BLIMAGEVIEWER $BLMEDIAPLAYER $BLTEXTEDITOR"
 
+BUNSEN_SESSION='/usr/bin/bunsenlabs-session'
+
 case $1 in
 remove|deconfigure)
     for i in $BLALTS
@@ -16,6 +25,10 @@ remove|deconfigure)
         update-alternatives --list "$i" >/dev/null 2>&1 || continue
         update-alternatives --quiet --remove-all "$i"
     done
+    if update-alternatives --list x-session-manager >/dev/null 2>&1
+    then
+        update-alternatives --remove x-session-manager "$BUNSEN_SESSION"
+    fi
     ;;
 esac
 

@@ -1,8 +1,12 @@
 ## Openbox autostart
 ## ====================
-## When you login to your BunsenLabs Openbox session, this autostart script
-## will be executed to set-up your environment and launch any applications
-## you want to run at startup.
+## When BunsenLabs is launched from bunsenlabs-session this file is ignored.
+## BunsenLabs now uses ~/.config/bunsen/autostart,
+## executed via /usr/lib/bunsen/config/bunsen-autostart.
+## See 'man bunsenlabs-session' for more details.
+##
+## When you launch Openbox with openbox-session, this script will be
+## executed by openbox, and can be used to launch startup applications.
 ##
 ## Note: some programs, such as 'nm-applet' are run via XDG autostart.
 ## Run
@@ -14,80 +18,3 @@
 ## More information about this can be found at:
 ## http://openbox.org/wiki/Help:Autostart
 ##
-## If you do something cool with your autostart script and you think others
-## could benefit from your hack, please consider sharing it at:
-## http://forums.bunsenlabs.org (registration required)
-##
-
-### SETTINGS START
-
-## Turn on/off system beep.
-xset b off
-
-## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
-## Adjust the values according to your preferances.
-xset r rate 250 25
-
-## Add keyboard mapping.
-#xmodmap -e "keysym Insert = Multi_key"
-
-## Disable CapsLock
-#setxkbmap -option ctrl:nocaps
-# alternative: use as compose key
-#setxkbmap -option compose:caps
-
-# Alias Super key to Super+Space for single-key menu.
-# See 'man xcape' for other possibilities.
-xcape -e 'Super_L=Super_L|space'
-
-### TOUCHPAD: comment out the next two entries if you don't have one
-
-## Configure touchpad. See 'man synaptics' for more info.
-## (Now might be using libinput instead of synaptics.)
-synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
-
-## Disable touchpad while typing
-syndaemon -i .5 -K -t -R -d &
-
-### TOUCHPAD END
-
-### SETTINGS END
-
-## GNOME PolicyKit authentication
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
-## Set a wallpaper
-nitrogen --restore
-
-## Compton
-## NOTE: composition must be started before tint2
-bl-compositor --start
-
-## Start the tint2 session (the default tint2 will run if no sessions have been set)
-bl-tint2-session
-
-## Volume control for systray
-pnmixer &
-
-## Start the Conky session (the default conkyrc will run if no sessions have been set)
-bl-conky-session --autostart &
-
-## Start Clipboard manager
-clipit &
-
-## Start Thunar Daemon, if set as bl-file-manager
-if [ "$(readlink -f $(which bl-file-manager))" = "$(which thunar)" ]
-then
-    thunar --daemon &
-fi
-
-## If the first jgmenu popup is very slow to appear,
-## try uncommenting the next line:
-#(sleep 4; jgmenu --hide-on-startup) &
-
-## bl-welcome - post-installation script, will not run in a live session
-## and only runs once. Safe to remove.
-(sleep 10; bl-welcome --firstrun) &
-
-## bl-fortune - have the system come up with a little adage (not yet enabled)
-#(sleep 120; bl-fortune) &
