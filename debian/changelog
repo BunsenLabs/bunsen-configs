@@ -1,3 +1,10 @@
+bunsen-configs (10.3.1-1) lithium; urgency=medium
+
+  * Default tint2: replace launchers with main menu button.
+  * Start xbindkeys only in BunsenLabs session.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 27 Jun 2019 18:11:40 +0900
+
 bunsen-configs (10.3-1~test) lithium; urgency=medium
 
   * Add support for a BunsenLabs session at startup:
