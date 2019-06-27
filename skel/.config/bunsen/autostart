@@ -33,6 +33,11 @@ pgrep -x "$window_manager" || { echo "$0: Window manager $window_manager is not 
 
 ### SETTINGS START
 
+# start keybinds daemon
+# (If this clashes with some window manager's keybinds,
+# you can move it to the window-manager-dependent section below.)
+xbindkeys_autostart
+
 ## Turn on/off system beep.
 xset b off
 
@@ -103,6 +108,7 @@ openbox)
 #    xfce4-panel &
 #    bl-conky-session --autostart &
 #    ;;
+
 esac
 
 ## Volume control for systray
