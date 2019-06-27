@@ -80,7 +80,7 @@ border_color = #888888 20
 # Panel
 panel_monitor = all
 panel_position = top center horizontal
-panel_items = LTSCP
+panel_items = PTSCP
 panel_size = 99% 30
 panel_margin = 0 1
 panel_padding = 0 0 0
@@ -218,15 +218,14 @@ separator_size = 2
 separator_padding = 0 8
 
 #-------------------------------------
-
 # Buttons - Panel item = P
-# Exit dialog
+
+# Show Root Menu
 button = new
-button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
-#button_icon = system-shutdown
+button_icon = start-here
 button_text =
-button_tooltip = Logout/Shutdown...
-button_lclick_command = bl-exit
+button_tooltip = Main Menu
+button_lclick_command = jgmenu_run
 button_rclick_command =
 button_mclick_command =
 button_uwheel_command =
@@ -237,12 +236,13 @@ button_background_id = 0
 button_centered = 1
 button_max_icon_size = 28
 
-# Show Root Menu
+# Exit dialog
 button = new
-button_icon = bunsenlabs-button.svg
+#button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
+button_icon = system-shutdown
 button_text =
-button_tooltip = Main Menu
-button_lclick_command = xdotool key super+space
+button_tooltip = Logout/Shutdown...
+button_lclick_command = bl-exit
 button_rclick_command =
 button_mclick_command =
 button_uwheel_command =
