@@ -8,8 +8,8 @@ CrunchBang Linux by Philip Newborough.
 The main content is:
 
 *) A collection of user configuration files templates,
-stored in /usr/share/bunsen/skel, and a user setup script to install them,
-triggered from the Xsession login.
+stored in /usr/share/bunsen/skel, and a user setup script to
+install them, triggered from the Xsession login.
 
 *) Configuration for a BunsenLabs session at startup, triggered from
 a desktop file in /usr/share/xsessions, and allowing the user to run
@@ -21,7 +21,7 @@ files are left untouched.
 
 *) Default mimetype configuration.
 
-*) There are four new groups added to debian alternatives:
+*) Four new groups added to debian alternatives:
   bl-file-manager
   bl-image-viewer
   bl-media-player
@@ -30,7 +30,13 @@ along with corresponding .desktop files and a mimeapps.list.
 These enable users to have more flexibility in their choice of default applications
 without having to edit menus, scripts or keyboard shortcuts.
 
+*) Policykit actions allowing pkexec of text editor,
+and user shutdown/suspend permissions.
+
 *) Wrapper scripts for mpv, gvim and edit.
+
+*) Firefox default preference for text-box display, to avoid
+issues with dark themes.
 
 *) Note: /usr/bin/bl-xdg-autostart was written by Dana Jansens in 2008,
 and originally provided in openbox under the GPL-2 licence.

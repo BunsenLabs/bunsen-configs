@@ -11,6 +11,7 @@ polkit/10-vendor.d var/lib/polkit-1/localauthority
 bl-user-setup usr/lib/bunsen/configs
 bunsen-autostart usr/lib/bunsen/configs
 bunsen etc
+firefox-esr etc
 grub.d etc
 mpv etc
 sysctl.d etc
