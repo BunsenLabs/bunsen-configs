@@ -1,3 +1,11 @@
+bunsen-configs (10.3.2-1) lithium; urgency=medium
+
+  * Add firefox tweak for dark themes.
+  * Tint2: Use BL icon for poweroff button.
+  * Geany: Add Beam-coloured light theme.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 30 Jun 2019 15:17:12 +0900
+
 bunsen-configs (10.3.1-1) lithium; urgency=medium
 
   * Default tint2: replace launchers with main menu button.
