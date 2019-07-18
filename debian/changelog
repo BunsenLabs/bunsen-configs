@@ -1,3 +1,9 @@
+bunsen-configs (10.3.3-1) lithium; urgency=medium
+
+  * jgmenu: Adjust entries for custom openbox bl-rc.xml.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 18 Jul 2019 18:43:03 +0900
+
 bunsen-configs (10.3.2-1) lithium; urgency=medium
 
   * Add firefox tweak for dark themes.
