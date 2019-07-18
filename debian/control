@@ -12,14 +12,14 @@ Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
 Recommends: bunsen-configs-pulse,
- bunsen-utilities,
- bunsen-pipemenus,
+ bunsen-conky,
  bunsen-docs,
  bunsen-images,
- bunsen-themes,
  bunsen-papirus-icon-theme,
- bunsen-conky,
+ bunsen-pipemenus,
+ bunsen-themes,
  bunsen-thunar,
+ bunsen-utilities,
  clipit,
  dmz-cursor-theme,
  jgmenu,

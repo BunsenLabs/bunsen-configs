@@ -76,7 +76,7 @@ Back,^back()
 Edit Menu Content,bl-text-editor ~/.config/jgmenu/prepend.csv
 Edit Menu Settings,bl-text-editor ~/.config/jgmenu/jgmenurc
 ^sep()
-Sync Theme w. Openbox,jgmenu init --apply-obtheme
+Sync Theme w. Openbox,JGMENU_RCXML=$HOME/.config/openbox/bl-rc.xml jgmenu init --apply-obtheme
 ^sep(Help)
 man page,x-terminal-emulator -T 'man jgmenu' -e man jgmenu
 tutorial,x-terminal-emulator -T 'man jgmenututorial' -e man jgmenututorial
