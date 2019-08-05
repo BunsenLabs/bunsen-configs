@@ -29,7 +29,7 @@
 window_manager=openbox
 
 # test if chosen window manager is actually running (do not edit this line)
-pgrep -x "$window_manager" || { echo "$0: Window manager $window_manager is not running." >&2 ; exit 1;}
+pgrep -x -u "$USER" "$window_manager" || { echo "$0: Window manager $window_manager is not running." >&2 ; exit 1;}
 
 ### SETTINGS START
 
