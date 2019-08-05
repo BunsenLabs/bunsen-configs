@@ -3,5 +3,7 @@
 <channel name="xfce4-notifyd" version="1.0">
   <property name="notify-location" type="uint" value="2"/>
   <property name="theme" type="string" value="Beam"/>
-  <property name="initial-opacity" type="double" value="0.850000"/>
+  <property name="initial-opacity" type="double" value="1.000000"/>
+  <property name="expire-timeout" type="int" value="15"/>
+  <property name="do-slideout" type="bool" value="true"/>
 </channel>
