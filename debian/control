@@ -33,12 +33,11 @@ Recommends: bunsen-configs-pulse,
  python,
  python-xdg,
  scrot,
- tk,
  xbindkeys,
  xbindkeys-config,
  xcape,
  yad
-Suggests: qt5-style-plugins, libqt5svg5, xfce4-notifyd, xfce4-screenshooter
+Suggests: qt5-style-plugins, libqt5svg5, tk, xfce4-notifyd, xfce4-screenshooter
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Description: config files for BunsenLabs Linux

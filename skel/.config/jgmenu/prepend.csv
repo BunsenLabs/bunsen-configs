@@ -86,7 +86,8 @@ Back,^back()
 Edit .xbindkeysrc,bl-text-editor ~/.xbindkeysrc
 Reconfigure,killall -HUP xbindkeys
 ^sep()
-Show Keybinds,xbindkeys_show
+# Next entry requires tk
+#Show Keybinds,xbindkeys_show
 GUI Keybinds editor,xbindkeys-config
 ^sep(Help)
 man page,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys
