@@ -108,11 +108,11 @@
 
 # Scrot with 10s delay
 "scrot -d 10 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; bl-image-viewer ~/Pictures/screenshots/$f'"
-    Control+Alt + Print
+    Control + Alt + Print
 
 # Show xbindkeys settings
 "xbindkeys_show"
-  control+shift + q
+    Control + Shift + q
 
 ##################################
 # End of xbindkeys configuration #
