@@ -2,6 +2,7 @@ bin usr
 applications usr/share
 geany usr/share
 skel usr/share/bunsen
+menu-includes usr/share/bunsen/configs
 Bunsen-lightdm usr/share/icons
 bunsenlabs.desktop usr/share/xsessions
 lightdm.conf.d usr/share/lightdm

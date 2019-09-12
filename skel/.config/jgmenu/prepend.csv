@@ -13,29 +13,30 @@ Media Player,bl-media-player
 ^sep()
 Applications,^checkout(lx-apps)
 ^sep()
-BL Pipes,^checkout(bl-pipes)
+BL Utilities,^checkout(bl-utilities)
 Places,^pipe(jgmenu_run ob --cmd="bl-places-pipemenu" --tag="bl-places-pipemenu")
 Recent Files,^pipe(jgmenu_run ob --cmd="bl-recent-files-pipemenu -rl15" --tag="bl-recent-files-pipemenu")
 ^sep()
 Preferences,^checkout(bl-preferences)
 System,^checkout(bl-system)
 ^sep()
-Help &amp; Resources,^pipe(jgmenu_run ob --cmd="bl-help-pipemenu" --tag="bl-help-pipemenu")
+#Help &amp; Resources,^pipe(jgmenu_run ob --cmd="bl-help-pipemenu" --tag="bl-help-pipemenu")
+Help &amp; Resources,^checkout(bl-help-menu)
 Display Keybinds,^pipe(jgmenu_run ob --cmd="bl-kb-pipemenu" --tag="bl-kb-pipemenu")
 ^sep()
 Lock Screen,bl-lock
 Exit,bl-exit
 
-^tag(bl-pipes)
-Graphics,^pipe(jgmenu_run ob --cmd="bl-graphics-pipemenu" --tag="bl-graphics-pipemenu")
-Multimedia,^pipe(jgmenu_run ob --cmd="bl-multimedia-pipemenu" --tag="bl-multimedia-pipemenu")
-WWW Browsers,^pipe(jgmenu_run ob --cmd="bl-x-www-browser-pipemenu" --tag="bl-x-www-browser-pipemenu")
-Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
+. /usr/share/bunsen/configs/menu-includes/help-menu
+
+^tag(bl-utilities)
+Back,^back()
+Take Screenshot,^pipe(~/projects/pipemenus/bl-scrot-pipemenu)
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu")
-LibreOffice,^pipe(jgmenu_run ob --cmd="bl-libreoffice-pipemenu" --tag="bl-libreoffice-pipemenu")
+Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
 #Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu")
 
-Preferences,^tag(bl-preferences)
+^tag(bl-preferences)
 Back,^back()
 BunsenLabs,^checkout(bl-blConfig)
 Openbox,^checkout(bl-obConfig)
@@ -44,9 +45,9 @@ Keybinds,^checkout(bl-xbindkeysConfig)
 Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor")
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu")
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu")
+BLOB Themes Manager,bl-obthemes
 Appearance,lxappearance
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf
-BLOB Themes Manager,bl-obthemes
 Wallpaper,nitrogen
 Notifications,xfce4-notifyd-config
 Power Management,xfce4-power-manager-settings
@@ -114,12 +115,15 @@ System,^tag(bl-system)
 Back,^back()
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu")
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop
+Install Selected Packages,^pipe(bl-install-pipemenu)
 Synaptic Package Manager,pkexec synaptic
 Login Settings,pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf
 Login Interface,lightdm-gtk-greeter-settings-pkexec
 GParted,pkexec gparted
+Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'"""
 Edit Debian Alternatives,galternatives
 ^sep()
 About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace
+
 
 ^tag(lx-apps)
