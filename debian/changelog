@@ -1,3 +1,10 @@
+bunsen-configs (10.4.1-1) lithium; urgency=medium
+
+  * jgmenu: add help-menu as static csv to source in jgmenu.
+  * Update user jgmenu to use help-menu and new install and scrot pipemenus.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 12 Sep 2019 18:22:15 +0900
+
 bunsen-configs (10.4-1) lithium; urgency=medium
 
   * lightdm: Configure login screen.
