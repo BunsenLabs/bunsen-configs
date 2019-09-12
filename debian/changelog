@@ -1,3 +1,15 @@
+bunsen-configs (10.4-1) lithium; urgency=medium
+
+  * lightdm: Configure login screen.
+  * grub: Configure text colours.
+  * xfce notifications: Configure appearance.
+  * Move tk from Recommends to Suggests.
+  * Add some small bugfixes.
+  [ Johan Malm ]
+  * .xbindkeysrc: format keybinds consistently, improve pipemenu output.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 12 Sep 2019 15:26:08 +0900
+
 bunsen-configs (10.3.3-1) lithium; urgency=medium
 
   * jgmenu: Adjust entries for custom openbox bl-rc.xml.
