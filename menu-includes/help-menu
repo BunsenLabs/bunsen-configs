@@ -22,6 +22,7 @@ dmenu,x-terminal-emulator -T "dmenu man page" -e man dmenu
 gmrun,x-terminal-emulator -T "gmrun man page" -e man gmrun
 xrandr,x-terminal-emulator -T "xrandr man page" -e man xrandr
 bunsenlabs-session,x-terminal-emulator -T "bunsenlabs-session man page" -e man bunsenlabs-session
+bl-xdg-autostart,x-terminal-emulator -T "bl-xdg-autostart man page" -e man bl-xdg-autostart
 ^sep()
 Bunsen Help Files,^checkout(BLhelp)
 
