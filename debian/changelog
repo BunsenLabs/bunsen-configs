@@ -1,3 +1,9 @@
+bunsen-configs (10.4.3-1) lithium; urgency=medium
+
+  * jgmenu: fix scrot pipemenu path.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 14 Sep 2019 15:15:04 +0900
+
 bunsen-configs (10.4.2-1) lithium; urgency=medium
 
   * Update config files to use BL-Lithium theme
