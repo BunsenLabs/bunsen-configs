@@ -31,7 +31,7 @@ Exit,bl-exit
 
 ^tag(bl-utilities)
 Back,^back()
-Take Screenshot,^pipe(~/projects/pipemenus/bl-scrot-pipemenu)
+Take Screenshot,^pipe(bl-scrot-pipemenu)
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu")
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
 #Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu")
