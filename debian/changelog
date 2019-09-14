@@ -1,6 +1,6 @@
 bunsen-configs (10.4.3-1) lithium; urgency=medium
 
-  * jgmenu: fix scrot pipemenu path.
+  * jgmenu: fix scrot pipemenu path, add search symbol.
 
  -- John Crawley <john@bunsenlabs.org>  Sat, 14 Sep 2019 15:15:04 +0900
 
