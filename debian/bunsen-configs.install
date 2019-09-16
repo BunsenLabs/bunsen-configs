@@ -18,5 +18,4 @@ mpv etc
 sysctl.d etc
 apt.conf.d etc/apt
 calendar.bunsen etc/calendar
-xorg.conf.d etc/X11
 Xsession.d etc/X11
