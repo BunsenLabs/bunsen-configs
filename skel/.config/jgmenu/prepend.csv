@@ -86,7 +86,7 @@ tutorial,x-terminal-emulator -T 'man jgmenututorial' -e man jgmenututorial
 Keybinds,^tag(bl-xbindkeysConfig)
 Back,^back()
 Edit .xbindkeysrc,bl-text-editor ~/.xbindkeysrc
-Reconfigure,killall -HUP xbindkeys
+Restart,sh -c 'pkill -x xbindkeys; xbindkeys_autostart'
 ^sep()
 # Next entry requires tk
 #Show Keybinds,xbindkeys_show
