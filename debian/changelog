@@ -1,3 +1,13 @@
+bunsen-configs (10.4.4-1) lithium; urgency=medium
+
+  * jgmenu:
+     - use Lithium theme
+     - replace xbindkeys useless "Reconfigure" command with "Restart"
+     - move BLOB from "Preferences" to "BL Utilities"
+  * Remove troublesome Xorg Intel config tweak.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 05 Oct 2019 14:25:36 +0900
+
 bunsen-configs (10.4.3-1) lithium; urgency=medium
 
   * jgmenu: fix scrot pipemenu path, add search symbol.
