@@ -883,5 +883,13 @@
       </size>
     </application>
 
+    <!-- make vlc open at center every time -->
+    <application name="vlc">
+      <position force="yes">
+        <x>center</x>
+        <y>center</y>
+      </position>
+    </application>
+
   </applications>
 </openbox_config>
