@@ -74,6 +74,6 @@ gnome-look.org,x-www-browser "http://gnome-look.org/"
 Back,^back()
 How to Edit Menu,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="How to Edit the Menu" --filename="/usr/share/bunsen/docs/helpfile-menu.txt" --width=900 --height=700 --fontname=Monospace
 About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace
-Conkyzen Help,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="Conkyzen Help" --filename="/usr/share/bunsen/docs/helpfile-conkyzen.txt" --width=900 --height=700 --fontname=Monospace
+Conky Manager Help,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="Conky Manager Help" --filename="/usr/share/bunsen/docs/helpfile-conky-manager.txt" --width=900 --height=700 --fontname=Monospace
 Exit Dialog Help,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="Exit Dialog Help" --filename="/usr/share/bunsen/docs/helpfile-bl-exit.txt" --width=960 --height=700 --fontname=Monospace
 
