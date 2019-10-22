@@ -2,7 +2,8 @@
 #
 #    bl-user-setup: a script to populate a new user's HOME directory
 #    using template files from /usr/share/bunsen/skel/
-#    Copyright: 2015-2017 John Crawley <john@bunsenlabs.org>
+#    Copyright: 2015-2019 John Crawley <john@bunsenlabs.org>
+#               2019      Johan Malm <jgm323@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -53,6 +54,24 @@ fi
 if [[ -z "$HOME" || ! -d "$HOME" ]]; then
     echo "$0: ERROR: user home directory <$HOME> is not set or does not exist." >&2
     exit 1
+fi
+
+# Import new user config files if they do not exist.
+# This is for users upgrading or installing with the Bunsenlabs metapackage.
+usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
+sys_confdir="/usr/share/bunsen/skel/.config"
+for i in bunsen/autostart bunsen/environment openbox/bl-rc.xml openbox/bl-menu.xml
+do
+    mkdir -p "$usr_confdir/${i%/*}"
+    [ -e "$usr_confdir/$i" ] || cp "$sys_confdir/$i" "$usr_confdir/$i"
+done
+[ -e "$HOME/.xbindkeysrc" ] || cp /usr/share/bunsen/skel/.xbindkeysrc "$HOME"
+
+# Only import jgmenu config files if both jgmenurc and prepend.csv are missing
+if ! [ -e  "$usr_confdir/jgmenu/jgmenurc" ] && \
+   ! [ -e  "$usr_confdir/jgmenu/jgmenurc" ]; then
+    mkdir -p "$usr_confdir/jgmenu"
+    cp -a "$sys_confdir/jgmenu/" "$usr_confdir/"
 fi
 
 bkp_sfx="~$( date +%FT%T )~"

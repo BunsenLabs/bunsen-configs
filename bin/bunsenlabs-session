@@ -7,31 +7,15 @@ if test -n "$1"; then
   exit
 fi
 
+usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
+usr_autostart="$usr_confdir/bunsen/autostart"
+usr_envfile="$usr_confdir/bunsen/environment"
+bl_autostart='/usr/lib/bunsen/configs/bunsen-autostart'
+
 # Clean up after GDM (GDM sets the number of desktops to one).
 xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
       -remove _NET_DESKTOP_NAMES \
       -remove _NET_CURRENT_DESKTOP 2> /dev/null
-
-usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
-sys_confdir="/usr/share/bunsen/skel/.config"
-# Import new user config files if they do not exist.
-# This is for users upgrading or installing with the Bunsenlabs metapackage.
-for i in bunsen/autostart bunsen/environment openbox/bl-rc.xml openbox/bl-menu.xml
-do
-    mkdir -p "$usr_confdir/${i%/*}"
-    [ -e "$usr_confdir/$i" ] || cp "$sys_confdir/$i" "$usr_confdir/$i"
-done
-[ -e "$HOME/.xbindkeysrc" ] || cp /usr/share/bunsen/skel/.xbindkeysrc "$HOME"
-
-# Only import jgmenu config files if both jgmenurc and prepend.csv are missing
-if ! [ -e  "$usr_confdir/jgmenu/jgmenurc" ] && \
-   ! [ -e  "$usr_confdir/jgmenu/jgmenurc" ]; then
-    mkdir -p "$usr_confdir/jgmenu"
-    cp -a "$sys_confdir/jgmenu/" "$usr_confdir/"
-fi
-
-usr_autostart="$usr_confdir/bunsen/autostart"
-usr_envfile="$usr_confdir/bunsen/environment"
 
 # Check if user has set an alternative window manager.
 # This would be the first setting in ~/.config/bunsen/autostart.
@@ -50,7 +34,7 @@ do
     break
 done < "$usr_autostart"
 
-hash "$win_man" 2>/dev/null || { echo "$0: Window manager \"$win_man\" not found" >&2; exit 1;}
+hash "$win_man" 2>/dev/null || { echo "$0: Window manager command \"$win_man\" not found" >&2; exit 1;}
 
 # Set up the environment.
 test -r "$usr_envfile" && . "$usr_envfile"
@@ -58,7 +42,7 @@ test -r "$usr_envfile" && . "$usr_envfile"
 # Run the window manager.
 case "$win_man" in
 openbox)
-    exec /usr/bin/openbox --config-file "$usr_confdir/openbox/bl-rc.xml" --startup /usr/lib/bunsen/configs/bunsen-autostart
+    exec /usr/bin/openbox --config-file "$usr_confdir/openbox/bl-rc.xml" --startup "$bl_autostart"
     ;;
 *)
     (
@@ -66,7 +50,7 @@ openbox)
     do
         sleep 0.5s
     done
-    /usr/lib/bunsen/configs/bunsen-autostart
+    "$bl_autostart"
     ) &
     exec "$win_man"
     ;;
