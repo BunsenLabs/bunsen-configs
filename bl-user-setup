@@ -63,13 +63,12 @@ sys_confdir="/usr/share/bunsen/skel/.config"
 for i in bunsen/autostart bunsen/environment openbox/bl-rc.xml openbox/bl-menu.xml
 do
     mkdir -p "$usr_confdir/${i%/*}"
-    [ -e "$usr_confdir/$i" ] || cp "$sys_confdir/$i" "$usr_confdir/$i"
+    [[ -e "$usr_confdir/$i" ]] || cp "$sys_confdir/$i" "$usr_confdir/$i"
 done
-[ -e "$HOME/.xbindkeysrc" ] || cp /usr/share/bunsen/skel/.xbindkeysrc "$HOME"
+[[ -e "$HOME/.xbindkeysrc" ]] || cp /usr/share/bunsen/skel/.xbindkeysrc "$HOME"
 
-# Only import jgmenu config files if both jgmenurc and prepend.csv are missing
-if ! [ -e  "$usr_confdir/jgmenu/jgmenurc" ] && \
-   ! [ -e  "$usr_confdir/jgmenu/jgmenurc" ]; then
+# Only import jgmenu config files if jgmenu directory is missing
+if [[ ! -e  "$usr_confdir/jgmenu" ]]; then
     mkdir -p "$usr_confdir/jgmenu"
     cp -a "$sys_confdir/jgmenu/" "$usr_confdir/"
 fi
