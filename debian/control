@@ -34,7 +34,6 @@ Recommends: bunsen-configs-pulse,
  python-xdg,
  scrot,
  xbindkeys,
- xbindkeys-config,
  xcape,
  yad
 Suggests: qt5-style-plugins, libqt5svg5, tk, xfce4-notifyd, xfce4-screenshooter

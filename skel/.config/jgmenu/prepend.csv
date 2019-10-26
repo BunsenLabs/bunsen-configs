@@ -90,7 +90,6 @@ Restart,sh -c 'pkill -x xbindkeys; xbindkeys_autostart'
 ^sep()
 # Next entry requires tk
 #Show Keybinds,xbindkeys_show
-GUI Keybinds editor,xbindkeys-config
 ^sep(Help)
 man page,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys
 
