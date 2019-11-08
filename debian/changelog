@@ -1,3 +1,16 @@
+bunsen-configs (10.4.5-1) lithium; urgency=medium
+
+  * Add many small config tweaks:
+    - fix vlc placement
+    - avoid importing unwanted jgmenu prepend file
+    - fix for gdebi bug #932088
+    - [ Johan Malm ] add optional icons for jgmenu
+    - [ Johan Malm ] add other jgmenu tweaks
+    - remove buggy xbindkeys-config from menu
+    - speed up compton fading and jgmenu submenu opening
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 08 Nov 2019 16:23:12 +0900
+
 bunsen-configs (10.4.4-1) lithium; urgency=medium
 
   * jgmenu:
