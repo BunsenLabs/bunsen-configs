@@ -28,4 +28,5 @@ color_title_fg      = #d3dae3 100
 color_title_bg      = #22373f 100
 color_title_border  = #74998B 8
 color_sep_fg        = #535353 100
-sep_markup = 
+sep_markup =
+hover_delay         = 50
