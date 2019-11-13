@@ -10,3 +10,6 @@
 */
 
 /* end of stepper code */
+
+/* padding for lxterminal and some others */
+VteTerminal, vte-terminal { padding: 5px; }
