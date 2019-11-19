@@ -1,7 +1,0 @@
-# run BunsenLabs user setup script
-# This file is sourced by Xsession(5), not executed.
-
-if [ -x /usr/lib/bunsen/configs/bl-user-setup ]
-then 
-	/usr/lib/bunsen/configs/bl-user-setup || true
-fi
