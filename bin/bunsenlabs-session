@@ -17,22 +17,30 @@ xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
       -remove _NET_DESKTOP_NAMES \
       -remove _NET_CURRENT_DESKTOP 2> /dev/null
 
+# Import user config files
+if [ -x /usr/lib/bunsen/configs/bl-user-setup ]
+then
+    /usr/lib/bunsen/configs/bl-user-setup || true
+fi
+
 # Check if user has set an alternative window manager.
 # This would be the first setting in ~/.config/bunsen/autostart.
 win_man=openbox
 # just use first uncommented line of file, then break
-while read -r first rest
-do
-    case "$first" in
-    \#*|'')
-        continue
-        ;;
-    window_manager=*)
-        win_man="${first#window_manager=}"
-        ;;
-    esac
-    break
-done < "$usr_autostart"
+[ -r "$usr_autostart" ] && {
+    while read -r first rest
+    do
+        case "$first" in
+        \#*|'')
+            continue
+            ;;
+        window_manager=*)
+            win_man="${first#window_manager=}"
+            ;;
+        esac
+        break
+    done < "$usr_autostart"
+}
 
 hash "$win_man" 2>/dev/null || { echo "$0: Window manager command \"$win_man\" not found" >&2; exit 1;}
 
