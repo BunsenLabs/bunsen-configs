@@ -1,3 +1,17 @@
+bunsen-configs (10.4.6-1) lithium; urgency=medium
+
+  * jgmenu: Reduce hover delay from 50 to 30ms.
+  * lxterminal: Add 5px padding.
+  * bl-alternatives: Add gthumb to image viewer list.
+  * bl-user-setup: Trigger from bunsenlabs-session, not Xsession.d.
+  * tint2: Remove most Helium files, add Lithium horizontal and vertical files.
+     Add ~/.config/tint2/tint2-sessionfile to launch tint2rc-lithium.
+  [ Will Elliott ]
+  * lxterminal: Add base colorscheme.
+  * conky: Update for Lithium.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 24 Nov 2019 16:50:21 +0900
+
 bunsen-configs (10.4.5.1-1) lithium; urgency=medium
 
   * Fix incorrect interpreter path in gdebi-gtk.wrapper.
