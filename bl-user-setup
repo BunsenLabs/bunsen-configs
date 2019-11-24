@@ -120,7 +120,7 @@ echo 'Running bl-user-setup to import configuration files.' >> "$HOME/.xsession-
 
 rsync -rlb ${rs_opt-} --checksum --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "$HOME"
 
-for i in "$HOME/.gtk-bookmarks" "$HOME/.config/nitrogen/nitrogen.cfg"
+for i in "$HOME/.gtk-bookmarks" "$HOME/.config/nitrogen/nitrogen.cfg" "$HOME/.config/tint2/tint2-sessionfile"
 do
     [[ -f "${i}.template" ]] || continue
     sed --in-place "s|%USERHOME%|$HOME|g" "${i}.template"
