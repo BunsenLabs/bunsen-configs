@@ -98,7 +98,7 @@ border_color_pressed = #514320 90
 
 #-------------------------------------
 # Panel
-panel_items = TSCP
+panel_items = PTSCP
 panel_size = 99% 36
 panel_margin = 1 0
 panel_padding = 0 0 0
@@ -193,7 +193,7 @@ launcher_background_id = 0
 launcher_icon_background_id = 0
 launcher_icon_size = 0
 launcher_icon_asb = 100 0 0
-launcher_icon_theme = Paper-Bunsen
+launcher_icon_theme = Papirus-Bunsen-Dark-bluegrey
 launcher_icon_theme_override = 0
 startup_notifications = 0
 launcher_tooltip = 1
@@ -255,20 +255,20 @@ tooltip_font = Sans normal 9.0
 # Buttons - Panel item = P
 
 # Show Root Menu
-#button = new
-#button_icon = start-here
-#button_text =
-#button_tooltip = Main Menu
-#button_lclick_command = jgmenu_run
-#button_rclick_command =
-#button_mclick_command =
-#button_uwheel_command =
-#button_dwheel_command =
-#button_font_color = #ffffff 100
-#button_padding = 2 2
-#button_background_id = 0
-#button_centered = 1
-#button_max_icon_size = 28
+button = new
+button_icon = start-here
+button_text =
+button_tooltip = Main Menu
+button_lclick_command = jgmenu_run
+button_rclick_command =
+button_mclick_command =
+button_uwheel_command =
+button_dwheel_command =
+button_font_color = #ffffff 100
+button_padding = 2 2
+button_background_id = 0
+button_centered = 1
+button_max_icon_size = 28
 
 # Exit dialog
 button = new
@@ -286,5 +286,3 @@ button_padding = 2 2
 button_background_id = 5
 button_centered = 1
 button_max_icon_size = 28
-
-
