@@ -349,32 +349,74 @@
 
     <!-- A bit of tiling -->
     <keybind key="W-Right">
-      <action name="GrowToEdgeEast"/>
-    </keybind>
-    <keybind key="W-Left">
-      <action name="GrowToEdgeWest"/>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="GrowToEdgeSouth"/>
-    </keybind>
-    <keybind key="W-Up">
-      <action name="GrowToEdgeNorth"/>
-    </keybind>
-    <keybind key="W-A-Left">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
+      <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <width>50%</width>
+        <height>100%</height>
+        <x>-0</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>100%</height>
+        <x>0</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <width>100%</width>
+        <height>50%</height>
+        <x>0</x>
+        <y>-0</y>
+      </action>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <width>100%</width>
+        <height>50%</height>
         <x>0</x>
         <y>0</y>
       </action>
     </keybind>
     <keybind key="W-A-Right">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
+      <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <width>50%</width>
+        <height>50%</height>
         <x>-0</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-A-Left">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>0</x>
+        <y>-0</y>
+      </action>
+    </keybind>
+    <keybind key="W-A-Down">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>-0</x>
+        <y>-0</y>
+      </action>
+    </keybind>
+    <keybind key="W-A-Up">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+        <x>0</x>
         <y>0</y>
       </action>
     </keybind>
