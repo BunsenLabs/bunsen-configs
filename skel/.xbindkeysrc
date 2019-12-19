@@ -119,8 +119,9 @@
     Control + Alt + Print
 
 # Show xbindkeys settings
-"xbindkeys_show"
-    Control + Shift + q
+# (install tk to use this)
+#"xbindkeys_show"
+#    Control + Shift + q
 
 ##################################
 # End of xbindkeys configuration #
