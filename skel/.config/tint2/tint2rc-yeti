@@ -203,7 +203,7 @@ launcher_item_app = /usr/share/applications/bl-terminal-emulator.desktop
 # Clock
 time1_format = %l:%M
 time2_format = 
-time1_font = Inter bold 12
+time1_font = Inter bold 10
 time1_timezone = 
 time2_timezone = 
 clock_font_color = #dfdfdf 100
@@ -246,4 +246,4 @@ tooltip_hide_timeout = 0
 tooltip_padding = 5 5
 tooltip_background_id = 7
 tooltip_font_color = #9ba8bb 100
-tooltip_font = Inter normal 12.0
+tooltip_font = Inter normal 10.0
