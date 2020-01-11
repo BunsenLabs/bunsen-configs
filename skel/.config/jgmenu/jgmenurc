@@ -1,5 +1,5 @@
 tint2_look          = 0
-csv_cmd             = lx
+csv_cmd             = apps
 position_mode       = pointer
 menu_width          = 134
 menu_padding_top    = 24
