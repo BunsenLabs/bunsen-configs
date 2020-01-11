@@ -30,3 +30,4 @@ color_title_border  = #74998B 8
 color_sep_fg        = #535353 100
 sep_markup =
 hover_delay         = 30
+csv_name_format     = %n
