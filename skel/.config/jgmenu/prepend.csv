@@ -12,7 +12,7 @@ File Manager,bl-file-manager,system-file-manager
 Text Editor,bl-text-editor,text-editor
 Media Player,bl-media-player,multimedia-player
 ^sep()
-Applications,^checkout(lx-apps)
+Applications,^checkout(apps)
 ^sep()
 BL Utilities,^checkout(bl-utilities),applications-utilities
 Places,^pipe(jgmenu_run ob --cmd="bl-places-pipemenu" --tag="bl-places-pipemenu"),folder
@@ -130,5 +130,5 @@ Edit Debian Alternatives,galternatives,galternatives
 About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace,distributor-logo-bunsenlabs
 
 
-^tag(lx-apps)
+^tag(apps)
 
