@@ -74,18 +74,12 @@ If skel file and user file have both changed (or user has removed file),
 If a file has been removed from skel, do not remove it from HOME.
 "
 
-### RESTORE THESE SETTINGS BEFORE RELEASE ###
-
 readonly USER=${USER}
 
-#readonly TARGETDIR="${HOME}"
-readonly TARGETDIR="./home"
-#readonly skeldir="/usr/share/bunsen/skel"
-readonly skeldir="./skel"
-#readonly confdir="$HOME/.config/bunsen"
-readonly confdir="./config"
-#readonly cachedir="$HOME/.cache/bunsen/bl-setup"
-readonly cachedir="./cache"
+readonly TARGETDIR="${HOME}"
+readonly skeldir="/usr/share/bunsen/skel"
+readonly confdir="${HOME}/.config/bunsen"
+readonly cachedir="${HOME}/.cache/bunsen/bl-setup"
 
 readonly flagfile="$confdir/bl-setup"
 readonly logfile="$cachedir/log"
