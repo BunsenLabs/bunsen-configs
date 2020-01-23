@@ -2,4 +2,5 @@ usr/share/bunsen/skel/.config/mimeapps.list usr/share/bunsen/skel/.local/share/a
 usr/share/bunsen/skel/.local/share/fonts usr/share/bunsen/skel/.fonts
 usr/share/bunsen/skel/.local/share/icons usr/share/bunsen/skel/.icons
 usr/share/bunsen/skel/.local/share/themes usr/share/bunsen/skel/.themes
+usr/share/images/bunsen/wallpapers usr/share/bunsen/skel/Pictures/wallpapers/bunsen
 usr/lib/bunsen/configs/bl-user-setup usr/bin/bl-user-setup
