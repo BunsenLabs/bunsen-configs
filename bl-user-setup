@@ -2,7 +2,7 @@
 #
 #    bl-user-setup: a script to populate a new user's HOME directory
 #    using template files from /usr/share/bunsen/skel/
-#    Copyright: 2015-2019 John Crawley <john@bunsenlabs.org>
+#    Copyright: 2015-2020 John Crawley <john@bunsenlabs.org>
 #               2019      Johan Malm <jgm323@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,130 +19,414 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 USAGE="bl-user-setup: a script to populate a new user's HOME directory
-using template files from /usr/share/bunsen/skel
+using files from /usr/share/bunsen/skel
 
-Normally this script is run automatically on a user's first login,
-and inhibited after that by a flag file:
-~/.config/bunsen/bl-setup
+This script is run non-interactively on a user's first login,
+and on subsequent logins to check for new default configurations
+in /usr/share/bunsen/skel that may have come from a package upgrade.
+User set configurations will not be modified without permission.
 
-It can, however be run again by a user to update their config files
-from a new version of bunsen-configs. In this case backups will be made
-of any files which are overwritten.
+It can also be run manually with custom options.
+The most common manual use case is to run with no options,
+in which case the algorithm described below is followed.
 
-If the user has already made extensive changes to their config files
-it would be better to copy in new settings from skel by hand.
+In all cases backups will be made of any files which are overwritten.
 
-Options:
+Options (only one is accepted):
 -h --help
     Show this message.
---refresh
-    Copy in any files in /usr/share/bunsen/skel which are different
-    from those in ~/. Overwritten files will be backed up.
+--refresh (default)
+    '--refresh' is kept only for backward compatibility.
+    If any files in /usr/share/bunsen/skel have changed,
+    follow the algorithm below to determine whether to update them
+    and whether to prompt the user first.
+--addonly --no
+    Assume all prompts answered 'no'.
+--force --yes
+    Assume all prompts answered 'yes'.
+--reset
+    Implies --force.
+    Restore all files to the default state in /usr/share/bunsen/skel.
+
+The following two options are not usually of interest to users:
+--auto
+    This is run on each user login.
+    Do a quick check for any change to skel contents,
+    exit if there is nothing new,
+    or apply the same algorithm as --refresh if there are changes.
+--install
+    Implies --force.
+    Run non-interactive file import only on first login.
+
+ALGORITHM
+
+Compare the contents of /usr/share/bunsen/skel (here called 'skel')
+with the contents on the last run of this script.
+If there has been no change, exit immediately.
+If there is new content:
+Copy in any new directories.
+Copy in any new symlinks, if they do not already exist (no overwrites).
+Copy in any new files.
+If file in skel has changed, and user's file is still in default state,
+silently update file.
+If skel file and user file have both changed (or user has removed file),
+ ask user for instructions.
+If a file has been removed from skel, do not remove it from HOME.
 "
+
+### RESTORE THESE SETTINGS BEFORE RELEASE ###
 
 readonly USER=${USER}
-readonly HOME=${HOME}
-readonly GROUP=$(id -ng "$USER")
 
-# Do not apply BL configs to the root account.
-if [[ "$USER" = root ]]; then
-    echo "$0: ERROR: USER is root, abort" >&2
-    exit 1
-fi
+#readonly TARGETDIR="${HOME}"
+readonly TARGETDIR="./home"
+#readonly skeldir="/usr/share/bunsen/skel"
+readonly skeldir="./skel"
+#readonly confdir="$HOME/.config/bunsen"
+readonly confdir="./config"
+#readonly cachedir="$HOME/.cache/bunsen/bl-setup"
+readonly cachedir="./cache"
 
-# Check for the user home directory
-if [[ -z "$HOME" || ! -d "$HOME" ]]; then
-    echo "$0: ERROR: user home directory <$HOME> is not set or does not exist." >&2
-    exit 1
-fi
+readonly flagfile="$confdir/bl-setup"
+readonly logfile="$cachedir/log"
 
-# Import new user config files if they do not exist.
-# This is for users upgrading or installing with the Bunsenlabs metapackage.
-usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
-sys_confdir="/usr/share/bunsen/skel/.config"
-for i in bunsen/autostart bunsen/environment openbox/bl-rc.xml openbox/bl-menu.xml
-do
-    mkdir -p "$usr_confdir/${i%/*}"
-    [[ -e "$usr_confdir/$i" ]] || cp "$sys_confdir/$i" "$usr_confdir/$i"
-done
-[[ -e "$HOME/.xbindkeysrc" ]] || cp /usr/share/bunsen/skel/.xbindkeysrc "$HOME"
+########################################
 
-# Only import jgmenu config files if jgmenu directory is missing
-if [[ ! -e  "$usr_confdir/jgmenu" ]]; then
-    mkdir -p "$usr_confdir/jgmenu"
-    cp -a "$sys_confdir/jgmenu/" "$usr_confdir/"
-fi
+main() {
 
-bkp_sfx="~$( date +%FT%T )~"
+    g_addonly=f
+    g_force=f
+    g_reset=f
+    wholeskelsum=
 
-if [[ -n $1 ]]
-then
-    case $1 in
+    pre_checks
+
+    case "$1" in
+    --install)
+        [[ -f "$flagfile" ]] && exit 0
+        g_force=t
+        ;;
+    --auto)
+        check_skel_sum
+        ;;
+    ''|--refresh)
+        :
+        ;;
+    --addonly)
+        g_addonly=t
+        ;;
+    --force)
+        g_force=t
+        ;;
+    --reset)
+        g_reset=t
+        g_force=t
+        ;;
     -h|--help)
-        echo "$USAGE"
+        printf '%b\n' "$USAGE"
         exit 0
-    ;;
-    --refresh)
-        echo "New versions of files in /usr/share/bunsen/skel will be copied into
-$HOME, overwriting files there.
-(foo.template files will be copied to foo, if different.)
-Any overwritten files will be backed up with a suffix of $bkp_sfx
-
-NB if you have already made many changes to your desktop,
-it would be easier to check /usr/share/bunsen/skel
-and copy in any new settings to $HOME by hand.
-
-Do you want to continue? (Y)
-"
-        read -r
-        case ${REPLY^} in
-        Y|YES)
-            rs_opt='--verbose'
-            :
         ;;
-        *)
-            echo 'bye...'
-            exit 0
-        ;;
-        esac
-    ;;
     *)
-        echo "$0: $1: bad option" >&2
-        exit 1
-    ;;
+        die "$1 is not a valid option"
+        ;;
     esac
-else
-    # If setup already run, do nothing.
-    [[ -f "$HOME/.config/bunsen/bl-setup" ]] && exit 0
-fi
 
-echo 'Running bl-user-setup to import configuration files.' >> "$HOME/.xsession-errors"
+    mkdir -p "$TARGETDIR" "$confdir" "$cachedir"
 
-rsync -rlb ${rs_opt-} --checksum --suffix="$bkp_sfx" --safe-links /usr/share/bunsen/skel/ "$HOME"
+    bkp_sfx="~$( date +%FT%T )~"
 
-for i in "$HOME/.gtk-bookmarks" "$HOME/.config/nitrogen/nitrogen.cfg" "$HOME/.config/tint2/tint2-sessionfile"
-do
-    [[ -f "${i}.template" ]] || continue
-    sed --in-place "s|%USERHOME%|$HOME|g" "${i}.template"
-    if [[ -f "$i" ]]
+    log "############
+Running $0 at $(date)"
+
+    check_skel_contents
+
+    copy_dirs
+    copy_links
+    copy_files
+
+    echo "Do not delete this file.
+
+If it is not present, the import of config files from $skeldir
+will be repeated, overwriting any user modifications.
+(However, backups will be made of overwritten files.)" > "$flagfile"
+
+    # Update cache of skel checksum if script finishes with no errors
+    [[ -z $wholeskelsum ]] && {
+        wholeskelsum=$( tar -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
+        wholeskelsum=${wholeskelsum%% *}
+    }
+    echo "$wholeskelsum" > "$cachedir/skelsum"
+}
+
+##############
+
+log () {
+    echo "$@" >> "$logfile"
+    [[ -t 1 ]] && {
+        printf '\033[32m=>\033[m %s\n' "$@"
+    }
+}
+
+die  () {
+    log "ERROR: $*"
+    printf '%b\n' "$0: ERROR: $*" >&2
+    exit 1
+}
+
+ask_yesno() {
+    local message="$1"
+    if [[ -t 0 && -t 1 ]] # on terminal
     then
-        if diff -BEbZ "$i" "${i}.template" >/dev/null
-        then
-            rm "${i}.template"
-        else
-            mv "$i" "${i}${bkp_sfx}"
-            mv "${i}.template" "$i"
-        fi
+        echo "$message"
+        while true
+        do
+            echo "y: Yes
+n: No
+(Default is Yes.)"
+            read -r -p 'Y/n: '
+            case "${REPLY^}" in
+            Y|'') return 0;;
+            N) return 1;;
+            esac
+        done
     else
-        mv "${i}.template" "$i"
+        title="BunsenLabs User Setup"
+        winicon="distributor-logo-bunsenlabs"
+        msg="<b>User Setup</b>
+
+$message"
+        yad --center --undecorated --borders=20 --window-icon="$winicon"\
+        --title="$title" --text="$msg"\
+        --button='Yes':0 --button='No':1
     fi
-done
+}
 
-ln -sTf /usr/share/images/bunsen/wallpapers "$HOME/Pictures/wallpapers/bunsen"
+ask_overwrite() {
+    local file="$1"
+    if [[ -t 0 && -t 1 ]] # on terminal
+    then
+        echo "You have modified or removed this file:
+$file
+Overwrite with the new version?"
+        while true
+        do
+            echo "y: overwrite
+n: skip this one
+a: overwrite all
+s: skip all
+(Default is skip.)"
+            read -r -p 'y/N/a/s: '
+            case "${REPLY^}" in
+            Y) return 0;;
+            N|'') return 1;;
+            A) return 2;;
+            S) return 3;;
+            esac
+        done
+    else
+        title="BunsenLabs User Setup"
+        winicon="distributor-logo-bunsenlabs"
+        msg="<b>User Setup</b>
 
-mkdir -p "$HOME/.config/bunsen" # this should already exist
-touch "$HOME/.config/bunsen/bl-setup"
+You have modified or removed this file:
+$file
+Overwrite with the new version, or skip?"
+        yad --center --undecorated --borders=20 --window-icon="$winicon"\
+        --title="$title" --text="$msg"\
+        --button='Overwrite':0 --button='Skip':1 --button='Do All':2 --button='Skip All':3
+    fi
+}
 
-chown -R "$USER":"$GROUP" "$HOME"
+##############
 
-exit 0
+pre_checks () {
+    # Do not apply BL configs to the root account.
+    [[ "$USER" = root ]] && die "USER is root, abort"
+
+    # Check for the user home directory
+    [[ -d "$HOME" ]] || die "User home directory <$HOME> is not set or not a directory."
+
+    # Check for source (skel) directory
+    [[ -d "$skeldir" ]] || die "Source directory (skel) is not set or not a directory."
+}
+
+check_skel_sum() {
+    if [[ -f $cachedir/skelsum ]]
+    then
+        wholeskelsum=$( tar -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
+        wholeskelsum=${wholeskelsum%% *}
+        # If skel directory unchanged since last run, exit.
+        [[ $wholeskelsum = $( <"$cachedir/skelsum" ) ]] && exit 0
+        ask_yesno "Some default configuration files have been updated
+in a recent package upgrade.
+Would you like to import these changes into your HOME directory?
+(Files you have edited will not be overwritten without permission.)"
+        [[ $? = 1 ]] && {
+            log "User declined a config file update"
+            echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
+            exit 0
+        }
+    fi
+}
+
+# Directories and links will only be added to the "to_copy" lists
+# if they are new arrivals in skeldir.
+#
+# Files will also be added if the md5sum has changed.
+
+check_skel_contents() {
+    dirs_to_copy=()
+    mapfile -t new_skel_dirs < <( find "$skeldir" -type d )
+    if [[ -f $cachedir/skel.dirs && $g_reset = f ]]
+    then
+        mapfile -t old_skel_dirs < "$cachedir/skel.dirs"
+        mapfile -t dirs_to_copy < <(comm -13 <(printf '%s\n' "${old_skel_dirs[@]}" | sort) <(printf '%s\n' "${new_skel_dirs[@]}" | sort))
+    else
+        dirs_to_copy=("${new_skel_dirs[@]}")
+    fi
+
+    links_to_copy=()
+    mapfile -t new_skel_links < <( find "$skeldir" -type l )
+    if [[ -f $cachedir/skel.links && $g_reset = f ]]
+    then
+        mapfile -t old_skel_links < "$cachedir/skel.links"
+        mapfile -t links_to_copy < <(comm -13 <(printf '%s\n' "${old_skel_links[@]}" | sort) <(printf '%s\n' "${new_skel_links[@]}" | sort))
+    else
+        links_to_copy=("${new_skel_links[@]}")
+    fi
+
+    files_to_copy=()
+    declare -Ag new_skel_files old_skel_files
+    while read -r sum file # assuming no files in skel have linebreaks in names
+    do
+        new_skel_files[$file]="$sum"
+    done < <( find "$skeldir" -type f -exec md5sum '{}' '+' )
+    if [[ -f $cachedir/skel.files && $g_reset = f ]]
+    then
+        while read -r sum file
+        do
+            old_skel_files[$file]="$sum"
+        done < "$cachedir/skel.files"
+        for i in "${!new_skel_files[@]}"
+        do
+            [[ "${new_skel_files[$i]}" = "${old_skel_files[$i]}" ]] && continue
+            files_to_copy+=("$i")
+        done
+    else
+        files_to_copy=("${!new_skel_files[@]}")
+    fi
+}
+
+copy_dirs() {
+    for dir in "${dirs_to_copy[@]}"
+    do
+        destdir="$TARGETDIR/${dir#$skeldir/}"
+        mkdir -p "$destdir"
+    done
+    # Update cache after copying directories
+    printf '%s\n' "${new_skel_dirs[@]}" > "$cachedir/skel.dirs"
+}
+
+copy_links() {
+    for link in "${links_to_copy[@]}"
+    do
+        destlink="$TARGETDIR/${link#$skeldir/}"
+        if [[ -e $destlink ]]
+        then
+            log "$destlink exists: not importing symlink."
+        else
+            cp --no-dereference "$link" "$destlink"
+        fi
+    done
+    # Update cache after copying links
+    printf '%s\n' "${new_skel_links[@]}" > "$cachedir/skel.links"
+}
+
+copy_file() {
+    local src dest
+    src=$1
+    dest=$2
+    if [[ -e "${dest%.template}" ]] # if dest has .template ending, remove it
+    then
+        log "Overwriting ${dest%.template}, backing up old file as ${dest%.template}${bkp_sfx}"
+        mv "${dest%.template}" "${dest%.template}${bkp_sfx}"
+    else
+        log "Importing new file ${dest%.template}"
+    fi
+    if [[ $dest = *.template ]]
+    then
+        sed "s|%USERHOME%|$HOME|g" "$src" > "${dest%.template}"
+    else
+        cp "$src" "$dest"
+    fi
+}
+
+copy_files() {
+    for file in "${files_to_copy[@]}"
+    do
+        destfile="$TARGETDIR/${file#$skeldir/}"
+
+        cachesum=${old_skel_files[$file]:-0}
+        skelsum=${new_skel_files[$file]:-0}
+        [[ $skelsum = 0 ]] && die "$file not found in $skeldir"
+
+        usersum=0
+        if [[ -f $destfile ]]
+        then
+            usersum=$(md5sum "$destfile")
+            usersum=${usersum%% *}
+        elif [[ -f "${destfile%.template}" ]]
+        then # reverse sed to get md5sum of original template file
+            usersum=$( sed "s|$HOME|%USERHOME%|g" "${destfile%.template}" | md5sum )
+            usersum=${usersum%% *}
+        fi
+        [[ $usersum = "$skelsum" ]] && continue # files are identical
+
+        if [[ $g_force = t ]]
+        then
+            copy_file "$file" "$destfile"
+            continue
+        fi
+
+        if [[ $cachesum = 0 ]] && [[ $usersum = 0 ]]
+        then
+            log "New file: $file, copying"
+            copy_file "$file" "$destfile"
+        elif [[ ${cachesum} = "${usersum}" ]]
+        then
+            log "User file ${destfile%.template} unchanged from default, copying new file."
+            copy_file "$file" "$destfile"
+        else
+            log "User has modified or removed ${destfile%.template}."
+            if [[ $g_addonly = t ]]
+            then
+                log "Skipping all user modified files"
+                continue
+            fi
+            ask_overwrite "${destfile%.template}"
+            case $? in
+            0)
+                copy_file "$file" "$destfile"
+                ;;
+            1)
+                log "Not overwriting ${destfile%.template}"
+                ;;
+            2)
+                copy_file "$file" "$destfile"
+                g_force=t
+                ;;
+            3)
+                g_addonly=t
+                ;;
+            esac
+        fi
+
+    done
+    # Update cache after copying files
+    for i in "${!new_skel_files[@]}"
+    do
+        printf '%s  %s\n' "${new_skel_files[$i]}" "$i"
+    done > "$cachedir/skel.files"
+}
+
+main "$@"
