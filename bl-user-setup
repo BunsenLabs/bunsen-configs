@@ -91,6 +91,7 @@ main() {
     g_addonly=f
     g_force=f
     g_reset=f
+    have_filecache=f
     wholeskelsum=
 
     pre_checks
@@ -295,7 +296,8 @@ check_skel_contents() {
     do
         new_skel_files[$file]="$sum"
     done < <( find "$skeldir" -type f -exec md5sum '{}' '+' )
-    if [[ -f $cachedir/skel.files && $g_reset = f ]]
+    [[ -f $cachedir/skel.files ]] && have_filecache=t
+    if [[ $have_filecache = t && $g_reset = f ]]
     then
         while read -r sum file
         do
@@ -361,6 +363,7 @@ copy_files() {
         destfile="$TARGETDIR/${file#$skeldir/}"
 
         cachesum=${old_skel_files[$file]:-0}
+
         skelsum=${new_skel_files[$file]:-0}
         [[ $skelsum = 0 ]] && die "$file not found in $skeldir"
 
@@ -374,6 +377,7 @@ copy_files() {
             usersum=$( sed "s|$HOME|%USERHOME%|g" "${destfile%.template}" | md5sum )
             usersum=${usersum%% *}
         fi
+
         [[ $usersum = "$skelsum" ]] && continue # files are identical
 
         if [[ $g_force = t ]]
@@ -382,11 +386,11 @@ copy_files() {
             continue
         fi
 
-        if [[ $cachesum = 0 ]] && [[ $usersum = 0 ]]
+        if [[ $have_filecache = t && $cachesum = 0 && $usersum = 0 ]]
         then
             log "New file: $file, copying"
             copy_file "$file" "$destfile"
-        elif [[ ${cachesum} = "${usersum}" ]]
+        elif [[ $have_filecache = t && ${cachesum} = "${usersum}" ]]
         then
             log "User file ${destfile%.template} unchanged from default, copying new file."
             copy_file "$file" "$destfile"
