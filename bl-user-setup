@@ -88,13 +88,19 @@ readonly logfile="$cachedir/log"
 
 main() {
 
+    pre_checks
+
+    BL_COMMON_LIBDIR='/home/john/git/bunsen/bunsen-common'
+    if ! . "$BL_COMMON_LIBDIR/yad-includes" 2> /dev/null; then
+        die "Failed to locate yad-includes in $BL_COMMON_LIBDIR"
+    fi
+    yad_common_args+=(--title='BunsenLabs User Setup' --buttons-layout=spread)
+
     g_addonly=f
     g_force=f
     g_reset=f
     have_filecache=f
     wholeskelsum=
-
-    pre_checks
 
     case "$1" in
     --install)
@@ -185,14 +191,10 @@ n: No
             esac
         done
     else
-        title="BunsenLabs User Setup"
-        winicon="distributor-logo-bunsenlabs"
         msg="<b>User Setup</b>
 
 $message"
-        yad --center --undecorated --borders=20 --window-icon="$winicon"\
-        --title="$title" --text="$msg"\
-        --button='Yes':0 --button='No':1
+        yad_question  "$msg"
     fi
 }
 
@@ -219,15 +221,13 @@ s: skip all
             esac
         done
     else
-        title="BunsenLabs User Setup"
-        winicon="distributor-logo-bunsenlabs"
         msg="<b>User Setup</b>
 
 You have modified or removed this file:
-$file
-Overwrite with the new version, or skip?"
-        yad --center --undecorated --borders=20 --window-icon="$winicon"\
-        --title="$title" --text="$msg"\
+<b>${file}</b>
+Overwrite with the new version, or skip?
+"
+        yad_question "$msg" \
         --button='Overwrite':0 --button='Skip':1 --button='Do All':2 --button='Skip All':3
     fi
 }
@@ -252,10 +252,10 @@ check_skel_sum() {
         wholeskelsum=${wholeskelsum%% *}
         # If skel directory unchanged since last run, exit.
         [[ $wholeskelsum = $( <"$cachedir/skelsum" ) ]] && exit 0
-        ask_yesno "Some default configuration files have been updated
-in a recent package upgrade.
+        ask_yesno "Some default configuration files have been updated in a recent package upgrade.
 Would you like to import these changes into your HOME directory?
-(Files you have edited will not be overwritten without permission.)"
+(Files you have edited will not be overwritten without permission.)
+"
         [[ $? = 1 ]] && {
             log "User declined a config file update"
             echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
