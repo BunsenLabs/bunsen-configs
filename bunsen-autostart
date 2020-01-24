@@ -4,6 +4,10 @@
 bl_usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}/bunsen"
 usr_autostart="$bl_usr_confdir/autostart"
 
+# Check for updates to contents of /usr/share/bunsen/skel
+# (Later move this to $usr_autostart. )
+(sleep 10; bl-user-setup --auto ) &
+
 # Run the user autostart script
 if test -f "$usr_autostart"; then
     sh "$usr_autostart"
