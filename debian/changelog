@@ -1,3 +1,20 @@
+bunsen-configs (10.5-1) lithium; urgency=medium
+
+  * Extend function of bl-user-setup to offer to import new files
+     from /usr/share/bunsen/skel after package upgrades.
+  * Move gtk bookmarks to new default: ~/.config/gtk-3.0/bookmarks.
+  * Lxterminal: Hide menu bar by default.
+  * Geany: Add items to build menu: "Open as root", "File Manager here"
+     and "Terminal Here".
+  [ Johan Malm ]
+  * Use the "apps" module to build the Applications menu
+     and adjust user config files to match.
+  [ Will Elliott ]
+  * Improve tiling with Openbox.
+  * Add Yeti theme for tint2.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 25 Jan 2020 17:27:41 +0900
+
 bunsen-configs (10.4.6.2-1) lithium; urgency=medium
 
   * Restore tint2rc-grey, tweaked for Lithium.
