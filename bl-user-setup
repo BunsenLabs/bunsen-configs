@@ -90,7 +90,7 @@ main() {
 
     pre_checks
 
-    BL_COMMON_LIBDIR='/home/john/git/bunsen/bunsen-common'
+    BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
     if ! . "$BL_COMMON_LIBDIR/yad-includes" 2> /dev/null; then
         die "Failed to locate yad-includes in $BL_COMMON_LIBDIR"
     fi
