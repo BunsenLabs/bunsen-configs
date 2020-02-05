@@ -28,11 +28,12 @@ User set configurations will not be modified without permission.
 
 It can also be run manually with custom options.
 The most common manual use case is to run with no options,
-in which case the algorithm described below is followed.
+in which case the algorithm described below is followed,
+except that users will also be consulted in cases 3) and 4).
 
 In all cases backups will be made of any files which are overwritten.
 
-Options (only one is accepted):
+Options:
 -h --help
     Show this message.
 --refresh (default)
@@ -40,13 +41,11 @@ Options (only one is accepted):
     If any files in /usr/share/bunsen/skel have changed,
     follow the algorithm below to determine whether to update them
     and whether to prompt the user first.
---addonly --no
-    Assume all prompts answered 'no'.
 --force --yes
-    Assume all prompts answered 'yes'.
+    Assume all prompts answered 'Yes'.
 --reset
-    Implies --force.
-    Restore all files to the default state in /usr/share/bunsen/skel.
+    Restore all files to the default state in /usr/share/bunsen/skel,
+    but ask user before overwriting files.
 
 The following two options are not usually of interest to users:
 --auto
@@ -64,14 +63,14 @@ Compare the contents of /usr/share/bunsen/skel (here called 'skel')
 with the contents on the last run of this script.
 If there has been no change, exit immediately.
 If there is new content:
-Copy in any new directories.
-Copy in any new symlinks, if they do not already exist (no overwrites).
-Copy in any new files.
-If file in skel has changed, and user's file is still in default state,
+1) Copy in any new directories.
+2) Copy in any new symlinks, if they do not already exist (no overwrites).
+3) Copy in any new files.
+4) If file in skel has changed, and user's file is still in default state,
 silently update file.
-If skel file and user file have both changed (or user has removed file),
+5) If skel file and user file have both changed (or user has removed file),
  ask user for instructions.
-If a file has been removed from skel, do not remove it from HOME.
+6) If a file has been removed from skel, do not remove it from HOME.
 "
 
 readonly USER=${USER}
@@ -94,45 +93,47 @@ main() {
     if ! . "$BL_COMMON_LIBDIR/yad-includes" 2> /dev/null; then
         die "Failed to locate yad-includes in $BL_COMMON_LIBDIR"
     fi
-    yad_common_args+=(--title='BunsenLabs User Setup' --buttons-layout=spread)
-
-    g_addonly=f
-    g_force=f
-    g_reset=f
-    have_filecache=f
-    wholeskelsum=
-
-    case "$1" in
-    --install)
-        [[ -f "$flagfile" ]] && exit 0
-        g_force=t
-        ;;
-    --auto)
-        check_skel_sum
-        ;;
-    ''|--refresh)
-        :
-        ;;
-    --addonly)
-        g_addonly=t
-        ;;
-    --force)
-        g_force=t
-        ;;
-    --reset)
-        g_reset=t
-        g_force=t
-        ;;
-    -h|--help)
-        printf '%b\n' "$USAGE"
-        exit 0
-        ;;
-    *)
-        die "$1 is not a valid option"
-        ;;
-    esac
+    yad_common_args+=('--title=BunsenLabs User Setup' '--buttons-layout=spread')
 
     mkdir -p "$TARGETDIR" "$confdir" "$cachedir"
+
+    g_force=f
+    g_reset=f
+    g_auto=f
+    have_filecache=f
+
+    wholeskelsum=$( tar -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
+    wholeskelsum=${wholeskelsum%% *}
+
+    for opt in "$@"
+    do
+        case "$opt" in
+        --install)
+            [[ -f "$flagfile" ]] && exit 0
+            g_force=t
+            ;;
+        --auto)
+            g_auto=t
+            check_skel_sum
+            ;;
+        ''|--refresh)
+            :
+            ;;
+        --force|--yes)
+            g_force=t
+            ;;
+        --reset)
+            g_reset=t
+            ;;
+        -h|--help)
+            printf '%b\n' "$USAGE"
+            exit 0
+            ;;
+        *)
+            die "$1 is not a valid option"
+            ;;
+        esac
+    done
 
     bkp_sfx="~$( date +%FT%T )~"
 
@@ -152,10 +153,6 @@ will be repeated, overwriting any user modifications.
 (However, backups will be made of overwritten files.)" > "$flagfile"
 
     # Update cache of skel checksum if script finishes with no errors
-    [[ -z $wholeskelsum ]] && {
-        wholeskelsum=$( tar -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
-        wholeskelsum=${wholeskelsum%% *}
-    }
     echo "$wholeskelsum" > "$cachedir/skelsum"
 }
 
@@ -202,20 +199,27 @@ ask_overwrite() {
     local file="$1"
     if [[ -t 0 && -t 1 ]] # on terminal
     then
-        echo "You have modified or removed this file:
+        local dflt=1
+        case $overwrite_dflt in
+        Yes) dflt=0;;
+        esac
+
+        echo "$overwrite_msg1
 $file
-Overwrite with the new version?"
+$overwrite_msg2"
+
         while true
         do
-            echo "y: overwrite
-n: skip this one
-a: overwrite all
-s: skip all
-(Default is skip.)"
+            echo "y: ${overwrite_yesname}
+n: Skip this one
+a: Do all
+s: Skip all
+(Default is '${overwrite_dflt}'.)"
             read -r -p 'y/N/a/s: '
             case "${REPLY^}" in
+            '') return $dflt;;
             Y) return 0;;
-            N|'') return 1;;
+            N) return 1;;
             A) return 2;;
             S) return 3;;
             esac
@@ -223,12 +227,12 @@ s: skip all
     else
         msg="<b>User Setup</b>
 
-You have modified or removed this file:
+$overwrite_msg1
 <b>${file}</b>
-Overwrite with the new version, or skip?
+$overwrite_msg2
 "
         yad_question "$msg" \
-        --button='Overwrite':0 --button='Skip':1 --button='Do All':2 --button='Skip All':3
+        --button="${overwrite_yesname}":0 --button='Skip':1 --button='Do All':2 --button='Skip All':3
     fi
 }
 
@@ -248,16 +252,32 @@ pre_checks () {
 check_skel_sum() {
     if [[ -f $cachedir/skelsum ]]
     then
-        wholeskelsum=$( tar -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
-        wholeskelsum=${wholeskelsum%% *}
         # If skel directory unchanged since last run, exit.
         [[ $wholeskelsum = $( <"$cachedir/skelsum" ) ]] && exit 0
-        ask_yesno "Some default configuration files have been updated in a recent package upgrade.
+        ask_yesno "Some config files have been updated in a recent package upgrade.
 Would you like to import these changes into your HOME directory?
 (Files you have edited will not be overwritten without permission.)
+
+You also have the option of running 'bl-user-setup' at a later time.
 "
         [[ $? = 1 ]] && {
             log "User declined a config file update"
+            echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
+            exit 0
+        }
+    else
+        ask_yesno "bl-user-setup has detected that you do do not yet have a cache
+so cannot check if the BunsenLabs default config files have changed.
+For each file, you will be asked if you want to use the default version,
+or keep your current file (if it is different).
+New files will be silently imported.
+
+This check will not need to be repeated, but if you prefer, you can
+run 'bl-user-setup --help' at any time to see the available options.
+
+Check files now?"
+        [[ $? = 1 ]] && {
+            log "No skel md5sum cache file found, but user declined a config file check."
             echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
             exit 0
         }
@@ -292,7 +312,7 @@ check_skel_contents() {
 
     files_to_copy=()
     declare -Ag new_skel_files old_skel_files
-    while read -r sum file # assuming no files in skel have linebreaks in names
+    while read -r sum file # assuming no files in skel have linebreaks in names (spaces are OK)
     do
         new_skel_files[$file]="$sum"
     done < <( find "$skeldir" -type f -exec md5sum '{}' '+' )
@@ -342,7 +362,7 @@ copy_file() {
     local src dest
     src=$1
     dest=$2
-    if [[ -e "${dest%.template}" ]] # if dest has .template ending, remove it
+    if [[ -e "${dest%.template}" ]] # if dest has .template ending, look for file without it
     then
         log "Overwriting ${dest%.template}, backing up old file as ${dest%.template}${bkp_sfx}"
         mv "${dest%.template}" "${dest%.template}${bkp_sfx}"
@@ -362,7 +382,11 @@ copy_files() {
     do
         destfile="$TARGETDIR/${file#$skeldir/}"
 
-        cachesum=${old_skel_files[$file]:-0}
+        cachesum=0
+        if [[ $have_filecache = t ]]
+        then
+            cachesum=${old_skel_files[$file]:-0}
+        fi
 
         skelsum=${new_skel_files[$file]:-0}
         [[ $skelsum = 0 ]] && die "$file not found in $skeldir"
@@ -382,43 +406,87 @@ copy_files() {
 
         if [[ $g_force = t ]]
         then
-            copy_file "$file" "$destfile"
+            copy_file "$file" "$destfile" # copy_file handles templates too
             continue
         fi
 
-        if [[ $have_filecache = t && $cachesum = 0 && $usersum = 0 ]]
+        overwrite_dflt='Skip this one'
+        overwrite_yesname='Overwrite'
+        if [[ $have_filecache = t ]]
         then
-            log "New file: $file, copying"
-            copy_file "$file" "$destfile"
-        elif [[ $have_filecache = t && ${cachesum} = "${usersum}" ]]
-        then
-            log "User file ${destfile%.template} unchanged from default, copying new file."
-            copy_file "$file" "$destfile"
-        else
-            log "User has modified or removed ${destfile%.template}."
-            if [[ $g_addonly = t ]]
+            if [[ $cachesum = 0 && $usersum = 0 ]] # new file from skel
             then
-                log "Skipping all user modified files"
-                continue
+                if [[ $g_auto = t ]]
+                then
+                    log "New file: $file, copying"
+                    copy_file "$file" "$destfile"
+                    continue
+                else
+                    log "New file: set default 'Yes'"
+                    overwrite_msg1='There is a new config file:'
+                    overwrite_msg2='Import this file?'
+                    overwrite_yesname='Import'
+                    overwrite_dflt='Yes'
+                fi
+            elif [[ ${cachesum} = "${usersum}" ]] # user has not modified file
+            then
+                if [[ $g_auto = t ]]
+                then
+                    log "User file ${destfile%.template} unchanged from default, copying new file."
+                    copy_file "$file" "$destfile"
+                    continue
+                else
+                    log "User file ${destfile%.template} unchanged: set default 'Yes'"
+                    overwrite_msg1='You have not edited this file:'
+                    overwrite_msg2='But there is a new version available.
+Overwrite with the new version?'
+                    overwrite_dflt='Yes'
+                fi
+            else
+                log "User has modified or removed ${destfile%.template}."
+                overwrite_msg1='You have modified or removed this file:'
+                overwrite_msg2='Overwrite with the new version?'
             fi
-            ask_overwrite "${destfile%.template}"
-            case $? in
-            0)
-                copy_file "$file" "$destfile"
-                ;;
-            1)
-                log "Not overwriting ${destfile%.template}"
-                ;;
-            2)
-                copy_file "$file" "$destfile"
-                g_force=t
-                ;;
-            3)
-                g_addonly=t
-                ;;
-            esac
+        else # (cannot test for unmodified file without cache, only for new file)
+            if [[ ! -e "$destfile" ]] # new file from skel
+            then
+                if [[ $g_auto = t ]]
+                then
+                    log "New file: $file, copying"
+                    copy_file "$file" "$destfile"
+                    continue
+                else
+                    log "No cache: need to confirm user choice about ${destfile%.template}."
+                    log "New file: set default 'Yes'"
+                    overwrite_dflt='Yes'
+                    overwrite_msg1='The BL default skel directory has this new file:'
+                    overwrite_msg2='Import the BL version?'
+                    overwrite_yesname='Import'
+                fi
+            else
+                log "No cache: need to confirm user choice about ${destfile%.template}."
+                overwrite_msg1='This BL default file is different from yours:'
+                overwrite_msg2='Import the BL default version?'
+                overwrite_yesname='Import'
+            fi
         fi
 
+        ask_overwrite "${destfile%.template}"
+        case $? in
+        0)
+            copy_file "$file" "$destfile"
+            ;;
+        1)
+            log "Not overwriting ${destfile%.template}"
+            ;;
+        2)
+            copy_file "$file" "$destfile"
+            g_force=t
+            ;;
+        3)
+            break
+            ;;
+        esac
     done
     # Update cache after copying files
     for i in "${!new_skel_files[@]}"
