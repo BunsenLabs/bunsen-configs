@@ -99,9 +99,9 @@ border_color_pressed = #514320 90
 #-------------------------------------
 # Panel
 panel_items = PTSCP
-panel_size = 99% 36
-panel_margin = 1 0
-panel_padding = 0 0 0
+panel_size = 99% 30
+panel_margin = 0 1
+panel_padding = 6 0 0
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
