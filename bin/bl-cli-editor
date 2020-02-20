@@ -1,3 +1,3 @@
 #!/bin/sh
 
-x-terminal-emulator -T "${1}" -e editor "$@"
+x-terminal-emulator -T "${1##*/} - CLI Editor" -e editor "$@"
