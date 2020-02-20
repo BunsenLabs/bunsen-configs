@@ -1,3 +1,19 @@
+bunsen-configs (10.5.1-1) lithium; urgency=medium
+
+  * bl-user-setup: Make non-auto actions more interactive.
+  * Add many small config tweaks:
+    - bl-text-editor: show file name in title.
+    - Add skel/.config/blob/current to hold default "Lithium" setting.
+    - Remove unwanted pkexec policy for bl-cli-editor.
+    - geany.conf: change custom "open as root" command from bl-cli-editor
+       to bl-text-editor.
+    - [ damo ] Make jgmenu separator titles Lithium red.
+    - [ hhhorb ] Update default tint2 with tooltip fix.
+    - [ Will Elliott ] Remove the extraneous 1px margin from tint2rc-yeti.
+    - [ Johan Malm ] man bunsenlabs-session: add -SESSION to title.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 20 Feb 2020 17:19:14 +0900
+
 bunsen-configs (10.5-1) lithium; urgency=medium
 
   * Extend function of bl-user-setup to offer to import new files
