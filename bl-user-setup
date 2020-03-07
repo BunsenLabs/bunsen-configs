@@ -21,6 +21,8 @@
 USAGE="bl-user-setup: a script to populate a new user's HOME directory
 using files from /usr/share/bunsen/skel
 
+Usage:  bl-user-setup [-h|--help][--force|--yes][--reset]
+
 This script is run non-interactively on a user's first login,
 and on subsequent logins to check for new default configurations
 in /usr/share/bunsen/skel that may have come from a package upgrade.
@@ -35,32 +37,31 @@ In all cases backups will be made of any files which are overwritten.
 
 Options:
 -h --help
-    Show this message.
---refresh (default)
-    '--refresh' is kept only for backward compatibility.
-    If any files in /usr/share/bunsen/skel have changed,
-    follow the algorithm below to determine whether to update them
-    and whether to prompt the user first.
+    Show this message and exit.
 --force --yes
     Assume all prompts answered 'Yes'.
 --reset
     Restore all files to the default state in /usr/share/bunsen/skel,
     but ask user before overwriting files.
+    (Add --force or --yes to skip confirmations.)
+--refresh
+    Follow default behaviour, as with no options passed.
+    (This is kept only for backward compatibility.)
 
 The following two options are not usually of interest to users:
 --auto
     This is run on each user login.
     Do a quick check for any change to skel contents,
-    exit if there is nothing new,
-    or apply the same algorithm as --refresh if there are changes.
+    exit if there is nothing new, or if there are changes
+    ask the user for permission to apply the algorithm below .
 --install
     Implies --force.
     Run non-interactive file import only on first login.
 
-ALGORITHM
+ALGORITHM for --auto operation
 
 Compare the contents of /usr/share/bunsen/skel (here called 'skel')
-with the contents on the last run of this script.
+with the contents on the previous run of this script.
 If there has been no change, exit immediately.
 If there is new content:
 1) Copy in any new directories.
