@@ -291,7 +291,7 @@ Check files now?"
 
 check_skel_contents() {
     dirs_to_copy=()
-    mapfile -t new_skel_dirs < <( find "$skeldir" -type d )
+    mapfile -t new_skel_dirs < <( find "$skeldir" -mindepth 1 -type d )
     if [[ -f $cachedir/skel.dirs && $g_reset = f ]]
     then
         mapfile -t old_skel_dirs < "$cachedir/skel.dirs"
