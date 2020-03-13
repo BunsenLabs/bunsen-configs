@@ -41,4 +41,12 @@
     <patterns>*.iso;*.img;*.sub</patterns>
     <other-files />
   </action>
+<action>
+    <icon>go-up</icon>
+    <name>Upload Image</name>
+    <command>bl-image-upload --auto-upload --file %f</command>
+    <description>Upload an image file to an image hosting service.</description>
+    <patterns>*</patterns>
+    <image-files/>
+</action>
 </actions>
