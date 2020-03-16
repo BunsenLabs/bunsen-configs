@@ -1,3 +1,0 @@
-MIRRORSITE=http://deb.debian.org/debian
-DISTRIBUTION=buster
-COMPONENTS="main contrib non-free"
