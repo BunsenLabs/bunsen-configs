@@ -33,12 +33,15 @@ URxvt.iconFile: /usr/share/icons/Paper/48x48/apps/utilities-terminal.png
 URxvt.cursorBlink: true
 URxvt.fading: 20
 
+! Lithium colours
+URxvt.background: [90]#22373F
+URxvt.foreground: #C6D5E5
 ! Grey theming
 !URxvt*background: #cecece
 !URxvt*foreground: #101010
 ! Terminator Beam colours
-URxvt.background: [90]#082B4A
-URxvt.foreground: #ADD8E6
+!URxvt.background: [90]#082B4A
+!URxvt.foreground: #ADD8E6
 
 ! scrollback buffer lines - 65535 is max (64 is default)
 URxvt.saveLines: 16384

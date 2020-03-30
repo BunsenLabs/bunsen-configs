@@ -35,7 +35,7 @@ fi
 
 # BL-Lithium
 # Top
-dmenu_run -i -nb '#082B4A' -nf '#ADD8E6' -sb '#446F6C' -sf '#151617'
+dmenu_run -i -nb '#22373F' -nf '#C6D5E5' -sb '#446F6C' -sf '#151617'
 # Bottom
-#dmenu_run -i -b -nb '#082B4A' -nf '#ADD8E6' -sb '#446F6C' -sf '#151617'
+#dmenu_run -i -b -nb '#22373' -nf '#C6D5E5' -sb '#446F6C' -sf '#151617'
 
