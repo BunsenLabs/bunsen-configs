@@ -38,7 +38,7 @@ BLTEXTEDITOR=bl-text-editor
 BLALTS="$BLFILEMANAGER $BLIMAGEVIEWER $BLMEDIAPLAYER $BLTEXTEDITOR"
 
 OTHERFM="caja nautilus pcmanfm spacefm xfe"
-OTHERIV="eog eom gthumb geeqie gpicview ristretto viewnior"
+OTHERIV="eog eom geeqie gpicview gthumb mirage viewnior"
 OTHERMP="banshee dragonplayer gnome-mpv gxine kaffeine parole \
     smplayer totem"
 OTHERTE="emacs gedit jedit kate leafpad medit mousepad scite"
@@ -63,7 +63,7 @@ bunsen_alt()
 #  Set bunsen alternatives
 {
     update_alt /usr/bin/thunar $MAN1/thunar.1.gz $BLFILEMANAGER $BLPRIO
-    update_alt /usr/bin/mirage $MAN1/mirage.1.gz $BLIMAGEVIEWER $BLPRIO
+    update_alt /usr/bin/ristretto $MAN1/ristretto.1.gz $BLIMAGEVIEWER $BLPRIO
     update_alt /usr/bin/vlc $MAN1/vlc.1.gz $BLMEDIAPLAYER $BLPRIO
     update_alt /usr/bin/geany $MAN1/geany.1.gz $BLTEXTEDITOR $BLPRIO
 }
