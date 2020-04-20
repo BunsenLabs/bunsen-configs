@@ -136,7 +136,7 @@ main() {
         esac
     done
 
-    bkp_sfx="~$( date +%FT%T )~"
+    bkp_sfx=".$(date +"%Y%m%d-%H%M%S").usersetup~"
 
     log "############
 Running $0 at $(date)"
@@ -201,8 +201,12 @@ ask_overwrite() {
     if [[ -t 0 && -t 1 ]] # on terminal
     then
         local dflt=1
+        local prompt='y/N/a/s: '
         case $overwrite_dflt in
-        Yes) dflt=0;;
+        Yes)
+            dflt=0
+            prompt='Y/n/a/s: '
+            ;;
         esac
 
         echo "$overwrite_msg1
@@ -216,7 +220,7 @@ n: Skip this one
 a: Do all
 s: Skip all
 (Default is '${overwrite_dflt}'.)"
-            read -r -p 'y/N/a/s: '
+            read -r -p "$prompt"
             case "${REPLY^}" in
             '') return $dflt;;
             Y) return 0;;
@@ -359,20 +363,42 @@ copy_links() {
     printf '%s\n' "${new_skel_links[@]}" > "$cachedir/skel.links"
 }
 
+# Check if an identical backed-up file already exists, and if not,
+# return 1, otherwise return 0 (do backup).
+need_backup(){
+    local file bkp_file
+    file=$1
+    for bkp_file in "${file}"*~
+    do
+        [[ -f $bkp_file ]] || continue
+        cmp "$file" "$bkp_file" >/dev/null 2>&1 && {
+            log "$file already has identical copy ${bkp_file}, no need to backup"
+            return 1
+        }
+    done
+    return 0
+}
+
 copy_file() {
     local src dest
     src=$1
     dest=$2
-    if [[ -e "${dest%.template}" ]] # if dest has .template ending, look for file without it
+    dest=${dest%.template} # if dest has .template ending, remove it
+    if [[ -e "${dest}" ]]
     then
-        log "Overwriting ${dest%.template}, backing up old file as ${dest%.template}${bkp_sfx}"
-        mv "${dest%.template}" "${dest%.template}${bkp_sfx}"
+        if need_backup "$dest"
+        then
+            log "Overwriting ${dest}, backing up old file as ${dest}${bkp_sfx}"
+            mv "${dest}" "${dest}${bkp_sfx}"
+        else
+            log "Overwriting ${dest}, identical backup already exists."
+        fi
     else
-        log "Importing new file ${dest%.template}"
+        log "Importing new file ${dest}"
     fi
-    if [[ $dest = *.template ]]
+    if [[ $src = *.template ]]
     then
-        sed "s|%USERHOME%|$HOME|g" "$src" > "${dest%.template}"
+        sed "s|%USERHOME%|$HOME|g" "$src" > "$dest"
     else
         cp "$src" "$dest"
     fi
