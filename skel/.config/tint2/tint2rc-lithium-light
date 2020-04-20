@@ -236,7 +236,7 @@ clock_tooltip = %A %F
 clock_tooltip_timezone =
 #Show calendar
 clock_lclick_command = gsimplecal
-clock_rclick_command = bash -c "bl-beepmein-pipemenu | jgmenu --simple --icon-size=0 --config-file=<( sed '/menu_padding_top/ s/^/#/' ~/.config/jgmenu/jgmenurc )"
+clock_rclick_command = beepmein-pipemenu --standalone
 clock_mclick_command =
 clock_uwheel_command =
 clock_dwheel_command =
