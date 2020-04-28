@@ -29,7 +29,7 @@
 ## Use the window manager's actual command, not name:
 window_manager=openbox
 
-# test if chosen window manager is actually running (do not edit this line)
+# test if chosen window manager is actually running (you should probably not edit this line)
 pgrep -x -u "$USER" "$window_manager" || { echo "$0: Window manager $window_manager is not running." >&2 ; exit 1;}
 
 ### SETTINGS START
@@ -70,7 +70,10 @@ syndaemon -i .5 -K -t -R -d &
 ## GNOME PolicyKit authentication
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-## window-manager-dependent applications
+#######################################################
+######## window-manager-dependent applications ########
+# these will be things like panels, conky, wallpaper etc
+
 case "$window_manager" in
 openbox)
     ## The following applications will only be started in an openbox session.
@@ -112,6 +115,11 @@ openbox)
 
 esac
 
+####### end of window-manager-dependent section #######
+#######################################################
+
+### Following entries apply to all window managers: ###
+
 ## Volume control for systray
 pnmixer &
 
@@ -133,5 +141,5 @@ fi
 #(sleep 120; bl-fortune) &
 
 ## Run the XDG autostart stuff. This requires python-xdg to be installed.
-## See bl-xdg-autostart --help for more details.
+## See bl-xdg-autostart --list for list of autostarted applications.
 bl-xdg-autostart
