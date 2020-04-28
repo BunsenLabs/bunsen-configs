@@ -236,7 +236,7 @@ clock_tooltip = %a, %b %d
 clock_tooltip_timezone =
 #Show calendar
 clock_lclick_command = gsimplecal
-clock_rclick_command = beepmein-pipemenu --standalone
+clock_rclick_command = bl-beepmein-pipemenu --standalone
 clock_mclick_command =
 clock_uwheel_command =
 clock_dwheel_command =
