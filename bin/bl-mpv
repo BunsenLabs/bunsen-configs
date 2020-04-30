@@ -10,7 +10,19 @@ if ! hash mpv; then
 fi
 
 if (( $# > 0 )); then
-    URI=$1
+    for ((i=1 ; i <= $# ; i++))
+    do
+        [[ ${!i} = - ]] && break # using stdin
+        if [[ ${!i} = -- ]] # all following arguments are files
+        then
+            ((i++))
+        elif [[ ${!i} = -* ]] # skip options
+        then
+            continue
+        fi
+        URI="${!i}"
+        break
+    done
 
     # Use the MIME type of the first file passed to us to determine the
     # playback profile.
