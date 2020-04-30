@@ -24,17 +24,17 @@ URxvt.letterSpace: -1
 ! Window size and position
 !URxvt*geometry: 60x22+50+100
 ! Window size, let the Window Manager position it
-URxvt.geometry: 83x35
+URxvt.geometry: 80x24
 
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
 URxvt.scrollBar_right: true
-URxvt.iconFile: /usr/share/icons/Paper/48x48/apps/utilities-terminal.png
+URxvt.iconFile: /usr/share/icons/Papirus/48x48/apps/urxvt.svg
 URxvt.cursorBlink: true
 URxvt.fading: 20
 
 ! Lithium colours
-URxvt.background: [90]#22373F
+URxvt.background: [95]#22373F
 URxvt.foreground: #C6D5E5
 ! Grey theming
 !URxvt*background: #cecece
@@ -44,7 +44,7 @@ URxvt.foreground: #C6D5E5
 !URxvt.foreground: #ADD8E6
 
 ! scrollback buffer lines - 65535 is max (64 is default)
-URxvt.saveLines: 16384
+URxvt.saveLines: 5000
 
 ! True Transparency, opacity percentage set in square brackets before URxvt.background colour
 URxvt.depth: 32
