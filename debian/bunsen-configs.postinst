@@ -15,9 +15,9 @@ MAN1='/usr/share/man/man1'
 
 case $1 in
 configure|abort-upgrade)
-    if [ -x /usr/bin/bl-alternatives ]
+    if command -v bl-alternatives >/dev/null
     then
-        /usr/bin/bl-alternatives update
+        bl-alternatives update
     fi
     if update-alternatives --list x-cursor-theme 2>/dev/null | grep -q "$DEFAULT_CURSOR_THEME"
     then
