@@ -1,3 +1,18 @@
+bunsen-configs (10.5.2-1) lithium; urgency=medium
+
+  * Thunar custom actions: 
+    - Add image upload.
+    - Remove sha256sum check, now provided by thunar-gtkhash.
+  * Use ristretto as default bl-image-viewer instead of mirage.
+  * bl-user-setup: add tweaks and bugfixes.
+  * Make many small adjustments to graphics.
+  [ damo]
+  * Improve commenting of scripts and config files.
+  [ Jens John ]
+  * skel: delete unneeded .pbuilderrc
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 02 May 2020 17:44:10 +0900
+
 bunsen-configs (10.5.1-1) lithium; urgency=medium
 
   * bl-user-setup: Make non-auto actions more interactive.
