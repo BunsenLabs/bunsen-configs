@@ -190,6 +190,10 @@ def show_help():
     print "  XFCE          XFCE Desktop"
     print "  Old           Legacy systems"
     print
+    print "*COPYRIGHT*"
+    print "openbox-xdg-autostart was written by Dana Jansens in 2008,"
+    print "and originally provided in openbox under the GPL-2 licence."
+    print
 
 def show_version():
     print ME, VERSION
