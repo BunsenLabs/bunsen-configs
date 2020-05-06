@@ -10,6 +10,7 @@ fi
 usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
 usr_autostart="$usr_confdir/bunsen/autostart"
 usr_envfile="$usr_confdir/bunsen/environment"
+default_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart'
 bl_autostart='/usr/lib/bunsen/configs/bunsen-autostart'
 
 # Clean up after GDM (GDM sets the number of desktops to one).
@@ -22,6 +23,12 @@ if [ -x /usr/lib/bunsen/configs/bl-user-setup ]
 then
     /usr/lib/bunsen/configs/bl-user-setup --install || true
 fi
+
+# At least try to ensure user has an autostart file.
+[ -e "$usr_autostart" ] || {
+    echo "$0: ERROR $usr_autostart does not exist, copying in $sys_autostart" >&2
+    cp "$default_autostart" "$usr_autostart"
+}
 
 # Check if user has set an alternative window manager.
 # This would be the first setting in ~/.config/bunsen/autostart.
