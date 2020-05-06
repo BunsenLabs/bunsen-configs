@@ -18,7 +18,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-USAGE="bl-user-setup: a script to populate a new user's HOME directory
+HELP="bl-user-setup is a script to populate a new user's HOME directory
 using files from /usr/share/bunsen/skel
 
 Usage:  bl-user-setup [-h|--help][--force|--yes][--reset]
@@ -49,28 +49,37 @@ Options:
     (This is kept only for backward compatibility.)
 
 The following two options are not usually of interest to users:
+
 --auto
     This is run on each user login.
     Do a quick check for any change to skel contents,
     exit if there is nothing new, or if there are changes
-    ask the user for permission to apply the algorithm below .
+    ask the user for permission to apply the algorithm below.
 --install
     Implies --force.
     Run non-interactive file import only on first login.
 
-ALGORITHM for --auto operation
+*ALGORITHM*
+For --auto operation:
 
 Compare the contents of /usr/share/bunsen/skel (here called 'skel')
 with the contents on the previous run of this script.
 If there has been no change, exit immediately.
+
 If there is new content:
+
 1) Copy in any new directories.
+
 2) Copy in any new symlinks, if they do not already exist (no overwrites).
+
 3) Copy in any new files.
+
 4) If file in skel has changed, and user's file is still in default state,
 silently update file.
+
 5) If skel file and user file have both changed (or user has removed file),
- ask user for instructions.
+ask user for instructions.
+
 6) If a file has been removed from skel, do not remove it from HOME.
 "
 
@@ -87,6 +96,16 @@ readonly logfile="$cachedir/log"
 ########################################
 
 main() {
+    # if help option anywhere in args, output $HELP and exit immediately
+    for i in "$@"
+    do
+        case "$i" in
+        -h|--help)
+            echo "$HELP"
+            exit 0
+            ;;
+        esac
+    done
 
     pre_checks
 
@@ -127,7 +146,7 @@ main() {
             g_reset=t
             ;;
         -h|--help)
-            printf '%b\n' "$USAGE"
+            printf '%b\n' "$HELP"
             exit 0
             ;;
         *)
