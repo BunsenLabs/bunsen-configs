@@ -7,15 +7,15 @@ CrunchBang Linux by Philip Newborough.
 
 The main content is:
 
-*) A collection of user configuration files templates,
-stored in /usr/share/bunsen/skel, and a user setup script to
-install them, triggered from the Xsession login.
-
 *) Configuration for a BunsenLabs session at startup, triggered from
 a desktop file in /usr/share/xsessions, and allowing the user to run
 alternative window managers while keeping the menu, keybinds
 and autostarted applications. The default openbox rc.xml and menu.xml
 files are left untouched.
+
+*) A collection of user configuration files templates,
+stored in /usr/share/bunsen/skel, and a user setup script to
+install them, triggered from the Bunsenlabs session.
 
 *) Configuration for lightdm, including a workaround for language selection.
 
@@ -26,14 +26,14 @@ files are left untouched.
   bl-image-viewer
   bl-media-player
   bl-text-editor
-along with corresponding .desktop files and a mimeapps.list.
+along with corresponding .desktop files and mimeapps.list entries.
 These enable users to have more flexibility in their choice of default applications
 without having to edit menus, scripts or keyboard shortcuts.
 
 *) Policykit actions allowing pkexec of text editor,
 and user shutdown/suspend permissions.
 
-*) Wrapper scripts for mpv, gvim and edit.
+*) Wrapper scripts for mpv, gvim, edit and gdebi-gtk.
 
 *) Firefox default preference for text-box display, to avoid
 issues with dark themes.
