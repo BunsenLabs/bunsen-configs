@@ -6,7 +6,6 @@
 ##
 ## NB, like openbox's autostart script, this uses the default shell,
 ## so "bashisms" are not supported.
-##     ===========================
 ##
 ## (Environment variables are set in ~/.config/bunsen/environment.)
 ##
