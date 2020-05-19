@@ -14,3 +14,6 @@ override_dh_clean:
 	dh_clean
 	debian/genman.sh --clean
 
+override_dh_link:
+	# workaround dh_link conversion of absolute symlinks to relative symlinks
+	dh_link -Xbunsen
