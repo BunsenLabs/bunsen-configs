@@ -1,6 +1,7 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
+include "%USERHOME%/.gtkrc-2.0.mine"
 gtk-theme-name="BL-Lithium"
 gtk-icon-theme-name="Papirus-Bunsen-Dark-bluegrey"
 gtk-font-name="Sans 10"
@@ -16,4 +17,3 @@ gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintslight"
 gtk-xft-rgba="rgb"
-include ".gtkrc-2.0.mine"
