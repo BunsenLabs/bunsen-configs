@@ -7,5 +7,6 @@
     <property name="lid-action-on-battery" type="uint" value="1"/>
     <property name="critical-power-action" type="uint" value="1"/>
     <property name="show-tray-icon" type="uint" value="1"/>
+    <property name="general-notification" type="bool" value="true"/>
   </property>
 </channel>
