@@ -1,3 +1,13 @@
+bunsen-configs (10.5.5-1) lithium; urgency=medium
+
+  * Set bunsenlabs as default lightdm user session.
+  * Update geany colour schemes.
+  * GTK bookmarks: remove ~/tmp
+  * xfce4-power-manager.xml: enable notifications.
+  * Fix broken symlink ~/Pictures/wallpapers/bunsen
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 31 May 2020 16:12:50 +0900
+
 bunsen-configs (10.5.4-1) lithium; urgency=medium
 
   * Enable jgmenu hoot to sync GTK theme (requires jgmenu >=4.2).
