@@ -195,7 +195,7 @@ ask_yesno() {
     local message="$1"
     if [[ -t 0 && -t 1 ]] # on terminal
     then
-        echo "$message"
+        echo $'\n'"$message"
         while true
         do
             echo "y: Yes
@@ -228,7 +228,7 @@ ask_overwrite() {
             ;;
         esac
 
-        echo "$overwrite_msg1
+        echo $'\n'"$overwrite_msg1
 $file
 $overwrite_msg2"
 
