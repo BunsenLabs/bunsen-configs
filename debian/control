@@ -26,7 +26,6 @@ Recommends: bunsen-configs-pulse,
  lightdm,
  lightdm-gtk-greeter,
  lightdm-gtk-greeter-settings,
- lxmenu-data,
  nitrogen,
  openbox,
  pnmixer,
@@ -36,7 +35,13 @@ Recommends: bunsen-configs-pulse,
  xbindkeys,
  xcape,
  yad
-Suggests: qt5-style-plugins, libqt5svg5, tk, xfce4-notifyd, xfce4-screenshooter
+Suggests: qt5-gtk-platformtheme,
+ qt5-style-plugins,
+ libqt5svg5,
+ lxmenu-data,
+ tk,
+ xfce4-notifyd,
+ xfce4-screenshooter
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Description: config files for BunsenLabs Linux
