@@ -10,6 +10,9 @@ fi
 usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}"
 usr_autostart="$usr_confdir/bunsen/autostart"
 usr_envfile="$usr_confdir/bunsen/environment"
+usr_setupflagfile="$usr_confdir/bunsen/bl-setup"
+usr_xsessionrc="$HOME/.xsessionrc"
+
 default_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart'
 bl_autostart='/usr/lib/bunsen/configs/bunsen-autostart'
 
@@ -18,15 +21,25 @@ xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
       -remove _NET_DESKTOP_NAMES \
       -remove _NET_CURRENT_DESKTOP 2> /dev/null
 
-# Import user config files
-if [ -x /usr/lib/bunsen/configs/bl-user-setup ]
+if [ ! -e "$usr_setupflagfile" ]
 then
-    /usr/lib/bunsen/configs/bl-user-setup --install || true
+    # Import user config files
+    if [ -x /usr/lib/bunsen/configs/bl-user-setup ]
+    then
+        /usr/lib/bunsen/configs/bl-user-setup --install || true
+    fi
+    # Set up the user environment for X sessions;
+    # only needed on first boot, when ~/.xsessionrc is new.
+    # (Otherwise it is sourced by /etc/X11/Xsession.d/40x11-common_xsessionrc)
+    test -r "$usr_xsessionrc" && . "$usr_xsessionrc" || echo "$0: cannot source $usr_xsessionrc" >&2
 fi
+
+# Set up the BL-specific environment.
+test -r "$usr_envfile" && . "$usr_envfile" || echo "$0: cannot source $usr_envfile" >&2
 
 # At least try to ensure user has an autostart file.
 [ -e "$usr_autostart" ] || {
-    echo "$0: ERROR $usr_autostart does not exist, copying in $sys_autostart" >&2
+    echo "$0: ERROR $usr_autostart does not exist, copying in $default_autostart" >&2
     cp "$default_autostart" "$usr_autostart"
 }
 
@@ -50,9 +63,6 @@ win_man=openbox
 }
 
 hash "$win_man" 2>/dev/null || { echo "$0: Window manager command \"$win_man\" not found" >&2; exit 1;}
-
-# Set up the environment.
-test -r "$usr_envfile" && . "$usr_envfile"
 
 # Run the window manager.
 case "$win_man" in
