@@ -4,6 +4,7 @@
 Back,^back()
 ^sep(Online Help)
 Getting Started,x-www-browser "https://forums.bunsenlabs.org/viewforum.php?id=21"
+Tutorials,x-www-browser "https://forums.bunsenlabs.org/viewforum.php?id=25"
 Basic Help &amp; Support,x-www-browser "https://forums.bunsenlabs.org/viewforum.php?id=2"
 """Scripts, Tutorials &amp; Tips""",x-www-browser "https://forums.bunsenlabs.org/viewforum.php?id=9"
 Debian,^checkout(DebianWWW)
