@@ -1,3 +1,11 @@
+bunsen-configs (10.5.6-1) lithium; urgency=medium
+
+  * bunsenlabs-session: make sure to source ~/.xsessionrc even on first boot.
+  * Add "Tutorials" to help menu.
+  * Remove dependency on lxmenu-data.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 12 Jun 2020 15:24:02 +0900
+
 bunsen-configs (10.5.5-1) lithium; urgency=medium
 
   * Set bunsenlabs as default lightdm user session.
