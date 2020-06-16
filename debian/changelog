@@ -1,3 +1,9 @@
+bunsen-configs (10.5.7-1) lithium; urgency=medium
+
+  * bunsenlabs-session: source ~/.Xresources on first boot.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 16 Jun 2020 14:04:59 +0900
+
 bunsen-configs (10.5.6-1) lithium; urgency=medium
 
   * bunsenlabs-session: make sure to source ~/.xsessionrc even on first boot.
