@@ -122,7 +122,7 @@ main() {
     g_auto=f
     have_filecache=f
 
-    wholeskelsum=$( tar -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
+    wholeskelsum=$( tar --mtime='@0' -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
     wholeskelsum=${wholeskelsum%% *}
 
     for opt in "$@"
@@ -278,7 +278,7 @@ check_skel_sum() {
     then
         # If skel directory unchanged since last run, exit.
         [[ $wholeskelsum = $( <"$cachedir/skelsum" ) ]] && exit 0
-        ask_yesno "Some config files have been updated in a recent package upgrade.
+        ask_yesno "Some config files may have been updated in a recent package upgrade.
 Would you like to import these changes into your HOME directory?
 (Files you have edited will not be overwritten without permission.)
 
@@ -354,6 +354,11 @@ check_skel_contents() {
         done
     else
         files_to_copy=("${!new_skel_files[@]}")
+    fi
+
+    if [[ ${#files_to_copy[@]} = 0 && ${#dirs_to_copy[@]} = 0 && ${#links_to_copy[@]} = 0 ]]
+    then
+        notify-send 'User Setup' 'No files need to be changed'
     fi
 }
 
