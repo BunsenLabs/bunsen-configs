@@ -43,9 +43,57 @@ Suggests: qt5-gtk-platformtheme,
  xfce4-notifyd,
  xfce4-screenshooter
 Provides: ${diverted-files}
-Conflicts: ${diverted-files}
+Replaces: bunsen-configs-lite
+Conflicts: ${diverted-files}, bunsen-configs-lite
 Description: config files for BunsenLabs Linux
  Various configuration files for BunsenLabs Linux.
  Contains user config files to be copied into a new user's home directory,
  scripts and desktop files to set up the bl-alternatives system,
  and some other system configuration files.
+
+Package: bunsen-configs-lite
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: bunsen-configs-pulse,
+ bunsen-conky,
+ bunsen-docs,
+ bunsen-images,
+ bunsen-paper-icon-theme,
+ bunsen-pipemenus,
+ bunsen-themes,
+ bunsen-thunar,
+ bunsen-utilities,
+ clipit,
+ dmz-cursor-theme,
+ jgmenu (>= 4.2),
+ lightdm,
+ lightdm-gtk-greeter,
+ lightdm-gtk-greeter-settings,
+ nitrogen,
+ openbox,
+ pnmixer,
+ python,
+ python-xdg,
+ scrot,
+ xbindkeys,
+ xcape,
+ yad
+Suggests: qt5-gtk-platformtheme,
+ qt5-style-plugins,
+ libqt5svg5,
+ lxmenu-data,
+ tk,
+ xfce4-notifyd,
+ xfce4-screenshooter
+Provides: ${diverted-files}
+Replaces: bunsen-configs
+Conflicts: ${diverted-files}, bunsen-configs
+Description: lightened config files for BunsenLabs Linux
+ Various configuration files for BunsenLabs Linux.
+ Contains user config files to be copied into a new user's home directory,
+ scripts and desktop files to set up the bl-alternatives system,
+ and some other system configuration files.
+ .
+ This package provides some modified files for a system installed
+ from a CD. Memory usage and disk space should be slightly lower
+ than with the standard configs package.
