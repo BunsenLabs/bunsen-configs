@@ -1,3 +1,10 @@
+bunsen-configs (10.6-1) lithium; urgency=medium
+
+  * Add alternative package bunsen-configs-lite
+     with some modified user settings.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 27 Jun 2020 16:31:17 +0900
+
 bunsen-configs (10.5.7-1) lithium; urgency=medium
 
   * bunsenlabs-session: source ~/.Xresources on first boot.
