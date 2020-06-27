@@ -43,6 +43,27 @@ and originally provided in openbox under the GPL-2 licence.
 
 This package also adds some other small system configuration files.
 
+bunsen-configs-lite
+===================
+
+This package holds slightly modified user config files, intended to
+be appropriate for a system installed from a CD.
+
+At present, the differences from bunsen-configs are:
+
+*) Use Paper icon theme instead of Papirus. This saves some install size
+ and also memory use.
+
+*) Use Liberation and Inconsolata fonts instead of Noto.
+ This gives a big install size saving at the cost of language support.
+
+*) Do not use a compositor, to save some memory use.
+
+NOTE FOR DEVELOPERS:
+The user config files in skel/ are installed in both packages, but
+in bunsen-configs-lite any files in skel-lite/skel/ will overwrite
+the equivalent files installed from skel/.
+
 Bugs
 ----
 

@@ -4,11 +4,11 @@ Source: https://github.com/BunsenLabs/bunsen-configs
 
 Files: *
 Copyright: 2012 Philip Newborough <corenominal@corenominal.org>
-           2015-2018 John Crawley <john@bunsenlabs.org>
-           2015-2016 damo <damo@bunsenlabs.org>
            2015 Craig Oakes <bunsen@craigoakes.com>
            2018 Matthew T Hoare <matthew.t.hoare@gmail.com>
            2018 William Bradley <webradley9929@gmail.com>
+           2015-2020 damo <damo@bunsenlabs.org>
+           2018-2020 John Crawley <john@bunsenlabs.org>
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ License: GPL-3+
  as the name is changed.
 
 Files: debian/*
-Copyright: 2015-2018 John Crawley <john@bunsenlabs.org>
+Copyright: 2015-2020 John Crawley <john@bunsenlabs.org>
            2015 Jens Oliver John <dev@2ion.de>
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
