@@ -1,0 +1,7 @@
+usr/share/bunsen/skel/.config/mimeapps.list usr/share/bunsen/skel/.local/share/applications/mimeapps.list
+usr/share/bunsen/skel/.local/share/fonts usr/share/bunsen/skel/.fonts
+usr/share/bunsen/skel/.local/share/icons usr/share/bunsen/skel/.icons
+usr/share/bunsen/skel/.local/share/themes usr/share/bunsen/skel/.themes
+usr/lib/bunsen/configs/bl-user-setup usr/bin/bl-user-setup
+usr/share/man/man1/editor.1.gz usr/share/man/man1/bl-cli-editor.1.gz
+usr/share/man/man1/gdebi-gtk.1.gz usr/share/man/man1/gdebi-gtk.wrapper.1.gz
