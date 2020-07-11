@@ -54,6 +54,7 @@ Keybinds,^checkout(bl-xbindkeysConfig)
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu"),conky-manager
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu"),tint2
 Appearance,lxappearance,preferences-desktop-theme
+Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
 Wallpaper,nitrogen,preferences-desktop-wallpaper,wallpaper
 Notifications,xfce4-notifyd-config,notifyconf
