@@ -1,3 +1,12 @@
+bunsen-configs (10.6.1-1) lithium; urgency=medium
+
+  * Adjust some bunsen-configs-lite settings:
+   - Use Liberation Mono instead of Inconsolata for default monospace.
+   - Urxvt: use Adwaita icon in b-c-l (always available).
+  * jgmenu: add "Reload GTK" item (will be more useful in future).
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 11 Jul 2020 17:14:13 +0900
+
 bunsen-configs (10.6-1) lithium; urgency=medium
 
   * Add alternative package bunsen-configs-lite
