@@ -277,7 +277,7 @@ tooltip_font = Sans normal 10
 
 # Show Root Menu (BL-flame icon)
 button = new
-button_icon = start-here
+button_icon = start-here-bunsenlabs
 button_text =
 button_tooltip = Main Menu
 button_lclick_command = jgmenu_run

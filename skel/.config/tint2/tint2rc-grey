@@ -139,6 +139,7 @@ launcher_tooltip = 1
 # Specify icon theme names with launcher_icon_theme.
 # if you have an XSETTINGS manager running (like xfsettingsd), tint2 will follow your current theme.
 launcher_icon_theme = Papirus-Bunsen-Dark-grey
+launcher_icon_theme_override = 0
 
 # Each launcher_item_app must be a full path to a .desktop file
 # this will have to be made:
@@ -197,7 +198,7 @@ battery_background_id = 0
 
 # Show Root Menu
 button = new
-button_icon = start-here
+button_icon = start-here-bunsenlabs
 button_text =
 button_tooltip = Main Menu
 button_lclick_command = jgmenu_run
