@@ -1,0 +1,7 @@
+:s0: Bunsenstuff
+:s1: Local Docs
+s0 https://www.bunsenlabs.org/ BunsenLabs Website
+s0 https://forums.bunsenlabs.org/ BunsenLabs Forum
+s0 https://forums.bunsenlabs.org/viewforum.php?id=25 BunsenLabs Tutorials
+s1 file:/usr/share/doc/ Local App Docs
+s1 file:/usr/share/doc/conky-all/html/config_settings.html Conky settings reference
