@@ -137,8 +137,12 @@ fi
 (sleep 10; bl-welcome --firstrun) &
 
 ## bl-fortune - have the system come up with a little adage
-## Uncomment the following line to enable this.
-#(sleep 120; bl-fortune) &
+## These quotes are from the #! and BL forums.
+## Many of them are from the 'Off Topic' subforums of those sites,
+## so they are likely to be abstract, out-of-context...
+## ... and possibly Not Safe For Work, children, or your mental health in general.
+## Uncomment the following line to enable this (adjust the sleep seconds to taste).
+#(sleep 20; bl-fortune) &
 
 ## Run the XDG autostart stuff. This requires python-xdg to be installed.
 ## See bl-xdg-autostart --list for list of autostarted applications.
