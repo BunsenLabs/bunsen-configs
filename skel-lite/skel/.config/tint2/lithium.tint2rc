@@ -1,5 +1,5 @@
 #---------------------------------------------
-# TINT2 CONFIG FILE "tint2rc-lithium-light"
+# TINT2 CONFIG FILE "lithium.tint2rc"
 #
 # A simple theme. Note that many properties are set to "0"
 # Please see 'man tint2' for full configuration options
@@ -20,7 +20,7 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #000000 20
+background_color = #cccccc 0
 border_color = #828282 0
 background_color_hover = #cccccc 0
 border_color_hover = #828282 0
@@ -33,7 +33,7 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #ffffff 10
+background_color = #000000 40
 border_color = #d8d8d8 0
 background_color_hover = #ffffff 20
 border_color_hover = #d8d8d8 0
@@ -48,9 +48,9 @@ border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #000000 0
 border_color = #000000 0
-background_color_hover = #ffffff 20
+background_color_hover = #ffffff 10
 border_color_hover = #000000 0
-background_color_pressed = #ffffff 30
+background_color_pressed = #ffffff 20
 border_color_pressed = #000000 0
 
 # Background 4: Urgent task
@@ -72,7 +72,7 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #ffffff 30
+background_color = #000000 20
 #border_color = #000000 0
 #background_color_hover = #ff0000 100
 #border_color_hover = #000000 0
@@ -85,7 +85,7 @@ border_width = 1
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #cccccc 20
+background_color = #ffffff 5
 border_color = #000000 0
 #background_color_hover = #000000 0
 #border_color_hover = #000000 0
@@ -98,8 +98,8 @@ border_width = 1
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #E4EAED 100
-border_color = #E4EAED 100
+background_color = #3D6270 100
+border_color = #3D6270 100
 background_color_hover = #000000 0
 border_color_hover = #000000 0
 background_color_pressed = #000000 0
@@ -204,7 +204,7 @@ launcher_background_id = 5
 launcher_icon_background_id = 0
 launcher_icon_size = 0
 launcher_icon_asb = 100 0 0
-launcher_icon_theme = Papirus-Bunsen-Dark-bluegrey
+launcher_icon_theme = Paper-Bunsen
 launcher_icon_theme_override = 0
 startup_notifications = 0
 launcher_tooltip = 1
@@ -227,7 +227,7 @@ time2_format =
 time1_font = Sans bold 12
 time1_timezone =
 time2_timezone =
-clock_font_color = #182A39 100
+clock_font_color = #DFDFDF 100
 clock_padding = 6 0 6
 clock_background_id = 5
 
@@ -269,7 +269,7 @@ tooltip_show_timeout = 0
 tooltip_hide_timeout = 0
 tooltip_padding = 8 8
 tooltip_background_id = 7
-tooltip_font_color = #121212 100
+tooltip_font_color = #d3dae3 100
 tooltip_font = Sans normal 10
 
 #-------------------------------------
@@ -293,8 +293,8 @@ button_max_icon_size = 28
 
 # Exit dialog (Power icon)
 button = new
-#button_icon = /usr/share/images/bunsen/exit/dark/poweroff.png
-button_icon = system-shutdown-symbolic
+button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
+#button_icon = system-shutdown-symbolic
 button_text =
 button_tooltip = Logout/Shutdown...
 button_lclick_command = bl-exit
