@@ -1,3 +1,9 @@
+bunsen-configs (10.6.3-1) lithium; urgency=medium
+
+  * Rename tint2 config files from tint2rc-<name> to <name>.tint2rc 
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 16 Jul 2020 14:49:54 +0900
+
 bunsen-configs (10.6.2-1) lithium; urgency=medium
 
   * Add some configs for Dillo browser.
