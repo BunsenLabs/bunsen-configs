@@ -227,7 +227,7 @@ time2_format =
 time1_font = Sans bold 12
 time1_timezone =
 time2_timezone =
-clock_font_color = #182A39 100
+clock_font_color = #dfdfdf 100
 clock_padding = 6 0 6
 clock_background_id = 5
 
