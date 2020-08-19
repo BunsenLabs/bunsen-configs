@@ -35,6 +35,8 @@ except that users will also be consulted in cases 3) and 4).
 
 In all cases backups will be made of any files which are overwritten.
 
+A log is made at HOME/.cache/bunsen/bl-setup/log
+
 Options:
 -h --help
     Show this message and exit.
@@ -158,7 +160,7 @@ main() {
     bkp_sfx=".$(date +"%Y%m%d-%H%M%S").usersetup~"
 
     log "############
-Running $0 at $(date)"
+Running $0 $* at $(date)"
 
     check_skel_contents
 
@@ -285,7 +287,8 @@ Would you like to import these changes into your HOME directory?
 You also have the option of running 'bl-user-setup' at a later time.
 "
         [[ $? = 1 ]] && {
-            log "User declined a config file update"
+            log "############
+$(date): User declined a config file update"
             echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
             exit 0
         }
@@ -301,7 +304,8 @@ run 'bl-user-setup --help' at any time to see the available options.
 
 Check files now?"
         [[ $? = 1 ]] && {
-            log "No skel md5sum cache file found, but user declined a config file check."
+            log "############
+$(date): No skel md5sum cache file found, but user declined a config file check."
             echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
             exit 0
         }
@@ -387,7 +391,7 @@ copy_links() {
     printf '%s\n' "${new_skel_links[@]}" > "$cachedir/skel.links"
 }
 
-# Check if an identical backed-up file already exists, and if not,
+# Check if an identical backed-up file already exists, and if so,
 # return 1, otherwise return 0 (do backup).
 need_backup(){
     local file bkp_file
