@@ -63,7 +63,7 @@ Tint2 man page,x-terminal-emulator -T "Tint2 man page" -e man tint2
 ^tag(ConkyWWW)
 Back,^back()
 Conky Wiki,x-www-browser "https://github.com/brndnmtthws/conky/wiki"
-Conky Archive,x-www-browser "http://crunchbang.org/forums/viewtopic.php?pid=371424"
+Conky Archive,x-www-browser "https://web.archive.org/web/20160325091248/https://crunchbang.org/forums/viewtopic.php?pid=371424"
 Conky man pages,x-terminal-emulator -T "Conky man page" -e man conky
 
 ^tag(ThemesWWW)
