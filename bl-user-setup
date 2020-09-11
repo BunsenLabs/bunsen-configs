@@ -90,6 +90,7 @@ readonly USER=${USER}
 readonly TARGETDIR="${HOME}"
 readonly skeldir="/usr/share/bunsen/skel"
 readonly confdir="${HOME}/.config/bunsen"
+readonly datadir="${HOME}/.local/share/bunsen/bl-setup"
 readonly cachedir="${HOME}/.cache/bunsen/bl-setup"
 
 readonly flagfile="$confdir/bl-setup"
@@ -109,6 +110,9 @@ main() {
         esac
     done
 
+    logged=f
+    args="$*"
+
     pre_checks
 
     BL_COMMON_LIBDIR='/usr/lib/bunsen/common'
@@ -117,7 +121,21 @@ main() {
     fi
     yad_common_args+=('--title=BunsenLabs User Setup' '--buttons-layout=spread')
 
-    mkdir -p "$TARGETDIR" "$confdir" "$cachedir"
+    mkdir -p "$TARGETDIR" "$confdir" "$cachedir" "$datadir"
+
+    # move any stored local skel data to new location
+    for i in "$cachedir"/skel{.dirs,.files,.links,sum}
+    do
+    [[ -f "$i" ]] || continue
+    if [[ -f "${datadir}/${i##*/}" ]]
+    then
+        log "removing old file ${i##*/} from $cachedir, already in $datadir"
+    else
+        log "found ${i##*/} in ${cachedir}, moving to $datadir"
+        mv --no-clobber "$i" "$datadir" || die "Failed to move $i from $cachedir to $datadir"
+    fi
+    rm -f "$i"
+    done
 
     g_force=f
     g_reset=f
@@ -159,9 +177,6 @@ main() {
 
     bkp_sfx=".$(date +"%Y%m%d-%H%M%S").usersetup~"
 
-    log "############
-Running $0 $* at $(date)"
-
     check_skel_contents
 
     copy_dirs
@@ -174,22 +189,38 @@ If it is not present, the import of config files from $skeldir
 will be repeated, overwriting any user modifications.
 (However, backups will be made of overwritten files.)" > "$flagfile"
 
-    # Update cache of skel checksum if script finishes with no errors
-    echo "$wholeskelsum" > "$cachedir/skelsum"
+    # Update record of skel checksum if script finishes with no errors
+    echo "$wholeskelsum" > "$datadir/skelsum"
 }
 
 ##############
 
 log () {
-    echo "$@" >> "$logfile"
+    local msg=
+    if [[ $logged = f ]]
+    then
+        msg="############
+Running $0 $args at $(date)
+$*"
+    else
+        msg="$*"
+    fi
+    echo "$msg" >> "$logfile"
     [[ -t 1 ]] && {
-        printf '\033[32m=>\033[m %s\n' "$@"
+        printf '\033[32m=>\033[m %s\n' "$msg"
     }
+    logged=t
 }
 
 die  () {
     log "ERROR: $*"
-    printf '%b\n' "$0: ERROR: $*" >&2
+    [[ -t 1 ]] || {
+        printf '%b\n' "$0: ERROR: $*" >&2
+        local msg="<b>User Setup</b>
+
+ERROR: $*"
+        yad_error "$msg"
+    }
     exit 1
 }
 
@@ -276,10 +307,11 @@ pre_checks () {
 }
 
 check_skel_sum() {
-    if [[ -f $cachedir/skelsum ]]
+    if [[ -f $datadir/skelsum ]]
     then
         # If skel directory unchanged since last run, exit.
-        [[ $wholeskelsum = $( <"$cachedir/skelsum" ) ]] && exit 0
+        [[ $wholeskelsum = $( <"$datadir/skelsum" ) ]] && exit 0
+        log "Config files changed..."
         ask_yesno "Some config files may have been updated in a recent package upgrade.
 Would you like to import these changes into your HOME directory?
 (Files you have edited will not be overwritten without permission.)
@@ -287,13 +319,13 @@ Would you like to import these changes into your HOME directory?
 You also have the option of running 'bl-user-setup' at a later time.
 "
         [[ $? = 1 ]] && {
-            log "############
-$(date): User declined a config file update"
-            echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
+            log "User declined a config file update."
+            echo "$wholeskelsum" > "$datadir/skelsum" # so user doesn't get repeated prompts
             exit 0
         }
     else
-        ask_yesno "bl-user-setup has detected that you do do not yet have a cache
+        log "Offering to build local data cache..."
+        ask_yesno "bl-user-setup has detected that you do do not yet have stored data
 so cannot check if the BunsenLabs default config files have changed.
 For each file, you will be asked if you want to use the default version,
 or keep your current file (if it is different).
@@ -304,9 +336,8 @@ run 'bl-user-setup --help' at any time to see the available options.
 
 Check files now?"
         [[ $? = 1 ]] && {
-            log "############
-$(date): No skel md5sum cache file found, but user declined a config file check."
-            echo "$wholeskelsum" > "$cachedir/skelsum" # so user doesn't get repeated prompts
+            log "No skel md5sum data file found, but user declined a config file check."
+            echo "$wholeskelsum" > "$datadir/skelsum" # so user doesn't get repeated prompts
             exit 0
         }
     fi
@@ -320,9 +351,9 @@ $(date): No skel md5sum cache file found, but user declined a config file check.
 check_skel_contents() {
     dirs_to_copy=()
     mapfile -t new_skel_dirs < <( find "$skeldir" -mindepth 1 -type d )
-    if [[ -f $cachedir/skel.dirs && $g_reset = f ]]
+    if [[ -f $datadir/skel.dirs && $g_reset = f ]]
     then
-        mapfile -t old_skel_dirs < "$cachedir/skel.dirs"
+        mapfile -t old_skel_dirs < "$datadir/skel.dirs"
         mapfile -t dirs_to_copy < <(comm -13 <(printf '%s\n' "${old_skel_dirs[@]}" | sort) <(printf '%s\n' "${new_skel_dirs[@]}" | sort))
     else
         dirs_to_copy=("${new_skel_dirs[@]}")
@@ -330,9 +361,9 @@ check_skel_contents() {
 
     links_to_copy=()
     mapfile -t new_skel_links < <( find "$skeldir" -type l )
-    if [[ -f $cachedir/skel.links && $g_reset = f ]]
+    if [[ -f $datadir/skel.links && $g_reset = f ]]
     then
-        mapfile -t old_skel_links < "$cachedir/skel.links"
+        mapfile -t old_skel_links < "$datadir/skel.links"
         mapfile -t links_to_copy < <(comm -13 <(printf '%s\n' "${old_skel_links[@]}" | sort) <(printf '%s\n' "${new_skel_links[@]}" | sort))
     else
         links_to_copy=("${new_skel_links[@]}")
@@ -344,13 +375,13 @@ check_skel_contents() {
     do
         new_skel_files[$file]="$sum"
     done < <( find "$skeldir" -type f -exec md5sum '{}' '+' )
-    [[ -f $cachedir/skel.files ]] && have_filecache=t
+    [[ -f $datadir/skel.files ]] && have_filecache=t
     if [[ $have_filecache = t && $g_reset = f ]]
     then
         while read -r sum file
         do
             old_skel_files[$file]="$sum"
-        done < "$cachedir/skel.files"
+        done < "$datadir/skel.files"
         for i in "${!new_skel_files[@]}"
         do
             [[ "${new_skel_files[$i]}" = "${old_skel_files[$i]}" ]] && continue
@@ -362,6 +393,7 @@ check_skel_contents() {
 
     if [[ ${#files_to_copy[@]} = 0 && ${#dirs_to_copy[@]} = 0 && ${#links_to_copy[@]} = 0 ]]
     then
+        log "The contents of $skeldir have not changed."
         notify-send 'User Setup' 'No files need to be changed'
     fi
 }
@@ -370,10 +402,11 @@ copy_dirs() {
     for dir in "${dirs_to_copy[@]}"
     do
         destdir="$TARGETDIR/${dir#$skeldir/}"
+        log "Making new directory $destdir"
         mkdir -p "$destdir"
     done
-    # Update cache after copying directories
-    printf '%s\n' "${new_skel_dirs[@]}" > "$cachedir/skel.dirs"
+    # Update data after copying directories
+    printf '%s\n' "${new_skel_dirs[@]}" > "$datadir/skel.dirs"
 }
 
 copy_links() {
@@ -384,11 +417,12 @@ copy_links() {
         then
             log "$destlink exists: not importing symlink."
         else
+            log "Making new symlink $destlink"
             cp --no-dereference "$link" "$destlink"
         fi
     done
-    # Update cache after copying links
-    printf '%s\n' "${new_skel_links[@]}" > "$cachedir/skel.links"
+    # Update data after copying links
+    printf '%s\n' "${new_skel_links[@]}" > "$datadir/skel.links"
 }
 
 # Check if an identical backed-up file already exists, and if so,
@@ -502,7 +536,7 @@ Overwrite with the new version?'
                 overwrite_msg1='You have modified or removed this file:'
                 overwrite_msg2='Overwrite with the new version?'
             fi
-        else # (cannot test for unmodified file without cache, only for new file)
+        else # (cannot test for unmodified file without local data, only for new file)
             if [[ ! -e "$destfile" ]] # new file from skel
             then
                 if [[ $g_auto = t ]]
@@ -511,7 +545,7 @@ Overwrite with the new version?'
                     copy_file "$file" "$destfile"
                     continue
                 else
-                    log "No cache: need to confirm user choice about ${destfile%.template}."
+                    log "No data: need to confirm user choice about ${destfile%.template}."
                     log "New file: set default 'Yes'"
                     overwrite_dflt='Yes'
                     overwrite_msg1='The BL default skel directory has this new file:'
@@ -519,7 +553,7 @@ Overwrite with the new version?'
                     overwrite_yesname='Import'
                 fi
             else
-                log "No cache: need to confirm user choice about ${destfile%.template}."
+                log "No data: need to confirm user choice about ${destfile%.template}."
                 overwrite_msg1='This BL default file is different from yours:'
                 overwrite_msg2='Import the BL default version?'
                 overwrite_yesname='Import'
@@ -543,11 +577,11 @@ Overwrite with the new version?'
             ;;
         esac
     done
-    # Update cache after copying files
+    # Update local data after copying files
     for i in "${!new_skel_files[@]}"
     do
         printf '%s  %s\n' "${new_skel_files[$i]}" "$i"
-    done > "$cachedir/skel.files"
+    done > "$datadir/skel.files"
 }
 
 main "$@"

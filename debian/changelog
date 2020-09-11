@@ -1,3 +1,14 @@
+bunsen-configs (10.7.1-1~test1) lithium; urgency=medium
+
+  * bl-user-setup: Move local skel data from ~/.cache to ~/.local/share
+     Improve logging and comments.
+  * help-menu: Fix conky archive link to use web.archive.org
+     Add DebianUser FAQs, fix Debian Handbook version.
+  [ hhhorb ] 
+  * lithium-light-vertical.tint2rc: match clock text-color to systray icons.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 11 Sep 2020 14:36:46 +0900
+
 bunsen-configs (10.6.3-1) lithium; urgency=medium
 
   * Rename tint2 config files from tint2rc-<name> to <name>.tint2rc 
