@@ -1,4 +1,4 @@
-bunsen-configs (10.7.1-1~test1) lithium; urgency=medium
+bunsen-configs (10.7.1-1) lithium; urgency=medium
 
   * bl-user-setup: Move local skel data from ~/.cache to ~/.local/share
      Improve logging and comments.
