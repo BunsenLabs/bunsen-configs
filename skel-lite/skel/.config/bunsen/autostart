@@ -144,6 +144,6 @@ fi
 ## Uncomment the following line to enable this (adjust the sleep seconds to taste).
 #(sleep 20; bl-fortune) &
 
-## Run the XDG autostart stuff. This requires python-xdg to be installed.
+## Run the XDG autostart stuff. This requires python3-xdg to be installed.
 ## See bl-xdg-autostart --list for list of autostarted applications.
 bl-xdg-autostart
