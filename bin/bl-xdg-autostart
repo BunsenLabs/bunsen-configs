@@ -49,10 +49,11 @@ are the words GNOME, KDE, ROX, XFCE, and Old.""",
         nargs="*",
         default=[], 
         metavar="ENVIRONMENT",
-        choices=["GNOME", "KDE", "ROX", "XFCE", "Old"]
+        choices=["GNOME", "KDE", "ROX", "XFCE", "Old", []]
     )
     
     args = ap.parse_args()
+    print(args)
 
     # get the autostart directories
     autodirs = BaseDirectory.load_config_paths("autostart")
@@ -70,10 +71,9 @@ are the words GNOME, KDE, ROX, XFCE, and Old.""",
                     files.append(autofile)
 
     # run them !
-    environments = argv[1:]
     for autofile in files:
-        if args.list: autofile.display(environments)
-        else: autofile.run(environments)
+        if args.list: autofile.display(args.environment)
+        else: autofile.run(args.environment)
 
 class AutostartFile:
     def __init__(self, path):
