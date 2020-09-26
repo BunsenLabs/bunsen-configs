@@ -4,6 +4,7 @@
 # Copyright (C) 2008 Dana Jansens
 #
 # Renamed to bl-xdg-autostart for BunsenLabs Linux 2019
+# Ported to Python3 in 2020
 #
 # XDG autostart specification can be found here:
 # http://standards.freedesktop.org/autostart-spec/
@@ -19,9 +20,6 @@
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
 
-ME="bl-xdg-autostart"
-VERSION="1.1"
-
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import os
 import glob
@@ -30,18 +28,10 @@ from xdg import BaseDirectory
 from xdg.DesktopEntry import DesktopEntry
 from xdg.Exceptions import ParsingError
 
-VERSION = "Copyright (c) 2008 Dana Jansens"
-
 def main() -> int:
     ap = ArgumentParser(
         description="This tool will run xdg autostart .desktop files",
         formatter_class=ArgumentDefaultsHelpFormatter,
-    )
-
-    ap.add_argument("-v", "--version",
-        help="Show version and copyright information and exit",
-        action="store_true",
-        default=False
     )
 
     ap.add_argument("-l", "--list",
@@ -63,10 +53,6 @@ are the words GNOME, KDE, ROX, XFCE, and Old.""",
     )
     
     args = ap.parse_args()
-
-    if args.version:
-        print(VERSION)
-        return 0
 
     # get the autostart directories
     autodirs = BaseDirectory.load_config_paths("autostart")
