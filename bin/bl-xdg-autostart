@@ -37,7 +37,7 @@ def main() -> int:
     ap.add_argument("-l", "--list",
         help="""Show a list of the files which would be run. Files which would be run are marked
 with an asterisk symbol [*]. For files which would not be run, information is given for
-why they are excluded""",
+why they are excluded.""",
         action="store_true",
         default=False
     )
