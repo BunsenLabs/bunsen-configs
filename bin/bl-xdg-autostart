@@ -20,7 +20,7 @@
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
 
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+from argparse import ArgumentParser
 import os
 import glob
 
@@ -31,7 +31,6 @@ from xdg.Exceptions import ParsingError
 def main() -> int:
     ap = ArgumentParser(
         description="This tool will run xdg autostart .desktop files",
-        formatter_class=ArgumentDefaultsHelpFormatter,
     )
 
     ap.add_argument("-l", "--list",
