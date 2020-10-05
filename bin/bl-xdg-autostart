@@ -1,14 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 # openbox-xdg-autostart runs things based on the XDG autostart specification
-# Copyright (C) 2008       Dana Jansens
+# Copyright (C) 2008 Dana Jansens
 #
 # Renamed to bl-xdg-autostart for BunsenLabs Linux 2019
+# Ported to Python3 in 2020
 #
 # XDG autostart specification can be found here:
 # http://standards.freedesktop.org/autostart-spec/
-#
-#
 #
 # LICENSE:
 #   This program is free software; you can redistribute it and/or modify
@@ -21,27 +20,38 @@
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
 
-ME="bl-xdg-autostart"
-VERSION="1.1"
+from argparse import ArgumentParser
+import os
+import glob
 
-import os, glob, sys
-try:
-    from xdg import BaseDirectory
-    from xdg.DesktopEntry import DesktopEntry
-    from xdg.Exceptions import ParsingError
-except ImportError:
-    print
-    print >>sys.stderr, "ERROR:", ME, "requires PyXDG to be installed"
-    print
-    sys.exit(1)
+from xdg import BaseDirectory
+from xdg.DesktopEntry import DesktopEntry
+from xdg.Exceptions import ParsingError
 
-def main(argv=sys.argv):
-    if "--help" in argv[1:]:
-        show_help()
-        return 0
-    if "--version" in argv[1:]:
-        show_version()
-        return 0
+def main() -> int:
+    ap = ArgumentParser(
+        description="This tool will run xdg autostart .desktop files",
+    )
+
+    ap.add_argument("-l", "--list",
+        help="""Show a list of the files which would be run. Files which would be run are marked
+with an asterisk symbol [*]. For files which would not be run, information is given for
+why they are excluded.""",
+        action="store_true",
+        default=False
+    )
+
+    ap.add_argument("environment",
+        help="""Optionally specify a list of environments for which to run autostart. If none are specified,
+only applications which do not limit themselves to certain environments will be run. Valid choices
+are the words GNOME, KDE, ROX, XFCE, and Old.""",
+        nargs="*",
+        default=[], 
+        metavar="ENVIRONMENT",
+        choices=["GNOME", "KDE", "ROX", "XFCE", "Old", []]
+    )
+    
+    args = ap.parse_args()
 
     # get the autostart directories
     autodirs = BaseDirectory.load_config_paths("autostart")
@@ -53,21 +63,15 @@ def main(argv=sys.argv):
             try:
                 autofile = AutostartFile(path)
             except ParsingError:
-                print "Invalid .desktop file: " + path
+                print("Invalid .desktop file: " + path)
             else:
                 if not autofile in files:
                     files.append(autofile)
 
-    list = False
-    if "--list" in argv[1:]:
-        list = True
-        argv.remove("--list")
-
     # run them !
-    environments = argv[1:]
     for autofile in files:
-        if list: autofile.display(environments)
-        else: autofile.run(environments)
+        if args.list: autofile.display(args.environment)
+        else: autofile.run(args.environment)
 
 class AutostartFile:
     def __init__(self, path):
@@ -101,9 +105,9 @@ class AutostartFile:
 
     def _alert(self, str, info=False):
         if info:
-            print "\t ", str
+            print("\t ", str)
         else:
-            print "\t*", str
+            print("\t*", str)
 
     def _showInEnvironment(self, envs, verbose=False):
         default = not self.de.getOnlyShowIn()
@@ -148,14 +152,14 @@ class AutostartFile:
 
     def display(self, envs):
         if self._shouldRun(envs):
-            print "[*] " + self.de.getName()
+            print("[*] " + self.de.getName())
         else:
-            print "[ ] " + self.de.getName()
+            print("[ ] " + self.de.getName())
         self._alert("File: " + self.path, info=True)
         if self.de.getExec():
             self._alert("Executes: " + self.de.getExec(), info=True)
         self._shouldRun(envs, True)
-        print
+        print()
 
     def run(self, envs):
         here = os.getcwd()
@@ -166,39 +170,5 @@ class AutostartFile:
             os.spawnv(os.P_NOWAIT, args[0], args);
         os.chdir(here)
 
-def show_help():
-    print "Usage:", ME, "[OPTION]... [ENVIRONMENT]..."
-    print
-    print "This tool will run xdg autostart .desktop files"
-    print
-    print "OPTIONS"
-    print "  --list        Show a list of the files which would be run"
-    print "                Files which would be run are marked with an asterix"
-    print "                symbol [*].  For files which would not be run,"
-    print "                information is given for why they are excluded"
-    print "  --help        Show this help and exit"
-    print "  --version     Show version and copyright information"
-    print
-    print "ENVIRONMENT specifies a list of environments for which to run autostart"
-    print "applications.  If none are specified, only applications which do not "
-    print "limit themselves to certain environments will be run."
-    print
-    print "ENVIRONMENT can be one or more of:"
-    print "  GNOME         Gnome Desktop"
-    print "  KDE           KDE Desktop"
-    print "  ROX           ROX Desktop"
-    print "  XFCE          XFCE Desktop"
-    print "  Old           Legacy systems"
-    print
-    print "*COPYRIGHT*"
-    print "openbox-xdg-autostart was written by Dana Jansens in 2008,"
-    print "and originally provided in openbox under the GPL-2 licence."
-    print
-
-def show_version():
-    print ME, VERSION
-    print "Copyright (c) 2008        Dana Jansens"
-    print
-
 if __name__ == "__main__":
-        sys.exit(main())
+    raise SystemExit(main())
