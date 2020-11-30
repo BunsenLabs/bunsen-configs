@@ -402,8 +402,9 @@ copy_dirs() {
     for dir in "${dirs_to_copy[@]}"
     do
         destdir="$TARGETDIR/${dir#$skeldir/}"
+        [[ -d $destdir ]] && continue
         log "Making new directory $destdir"
-        mkdir -p "$destdir"
+        mkdir -p "$destdir" || die "Unable to create directory $destdir"
     done
     # Update data after copying directories
     printf '%s\n' "${new_skel_dirs[@]}" > "$datadir/skel.dirs"
@@ -418,7 +419,7 @@ copy_links() {
             log "$destlink exists: not importing symlink."
         else
             log "Making new symlink $destlink"
-            cp --no-dereference "$link" "$destlink"
+            cp --no-dereference "$link" "$destlink" || die "Unable to import symlink $destlink"
         fi
     done
     # Update data after copying links
@@ -451,7 +452,7 @@ copy_file() {
         if need_backup "$dest"
         then
             log "Overwriting ${dest}, backing up old file as ${dest}${bkp_sfx}"
-            mv "${dest}" "${dest}${bkp_sfx}"
+            mv "${dest}" "${dest}${bkp_sfx}" || die "Unable to backup ${dest}"
         else
             log "Overwriting ${dest}, identical backup already exists."
         fi
@@ -460,9 +461,9 @@ copy_file() {
     fi
     if [[ $src = *.template ]]
     then
-        sed "s|%USERHOME%|$HOME|g" "$src" > "$dest"
+        sed "s|%USERHOME%|$HOME|g" "$src" > "$dest" || die "Unable to import $dest"
     else
-        cp "$src" "$dest"
+        cp "$src" "$dest" || die "Unable to import $dest"
     fi
 }
 
