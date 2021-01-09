@@ -2,7 +2,12 @@
 
 gtktheme () {
 	while IFS='=' read -r key value; do
-		if [ "${key}" = "gtk-theme-name" ]; then
+		key=${key#"${key%%[![:blank:]]*}"} # strip any leading spaces
+		key=${key%"${key##*[![:blank:]]}"} # " " trailing " "
+		if [ "${key}" = 'gtk-theme-name' ]; then
+			value=${value%%#*} # strip trailing comments
+			value=${value#"${value%%[![:blank:]]*}"}
+			value=${value%"${value##*[![:blank:]]}"}
 			printf '%s' "${value}"
 			return 0
 		fi
