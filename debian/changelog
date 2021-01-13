@@ -1,3 +1,18 @@
+bunsen-configs (10.8-1) lithium; urgency=medium
+
+  * bl-user-setup: add some error checking
+  * jgmenu/startup: gtktheme(): improve parsing of gtk settings.ini
+  * jgmenu/prepend.csv: Preferences>jgmenu: add items to sync with OB and GTK3.
+  * jgmenu/jgmenurc: adjust some colours to match GTK BL-Lithium theme.
+  [ Johan Malm ]
+  * jgmenu/hooks: remove unnecessary gtk sync.
+  [ Damien Nicolet ]
+  * Fix dmenu bottom configuration template.
+  [ Jens John]
+  * bl-xdg-autostart: port to python3, clean up code.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 13 Jan 2021 16:49:23 +0900
+
 bunsen-configs (10.7.1-1) lithium; urgency=medium
 
   * bl-user-setup: Move local skel data from ~/.cache to ~/.local/share
