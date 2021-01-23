@@ -84,6 +84,9 @@ jgmenu,^tag(bl-jgmenuConfig)
 Back,^back()
 Edit Menu Content,bl-text-editor ~/.config/jgmenu/prepend.csv
 Edit Menu Settings,bl-text-editor ~/.config/jgmenu/jgmenurc
+^sep()
+Sync theme with OpenBox,jgmenu_run init --apply-obtheme
+Sync theme with GTK3,jgmenu_run init --apply-gtktheme
 ^sep(Help)
 man page,x-terminal-emulator -T 'man jgmenu' -e man jgmenu
 tutorial,x-terminal-emulator -T 'man jgmenututorial' -e man jgmenututorial
