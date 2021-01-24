@@ -1,3 +1,10 @@
+bunsen-configs (10.8.1-1) lithium; urgency=medium
+
+  * jgmenu: Fix first-launch theming issue.
+  * Add new jgmenu OB & GTK sync items to menu in bunsen-configs-lite.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 24 Jan 2021 10:25:22 +0900
+
 bunsen-configs (10.8-1) lithium; urgency=medium
 
   * bl-user-setup: add some error checking
