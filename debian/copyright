@@ -27,7 +27,7 @@ License: GPL-3+
  as the name is changed.
 
 Files: debian/*
-Copyright: 2015-2020 John Crawley <john@bunsenlabs.org>
+Copyright: 2015-2021 John Crawley <john@bunsenlabs.org>
            2015 Jens Oliver John <dev@2ion.de>
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
@@ -48,6 +48,7 @@ License: GPL-3+
 
 Files: bin/bl-xdg-autostart
 Copyright: 2008 Dana Jansens
+           2020 Jens Oliver John <dev@2ion.de>
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
