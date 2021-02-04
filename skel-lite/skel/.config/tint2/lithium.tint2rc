@@ -134,7 +134,7 @@ scale_relative_to_dpi = 0
 scale_relative_to_screen_height = 0
 
 #-------------------------------------
-# Taskbar
+# Taskbar - Panel item = T
 taskbar_mode = multi_desktop
 taskbar_hide_if_empty = 0
 taskbar_padding = 2 0 4 (the last number determines icon spacing)
@@ -188,7 +188,7 @@ mouse_scroll_up = toggle
 mouse_scroll_down = iconify
 
 #-------------------------------------
-# System tray (notification area)
+# System tray (notification area) - Panel item = S
 systray_padding = 1 1 1
 systray_background_id = 5
 systray_sort = right2left
@@ -198,7 +198,7 @@ systray_monitor = primary
 systray_name_filter =
 
 #-------------------------------------
-# Launcher
+# Launcher - Panel item = L
 launcher_padding = 8 4 4
 launcher_background_id = 5
 launcher_icon_background_id = 0
@@ -214,7 +214,7 @@ launcher_item_app = /usr/share/applications/bl-text-editor.desktop
 launcher_item_app = /usr/share/applications/bl-terminal-emulator.desktop
 
 #-------------------------------------
-# Clock
+# Clock - Panel item = C
 
 #24hr clock (for seconds, use %H:%M:%S)
 # See 'man strftime' for other time and date formats.
