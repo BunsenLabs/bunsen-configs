@@ -123,7 +123,7 @@ esac
 pnmixer &
 
 ## Start Clipboard manager
-clipit &
+xfce4-clipman &
 
 ## Start Thunar Daemon, if set as bl-file-manager
 if [ "$(readlink -f $(which bl-file-manager))" = "$(which thunar)" ]
