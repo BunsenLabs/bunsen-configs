@@ -11,7 +11,7 @@
   <action>
     <icon>utilities-terminal</icon>
     <name>Open terminal here</name>
-    <command>exo-open --working-directory %f --launch TerminalEmulator</command>
+    <command>sh -c &apos;cd &quot;$1&quot;; x-terminal-emulator&apos; _ %f</command>
     <description />
     <patterns>*</patterns>
     <directories />
