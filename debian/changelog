@@ -1,3 +1,10 @@
+bunsen-configs (11.1-1) beryllium; urgency=medium
+
+  * Replace clipit with xfce4-clipman.
+  * In Thunar "Open terminal here", replace exo-open with shell command.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 16 Feb 2021 14:17:48 +0900
+
 bunsen-configs (11.0-1) beryllium; urgency=medium
 
   * Migrate for Debian Bullseye.
