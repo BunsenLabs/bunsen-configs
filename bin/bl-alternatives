@@ -78,7 +78,7 @@ update_alt()
     local PRIO=$4
 
     if [ ! -x "$BINPATH" ] ; then
-        update-alternatives --list $ALTNAME 2>/dev/null | \
+        update-alternatives --list $ALTNAME 2>&1 | \
         grep -q $BINPATH || return 0
         update-alternatives --remove $ALTNAME $BINPATH 2>/dev/null
     else
