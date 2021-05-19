@@ -17,7 +17,7 @@ Conky,^checkout(ConkyWWW)
 Theme Resources,^checkout(ThemesWWW)
 ^sep()
 ^sep(man pages)
-Compositor,x-terminal-emulator -T "Compositor man page" -e man compton
+Compositor,x-terminal-emulator -T "Compositor man page" -e man picom
 jgmenu,x-terminal-emulator -T "jgmenu man page" -e man jgmenu
 dmenu,x-terminal-emulator -T "dmenu man page" -e man dmenu
 gmrun,x-terminal-emulator -T "gmrun man page" -e man gmrun

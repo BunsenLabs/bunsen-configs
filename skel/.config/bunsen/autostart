@@ -85,7 +85,7 @@ openbox)
     ## Set a wallpaper
     nitrogen --restore
 
-    ## Compton
+    ## Composition
     ## NOTE: composition must be started before tint2
     bl-compositor --start
 

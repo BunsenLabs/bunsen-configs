@@ -49,7 +49,7 @@ BunsenLabs,^checkout(bl-blConfig)
 Openbox,^checkout(bl-obConfig)
 jgmenu,^checkout(bl-jgmenuConfig)
 Keybinds,^checkout(bl-xbindkeysConfig)
-# Uncomment the next line if you have installed compton
+# Uncomment the next line if you have installed picom or compton
 #Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor")
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu"),conky-manager
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu"),tint2

@@ -1,0 +1,133 @@
+#  custom startup options for picom
+
+#  System administrators can add startup options for picom here.
+#  Any words - space, tab, or newline separated - will be appended to
+#  picom's command line when it is started by bl-compositor.
+#  (Any content after a # symbol is treated as a comment and ignored.)
+#
+#  While any of the options listed in 'man picom' will be applied,
+#  it is recommended to leave settings related to desktop appearance
+#  (shadows, transparency, fading etc.) for individual users to set
+#  in ~/.config/picom.conf, and to use this file only for
+#  system-wide settings to optimize performance on this machine's hardware.
+#
+#  Settings here will take priority over users' ~/.config/picom.conf.
+#
+#  Various people have contributed to this file,
+#  so the meaning of "I" is not well defined.
+#
+#  Examples:
+#  vsync can be used to control screen tearing:
+#  --backend glx will activate the OpenGL backend for superior performance,
+#  search for VSYNC_METHOD in picom(1) for details of the various methods available.
+#
+#  I would add a note of caution here that
+#  compton should *not* be used to control vsync (ie, screen tearing)
+#  unless the native methods availble via the video drivers do not work.
+#
+#  Some old (2017) forum threads which might be of historical interest:
+#  https://forums.bunsenlabs.org/viewtopic.php?id=4176
+#  https://forums.bunsenlabs.org/viewtopic.php?pid=61249#p61249
+#  https://forums.bunsenlabs.org/viewtopic.php?id=3699
+#
+#  Two graphics test pages:
+#  This one is flashing green and red fast enough that it should look
+#  like a flickery orange colour:
+#  https://launchpadlibrarian.net/274755154/kenjo_vidtest_60fps.mp4
+#  This is a screen tearing test for vsync:
+#  https://www.youtube.com/watch?v=MfL_JkcEFbE
+
+
+#################################
+
+# Look for configuration file at the path.
+# See CONFIGURATION FILES section of manual for
+# where picom looks for a configuration file by default.
+# Use /dev/null to avoid loading configuration file.
+#--config <PATH>
+
+# Daemonize process. Fork to background after initialization.
+# Causes issues with certain (badly-written) drivers.
+# In a BunsenLabs sesssion, picom is forked anyway, so this setting is not needed.
+#--daemon
+
+# Enable remote control via D-Bus. See the *D-BUS API* section in the manual for more details.
+# The D-Bus methods and signals are not yet stable, thus undocumented right now.
+#--dbus
+
+
+#################################
+#
+#  Backend
+#
+#################################
+
+# Use the new, reimplemented version of the backends.
+# The new backends are HIGHLY UNSTABLE at this point, you have been warned.
+# This option is not available in the config file.
+#--experimental-backends
+
+#  Backend to use: "xrender", "glx" or "xr_glx_hybrid". xrender is the default one.
+#  GLX backend is typically much faster but depends on a sane driver.
+#
+#--backend glx
+
+#  Enable/disable VSync.
+#--vsync
+#--no-vsync
+
+
+#################################
+#
+#  GLX backend
+#
+#################################
+
+# GLX backend: Avoid using stencil buffer, useful if you don't have a stencil buffer.
+# This may not work with --blur-background. Tests show a 15% performance boost.
+# Might cause incorrect opacity when rendering transparent content (but never
+# practically happened) and may not work with blur-background.
+# "My tests show a 15% performance boost. Recommended."
+#
+#--glx-no-stencil
+
+# GLX backend: Avoid rebinding pixmap on window damage.
+# Probably could improve performance on rapid window content changes,
+# but is known to break things on some drivers (LLVMpipe, xf86-video-intel, etc.).
+# "This option causes lockups in Virtualbox."
+# Recommended if it works.
+#
+#--glx-no-rebind-pixmap
+
+# GLX backend: Use specified GLSL fragment shader for rendering window contents.
+# See `compton-default-fshader-win.glsl` and `compton-fake-transparency-fshader-win.glsl`
+# in the source tree for examples.
+#
+#--glx-fshader-win <SHADER>
+
+# Force all windows to be painted with blending. Useful if you
+# have a glx-fshader-win that could turn opaque pixels transparent.
+#
+#--force-win-blend
+
+
+#################################
+
+# Use X Sync fence to sync clients' draw calls, to make sure all draw
+# calls are finished before picom starts drawing. Needed on nvidia-drivers
+# with GLX backend for some users.
+#
+#--xrender-sync-fence
+
+# Specify refresh rate of the screen. If not specified or 0, picom will
+# try detecting this with X RandR extension.
+#
+#--refresh-rate <REFRESH_RATE>
+
+# Limit picom to repaint at most once every 1 / 'refresh_rate' second to
+# boost performance. This should not be used with
+#   vsync drm/opengl/opengl-oml
+# as they essentially does sw-opti's job already,
+# unless you wish to specify a lower refresh rate than the actual value.
+#
+#--sw-opti
