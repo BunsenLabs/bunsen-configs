@@ -266,30 +266,69 @@ $message"
     fi
 }
 
+# compare 2 files, optionally in new terminal window
+# Usage: differ [--open-terminal] skelfile homefile
+# Skelfiles named *.template will be preprocessed to replace %USERHOME% with $HOME.
+differ () {
+    local opent diffcmd tmpdir tmpsrc
+    opent=f
+    diffcmd=(colordiff -s -u)
+    type colordiff >/dev/null || diffcmd=(diff -s -u)
+    if [[ $1 = '--open-terminal' ]]
+    then
+        opent=t
+        shift
+    fi
+    local skelfile=$1 homefile=${2%.template}
+    if [[ $skelfile = *.template ]]
+    then
+        tmpdir=$( mktemp -d )
+        tmpsrc=${tmpdir}/${skelfile#${skeldir}/}
+        tmpsrc=${tmpsrc%.template}
+        mkdir -p ${tmpsrc%/*}
+        sed "s|%USERHOME%|$HOME|g" "$skelfile" > "$tmpsrc"
+        skelfile=$tmpsrc
+    fi
+    diffcmd+=("$homefile" "$skelfile")
+    if [[ $opent = t ]]
+    then
+        x-terminal-emulator -T "Diff of ${homefile#${TARGETDIR}/} in HOME and skel" -e bash -c '"$@"; echo -e "\nPress any key to close"; read -srn1' _ "${diffcmd[@]}"
+    else
+        "${diffcmd[@]}"
+    fi
+}
+
+# pass file in skel which has changed
 ask_overwrite() {
-    local file="$1"
+    local skelfile targetfile name msg ret
+    skelfile=$1
+    name=${skelfile#${skeldir}/}
+    targetfile=${TARGETDIR}/${name}
+    name="~/${name%.template}"
     if [[ -t 0 && -t 1 ]] # on terminal
     then
         local dflt=1
-        local prompt='y/N/a/s: '
+        local prompt='y/N/a/s/d: '
         case $overwrite_dflt in
         Yes)
             dflt=0
-            prompt='Y/n/a/s: '
+            prompt='Y/n/a/s/d: '
             ;;
         esac
 
         echo $'\n'"$overwrite_msg1
-$file
+${name}
 $overwrite_msg2"
 
-        while true
-        do
-            echo "y: ${overwrite_yesname}
+        msg="y: ${overwrite_yesname}
 n: Skip this one
 a: Do all
 s: Skip all
+d: View difference
 (Default is '${overwrite_dflt}'.)"
+        while true
+        do
+            echo "$msg"
             read -r -p "$prompt"
             case "${REPLY^}" in
             '') return $dflt;;
@@ -297,17 +336,25 @@ s: Skip all
             N) return 1;;
             A) return 2;;
             S) return 3;;
+            D) differ "$skelfile" "$targetfile";;
             esac
         done
     else
         msg="<b>User Setup</b>
 
 $overwrite_msg1
-<b>${file}</b>
+<b>${name}</b>
 $overwrite_msg2
 "
-        yad_question "$msg" \
-        --button="${overwrite_yesname}":0 --button='Skip':1 --button='Do All':2 --button='Skip All':3
+        while true
+        do
+            yad_question "$msg" --button="${overwrite_yesname}":0 --button='Skip':1 --button='Do All':2 --button='Skip All':3 --button='View Diff':4
+            ret=$?
+            case $ret in
+            0|1|2|3) return $ret;;
+            4) differ --open-terminal "$skelfile" "$targetfile";;
+            esac
+        done
     fi
 }
 
@@ -587,10 +634,10 @@ Overwrite with the new version?'
             fi
         fi
 
-        ask_overwrite "${destfile%.template}"
+        ask_overwrite "$file"
         case $? in
         0)
-            copy_file "$file" "$destfile"
+            copy_file "$file" "$destfile" # copy_file handles templates too
             ;;
         1)
             log "Not overwriting ${destfile%.template}"
