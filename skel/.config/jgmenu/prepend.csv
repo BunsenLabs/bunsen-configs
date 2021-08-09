@@ -119,6 +119,8 @@ man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
 
 System,^tag(bl-system)
 Back,^back()
+Quick System Info,x-terminal-emulator -T 'inxi -Fxrz' -e bash -c "inxi -Fxrz; echo $'\n\nPress any key to close'; read -srn1"
+^sep()
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop,htop
 Install Selected Packages,^pipe(bl-install-pipemenu)
@@ -130,7 +132,6 @@ Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 
 Edit Debian Alternatives,galternatives,galternatives
 ^sep()
 About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace,distributor-logo-bunsenlabs
-
 
 ^tag(apps)
 
