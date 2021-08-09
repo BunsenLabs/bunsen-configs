@@ -239,8 +239,11 @@ ERROR: $*"
     exit 1
 }
 
+# Any extra aguments (eg relabelled buttons) will be passed to yad_question.
+# They will be ignored if on a terminal.
 ask_yesno() {
     local message="$1"
+    shift 1
     if [[ -t 0 && -t 1 ]] # on terminal
     then
         echo $'\n'"$message"
@@ -259,7 +262,7 @@ n: No
         msg="<b>User Setup</b>
 
 $message"
-        yad_question  "$msg"
+        yad_question  "$msg" "$@"
     fi
 }
 
