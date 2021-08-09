@@ -2,7 +2,7 @@
 #
 #    bl-user-setup: a script to populate a new user's HOME directory
 #    using template files from /usr/share/bunsen/skel/
-#    Copyright: 2015-2020 John Crawley <john@bunsenlabs.org>
+#    Copyright: 2015-2021 John Crawley <john@bunsenlabs.org>
 #               2019      Johan Malm <jgm323@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@
 HELP="bl-user-setup is a script to populate a new user's HOME directory
 using files from /usr/share/bunsen/skel
 
-Usage:  bl-user-setup [-h|--help][--force|--yes][--reset]
+Usage:  bl-user-setup [-h|--help][--force|--yes][--reset][-v|--verbose]
 
 This script is run non-interactively on a user's first login,
 and on subsequent logins to check for new default configurations
@@ -49,6 +49,8 @@ Options:
 --refresh
     Follow default behaviour, as with no options passed.
     (This is kept only for backward compatibility.)
+-v --verbose
+    Send more information to log file and terminal.
 
 The following two options are not usually of interest to users:
 
@@ -104,7 +106,7 @@ main() {
     do
         case "$i" in
         -h|--help)
-            echo "$HELP"
+            printf '%b\n' "$HELP"
             exit 0
             ;;
         esac
@@ -140,6 +142,7 @@ main() {
     g_force=f
     g_reset=f
     g_auto=f
+    g_verbose=f
     have_filecache=f
 
     wholeskelsum=$( tar --mtime='@0' -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
@@ -164,6 +167,9 @@ main() {
             ;;
         --reset)
             g_reset=t
+            ;;
+        -v|--verbose)
+            g_verbose=t
             ;;
         -h|--help)
             printf '%b\n' "$HELP"
@@ -195,7 +201,7 @@ will be repeated, overwriting any user modifications.
 
 ##############
 
-log () {
+log() {
     local msg=
     if [[ $logged = f ]]
     then
@@ -206,16 +212,25 @@ $*"
         msg="$*"
     fi
     echo "$msg" >> "$logfile"
-    [[ -t 1 ]] && {
+    [[ -t 1 && $g_verbose = t ]] && {
         printf '\033[32m=>\033[m %s\n' "$msg"
     }
     logged=t
 }
 
-die  () {
+notify() {
+    if [[ -t 1 ]]
+    then
+        echo "$*"
+    else
+        notify-send 'user-setup' "$*"
+    fi
+}
+
+die() {
     log "ERROR: $*"
+    printf '%b\n' "$0: ERROR: $*" >&2
     [[ -t 1 ]] || {
-        printf '%b\n' "$0: ERROR: $*" >&2
         local msg="<b>User Setup</b>
 
 ERROR: $*"
@@ -300,10 +315,13 @@ pre_checks () {
     [[ "$USER" = root ]] && die "USER is root, abort"
 
     # Check for the user home directory
-    [[ -d "$HOME" ]] || die "User home directory <$HOME> is not set or not a directory."
+    [[ -d "$HOME" ]] || die "User home directory <${HOME}> is not set or not a directory."
+
+    # Check for the target directory (set to $HOME except for testing)
+    [[ -d "$TARGETDIR" ]] || die "Target directory <${TARGETDIR}> is not set or not a directory."
 
     # Check for source (skel) directory
-    [[ -d "$skeldir" ]] || die "Source directory (skel) is not set or not a directory."
+    [[ -d "$skeldir" ]] || die "Source directory <${skeldir}> is not set or not a directory."
 }
 
 check_skel_sum() {
@@ -311,13 +329,13 @@ check_skel_sum() {
     then
         # If skel directory unchanged since last run, exit.
         [[ $wholeskelsum = $( <"$datadir/skelsum" ) ]] && exit 0
-        log "Config files changed..."
+        log "Config files in skel changed, consulting user about import."
         ask_yesno "Some config files may have been updated in a recent package upgrade.
 Would you like to import these changes into your HOME directory?
 (Files you have edited will not be overwritten without permission.)
 
 You also have the option of running 'bl-user-setup' at a later time.
-"
+" '--button=Not Now:1'
         [[ $? = 1 ]] && {
             log "User declined a config file update."
             echo "$wholeskelsum" > "$datadir/skelsum" # so user doesn't get repeated prompts
@@ -332,7 +350,7 @@ or keep your current file (if it is different).
 New files will be silently imported.
 
 This check will not need to be repeated, but if you prefer, you can
-run 'bl-user-setup --help' at any time to see the available options.
+run 'bl-user-setup --help' at any time later to see the available options.
 
 Check files now?"
         [[ $? = 1 ]] && {
@@ -347,7 +365,6 @@ Check files now?"
 # if they are new arrivals in skeldir.
 #
 # Files will also be added if the md5sum has changed.
-
 check_skel_contents() {
     dirs_to_copy=()
     mapfile -t new_skel_dirs < <( find "$skeldir" -mindepth 1 -type d )
@@ -394,7 +411,7 @@ check_skel_contents() {
     if [[ ${#files_to_copy[@]} = 0 && ${#dirs_to_copy[@]} = 0 && ${#links_to_copy[@]} = 0 ]]
     then
         log "The contents of $skeldir have not changed."
-        notify-send 'User Setup' 'No files need to be changed'
+        notify 'No files need to be changed'
     fi
 }
 
@@ -405,6 +422,7 @@ copy_dirs() {
         [[ -d $destdir ]] && continue
         log "Making new directory $destdir"
         mkdir -p "$destdir" || die "Unable to create directory $destdir"
+        notify "Made new directory $destdir"
     done
     # Update data after copying directories
     printf '%s\n' "${new_skel_dirs[@]}" > "$datadir/skel.dirs"
@@ -420,6 +438,8 @@ copy_links() {
         else
             log "Making new symlink $destlink"
             cp --no-dereference "$link" "$destlink" || die "Unable to import symlink $destlink"
+            log "( $destlink points to $( readlink -n "$destlink" ) )"
+            notify "Made new symlink $destlink pointing to $( readlink -n "$destlink" )"
         fi
     done
     # Update data after copying links
@@ -510,6 +530,7 @@ copy_files() {
                 then
                     log "New file: $file, copying"
                     copy_file "$file" "$destfile"
+                    notify "Imported new file ${destfile#$TARGETDIR/}"
                     continue
                 else
                     log "New file: set default 'Yes'"
@@ -524,6 +545,7 @@ copy_files() {
                 then
                     log "User file ${destfile%.template} unchanged from default, copying new file."
                     copy_file "$file" "$destfile"
+                    notify "Updated file ${destfile#$TARGETDIR/}"
                     continue
                 else
                     log "User file ${destfile%.template} unchanged: set default 'Yes'"
@@ -544,6 +566,7 @@ Overwrite with the new version?'
                 then
                     log "New file: $file, copying"
                     copy_file "$file" "$destfile"
+                    notify "Imported new file ${destfile#$TARGETDIR/}"
                     continue
                 else
                     log "No data: need to confirm user choice about ${destfile%.template}."
