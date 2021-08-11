@@ -285,17 +285,46 @@ differ () {
         tmpdir=$( mktemp -d )
         tmpsrc=${tmpdir}/${skelfile#${skeldir}/}
         tmpsrc=${tmpsrc%.template}
-        mkdir -p ${tmpsrc%/*}
+        mkdir -p "${tmpsrc%/*}"
         sed "s|%USERHOME%|$HOME|g" "$skelfile" > "$tmpsrc"
         skelfile=$tmpsrc
     fi
     diffcmd+=("$homefile" "$skelfile")
     if [[ $opent = t ]]
     then
-        x-terminal-emulator -T "Diff of ${homefile#${TARGETDIR}/} in HOME and skel" -e bash -c '"$@"; echo -e "\nPress any key to close"; read -srn1' _ "${diffcmd[@]}"
+        local termname termcmd title
+        title="Diff of ${homefile#${TARGETDIR}/} in HOME and skel"
+        termname=$( readlink -f "$( which x-terminal-emulator )" )
+        termname=${termname##*/}
+        badterm_msg="$0: cannot display file diff with new window ${termname}."
+        case $termname # cope with terminal inconsistencies
+        in
+            lxterminal)
+                termcmd=(lxterminal --no-remote -T "$title" -e) # otherwise lxterminal does not start a new process
+                ;;
+            mate-terminal.wrapper)
+                termcmd=(mate-terminal --disable-factory -t "$title" -x) # mate-terminal.wrapper does not support --disable-factory
+                ;;
+            gnome-terminal.wrapper)
+                termcmd=(gnome-terminal --wait -t "$title" --) # gnome-terminal.wrapper does not support --wait
+                ;;
+            tilix.wrapper)
+                termcmd=(tilix --new-process -t "$title" -e) # tilix.wrapper does not support --new-process
+                ;;
+            qterminal|terminology)
+                echo "$badterm_msg" >&2
+                return 1
+                ;;
+            *)
+                termcmd=(x-terminal-emulator -T "$title" -e) # the normal case
+                ;;
+        esac
+
+        "${termcmd[@]}" bash -c '"$@"; echo -e "\nPress any key to close"; read -srn1' _ "${diffcmd[@]}"
     else
         "${diffcmd[@]}"
     fi
+    [[ -d $tmpdir && $tmpdir = /tmp/* ]] && rm -rf "$tmpdir"
 }
 
 # pass file in skel which has changed
