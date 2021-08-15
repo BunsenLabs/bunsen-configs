@@ -266,34 +266,27 @@ $message"
     fi
 }
 
-# compare 2 files, optionally in new terminal window
-# Usage: differ [--open-terminal] skelfile homefile
-# Skelfiles named *.template will be preprocessed to replace %USERHOME% with $HOME.
+# compare 2 files, opening new terminal window if needed
+# If --title is passed it will be used as title of a new terminal (if opened).
+# Usage: differ [--title] firstfile secondfile
 differ () {
-    local opent diffcmd tmpdir tmpsrc
-    opent=f
+    local title firstfile secondfile diffcmd
+    if [[ $1 = '--title' ]]
+    then
+        title=$2
+        shift 2
+    fi
+    firstfile=$1
+    secondfile=$2
     diffcmd=(colordiff -s -u)
     type colordiff >/dev/null || diffcmd=(diff -s -u)
-    if [[ $1 = '--open-terminal' ]]
+    diffcmd+=("$firstfile" "$secondfile")
+    if [[ -t 0 && -t 1 ]] # on terminal
     then
-        opent=t
-        shift
-    fi
-    local skelfile=$1 homefile=${2%.template}
-    if [[ $skelfile = *.template ]]
-    then
-        tmpdir=$( mktemp -d )
-        tmpsrc=${tmpdir}/${skelfile#${skeldir}/}
-        tmpsrc=${tmpsrc%.template}
-        mkdir -p "${tmpsrc%/*}"
-        sed "s|%USERHOME%|$HOME|g" "$skelfile" > "$tmpsrc"
-        skelfile=$tmpsrc
-    fi
-    diffcmd+=("$homefile" "$skelfile")
-    if [[ $opent = t ]]
-    then
-        local termname termcmd title
-        title="Diff of ${homefile#${TARGETDIR}/} in HOME and skel"
+        "${diffcmd[@]}"
+    else
+        local termname termcmd
+        [[ -n $title ]] || title="Diff of $firstfile and $secondfile"
         termname=$( readlink -f "$( which x-terminal-emulator )" )
         termname=${termname##*/}
         badterm_msg="$0: cannot display file diff with new window ${termname}."
@@ -321,19 +314,30 @@ differ () {
         esac
 
         "${termcmd[@]}" bash -c '"$@"; echo -e "\nPress any key to close"; read -srn1' _ "${diffcmd[@]}"
-    else
-        "${diffcmd[@]}"
     fi
+}
+
+cleantmp() {
     [[ -d $tmpdir && $tmpdir = /tmp/* ]] && rm -rf "$tmpdir"
 }
 
 # pass file in skel which has changed
 ask_overwrite() {
-    local skelfile targetfile name msg ret
+    local skelfile targetfile name tmpdir tmpsrc msg ret
     skelfile=$1
     name=${skelfile#${skeldir}/}
+    name=${name%.template}
     targetfile=${TARGETDIR}/${name}
-    name="~/${name%.template}"
+    name='~/'$name # for display to user
+    if [[ $skelfile = *.template ]]
+    then
+        tmpdir=$( mktemp -d )
+        tmpsrc=${tmpdir}/${skelfile#${skeldir}/}
+        tmpsrc=${tmpsrc%.template}
+        mkdir -p "${tmpsrc%/*}"
+        sed "s|%USERHOME%|$HOME|g" "$skelfile" > "$tmpsrc"
+        skelfile=$tmpsrc
+    fi
     if [[ -t 0 && -t 1 ]] # on terminal
     then
         local dflt=1
@@ -360,15 +364,16 @@ d: View difference
             echo "$msg"
             read -r -p "$prompt"
             case "${REPLY^}" in
-            '') return $dflt;;
-            Y) return 0;;
-            N) return 1;;
-            A) return 2;;
-            S) return 3;;
-            D) differ "$skelfile" "$targetfile";;
+            '') cleantmp; return $dflt;;
+            Y) cleantmp; return 0;;
+            N) cleantmp; return 1;;
+            A) cleantmp; return 2;;
+            S) cleantmp; return 3;;
+            D) differ "$targetfile" "$skelfile";;
             esac
         done
     else
+        difftitle="Diff of $name in HOME and skel"
         msg="<b>User Setup</b>
 
 $overwrite_msg1
@@ -380,8 +385,9 @@ $overwrite_msg2
             yad_question "$msg" --button="${overwrite_yesname}":0 --button='Skip':1 --button='Do All':2 --button='Skip All':3 --button='View Diff':4
             ret=$?
             case $ret in
-            0|1|2|3) return $ret;;
-            4) differ --open-terminal "$skelfile" "$targetfile";;
+            0|1|2|3)
+                cleantmp; return $ret;;
+            4) differ --title "$difftitle" "$targetfile" "$skelfile";;
             esac
         done
     fi
