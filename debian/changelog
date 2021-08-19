@@ -1,3 +1,15 @@
+bunsen-configs (11.3-1) beryllium; urgency=medium
+
+  * Replace conky.conf with BL-Lithium-conky.conf and
+     symlink BL-Default-conky.conf, migrated from bunsen-conky.
+  * jgmenu: Add "Quick Systen Info" item in "System" submenu.
+  * bl-user-setup:
+     + Add --verbose option, make quieter in normal mode.
+     + Add optional display of file diff in update dialogue.
+  * Recommends: add colordiff for better readability of file diffs.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 19 Aug 2021 12:52:21 +0900
+
 bunsen-configs (11.2-1) beryllium; urgency=medium
 
   * Add config files for picom.
