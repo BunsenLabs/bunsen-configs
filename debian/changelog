@@ -7,6 +7,7 @@ bunsen-configs (11.3-1) beryllium; urgency=medium
      + Add --verbose option, make quieter in normal mode.
      + Add optional display of file diff in update dialogue.
   * Recommends: add colordiff for better readability of file diffs.
+  * Recommend bunsen-utilities >= 11.1-1.
 
  -- John Crawley <john@bunsenlabs.org>  Thu, 19 Aug 2021 12:52:21 +0900
 
