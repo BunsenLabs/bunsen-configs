@@ -93,7 +93,7 @@ openbox)
     ( sleep 2; bl-tint2-session ) &
 
     ## Start the Conky session (the default conkyrc will run if no sessions have been set)
-    bl-conky-session --autostart &
+    bl-conky-session &
     ;;
     # End of openbox application group.
 
