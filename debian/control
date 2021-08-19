@@ -11,8 +11,6 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends}
-Replaces: bunsen-conky (<< 11.1-1)
-Breaks: bunsen-conky (<< 11.1-1)
 Recommends: bunsen-conky (>= 11.1-1),
  bunsen-docs,
  bunsen-images,
@@ -47,8 +45,9 @@ Suggests: fonts-noto,
  xfce4-clipman,
  xfce4-notifyd,
  xfce4-screenshooter
+Replaces: bunsen-configs-lite, bunsen-conky (<< 11.1-1)
+Breaks: bunsen-conky (<< 11.1-1)
 Provides: ${diverted-files}
-Replaces: bunsen-configs-lite
 Conflicts: ${diverted-files}, bunsen-configs-lite
 Description: config files for BunsenLabs Linux
  Various configuration files for BunsenLabs Linux.
