@@ -143,6 +143,7 @@ main() {
     g_reset=f
     g_auto=f
     g_verbose=f
+    g_install=f
     have_filecache=f
 
     wholeskelsum=$( tar --mtime='@0' -cf - -C "${skeldir%/*}" "${skeldir##*/}" | md5sum )
@@ -154,6 +155,7 @@ main() {
         --install)
             [[ -f "$flagfile" ]] && exit 0
             g_force=t
+            g_install=t
             ;;
         --auto)
             g_auto=t
@@ -222,7 +224,8 @@ notify() {
     if [[ -t 1 ]]
     then
         echo "$*"
-    else
+    elif [[ $g_install = f ]]
+    then
         notify-send 'user-setup' "$*"
     fi
 }
