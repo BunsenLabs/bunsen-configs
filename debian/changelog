@@ -1,3 +1,9 @@
+bunsen-configs (11.3.1-1) beryllium; urgency=medium
+
+  * Suppress notification popups on initial user setup.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 12 Nov 2021 14:20:42 +0900
+
 bunsen-configs (11.3-1) beryllium; urgency=medium
 
   * Replace conky.conf with BL-Lithium-conky.conf and
