@@ -102,14 +102,14 @@ openbox)
 #   xcape -e 'Super_L=Super_L|space'
 #   (sleep 3; xfdesktop) &
 #   bl-tint2-session
-#   bl-conky-session --autostart &
+#   bl-conky-session &
 #   ;;
 
 ## Vague possibility for Awesome window manager
 #awesome)
 #    bl-compositor --start
 #    xfce4-panel &
-#    bl-conky-session --autostart &
+#    bl-conky-session &
 #    ;;
 
 esac
