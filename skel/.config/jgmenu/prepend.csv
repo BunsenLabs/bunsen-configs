@@ -12,18 +12,19 @@ File Manager,bl-file-manager,system-file-manager
 Text Editor,bl-text-editor,text-editor
 Media Player,bl-media-player,multimedia-player
 ^sep()
-Applications,^checkout(apps)
+Quick Screenshot,bl-image-upload
 ^sep()
-BL Utilities,^checkout(bl-utilities),applications-utilities
+Utilities,^checkout(bl-utilities),applications-utilities
 Places,^pipe(jgmenu_run ob --cmd="bl-places-pipemenu" --tag="bl-places-pipemenu"),folder
 Recent Files,^pipe(jgmenu_run ob --cmd="bl-recent-files-pipemenu -rl15" --tag="bl-recent-files-pipemenu")
 ^sep()
 Preferences,^checkout(bl-preferences),preferences-system
 System,^checkout(bl-system),applications-system
 ^sep()
-#Help &amp; Resources,^pipe(jgmenu_run ob --cmd="bl-help-pipemenu" --tag="bl-help-pipemenu")
 Help &amp; Resources,^checkout(bl-help-menu),help-contents
 Display Keybinds,^pipe(jgmenu_run ob --cmd="bl-kb-pipemenu" --tag="bl-kb-pipemenu")
+^sep()
+Applications,^checkout(apps)
 ^sep()
 Lock Screen,bl-lock,system-lock-screen
 Exit,bl-exit,system-shutdown
@@ -33,9 +34,9 @@ Exit,bl-exit,system-shutdown
 ^tag(bl-utilities)
 Back,^back()
 Take Screenshot,^pipe(bl-scrot-pipemenu)
+BLOB Themes Manager,bl-obthemes
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu")
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
-BLOB Themes Manager,bl-obthemes
 # These two utilities are available if you uncomment the line.
 # Pipe menu to install and use Dropbox:
 #Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu")
@@ -123,7 +124,7 @@ Quick System Info,x-terminal-emulator -T 'inxi -Fxrz' -e bash -c "inxi -Fxrz; ec
 ^sep()
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop,htop
-Install Selected Packages,^pipe(bl-install-pipemenu)
+Install Favourite Packages,^pipe(bl-install-pipemenu)
 Synaptic Package Manager,pkexec synaptic,synaptic
 Login Settings,pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf,lightdm-settings
 Login Interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
