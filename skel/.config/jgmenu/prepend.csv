@@ -37,6 +37,7 @@ Take Screenshot,^pipe(bl-scrot-pipemenu)
 BLOB Themes Manager,bl-obthemes
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu")
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
+App Finder,xfce4-appfinder
 # These two utilities are available if you uncomment the line.
 # Pipe menu to install and use Dropbox:
 #Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu")
