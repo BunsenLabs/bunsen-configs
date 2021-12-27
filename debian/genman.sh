@@ -4,7 +4,7 @@
 # to generate man files from executables' --help options,
 # using help2man.
 # Tested on Dash, should work with other POSIX shells.
-# Version 20200505
+# Version 20211227
 
 #    Copyright (C) 2018-2020  John Crawley <john@bunsenlabs.org>
 #
@@ -265,6 +265,12 @@ EOF
 --help|-h)
     echo "$HELP"
     exit 0
+    ;;
+*)
+    echo "${0}: ERROR \"${1}\": no such option" >&2
+    echo
+    echo "$HELP"
+    exit 1
     ;;
 esac
 
