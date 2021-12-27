@@ -4,8 +4,8 @@ bunsenlabs-session \(em Starts a BunsenLabs session.
 
 .SH "DESCRIPTION"
 .PP
-\fBbunsenlabs-session\fR runs a BunsenLabs session, calling openbox and
-starting the necessary auxiliary applications.
+\fBbunsenlabs-session\fR runs a BunsenLabs session, calling a window manager
+and starting the necessary auxiliary applications.
 There is no full session manager, so you will not be able
 to save your state from one log in to the next.
 Although openbox is the default BunsenLabs window manager,
@@ -14,6 +14,10 @@ menu, keyboard shortcuts and autostarted applications (see below).
 .PP
 \fBbunsenlabs-session\fR does not take any command line
 arguments.
+.PP
+\fBbunsenlabs-session\fR is set as the Debian alternative "x-session-manager"
+so it will be run by default in a Debian X session, and a .desktop file
+is installed to /usr/share/xsessions so it can be started by a display manager like LightDM.
 .PP
 On log in, \fBbunsenlabs-session\fR will run the
 ~/.config/bunsen/autostart script if it exists, and will copy in the

@@ -30,6 +30,7 @@ then
     then
         /usr/lib/bunsen/configs/bl-user-setup --install || true
     fi
+
     # Actions here are usually handled by scripts in /etc/X11/Xsession.d/
     # but on first boot, user config files were not yet imported at that point.
     # This makes a difference to the live session, unless user logs out/in.
