@@ -27,7 +27,7 @@ EOF
 # We do not set the background here, just test if the
 #  default BunsenLabs image is being used or not.
 # This should be the canonical path.
-BL_GRUB_BACKGROUND='/usr/share/images/bunsen/grub/default.png'
+BL_GRUB_BACKGROUND='/boot/grub/images/bunsen/default.png'
 
 # Set these colours if default BL background image is detected.
 BL_TEXT_COLORS='color_normal=light-gray/black
