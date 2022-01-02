@@ -12,5 +12,6 @@
 ## GNOME Keyring
 export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
 
-## Modify xdg-open behaviour
-export XDG_CURRENT_DESKTOP=XFCE
+## Modify xdg-open behaviour, and others.
+# "BunsenLabs" will be interpreted as X-generic
+export XDG_CURRENT_DESKTOP=BunsenLabs
