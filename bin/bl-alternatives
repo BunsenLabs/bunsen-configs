@@ -41,7 +41,7 @@ OTHERFM="caja dolphin nautilus pcmanfm spacefm xfe"
 OTHERIV="eog eom geeqie gpicview gthumb mirage viewnior"
 OTHERMP="banshee dragonplayer celluloid gxine kaffeine parole \
     smplayer totem"
-OTHERTE="emacs gedit jedit kate leafpad medit mousepad scite"
+OTHERTE="emacs gedit jedit kate medit mousepad scite"
 
 # Notes:
 #
