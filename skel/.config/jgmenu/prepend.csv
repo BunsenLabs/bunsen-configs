@@ -1,5 +1,10 @@
 # BunsenLabs Main Menu
 
+## Bunsenlabs User config files
+## All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
+## The script bl-user-setup copies them to the user $HOME directory on first login.
+## See more info with command 'bl-user-setup --help'
+
 @text,,6,6,150,20,2,left,top,auto,#000000 0,<span size="large">🔍︎</span>
 @search,,24,3,150,20,2,left,top,auto,#000000 0,Type to Search
 

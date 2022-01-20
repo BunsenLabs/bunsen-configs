@@ -1,6 +1,11 @@
 #---------------------------------------------
 # TINT2 CONFIG FILE "lithium.tint2rc"
 #
+## Bunsenlabs User config files
+## All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
+## The script bl-user-setup copies them to the user $HOME directory on first login.
+## See more info with command 'bl-user-setup --help'
+#
 # A simple theme. Note that many properties are set to "0"
 # Please see 'man tint2' for full configuration options
 #---------------------------------------------

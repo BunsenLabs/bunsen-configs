@@ -1,3 +1,8 @@
+# Bunsenlabs User config files
+# All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
+# The script bl-user-setup copies them to the user $HOME directory on first login.
+# See more info with command 'bl-user-setup --help'
+
 #
 # User-specific variables for a BunsenLabs session
 # can be placed here in ~/.config/bunsen/environment.
@@ -5,6 +10,7 @@
 
 # To set your language for displaying messages and time/date formats, use the following:
 #LANG=en_CA.UTF8
+# This is unnecessary if you are using the LightDM GTK greeter which has a locale chooser widget.
 
 # To set your keyboard layout, you need to modify your X config:
 # http://www.google.com/search?q=how+to+set+keyboard+layout+xorg

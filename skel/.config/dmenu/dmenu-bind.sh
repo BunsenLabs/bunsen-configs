@@ -1,5 +1,10 @@
 #!/bin/bash
 #
+## Bunsenlabs User config files
+## All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
+## The script bl-user-setup copies them to the user $HOME directory on first login.
+## See more info with command 'bl-user-setup --help'
+#
 # BL-Lithium theme colours
 #
 # written for BunsenLabs by damo <damo@bunsenlabs.org> May 2015
