@@ -1,16 +1,53 @@
-ShowDotFiles = 1
-TabTimeout = 0
+# gmrun configuration file
+# gmrun is (C) Mihai Bazon, <mishoo@infoiasi.ro>
+# GPL v2.0 applies
 
+# See 'man gmrun' for more info.
+
+# Set terminal
 Terminal = x-terminal-emulator
 TermExec = ${Terminal} -e
-AlwaysInTerm = ssh telnet ftp lynx mc vi vim cat top sudo man info
+AlwaysInTerm = ssh telnet ftp lynx mc vi vim pine centericq perldoc man
 
+# Set window geometry (except height)
+Width = 400
+
+# History size
 History = 500
 
-URL_http = x-www-browser %u
-URL_info = x-terminal-emulator -e info %s
-URL_man = ${TermExec} man %s
-URL_info = ${TermExec} info %s
-URL_file = exo-open %s
-URL_f = exo-open %s
+# Shows last history line selected when invoked
+ShowLast = 1
+
+# Show files starting with '.'
+# Default is 0 (off), set it to 1 if you want "hidden" files to show up
+# in the completion window
+ShowDotFiles = 1
+
+# Timeout (in milliseconds) after which gmrun will simulate a TAB press
+# Set this to NULL if don't like this feature.
+TabTimeout = 0
+
+# URL handlers
+# If the entered text is "http://www.google.com" then:
+#   - %u gets replaced with the whole URL ("http://www.google.com")
+#   - %s gets replaced with "//www.google.com".  This is useful for URL-s
+#     like "man:printf" --> %s will get replaced with "printf"
+URL_http = x-www-browser '%u'
+URL_https = x-www-browser '%u'
+URL_mailto = thunderbird -remote "mailto(%s)"
+URL_man = ${TermExec} 'man %s'
+URL_info = ${TermExec} 'info %s'
+URL_pd = ${TermExec} 'perldoc %s'
+URL_file = xdg-open '%s'
+URL_f = xdg-open '%s'
+URL_readme = ${TermExec} 'less /usr/share/doc/%s/README'
+URL_info = ${TermExec} 'info %s'
+URL_sh = sh -c '%s'
+
 URL_g = x-www-browser 'http://www.google.com/search?q=%s'
+
+# extension handlers
+EXT:doc,rtf = lowriter %s
+EXT:txt,cc,cpp,h,java,html,htm,epl,tex,latex,js,css,xml,xsl,am = bl-cli-editor %s
+EXT:ps = gv %s
+EXT:pdf = xpdf %s
