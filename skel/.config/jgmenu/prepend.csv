@@ -34,7 +34,7 @@ Applications,^checkout(apps)
 Lock Screen,bl-lock,system-lock-screen
 Exit,bl-exit,system-shutdown
 
-. /usr/share/bunsen/configs/menu-includes/help-menu
+. /usr/share/bunsen/docs/menu-includes/help-menu
 
 ^tag(bl-utilities)
 Back,^back()
