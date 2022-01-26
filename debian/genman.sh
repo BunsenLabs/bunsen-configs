@@ -266,6 +266,8 @@ EOF
     echo "$HELP"
     exit 0
     ;;
+'')
+    ;;
 *)
     echo "${0}: ERROR \"${1}\": no such option" >&2
     echo
