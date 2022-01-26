@@ -273,7 +273,7 @@ $message"
 # If --title is passed it will be used as title of a new terminal (if opened).
 # Usage: differ [--title] firstfile secondfile
 differ () {
-    local title firstfile secondfile diffcmd
+    local title firstfile secondfile gui diffcmd
     if [[ $1 = '--title' ]]
     then
         title=$2
@@ -281,6 +281,14 @@ differ () {
     fi
     firstfile=$1
     secondfile=$2
+    # if a GUI diff is available, use that instead
+    for gui in meld kompare diffuse
+    do
+        hash "$gui" 2>/dev/null && {
+            "$gui" "$firstfile" "$secondfile"
+            return
+        }
+    done
     diffcmd=(colordiff -s -u)
     type colordiff >/dev/null || diffcmd=(diff -s -u)
     diffcmd+=("$firstfile" "$secondfile")
