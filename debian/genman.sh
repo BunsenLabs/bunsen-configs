@@ -4,9 +4,9 @@
 # to generate man files from executables' --help options,
 # using help2man.
 # Tested on Dash, should work with other POSIX shells.
-# Version 20211227
+# Version 20220126
 
-#    Copyright (C) 2018-2020  John Crawley <john@bunsenlabs.org>
+#    Copyright (C) 2018-2022  John Crawley <john@bunsenlabs.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
