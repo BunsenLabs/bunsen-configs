@@ -1,3 +1,16 @@
+bunsen-configs (11.4-1) beryllium; urgency=medium
+
+  * bl-alternatives: remove obsolete applications.
+  * BL-Lithium-conky.conf: add commented-out line to display legacy RAM.
+  * Add xfce4-appfinder to menu and dependencies.
+  * Add inxi to Recommends.
+  * ~/.config/bunsen/environment: export XDG_CURRENT_DESKTOP=BunsenLabs
+  * Menu>Preferences>Appearance: reload GTK after exiting lxappearance.
+  * bl-user-setup: use meld/kompare/diffuse to view file diffs, if available.
+  * Remove jgmenu help-menu include, now in bunsen-docs, adjust prepend.csv.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 26 Jan 2022 16:27:15 +0900
+
 bunsen-configs (11.3.1-1) beryllium; urgency=medium
 
   * Suppress notification popups on initial user setup.
