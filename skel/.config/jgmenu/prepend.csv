@@ -134,7 +134,7 @@ Install Favourite Packages,^pipe(bl-install-pipemenu)
 Synaptic Package Manager,pkexec synaptic,synaptic
 Login Settings,pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf,lightdm-settings
 Login Interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
-GParted,pkexec gparted,gparted
+GParted Partition Manager,pkexec gparted,gparted
 Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",web-browser
 Edit Debian Alternatives,galternatives,galternatives
 ^sep()
