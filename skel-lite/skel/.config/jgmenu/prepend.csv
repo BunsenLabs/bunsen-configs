@@ -1,9 +1,9 @@
+# BunsenLabs Main Menu
+
 ## Bunsenlabs User config files
 ## All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
 ## The script bl-user-setup copies them to the user $HOME directory on first login.
 ## See more info with command 'bl-user-setup --help'
-
-# BunsenLabs Main Menu
 
 #@text,,6,6,150,20,2,left,top,auto,#000000 0,<span size="large">🔍︎</span>
 @text,,6,6,150,20,2,left,top,auto,#000000 0,
@@ -18,30 +18,32 @@ File Manager,bl-file-manager,system-file-manager
 Text Editor,bl-text-editor,text-editor
 Media Player,bl-media-player,multimedia-player
 ^sep()
-Applications,^checkout(apps)
+Quick Screenshot,bl-image-upload
 ^sep()
-BL Utilities,^checkout(bl-utilities),applications-utilities
+Utilities,^checkout(bl-utilities),applications-utilities
 Places,^pipe(jgmenu_run ob --cmd="bl-places-pipemenu" --tag="bl-places-pipemenu"),folder
 Recent Files,^pipe(jgmenu_run ob --cmd="bl-recent-files-pipemenu -rl15" --tag="bl-recent-files-pipemenu")
 ^sep()
 Preferences,^checkout(bl-preferences),preferences-system
 System,^checkout(bl-system),applications-system
 ^sep()
-#Help &amp; Resources,^pipe(jgmenu_run ob --cmd="bl-help-pipemenu" --tag="bl-help-pipemenu")
 Help &amp; Resources,^checkout(bl-help-menu),help-contents
 Display Keybinds,^pipe(jgmenu_run ob --cmd="bl-kb-pipemenu" --tag="bl-kb-pipemenu")
+^sep()
+Applications,^checkout(apps)
 ^sep()
 Lock Screen,bl-lock,system-lock-screen
 Exit,bl-exit,system-shutdown
 
-. /usr/share/bunsen/configs/menu-includes/help-menu
+. /usr/share/bunsen/docs/menu-includes/help-menu
 
 ^tag(bl-utilities)
 Back,^back()
 Take Screenshot,^pipe(bl-scrot-pipemenu)
+BLOB Themes Manager,bl-obthemes
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu")
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
-BLOB Themes Manager,bl-obthemes
+#App Finder,xfce4-appfinder
 # These two utilities are available if you uncomment the line.
 # Pipe menu to install and use Dropbox:
 #Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu")
@@ -58,7 +60,7 @@ Keybinds,^checkout(bl-xbindkeysConfig)
 #Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor")
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu"),conky-manager
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu"),tint2
-Appearance,lxappearance,preferences-desktop-theme
+Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
 Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
 Wallpaper,nitrogen,preferences-desktop-wallpaper,wallpaper
@@ -126,18 +128,19 @@ man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
 
 System,^tag(bl-system)
 Back,^back()
+Quick System Info,x-terminal-emulator -T 'inxi system info' -e bash -c "inxi -F -d -J -l -o -p -r -u -x -z ; echo $'\n\nPress any key to close'; read -srn1"
+^sep()
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop,htop
-Install Selected Packages,^pipe(bl-install-pipemenu)
+Install Favourite Packages,^pipe(bl-install-pipemenu)
 Synaptic Package Manager,pkexec synaptic,synaptic
 Login Settings,pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf,lightdm-settings
 Login Interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
-GParted,pkexec gparted,gparted
+GParted Partition Manager,pkexec gparted,gparted
 Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",web-browser
 Edit Debian Alternatives,galternatives,galternatives
 ^sep()
 About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace,distributor-logo-bunsenlabs
-
 
 ^tag(apps)
 

@@ -30,7 +30,8 @@
 ## Do not edit the next line unless you have also installed any
 ## necessary other programs for the different window manager,
 ## and edited the window-manager-dependent section later in this file.
-## Use the window manager's actual command, not name:
+## Use the window manager's actual command, not name.
+## This should be the first uncommented line in this file:
 window_manager=openbox
 
 # test if chosen window manager is actually running (you should probably not edit this line)
@@ -90,16 +91,17 @@ openbox)
     ## Set a wallpaper
     nitrogen --restore
 
-    ## Compton
+    ## Composition
     ## NOTE: composition must be started before tint2
     # disabled for CD system
     #bl-compositor --start
 
+    ## Start the Conky session (the default conkyrc will run if no sessions have been set)
+    bl-conky-session &
+
     ## Start the tint2 session (the default tint2 will run if no sessions have been set)
     ( sleep 2; bl-tint2-session ) &
 
-    ## Start the Conky session (the default conkyrc will run if no sessions have been set)
-    bl-conky-session --autostart &
     ;;
     # End of openbox application group.
 
@@ -107,15 +109,15 @@ openbox)
 #xfwm4)
 #   xcape -e 'Super_L=Super_L|space'
 #   (sleep 3; xfdesktop) &
-#   bl-tint2-session
-#   bl-conky-session --autostart &
+#   bl-tint2-session &
+#   bl-conky-session &
 #   ;;
 
 ## Vague possibility for Awesome window manager
 #awesome)
 #    bl-compositor --start
 #    xfce4-panel &
-#    bl-conky-session --autostart &
+#    bl-conky-session &
 #    ;;
 
 esac
@@ -132,7 +134,7 @@ pnmixer &
 xfce4-clipman &
 
 ## Start Thunar Daemon, if set as bl-file-manager
-if [ "$(readlink -f $(which bl-file-manager))" = "$(which thunar)" ]
+if [ "$(readlink -f "$(which bl-file-manager)")" = "$(which thunar)" ]
 then
     thunar --daemon &
 fi
@@ -150,5 +152,5 @@ fi
 #(sleep 20; bl-fortune) &
 
 ## Run the XDG autostart stuff. This requires python3-xdg to be installed.
-## See bl-xdg-autostart --list for list of autostarted applications.
+## See 'bl-xdg-autostart --list' for list of autostarted applications.
 bl-xdg-autostart
