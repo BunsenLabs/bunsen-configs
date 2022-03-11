@@ -21,3 +21,6 @@ export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
 ## Modify xdg-open behaviour, and others.
 # "BunsenLabs" will be interpreted as X-generic
 export XDG_CURRENT_DESKTOP=BunsenLabs
+
+# Disable overlay scrollbars
+export GTK_OVERLAY_SCROLLING=0
