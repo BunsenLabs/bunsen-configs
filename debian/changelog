@@ -1,3 +1,11 @@
+bunsen-configs (11.4.1-1) beryllium; urgency=medium
+
+  * bunsen/environment: disable GTK overlay scrollbars
+  * bunsen-configs-lite: update bunsen/autostart and jgmenu/prepend.csv
+  * some small bugfixes
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 06 Apr 2022 16:55:20 +0900
+
 bunsen-configs (11.4-1) beryllium; urgency=medium
 
   * bl-alternatives: remove obsolete applications.
