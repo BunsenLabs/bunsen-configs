@@ -5,10 +5,11 @@
 ## The script bl-user-setup copies them to the user $HOME directory on first login.
 ## See more info with command 'bl-user-setup --help'
 #
-# BL-Lithium theme colours
+# BL-Beryllium theme colours
 #
 # written for BunsenLabs by damo <damo@bunsenlabs.org> May 2015
 # modified July 2017
+# modified April 2022
 #
 # -nb    normal background colour
 # -nf    normal foreground colour
@@ -38,9 +39,9 @@ if [[ $# = 1 ]]; then
     esac
 fi
 
-# BL-Lithium
+# BL-Beryllium
 # Top
-dmenu_run -i -nb '#22373F' -nf '#C6D5E5' -sb '#446F6C' -sf '#151617'
+dmenu_run -i -nb '#18191A' -nf '#BECFCF' -sb '#BECFCF' -sf '#18191A'
 # Bottom
-#dmenu_run -i -b -nb '#22373F' -nf '#C6D5E5' -sb '#446F6C' -sf '#151617'
+#dmenu_run -i -b -nb '#18191A' -nf '#BECFCF' -sb '#BECFCF' -sf '#18191A'
 
