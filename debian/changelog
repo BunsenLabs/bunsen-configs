@@ -1,3 +1,10 @@
+bunsen-configs (11.5-1) beryllium; urgency=medium
+
+  * Update GTK, openbox, nitrogen, and other configs to use
+     Dragon theme, Papirus-Bunsen-Dark-black icons and Beryllium wallpaper.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 14 May 2022 15:52:37 +0900
+
 bunsen-configs (11.4.1-1) beryllium; urgency=medium
 
   * bunsen/environment: disable GTK overlay scrollbars
