@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "%USERHOME%/.gtkrc-2.0.mine"
-gtk-theme-name="BL-Lithium"
+gtk-theme-name="Dragon"
 gtk-icon-theme-name="Paper-Bunsen"
 gtk-font-name="Sans 10"
 gtk-cursor-theme-name="DMZ-White"
