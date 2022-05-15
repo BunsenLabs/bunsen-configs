@@ -1,3 +1,9 @@
+bunsen-configs (11.5.1-1) beryllium; urgency=medium
+
+  * Update terminator profile and current BLOB theme.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 15 May 2022 15:44:01 +0900
+
 bunsen-configs (11.5-1) beryllium; urgency=medium
 
   * Update GTK, openbox, nitrogen, and other configs to use
