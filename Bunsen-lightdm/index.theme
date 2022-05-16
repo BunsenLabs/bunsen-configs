@@ -1,6 +1,6 @@
 [Icon Theme]
 Name=Bunsen-lightdm
-Comment=Lightdm Icon Badges: Name the badge of your choice in 256x256/status "avatar-default.png"
+Comment=Lightdm Icon Badges: Put the badge of your choice in 256x256/status "avatar-default.png"
 Hidden=true
 Directories=256x256/status
 
