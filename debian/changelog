@@ -1,3 +1,9 @@
+bunsen-configs (11.5.2-1) beryllium; urgency=medium
+
+  * Add Beryllium tint2 config.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 16 May 2022 11:34:07 +0900
+
 bunsen-configs (11.5.1-1) beryllium; urgency=medium
 
   * Update terminator profile and current BLOB theme.
