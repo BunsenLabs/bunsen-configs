@@ -32,24 +32,23 @@ CUSTOM_ARGS='systemd.unit=multi-user.target'
 
 ##############################
 
+prefix="/usr"
+exec_prefix="/usr"
 datarootdir="/usr/share"
 ubuntu_recovery="0"
 quiet_boot="0"
 quick_boot="0"
 gfxpayload_dynamic="0"
+vt_handoff="0"
 
-# pkgdatadir exported by grub-mkconfig in Debian Stretch
-if [ "x${pkgdatadir}" != x ] && [ -f "$pkgdatadir/grub-mkconfig_lib" ]; then
-  . "$pkgdatadir/grub-mkconfig_lib"
-elif [ -f "${datarootdir}/grub/grub-mkconfig_lib" ]; then
-  . "${datarootdir}/grub/grub-mkconfig_lib"
-else
-  # no file, so we notify and exit gracefully
-  echo "Cannot find grub-mkconfig_lib, not adding custom entry." >&2
-  exit 0
-fi
+# pkgdatadir exported by grub-mkconfig
+. "$pkgdatadir/grub-mkconfig_lib"
+
+export TEXTDOMAIN=grub
+export TEXTDOMAINDIR="${datarootdir}/locale"
 
 CLASS="--class gnu-linux --class gnu --class os"
+SUPPORTED_INITS="sysvinit:/lib/sysvinit/init systemd:/lib/systemd/systemd upstart:/sbin/upstart"
 
 if [ "x${GRUB_DISTRIBUTOR}" = "x" ] ; then
   OS=GNU/Linux
@@ -78,12 +77,22 @@ case ${GRUB_DEVICE} in
   ;;
 esac
 
+# Default to disabling partition uuid support to maintian compatibility with
+# older kernels.
+GRUB_DISABLE_LINUX_PARTUUID=${GRUB_DISABLE_LINUX_PARTUUID-true}
+
 # btrfs may reside on multiple devices. We cannot pass them as value of root= parameter
 # and mounting btrfs requires user space scanning, so force UUID in this case.
-if [ "x${GRUB_DEVICE_UUID}" = "x" ] || [ "x${GRUB_DISABLE_LINUX_UUID}" = "xtrue" ] \
-    || ! test -e "/dev/disk/by-uuid/${GRUB_DEVICE_UUID}" \
+if ( [ "x${GRUB_DEVICE_UUID}" = "x" ] && [ "x${GRUB_DEVICE_PARTUUID}" = "x" ] ) \
+    || ( [ "x${GRUB_DISABLE_LINUX_UUID}" = "xtrue" ] \
+  && [ "x${GRUB_DISABLE_LINUX_PARTUUID}" = "xtrue" ] ) \
+    || ( ! test -e "/dev/disk/by-uuid/${GRUB_DEVICE_UUID}" \
+  && ! test -e "/dev/disk/by-partuuid/${GRUB_DEVICE_PARTUUID}" ) \
     || ( test -e "${GRUB_DEVICE}" && uses_abstraction "${GRUB_DEVICE}" lvm ); then
   LINUX_ROOT_DEVICE=${GRUB_DEVICE}
+elif [ "x${GRUB_DEVICE_UUID}" = "x" ] \
+    || [ "x${GRUB_DISABLE_LINUX_UUID}" = "xtrue" ]; then
+  LINUX_ROOT_DEVICE=PARTUUID=${GRUB_DEVICE_PARTUUID}
 else
   LINUX_ROOT_DEVICE=UUID=${GRUB_DEVICE_UUID}
 fi
@@ -98,9 +107,11 @@ case x"$GRUB_FS" in
     xzfs)
   rpool=`${grub_probe} --device ${GRUB_DEVICE} --target=fs_label 2>/dev/null || true`
   bootfs="`make_system_path_relative_to_its_root / | sed -e "s,@$,,"`"
-  LINUX_ROOT_DEVICE="ZFS=${rpool}${bootfs}"
+  LINUX_ROOT_DEVICE="ZFS=${rpool}${bootfs%/}"
   ;;
 esac
+
+title_correction_code=
 
 ## This function unchanged from 10_linux ##
 linux_entry ()
@@ -190,8 +201,12 @@ EOF
   echo  '$(echo "$message" | grub_quote)'
 EOF
     fi
+    initrd_path=
+    for i in ${initrd}; do
+      initrd_path="${initrd_path} ${rel_dirname}/${i}"
+    done
     sed "s/^/$submenu_indentation/" << EOF
-  initrd  ${rel_dirname}/${initrd}
+  initrd  $(echo $initrd_path)
 EOF
   fi
   sed "s/^/$submenu_indentation/" << EOF
@@ -227,7 +242,57 @@ prepare_root_cache=
 boot_device_id=
 title_correction_code=
 
+cat << 'EOF'
+function gfxmode {
+  set gfxpayload="${1}"
+EOF
+if [ "$vt_handoff" = 1 ]; then
+  cat << 'EOF'
+  if [ "${1}" = "keep" ]; then
+    set vt_handoff=vt.handoff=7
+  else
+    set vt_handoff=
+  fi
+EOF
+fi
+cat << EOF
+}
+EOF
 
+# Use ELILO's generic "efifb" when it's known to be available.
+# FIXME: We need an interface to select vesafb in case efifb can't be used.
+if [ "x$GRUB_GFXPAYLOAD_LINUX" != x ] || [ "$gfxpayload_dynamic" = 0 ]; then
+  echo "set linux_gfx_mode=$GRUB_GFXPAYLOAD_LINUX"
+else
+  cat << EOF
+if [ "\${recordfail}" != 1 ]; then
+  if [ -e \${prefix}/gfxblacklist.txt ]; then
+    if hwmatch \${prefix}/gfxblacklist.txt 3; then
+      if [ \${match} = 0 ]; then
+        set linux_gfx_mode=keep
+      else
+        set linux_gfx_mode=text
+      fi
+    else
+      set linux_gfx_mode=text
+    fi
+  else
+    set linux_gfx_mode=keep
+  fi
+else
+  set linux_gfx_mode=text
+fi
+EOF
+fi
+cat << EOF
+export linux_gfx_mode
+EOF
+
+# Extra indentation to add to menu entries in a submenu. We're not in a submenu
+# yet, so it's empty. In a submenu it will be equal to '\t' (one tab).
+submenu_indentation=""
+
+is_top_level=true
 while [ "x$list" != "x" ] ; do
   linux=`version_find_latest $list`
   case $linux in
@@ -245,7 +310,15 @@ while [ "x$list" != "x" ] ; do
   alt_version=`echo $version | sed -e "s,\.old$,,g"`
   linux_root_device_thisversion="${LINUX_ROOT_DEVICE}"
 
-  initrd=
+  initrd_early=
+  for i in ${GRUB_EARLY_INITRD_LINUX_STOCK} \
+     ${GRUB_EARLY_INITRD_LINUX_CUSTOM}; do
+    if test -e "${dirname}/${i}" ; then
+      initrd_early="${initrd_early} ${i}"
+    fi
+  done
+
+  initrd_real=
   for i in "initrd.img-${version}" "initrd-${version}.img" "initrd-${version}.gz" \
      "initrd-${version}" "initramfs-${version}.img" \
      "initrd.img-${alt_version}" "initrd-${alt_version}.img" \
@@ -255,10 +328,21 @@ while [ "x$list" != "x" ] ; do
      "initramfs-genkernel-${GENKERNEL_ARCH}-${version}" \
      "initramfs-genkernel-${GENKERNEL_ARCH}-${alt_version}"; do
     if test -e "${dirname}/${i}" ; then
-      initrd="$i"
+      initrd_real="${i}"
       break
     fi
   done
+
+  initrd=
+  if test -n "${initrd_early}" || test -n "${initrd_real}"; then
+    initrd="${initrd_early} ${initrd_real}"
+
+    initrd_display=
+    for i in ${initrd}; do
+      initrd_display="${initrd_display} ${dirname}/${i}"
+    done
+    gettext_printf "Found initrd image: %s\n" "$(echo $initrd_display)" >&2
+  fi
 
   config=
   for i in "${dirname}/config-${version}" "${dirname}/config-${alt_version}" "/etc/kernels/kernel-config-${version}" ; do
@@ -273,12 +357,16 @@ while [ "x$list" != "x" ] ; do
       initramfs=`grep CONFIG_INITRAMFS_SOURCE= "${config}" | cut -f2 -d= | tr -d \"`
   fi
 
-  if test -n "${initrd}" ; then
-    gettext_printf "initrd image OK: %s\n" "${dirname}/${initrd}" >&2
-  elif test -z "${initramfs}" ; then
+  if test -z "${initramfs}" && test -z "${initrd_real}" ; then
     # "UUID=" and "ZFS=" magic is parsed by initrd or initramfs.  Since there's
     # no initrd or builtin initramfs, it can't work here.
-    linux_root_device_thisversion=${GRUB_DEVICE}
+    if [ "x${GRUB_DEVICE_PARTUUID}" = "x" ] \
+  || [ "x${GRUB_DISABLE_LINUX_PARTUUID}" = "xtrue" ]; then
+
+  linux_root_device_thisversion=${GRUB_DEVICE}
+    else
+  linux_root_device_thisversion=PARTUUID=${GRUB_DEVICE_PARTUUID}
+    fi
   fi
 
 ## CUSTOM ENTRY ADDED HERE ##
