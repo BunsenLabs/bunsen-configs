@@ -1,3 +1,9 @@
+bunsen-configs (11.5.4-1) beryllium; urgency=medium
+
+  * Invoke update-grub on install so grub configs are applied immediately.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 21 May 2022 16:48:20 +0900
+
 bunsen-configs (11.5.3-1) beryllium; urgency=medium
 
   * Update colours for jgmenu and grub menu.
