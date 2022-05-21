@@ -31,9 +31,9 @@ BL_GRUB_BACKGROUND='/boot/grub/images/bunsen/default.png'
 
 # Set these colours if default BL background image is detected.
 BL_TEXT_COLORS='color_normal=light-gray/black
-color_highlight=light-red/black
+color_highlight=light-cyan/black
 menu_color_normal=light-gray/black
-menu_color_highlight=light-red/black'
+menu_color_highlight=light-cyan/black'
 
 # same as defined in /usr/sbin/update-grub and passed to grub-mkconfig
 grub_cfg='/boot/grub/grub.cfg'
