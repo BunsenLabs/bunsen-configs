@@ -29,6 +29,11 @@ remove|deconfigure)
     then
         update-alternatives --remove x-session-manager "$BUNSEN_SESSION"
     fi
+    # this package added some grub config
+    if command -v update-grub > /dev/null ; then
+        sync
+        update-grub || true
+    fi
     ;;
 esac
 

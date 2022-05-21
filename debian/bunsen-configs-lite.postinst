@@ -29,6 +29,11 @@ configure|abort-upgrade|abort-deconfigure|abort-remove)
          --slave "$MAN1/x-session-manager.1.gz" x-session-manager.1.gz "$MAN1/bunsenlabs-session.1.gz"
         update-alternatives --set x-session-manager "$BUNSEN_SESSION"
     fi
+    # grub menu tty entry and text colours have been added
+    if command -v update-grub > /dev/null ; then
+        sync
+        update-grub || true
+    fi
     ;;
 esac
 
