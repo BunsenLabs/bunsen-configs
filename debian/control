@@ -95,7 +95,8 @@ Suggests: fonts-liberation,
  xfce4-notifyd,
  xfce4-screenshooter
 Provides: ${diverted-files}
-Replaces: bunsen-configs
+Replaces: bunsen-configs, bunsen-conky (<< 11.1-1)
+Breaks: bunsen-conky (<< 11.1-1)
 Conflicts: ${diverted-files}, bunsen-configs
 Description: lightened config files for BunsenLabs Linux
  Various configuration files for BunsenLabs Linux.
