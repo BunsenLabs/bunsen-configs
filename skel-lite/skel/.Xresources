@@ -35,9 +35,12 @@ URxvt.iconFile: /usr/share/icons/Adwaita/48x48/apps/utilities-terminal.png
 URxvt.cursorBlink: true
 URxvt.fading: 20
 
+! Beryllium colours
+URxvt.background: [95]#18191A
+URxvt.foreground: #BECFCF
 ! Lithium colours
-URxvt.background: [95]#22373F
-URxvt.foreground: #C6D5E5
+!URxvt.background: [95]#22373F
+!URxvt.foreground: #C6D5E5
 ! Grey theming
 !URxvt*background: #cecece
 !URxvt*foreground: #101010
