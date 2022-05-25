@@ -1,3 +1,9 @@
+bunsen-configs (11.5.5-2) beryllium; urgency=medium
+
+  * bunsen-configs-lite: add Beryllium colours for urxvt.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 25 May 2022 13:24:59 +0900
+
 bunsen-configs (11.5.4-1) beryllium; urgency=medium
 
   * Invoke update-grub on install so grub configs are applied immediately.
