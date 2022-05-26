@@ -1,3 +1,12 @@
+bunsen-configs (11.5.5-3) beryllium; urgency=medium
+
+  * bunsen-configs-lite: add package relationships with bunsen-conky
+     so the move of default conky file to this package does not stop upgrades.
+     This change does not affect bunsen-configs,
+     which already had the necessary lines.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 26 May 2022 08:58:29 +0900
+
 bunsen-configs (11.5.5-2) beryllium; urgency=medium
 
   * bunsen-configs-lite: add Beryllium colours for urxvt.
