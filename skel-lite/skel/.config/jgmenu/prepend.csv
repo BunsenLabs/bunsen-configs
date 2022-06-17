@@ -18,7 +18,7 @@ File Manager,bl-file-manager,system-file-manager
 Text Editor,bl-text-editor,text-editor
 Media Player,bl-media-player,multimedia-player
 ^sep()
-Quick Screenshot,bl-image-upload
+Quick Screenshot+Upload,bl-image-upload
 ^sep()
 Utilities,^checkout(bl-utilities),applications-utilities
 Places,^pipe(jgmenu_run ob --cmd="bl-places-pipemenu" --tag="bl-places-pipemenu"),folder
