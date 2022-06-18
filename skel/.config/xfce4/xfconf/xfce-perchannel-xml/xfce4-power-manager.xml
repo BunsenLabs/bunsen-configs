@@ -6,7 +6,9 @@
     <property name="lid-action-on-ac" type="uint" value="1"/>
     <property name="lid-action-on-battery" type="uint" value="1"/>
     <property name="critical-power-action" type="uint" value="1"/>
-    <property name="show-tray-icon" type="uint" value="1"/>
+    <property name="show-tray-icon" type="bool" value="true"/>
     <property name="general-notification" type="bool" value="true"/>
+    <property name="show-panel-label" type="int" value="1"/>
+    <property name="show-presentation-indicator" type="bool" value="true"/>
   </property>
 </channel>
