@@ -2,7 +2,7 @@
 
 #    grub-mkconfig helper script for BunsenLabs.
 
-#    Copyright: 2017 John Crawley <john@bunsenlabs.org>
+#    Copyright: 2017-2022 John Crawley <john@bunsenlabs.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
