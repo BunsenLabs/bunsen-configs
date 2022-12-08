@@ -168,8 +168,9 @@ search_url="dd StartPage https://www.startpage.com/do/dsearch?query=%s"
 search_url="Google http://www.google.com/search?as_q=%s"
 search_url="Wikipedia http://www.wikipedia.org/w/index.php?search=%s&go=Go"
 search_url="Free Dictionary http://www.thefreedictionary.com/%s"
-search_url="DuckDuckGo http://lite.duckduckgo.com/lite/?kp=-1&q=%s"
+search_url="DuckDuckGo (https) https://duckduckgo.com/lite/?kp=-1&q=%s&kd=-1"
 # DuckDuckGo redirection does not work with dillo.
+# (now fixed)
 
 # If set, dillo will ask web servers to send pages in this language.
 # This setting does NOT change dillo's user interface.
