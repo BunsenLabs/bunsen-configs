@@ -1,3 +1,9 @@
+bunsen-configs (11.5.8-1) beryllium; urgency=medium
+
+  * ~/.config/dillorc: update for dillo 3.1
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 14 Dec 2022 14:54:08 +0900
+
 bunsen-configs (11.5.7-1) beryllium; urgency=medium
 
   * ~/.config/dillorc: use https for DuckDuckGo.
