@@ -19,6 +19,10 @@ geometry=950x700
 # menu.)
 load_images=YES
 
+media_player=mpv -ytdl-format='bestvideo[height<=?360]+bestaudio/best'
+# media_downloader="uget-gtk"
+media_downloader="cd ~ && yt-dlp --socket-timeout=60 -f '[height <=? 480]'"
+
 # Change this if you want background images to be loaded initially.
 # (While browsing, this can be changed from the tools/settings menu.)
 load_background_images=NO
@@ -83,6 +87,15 @@ show_tooltip=YES
 # width (may be useful for iPAQ)
 limit_text_width=YES
 
+# If this is set to YES, all CSS size specifications are adjusted so that
+# all contents can be displayed. (Except for tables, see below.)
+#adjust_min_width=YES
+
+# If this is set to YES, all CSS size specifications for tables are
+# adjusted so that all contents can be displayed. This is seperated
+# from "adjust_min_width" so that it is able to mimic Firefox, which
+# differenciates between tables and, say, textblocks (in some cases).
+#adjust_table_min_width=YES
 
 #-------------------------------------------------------------------------
 #                               PENALTIES
@@ -131,15 +144,6 @@ limit_text_width=YES
 # text.
 #stretchability_factor=1
 
-#-------------------------------------------------------------------------
-#                            PARSING SECTION
-#-------------------------------------------------------------------------
-
-# If you prefer more accurate HTML bug diagnosis over better rendering
-# (page authors and webmasters) set the following to "NO".
-#
-w3c_plus_heuristics=YES
-
 
 #-------------------------------------------------------------------------
 #                            NETWORK SECTION
@@ -163,14 +167,19 @@ home="https://forums.bunsenlabs.org/"
 # Format: search_url="[prefix ][<label> ]<url>"
 # You can enable multiple search_url strings at once and select from among
 # them at runtime, with the first being the default.
-# (the prefix serves to search from the Location Bar. e.g. "dd dillo image")
-search_url="dd StartPage https://www.startpage.com/do/dsearch?query=%s"
-search_url="Google http://www.google.com/search?as_q=%s"
-search_url="Wikipedia http://www.wikipedia.org/w/index.php?search=%s&go=Go"
-search_url="Free Dictionary http://www.thefreedictionary.com/%s"
-search_url="DuckDuckGo (https) https://duckduckgo.com/lite/?kp=-1&q=%s&kd=-1"
-# DuckDuckGo redirection does not work with dillo.
-# (now fixed)
+# (the prefix serves to search from the Location Bar. e.g. "d dillo image")
+# NOTE:  THE FIRST search_url ENTRY WILL BE THE DEFAULT SEARCH ENGINE
+# IF NO SEARCH KEYWORD IS FOUND IN YOUR SEARCH REQUEST
+search_url="d DuckDuckGo (https) https://duckduckgo.com/lite/?kp=-1&q=%s&kd=-1"
+search_url="s Startpage (https) https://www.startpage.com/do/search?query=%s"
+search_url="g Google http://www.google.com/search?source=hp&biw=&bih=&gbv=1&q=%s"
+search_url="f Free Dictionary http://www.thefreedictionary.com/%s"
+search_url="r Teddit https://teddit.net/r/all/search?q=%s"
+search_url="t Twitter https://nitter.net/search?f=users&q=%s"
+search_url="u Unsplash https://unsplash.com/s/photos/%s"
+search_url="v Deviant Art https://www.deviantart.com/search?q=%s"
+search_url="w Wikipedia http://www.wikipedia.org/w/index.php?search=%s&go=Go"
+search_url="c Wikimedia Commons https://commons.wikimedia.org/w/index.php?search=%s&title=Special:MediaSearch&go=Go&type=image"
 
 # If set, dillo will ask web servers to send pages in this language.
 # This setting does NOT change dillo's user interface.
@@ -179,12 +188,26 @@ search_url="DuckDuckGo (https) https://duckduckgo.com/lite/?kp=-1&q=%s&kd=-1"
 # (by default, no Accept-Language header is sent)
 # http_language="de"
 # http_language="pt-BR"
-# http_language="vi,de-CH,de;q=0.5,th;q=0.3"
+# http_language="en-US,en;q=0.5"
 
 # Maximum number of simultaneous TCP connections to a single server or proxy.
 # http_max_conns=6
 
-# Set the proxy information for http.
+# If enabled, Dillo will reuse HTTP connections to a server or proxy when
+# possible rather than making a new connection for every request for a new
+# page/image/stylesheet.
+#http_persistent_conns=YES
+
+# This mechanism allows servers to specify that they are only to be contacted
+# through HTTPS and not HTTP.
+#
+# Overall, this is a valuable security measure against TLS stripping
+# attacks, etc., but in principle a site could contrive to use this as a
+# tracking mechanism. The term is "HSTS super cookie", although note that these
+# HSTS directives are not saved between browser sessions.
+#http_strict_transport_security=YES
+
+# Set the proxy information for http/https.
 # Note that the http_proxy environment variable overrides this setting.
 # WARNING: FTP and downloads plugins use wget. To use a proxy with them,
 #          you will need to configure wget accordingly. See
@@ -232,7 +255,7 @@ http_referer=path
 # bg_color=0xd6d6c0
 bg_color=0xcecece
 
-# If your eyes suffer with white backgrounds, change this.
+# If your eyes suffer with white backgrounds, set this to NO.
 allow_white_bg=NO
 
 # If allow_white_bg is set to NO, white backgrounds are replaced by
@@ -254,7 +277,7 @@ contrast_visited_color=YES
 # "plastic" "is inspired by the Aqua user interface on Mac OS X".
 # "gtk+" "is inspired by the Red Hat Bluecurve theme".
 #
-# Once fltk-1.3.3 is released, you will be able to specify "gleam", which
+# If you have fltk-1.3.3 or newer, you can specify "gleam", which
 # is "a sort of Clearlooks Glossy scheme".  ("fltk-config --version")
 #theme=none
 theme=gtk+
@@ -265,39 +288,66 @@ theme=gtk+
 # that FLTK may sometimes override colors, generally for contrast and
 # readability.
 #
-#ui_fg_color=black
-#ui_main_bg_color=silver
-#ui_text_bg_color=white
-#ui_selection_color=navy
+# Colours map to concepts in the underlying FLTK toolkit which are described as:
+# ui_fg_color: "the default foreground color...used for labels and text"
+# ui_main_bg_color: "default background color"
+# ui_text_bg_color: "the default background color for text, list, and valuator widgets"
+# ui_selection_color: "the default selection/highlight color"
+# They sometimes have other uses in the more complex FLTK widgets.
 #
-# Background used when the mouse cursor is over a button.
-#ui_button_highlight_color=(by default, the main background color, lightened)
+# ui_button_highlight_color is the background used when the mouse cursor is
+# over a button. By default, this is a lightened version of the main
+# background color.
 #
-# Colors for the current tab.
-#ui_tab_active_bg_color=(by default, the text background color)
-#ui_tab_active_fg_color=(by default, the main foreground color)
+# ui_tab_active_fg_color and ui_tab_active_bg_color are used for the current
+# tab. By default, they are the main foreground color and the text background
+# color, respectively.
 #
-# Colors for the other tabs.
-#ui_tab_bg_color=(by default, the main background color)
-#ui_tab_fg_color=(by default, the main foreground color)
-
-
+# ui_tab_fg_color and ui_tab_bg_color are used for the other tabs. By default,
+# they are the main foreground color and the main background color,
+# respectively.
+#
 # Note to packagers: leaving these variables for the system to guess
 # gives different results in different environments, so we played it safe
 # by defining the traditional colors.  Please choose the color theme that
 # better fits your distro.
 
 #
+# Beryllium theme:
+#
+ui_fg_color=#BECFCF
+ui_main_bg_color=#18191A
+ui_text_bg_color=#18191A
+ui_selection_color=#3A4042
+ui_button_highlight_color=#3A4042
+ui_tab_active_bg_color=#3B4143
+ui_tab_active_fg_color=#BECFCF
+ui_tab_fg_color=#BECFCF
+ui_tab_bg_color=#18191A
+
+#
 # Slightly Lithium theme:
 #
-ui_fg_color=white
-ui_main_bg_color=#2b454f
-ui_text_bg_color=#4a6069
-ui_selection_color=#191970
-ui_button_highlight_color=#a9a9a9
-ui_tab_active_bg_color=#87aca7
-ui_tab_active_fg_color=black
-ui_tab_bg_color=#b7beb7
+#ui_fg_color=white
+#ui_main_bg_color=#2b454f
+#ui_text_bg_color=#4a6069
+#ui_selection_color=#191970
+#ui_button_highlight_color=#a9a9a9
+#ui_tab_active_bg_color=#87aca7
+#ui_tab_active_fg_color=black
+#ui_tab_bg_color=#b7beb7
+
+#
+# w00f theme
+#
+#ui_fg_color=black
+#ui_main_bg_color=#E8E8FF
+#ui_text_bg_color=#FFFFFF
+#ui_selection_color=#191970
+#ui_button_highlight_color=#a9a9a9
+#ui_tab_active_bg_color=#D3E7F3
+#ui_tab_active_fg_color=black
+#ui_tab_bg_color=#A4CCE3
 
 #
 # Gray theme (traditional)
@@ -339,9 +389,9 @@ ui_tab_bg_color=#b7beb7
 # tiny   : buttons, location, and progress boxes in one row
 # small  : location in one row, buttons + progress boxes in another
 # medium : adds text labels to buttons and boxes
-# panel_size=tiny
+ panel_size=tiny
 # panel_size=small
-panel_size=tiny
+#panel_size=medium
 
 small_icons=YES
 
@@ -400,7 +450,7 @@ focus_new_tab=NO
 # Soon we should add the "show_debug_messages=NO" option...
 
 # Generic messages (mainly for debugging specific parts)
-# Change this to disable them.
+# Change this to NO to disable them.
 show_msg=NO
 
 
