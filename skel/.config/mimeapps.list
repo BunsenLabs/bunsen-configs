@@ -18,3 +18,5 @@ video/webm=bl-media-player.desktop
 video/x-ms-asf=bl-media-player.desktop
 video/x-theora+ogg=bl-media-player.desktop
 application/x-deb=gdebi.desktop
+x-scheme-handler/http=bl-www-browser.desktop
+x-scheme-handler/https=bl-www-browser.desktop
