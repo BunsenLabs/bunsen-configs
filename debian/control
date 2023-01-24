@@ -2,8 +2,9 @@ Source: bunsen-configs
 Section: misc
 Priority: optional
 Maintainer: John Crawley <john@bunsenlabs.org>
-Build-Depends: debhelper-compat (= 12), help2man, python3, python3-xdg
-Standards-Version: 4.5.1
+Build-Depends: debhelper-compat (= 13), help2man, python3, python3-xdg
+Rules-Requires-Root: no
+Standards-Version: 4.6.1.0
 Homepage: https://github.com/BunsenLabs/bunsen-configs
 Vcs-Git: https://github.com/BunsenLabs/bunsen-configs.git
 Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs

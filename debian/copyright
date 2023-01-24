@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: bunsen-configs
 Source: https://github.com/BunsenLabs/bunsen-configs
 
@@ -9,47 +9,19 @@ Copyright: 2012 Philip Newborough <corenominal@corenominal.org>
            2018 William Bradley <webradley9929@gmail.com>
            2019 Johan Malm <jgm323@gmail.com>
            2015-2021 damo <damo@bunsenlabs.org>
-           2015-2022 John Crawley <john@bunsenlabs.org>
+           2015-2023 John Crawley <john@bunsenlabs.org>
 License: GPL-3+
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
- .
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- .
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed.
 
 Files: debian/*
-Copyright: 2015-2022 John Crawley <john@bunsenlabs.org>
+Copyright: 2015-2023 John Crawley <john@bunsenlabs.org>
            2015 Jens Oliver John <dev@2ion.de>
 License: GPL-3+
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
- .
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- .
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- .
- On Debian systems, the complete text of the GNU General
- Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
 
 Files: bin/bl-xdg-autostart
 Copyright: 2008 Dana Jansens
            2020 Jens Oliver John <dev@2ion.de>
+License: GPL-3+
+
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
