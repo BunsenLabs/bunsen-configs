@@ -31,6 +31,7 @@ Recommends: bunsen-conky (>= 11.1-1),
  openbox,
  picom,
  pnmixer,
+ polkitd-pkla,
  python3,
  python3-xdg,
  scrot,
@@ -44,6 +45,7 @@ Suggests: fonts-noto,
  qt5-gtk-platformtheme,
  qt5-style-plugins,
  libqt5svg5,
+ librsvg2-common,
  tk,
  xfce4-clipman,
  xfce4-notifyd,
@@ -77,6 +79,7 @@ Recommends: bunsen-conky,
  nitrogen,
  openbox,
  pnmixer,
+ polkitd-pkla,
  python3,
  python3-xdg,
  scrot,
@@ -90,6 +93,7 @@ Suggests: fonts-liberation,
  qt5-gtk-platformtheme,
  qt5-style-plugins,
  libqt5svg5,
+ librsvg2-common,
  tk,
  xfce4-appfinder,
  xfce4-clipman,
@@ -105,6 +109,6 @@ Description: lightened config files for BunsenLabs Linux
  scripts and desktop files to set up the bl-alternatives system,
  and some other system configuration files.
  .
- This package provides some modified files for a system installed
- from a CD. Memory usage and disk space should be slightly lower
+ This package provides some modified files for a light system.
+ Memory usage and disk space should be slightly lower
  than with the standard configs package.
