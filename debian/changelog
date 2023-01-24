@@ -1,3 +1,14 @@
+bunsen-configs (12.0-1) boron; urgency=medium
+
+  * Migrate for Debian Bookworm
+    - debian/control: Bump Standards-Version to 4.6.1.0 - no changes required.
+    - debian/control: Declare debhelper compatibility 13.
+    - debian/control: Add Rules-Requires-Root: no
+    - debian/copyright: update year, use https Format url.
+  * Add Recommends: polkitd-pkla and librsvg2-common
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 24 Jan 2023 17:28:09 +0900
+
 bunsen-configs (11.5.8-1) beryllium; urgency=medium
 
   * ~/.config/dillorc: update for dillo 3.1
@@ -157,14 +168,14 @@ bunsen-configs (10.7.1-1) lithium; urgency=medium
      Improve logging and comments.
   * help-menu: Fix conky archive link to use web.archive.org
      Add DebianUser FAQs, fix Debian Handbook version.
-  [ hhhorb ] 
+  [ hhhorb ]
   * lithium-light-vertical.tint2rc: match clock text-color to systray icons.
 
  -- John Crawley <john@bunsenlabs.org>  Fri, 11 Sep 2020 14:36:46 +0900
 
 bunsen-configs (10.6.3-1) lithium; urgency=medium
 
-  * Rename tint2 config files from tint2rc-<name> to <name>.tint2rc 
+  * Rename tint2 config files from tint2rc-<name> to <name>.tint2rc
 
  -- John Crawley <john@bunsenlabs.org>  Thu, 16 Jul 2020 14:49:54 +0900
 
@@ -229,7 +240,7 @@ bunsen-configs (10.5.3-1) lithium; urgency=medium
 
 bunsen-configs (10.5.2-1) lithium; urgency=medium
 
-  * Thunar custom actions: 
+  * Thunar custom actions:
     - Add image upload.
     - Remove sha256sum check, now provided by thunar-gtkhash.
   * Use ristretto as default bl-image-viewer instead of mirage.
@@ -788,7 +799,6 @@ bunsen-configs (8.8.9-1) bunsen-hydrogen; urgency=medium
 bunsen-configs (8.8.8-1) bunsen-hydrogen; urgency=medium
 
   * Revert addition of user bl-exit config files.
-    
   * bl-alternatives: add ristretto to alternative image viewer list.
 
  -- John Crawley <john@bunsenlabs.org>  Fri, 07 Apr 2017 17:41:37 +0900
@@ -972,7 +982,7 @@ bunsen-configs (8.6.5-1) bunsen-hydrogen; urgency=low
 bunsen-configs (8.6.4-1) bunsen-hydrogen; urgency=low
 
   * Add caja to possible alternative file managers in bl-alternatives.
-  * Add symlinks from ~/.{icons,fonts,themes} to 
+  * Add symlinks from ~/.{icons,fonts,themes} to
     new locations in~/.local/share.
   * Set tint2 icon sizes to 0 to allow resizing.
 
@@ -983,7 +993,7 @@ bunsen-configs (8.6.3-1) bunsen-hydrogen; urgency=medium
   * Clean up .desktop files in applications/.
   * Add alias of 'mono' in skel/.config/fontconfig/fonts.conf
   * Change font to 'Monospace' in skel/.conkyrc
-  * Other minor code cleanups. 
+  * Other minor code cleanups.
 
  -- John Crawley <john@bunsenlabs.org>  Fri, 27 Nov 2015 17:42:07 +0900
 
@@ -1004,7 +1014,7 @@ bunsen-configs (8.6.1-1) bunsen-hydrogen; urgency=medium
 bunsen-configs (8.6-1) bunsen-hydrogen; urgency=low
 
   * Move user fonts, icons & themes directories to ~/.local/share
-  * Fix clock font in tint2rc and tint2rc-bottom. 
+  * Fix clock font in tint2rc and tint2rc-bottom.
 
  -- John Crawley <john@bunsenlabs.org>  Mon, 05 Oct 2015 10:46:12 +0900
 
@@ -1013,7 +1023,7 @@ bunsen-configs (8.5-1) bunsen-hydrogen; urgency=medium
   * Set default fonts in skel/.config/fontconfig/fonts.conf to Droid family.
   * Set fonts in user config files to Sans or Monospace.
   * Adjust some default window sizes.
-  * Update developer email addresses. 
+  * Update developer email addresses.
 
  -- John Crawley <john@bunsenlabs.org>  Sun, 04 Oct 2015 12:36:38 +0900
 
