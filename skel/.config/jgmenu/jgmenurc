@@ -1,6 +1,7 @@
 tint2_look          = 0
 csv_cmd             = apps
 position_mode       = pointer
+stay_alive          = 1
 menu_width          = 134
 menu_padding_top    = 24
 menu_padding_right  = 0
