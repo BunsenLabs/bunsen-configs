@@ -1,3 +1,9 @@
+bunsen-configs (12.1-1) boron; urgency=high
+
+  * Fix broken pkexec menu items.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 23 Jun 2023 14:16:27 +0900
+
 bunsen-configs (12.0-1) boron; urgency=medium
 
   * Migrate for Debian Bookworm
