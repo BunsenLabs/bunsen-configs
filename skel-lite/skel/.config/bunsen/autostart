@@ -93,7 +93,7 @@ openbox)
 
     ## Composition
     ## NOTE: composition must be started before tint2
-    # disabled for CD system
+    # disabled for lite system
     #bl-compositor --start
 
     ## Start the Conky session (the default conkyrc will run if no sessions have been set)
