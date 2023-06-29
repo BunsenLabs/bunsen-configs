@@ -1,3 +1,11 @@
+bunsen-configs (12.2-1) boron; urgency=medium
+
+  * Change theme settings to Boron-light-aqua
+     icon theme to Numix-Bunsen-Circle-aqua-Light.
+  * Adjust various colours for aqua theme.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 29 Jun 2023 16:02:02 +0900
+
 bunsen-configs (12.1-1) boron; urgency=high
 
   * Fix broken pkexec menu items.
