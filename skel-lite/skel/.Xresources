@@ -29,15 +29,19 @@ URxvt.geometry: 80x24
 URxvt.scrollstyle: plain
 URxvt.scrollBar: true
 URxvt.scrollBar_right: true
+URxvt.iconFile: /usr/share/icons/Numix-Circle/48/apps/terminal.svg
 !URxvt.iconFile: /usr/share/icons/Papirus/48x48/apps/urxvt.svg
 !URxvt.iconFile: /usr/share/icons/Paper/48x48/apps/utilities-terminal.png
-URxvt.iconFile: /usr/share/icons/Adwaita/48x48/apps/utilities-terminal.png
+!URxvt.iconFile: /usr/share/icons/Adwaita/48x48/apps/utilities-terminal.png
 URxvt.cursorBlink: true
 URxvt.fading: 20
 
+! Boron aqua colours
+URxvt.background: [90]#065261
+URxvt.foreground: #D7E8E8
 ! Beryllium colours
-URxvt.background: [95]#18191A
-URxvt.foreground: #BECFCF
+!URxvt.background: [95]#18191A
+!URxvt.foreground: #BECFCF
 ! Lithium colours
 !URxvt.background: [95]#22373F
 !URxvt.foreground: #C6D5E5

@@ -39,9 +39,9 @@ if [[ $# = 1 ]]; then
     esac
 fi
 
-# BL-Beryllium
+# BL-Boron aqua colours
 # Top
-dmenu_run -i -nb '#18191A' -nf '#BECFCF' -sb '#BECFCF' -sf '#18191A'
+dmenu_run -i -nb '#065261' -nf '#D7E8E8' -sb '#D7E8E8' -sf '#065261'
 # Bottom
-#dmenu_run -i -b -nb '#18191A' -nf '#BECFCF' -sb '#BECFCF' -sf '#18191A'
+#dmenu_run -i -b -nb '#065261' -nf '#D7E8E8' -sb '#D7E8E8' -sf '#065261'
 
