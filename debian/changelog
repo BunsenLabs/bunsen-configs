@@ -1,3 +1,10 @@
+bunsen-configs (12.2.1-1) boron; urgency=medium
+
+  * Adjust tint2 and conky configs for Boron.
+  * Improve jgmenu icons.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 10 Jul 2023 15:45:40 +0900
+
 bunsen-configs (12.2-1) boron; urgency=medium
 
   * Change theme settings to Boron-light-aqua
