@@ -38,7 +38,7 @@ URxvt.fading: 20
 
 ! Boron aqua colours
 URxvt.background: [90]#065261
-URxvt.foreground: ##D7E8E8
+URxvt.foreground: #D7E8E8
 ! Beryllium colours
 !URxvt.background: [95]#18191A
 !URxvt.foreground: #BECFCF
