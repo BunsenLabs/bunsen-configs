@@ -10,27 +10,27 @@
 @search,,24,3,150,20,2,left,top,auto,#000000 0,Type to Search
 
 ^sep()
-Run Program,gmrun
+Run Program,gmrun,system-run
 ^sep()
 Terminal,x-terminal-emulator,utilities-terminal
-Web Browser,x-www-browser,web-browser
+Web Browser,x-www-browser,applications-internet
 File Manager,bl-file-manager,system-file-manager
-Text Editor,bl-text-editor,text-editor
+Text Editor,bl-text-editor,accessories-text-editor
 Media Player,bl-media-player,multimedia-player
 ^sep()
-Quick Screenshot+Upload,bl-image-upload
+Quick Screenshot+Upload,bl-image-upload,camera-photo
 ^sep()
-Utilities,^checkout(bl-utilities),applications-utilities
+Utilities,^checkout(bl-utilities),system-run
 Places,^pipe(jgmenu_run ob --cmd="bl-places-pipemenu" --tag="bl-places-pipemenu"),folder
-Recent Files,^pipe(jgmenu_run ob --cmd="bl-recent-files-pipemenu -rl15" --tag="bl-recent-files-pipemenu")
+Recent Files,^pipe(jgmenu_run ob --cmd="bl-recent-files-pipemenu -rl15" --tag="bl-recent-files-pipemenu"),emblem-favorite
 ^sep()
-Preferences,^checkout(bl-preferences),preferences-system
-System,^checkout(bl-system),applications-system
+User Settings,^checkout(bl-preferences),preferences-desktop
+System Settings,^checkout(bl-system),applications-system
 ^sep()
 Help &amp; Resources,^checkout(bl-help-menu),help-contents
-Display Keybinds,^pipe(jgmenu_run ob --cmd="bl-kb-pipemenu" --tag="bl-kb-pipemenu")
+Display Keybinds,^pipe(jgmenu_run ob --cmd="bl-kb-pipemenu" --tag="bl-kb-pipemenu"),applications-development
 ^sep()
-Applications,^checkout(apps)
+All Applications,^checkout(apps),applications-other
 ^sep()
 Lock Screen,bl-lock,system-lock-screen
 Exit,bl-exit,system-shutdown
@@ -53,12 +53,12 @@ Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-
 
 ^tag(bl-preferences)
 Back,^back()
-BunsenLabs,^checkout(bl-blConfig)
-Openbox,^checkout(bl-obConfig)
-jgmenu,^checkout(bl-jgmenuConfig)
-Keybinds,^checkout(bl-xbindkeysConfig)
-# Uncomment the next line if you have installed picom or compton
-#Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor")
+BunsenLabs Session,^checkout(bl-blConfig),distributor-logo-bunsenlabs
+Openbox,^checkout(bl-obConfig),openbox
+jgmenu,^checkout(bl-jgmenuConfig),jgmenu
+Keybinds,^checkout(bl-xbindkeysConfig),preferences-desktop-keyboard
+# Uncomment the next line if you have installed picom
+#Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor"),picom
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu"),conky-manager
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu"),tint2
 Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
@@ -67,11 +67,11 @@ Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-de
 Wallpaper,nitrogen,preferences-desktop-wallpaper,wallpaper
 Notifications,xfce4-notifyd-config,notifyconf
 Power Management,xfce4-power-manager-settings,xfce4-power-manager-settings
-dmenu,^checkout(bl-dmenuconfig)
-gmrun,^checkout(bl-gmrunconfig)
-Display,^checkout(bl-DisplaySettings)
+dmenu,^checkout(bl-dmenuconfig),applications-development
+gmrun,^checkout(bl-gmrunconfig),gmrun
+Display,^checkout(bl-DisplaySettings),video-display
 
-BunsenLabs Session,^tag(bl-blConfig)
+^tag(bl-blConfig)
 Back,^back()
 Edit autostart,bl-text-editor ~/.config/bunsen/autostart
 Edit environment,bl-text-editor ~/.config/bunsen/environment
@@ -79,7 +79,7 @@ Edit environment,bl-text-editor ~/.config/bunsen/environment
 bunsenlabs-session,x-terminal-emulator -T 'man bunsenlabs-session' -e man bunsenlabs-session
 xdg-autostart,x-terminal-emulator -T 'man bl-xdg-autostart' -e man bl-xdg-autostart
 
-Openbox,^tag(bl-obConfig),openbox
+^tag(bl-obConfig)
 Back,^back()
 Edit bl-rc.xml,bl-text-editor ~/.config/openbox/bl-rc.xml
 ^sep()
@@ -88,7 +88,7 @@ WM Preferences,obconf --config-file ~/.config/openbox/bl-rc.xml
 Reconfigure,openbox --reconfigure
 Restart,openbox --restart
 
-jgmenu,^tag(bl-jgmenuConfig)
+^tag(bl-jgmenuConfig)
 Back,^back()
 Edit Menu Content,bl-text-editor ~/.config/jgmenu/prepend.csv
 Edit Menu Settings,bl-text-editor ~/.config/jgmenu/jgmenurc
@@ -109,37 +109,37 @@ Restart,sh -c 'pkill -x xbindkeys; xbindkeys_autostart'
 ^sep(Help)
 man page,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys
 
-dmenu,^tag(bl-dmenuconfig)
+^tag(bl-dmenuconfig)
 Back,^back()
 Edit Start-up Script,bl-text-editor ~/.config/dmenu/dmenu-bind.sh
 ^sep(Help)
 man page,x-terminal-emulator -T 'man dmenu' -e man dmenu
 
-gmrun,^tag(bl-gmrunconfig)
+^tag(bl-gmrunconfig)
 Back,^back()
 Edit Config File,bl-text-editor ~/.gmrunrc
 ^sep(Help)
 man page,x-terminal-emulator -T 'man gmrun' -e man gmrun
 
-Display,^tag(bl-DisplaySettings)
+^tag(bl-DisplaySettings)
 Back,^back()
 ARandR Screen Layout Editor,arandr
 ^sep(Help)
 man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
 
-System,^tag(bl-system)
+^tag(bl-system)
 Back,^back()
-Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -F -d -J -l -o -p -r -u -x -z -c 2 | less -R"
-#Hardinfo GUI system profiler,hardinfo
+Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -F -d -J -l -o -p -r -u -x -z -c 2 | less -R",applications-development
+#Hardinfo GUI system profiler,hardinfo,applications-development
 ^sep()
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop,htop
-Install Favourite Packages,^pipe(bl-install-pipemenu)
+Install Favourite Packages,^pipe(bl-install-pipemenu),synaptic
 Synaptic Package Manager,sh -c 'pkexec synaptic',synaptic
 Login Settings,sh -c 'pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf',lightdm-settings
 Login Interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
 GParted Partition Manager,sh -c 'pkexec gparted',gparted
-Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",web-browser
+Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",applications-internet
 Edit Debian Alternatives,galternatives,galternatives
 ^sep()
 About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace,distributor-logo-bunsenlabs
