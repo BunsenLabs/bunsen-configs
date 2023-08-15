@@ -1,5 +1,5 @@
 #---------------------------------------------
-# TINT2 CONFIG FILE "boron-light.tint2rc"
+# TINT2 CONFIG FILE "boron-vertical-light.tint2rc"
 #
 ## Bunsenlabs User config files
 ## All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
@@ -98,7 +98,7 @@ background_color_pressed = #000000 0
 border_color_pressed = #5d8185 0
 
 # Background 7: Tooltip
-rounded = 1
+rounded = 2
 border_width = 1
 border_sides = TBLR
 border_content_tint_weight = 0
@@ -112,14 +112,14 @@ border_color_pressed = #000000 0
 
 #-------------------------------------
 # Panel
-panel_items = PTSCP
-panel_size = 99% 30
-panel_margin = 0 0
-panel_padding = 6 0 0
+panel_items = TCS
+panel_size = 100% 54
+panel_margin = 6 12
+panel_padding = 0 0 0
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
-panel_position = bottom center horizontal
+panel_position = center left vertical
 panel_layer = bottom
 panel_monitor = all
 panel_shrink = 0
@@ -131,7 +131,7 @@ strut_policy = follow_size
 panel_window_name = tint2
 disable_transparency = 0
 # enable mouse_hover
-mouse_effects = 1
+mouse_effects = 0
 font_shadow = 0
 mouse_hover_icon_asb = 100 0 10
 mouse_pressed_icon_asb = 100 0 0
@@ -142,7 +142,7 @@ scale_relative_to_screen_height = 0
 # Taskbar - Panel item = T
 taskbar_mode = multi_desktop
 taskbar_hide_if_empty = 0
-taskbar_padding = 2 0 4
+taskbar_padding = 6 0 6
 # (the last number determines icon spacing)
 
 taskbar_background_id = 5
@@ -169,8 +169,8 @@ task_text = 0
 task_icon = 1
 task_centered = 1
 urgent_nb_of_blink = 20
-task_maximum_size = 30 30
-task_padding = 2 2
+task_maximum_size = 56 56
+task_padding = 2 12 2
 task_font = Sans 9
 task_tooltip = 1
 task_thumbnail = 0
@@ -196,7 +196,7 @@ mouse_scroll_down = iconify
 #-------------------------------------
 # System tray (notification area) - Panel item = S
 systray_padding = 1 1 1
-systray_background_id = 5
+systray_background_id = 6
 systray_sort = right2left
 systray_icon_size = 22
 systray_icon_asb = 100 0 0
@@ -206,7 +206,7 @@ systray_name_filter =
 #-------------------------------------
 # Launcher - Panel item = L
 launcher_padding = 8 4 4
-launcher_background_id = 5
+launcher_background_id = 0
 launcher_icon_background_id = 0
 launcher_icon_size = 0
 launcher_icon_asb = 100 0 0
@@ -229,13 +229,13 @@ time1_format = %H:%M
 #time1_format = %l:%M%P
 time2_format =
 #font example
-#time1_font = Futura Bk BT bold 10
+#time1_font = Futura Bk Bold 12
 time1_font = Sans bold 12
 time1_timezone =
 time2_timezone =
 clock_font_color = #353535 100
-clock_padding = 6 0 6
-clock_background_id = 5
+clock_padding = 0 4
+clock_background_id = 6
 
 #The day and date
 clock_tooltip = %A %F
