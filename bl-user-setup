@@ -408,7 +408,7 @@ $overwrite_msg2
 
 pre_checks () {
     # Do not apply BL configs to the root account.
-    [[ "$USER" = root ]] && die "USER is root, abort"
+    (( $(id -u) == 0 )) && die "USER is root, abort"
 
     # Check for the user home directory
     [[ -d "$HOME" ]] || die "User home directory <${HOME}> is not set or not a directory."
