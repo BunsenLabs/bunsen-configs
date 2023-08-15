@@ -39,9 +39,8 @@ if [[ $# = 1 ]]; then
     esac
 fi
 
-# BL-Boron aqua colours
+# BL-Boron colours for aqua or dark
 # Top
-dmenu_run -i -nb '#065261' -nf '#D7E8E8' -sb '#D7E8E8' -sf '#065261'
+dmenu_run -i -nb '#1E2B2E' -nf '#D7E8E8' -sb '#D7E8E8' -sf '#1E2B2E'
 # Bottom
-#dmenu_run -i -b -nb '#065261' -nf '#D7E8E8' -sb '#D7E8E8' -sf '#065261'
-
+#dmenu_run -i -b -nb '#1E2B2E' -nf '#D7E8E8' -sb '#D7E8E8' -sf '#1E2B2E'

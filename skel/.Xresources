@@ -36,8 +36,8 @@ URxvt.iconFile: /usr/share/icons/Numix-Circle/48/apps/terminal.svg
 URxvt.cursorBlink: true
 URxvt.fading: 20
 
-! Boron aqua colours
-URxvt.background: [90]#065261
+! Boron aqua or dark colours
+URxvt.background: [90]#1E2B2E
 URxvt.foreground: #D7E8E8
 ! Beryllium colours
 !URxvt.background: [95]#18191A
