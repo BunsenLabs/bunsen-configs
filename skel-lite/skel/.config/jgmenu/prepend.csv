@@ -129,7 +129,7 @@ man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
 
 ^tag(bl-system)
 Back,^back()
-Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -F -d -J -l -o -p -r -u -x -z -c 2 | less -R",applications-development
+Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -F -d -J -l -o -p -r -u -x -z -c 2 | less -RX",applications-development
 #Hardinfo GUI system profiler,hardinfo,applications-development
 ^sep()
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
