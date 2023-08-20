@@ -43,7 +43,7 @@ Take Screenshot,^pipe(bl-scrot-pipemenu)
 BLOB Themes Manager,bl-obthemes
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu")
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu")
-#App Finder,xfce4-appfinder
+#App Finder,xfce4-appfinder --disable-server
 #Catfish File Finder,catfish
 # These two utilities are available if you uncomment the line.
 # Pipe menu to install and use Dropbox:
