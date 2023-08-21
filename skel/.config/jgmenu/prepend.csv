@@ -70,7 +70,7 @@ Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
 Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
 Wallpaper,nitrogen,preferences-desktop-wallpaper,wallpaper
-Notifications,xfce4-notifyd-config,notifyconf
+Notifications,xfce4-notifyd-config,org.xfce.notification
 Power Management,xfce4-power-manager-settings,xfce4-power-manager-settings
 dmenu,^checkout(bl-dmenuconfig),applications-development
 gmrun,^checkout(bl-gmrunconfig),gmrun

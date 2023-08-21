@@ -5,6 +5,13 @@
 ## The script bl-user-setup copies them to the user $HOME directory on first login.
 ## See more info with command 'bl-user-setup --help'
 
+## This is the config file of the static part of jgmenu, and
+## also specifies other parts which are dynamically generated
+## like pipemenus and the 'All Applications' item.
+## If you wish to add items to the menu then this is the place to do that.
+## See: https://forums.bunsenlabs.org/viewtopic.php?id=6512
+## and: https://forums.bunsenlabs.org/viewforum.php?id=25
+
 #@text,,6,6,150,20,2,left,top,auto,#000000 0,<span size="large">🔍︎</span>
 @text,,6,6,150,20,2,left,top,auto,#000000 0,
 @search,,24,3,150,20,2,left,top,auto,#000000 0,Type to Search
@@ -65,7 +72,7 @@ Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
 Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
 Wallpaper,nitrogen,preferences-desktop-wallpaper,wallpaper
-Notifications,xfce4-notifyd-config,notifyconf
+Notifications,xfce4-notifyd-config,org.xfce.notification
 Power Management,xfce4-power-manager-settings,xfce4-power-manager-settings
 dmenu,^checkout(bl-dmenuconfig),applications-development
 gmrun,^checkout(bl-gmrunconfig),gmrun
