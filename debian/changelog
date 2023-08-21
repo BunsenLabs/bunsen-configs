@@ -1,3 +1,10 @@
+bunsen-configs (12.3.1-1) boron; urgency=medium
+
+  * bunsen-configs-lite: Update urxvt background.
+  * Replace xfce4-notifyd-config icon in menu.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 21 Aug 2023 17:09:53 +0900
+
 bunsen-configs (12.3-1) boron; urgency=medium
 
   * Use dark theme for lightdm greeter (better readability).
