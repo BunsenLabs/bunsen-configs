@@ -1,3 +1,18 @@
+bunsen-configs (12.3-1) boron; urgency=medium
+
+  * Use dark theme for lightdm greeter (better readability).
+  * Conky, adjust position, size and text colour.
+  * jgmenu: add 6px margin for root menu.
+  * jgmenu: xfce4-appfinder: use "--disable-server"
+     to avoid starting daemon.
+  * Adjust terminal and dmenu background colour
+     - compromise for both dark and light themes.
+  * Rename Boron tint2 files more logically.
+  [rbh-se]
+  * Update tint2 documentation URL in all tint2 files.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 21 Aug 2023 15:56:53 +0900
+
 bunsen-configs (12.2.1-1) boron; urgency=medium
 
   * Adjust tint2 and conky configs for Boron.
