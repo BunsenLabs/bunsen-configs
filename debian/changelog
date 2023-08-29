@@ -1,3 +1,10 @@
+bunsen-configs (12.3.2-1) boron; urgency=medium
+
+  * jgmenu/prepend.csv: Add icons to "Utilities" submenu.
+  * Small tweaks.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 29 Aug 2023 17:14:45 +0900
+
 bunsen-configs (12.3.1-1) boron; urgency=medium
 
   * bunsen-configs-lite: Update urxvt background.
