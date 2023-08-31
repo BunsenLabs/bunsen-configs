@@ -45,7 +45,7 @@ Exit,bl-exit,system-shutdown
 
 ^tag(bl-utilities)
 Back,^back()
-Take Screenshot,^pipe(bl-scrot-pipemenu),screenshot
+Take Screenshot,^pipe(bl-scrot-pipemenu),camera-photo
 BLOB Themes Manager,bl-obthemes,distributor-logo-bunsenlabs
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu"),folder-remote-ssh
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu"),folder-remote
