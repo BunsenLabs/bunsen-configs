@@ -298,8 +298,8 @@ button_max_icon_size = 28
 
 # Exit dialog (Power icon)
 button = new
-#button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
-button_icon = system-shutdown-symbolic
+button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
+#button_icon = system-shutdown-symbolic
 button_text =
 button_tooltip = Logout/Shutdown...
 button_lclick_command = bl-exit

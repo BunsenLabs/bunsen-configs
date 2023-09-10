@@ -83,7 +83,7 @@ border_color_hover = #222222 0
 background_color_pressed = #082b4a 60
 border_color_pressed = #222222 0
 
-# Background 8: 
+# Background 8:
 rounded = 1
 border_width = 1
 border_sides = TBLR
@@ -195,20 +195,20 @@ launcher_item_app = /usr/share/applications/bl-terminal-emulator.desktop
 #-------------------------------------
 # Clock
 time1_format = %H:%M
-time2_format = 
+time2_format =
 time1_font = Sans Bold 16
-time1_timezone = 
-time2_timezone = 
+time1_timezone =
+time2_timezone =
 clock_font_color = #678b8b 100
 clock_padding = 8 4
 clock_background_id = 0
 clock_tooltip = %A %d %B, %Y
-clock_tooltip_timezone = 
+clock_tooltip_timezone =
 clock_lclick_command = gsimplecal
 clock_rclick_command = gsimplecal
-clock_mclick_command = 
-clock_uwheel_command = 
-clock_dwheel_command = 
+clock_mclick_command =
+clock_uwheel_command =
+clock_dwheel_command =
 
 #-------------------------------------
 # Battery
@@ -221,13 +221,13 @@ battery_font_color = #b5b5b5 100
 battery_padding = 2 0
 battery_background_id = 0
 battery_hide = 96
-battery_lclick_command = 
-battery_rclick_command = 
-battery_mclick_command = 
-battery_uwheel_command = 
-battery_dwheel_command = 
-ac_connected_cmd = 
-ac_disconnected_cmd = 
+battery_lclick_command =
+battery_rclick_command =
+battery_mclick_command =
+battery_uwheel_command =
+battery_dwheel_command =
+ac_connected_cmd =
+ac_disconnected_cmd =
 
 #-------------------------------------
 # Executor 1
@@ -240,10 +240,10 @@ execp_continuous = 0
 execp_markup = 1
 execp_tooltip = I will tell you a secret...
 execp_lclick_command = notify-send "$(uname -srn)"
-execp_rclick_command = 
-execp_mclick_command = 
-execp_uwheel_command = 
-execp_dwheel_command = 
+execp_rclick_command =
+execp_mclick_command =
+execp_uwheel_command =
+execp_dwheel_command =
 execp_font = sans 9
 execp_font_color = #aaffaa 100
 execp_padding = 2 0
