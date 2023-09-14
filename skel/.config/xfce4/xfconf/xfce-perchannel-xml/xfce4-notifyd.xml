@@ -2,7 +2,7 @@
 
 <channel name="xfce4-notifyd" version="1.0">
   <property name="notify-location" type="uint" value="2"/>
-  <property name="theme" type="string" value="Default"/>
+  <property name="theme" type="string" value="Boron-light-aqua"/>
   <property name="initial-opacity" type="double" value="1"/>
   <property name="expire-timeout" type="int" value="15"/>
   <property name="do-slideout" type="bool" value="true"/>
