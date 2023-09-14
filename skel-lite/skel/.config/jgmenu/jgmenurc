@@ -34,4 +34,4 @@ color_sep_fg        = #8d8683 100
 sep_markup =
 hover_delay         = 30
 csv_name_format     = %n
-menu_border         = 0
+menu_border         = 1
