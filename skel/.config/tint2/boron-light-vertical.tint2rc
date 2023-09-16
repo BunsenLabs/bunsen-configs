@@ -98,13 +98,13 @@ background_color_pressed = #000000 0
 border_color_pressed = #5d8185 0
 
 # Background 7: Tooltip
-rounded = 2
-border_width = 1
+rounded = 10
+border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #292D31 100
-border_color = #292D31 100
+background_color = #fff0ed 100
+border_color = #ff9e8b 100
 background_color_hover = #000000 0
 border_color_hover = #000000 0
 background_color_pressed = #000000 0
@@ -275,7 +275,7 @@ tooltip_show_timeout = 0
 tooltip_hide_timeout = 0
 tooltip_padding = 8 8
 tooltip_background_id = 7
-tooltip_font_color = #d3dae3 100
+tooltip_font_color = #222222 100
 tooltip_font = Sans normal 10
 
 #-------------------------------------
