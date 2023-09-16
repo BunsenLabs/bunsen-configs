@@ -1,3 +1,14 @@
+bunsen-configs (12.3.4-1) boron; urgency=medium
+
+  * Tidy up files in skel/ and skel-lite/.
+  * jgmenu:
+    - adjust colours
+    - add "BunsenLabs Install Info" entry
+  * xfce4-notifyd: use explicit theme name, not "Default".
+  * picom.conf: import some comments from Bookworm picom-sample.conf.
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 16 Sep 2023 21:09:36 +0900
+
 bunsen-configs (12.3.3-1) boron; urgency=medium
 
   * Update icons in "lite" system.
