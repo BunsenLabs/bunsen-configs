@@ -226,7 +226,7 @@ notify() {
         echo "$*"
     elif [[ $g_install = f ]]
     then
-        notify-send 'user-setup' "$*"
+        notify-send -t 20000 'user-setup' "$*"
     fi
 }
 
