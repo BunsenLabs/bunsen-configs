@@ -1,3 +1,18 @@
+bunsen-configs (12.4-1) boron; urgency=medium
+
+  * bl-user-setup: set 20s persistence for notification popups.
+  * Default Boron conky: add RAM and CPU info.
+  * Menu:
+   - Move keybinds display from root menu to Keybinds in User Settings
+      and pull pipemenu items out to parent menu.
+   - Move BLOB from Utilities to User Settings.
+   - Add Network Connections (nm-connection-editor) to User Settings.
+   - Quick System Info: use inxi option -xxx for more verbosity.
+   - Replace a few icons, referring to .desktop files
+      in /usr/share/applications.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 06 Oct 2023 16:32:15 +0900
+
 bunsen-configs (12.3.4-1) boron; urgency=medium
 
   * Tidy up files in skel/ and skel-lite/.
