@@ -44,8 +44,8 @@ Exit,bl-exit,system-shutdown
 
 ^tag(bl-utilities)
 Back,^back()
-App Finder,xfce4-appfinder --disable-server,xfce4-appfinder
-Catfish File Finder,catfish,catfish
+App Finder,xfce4-appfinder --disable-server,org.xfce.appfinder
+Catfish File Finder,catfish,org.xfce.catfish
 Take Screenshot,^pipe(bl-scrot-pipemenu),camera-photo
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu"),folder-remote-ssh
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu"),folder-remote
@@ -68,13 +68,13 @@ BLOB Themes Manager,bl-obthemes,distributor-logo-bunsenlabs
 Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
 Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
-Wallpaper,nitrogen,preferences-desktop-wallpaper,wallpaper
+Wallpaper,nitrogen,preferences-desktop-wallpaper,nitrogen
 Notifications,xfce4-notifyd-config,org.xfce.notification
 Power Management,xfce4-power-manager-settings,xfce4-power-manager-settings
 dmenu,^checkout(bl-dmenuconfig),applications-development
 gmrun,^checkout(bl-gmrunconfig),gmrun
 Display,^checkout(bl-DisplaySettings),video-display
-Network Connections,nm-connection-editor,network
+Network Connections,nm-connection-editor,preferences-system-network
 
 ^tag(bl-blConfig)
 Back,^back()
