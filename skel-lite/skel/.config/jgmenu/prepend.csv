@@ -31,11 +31,10 @@ Utilities,^checkout(bl-utilities),system-run
 Places,^pipe(jgmenu_run ob --cmd="bl-places-pipemenu" --tag="bl-places-pipemenu"),folder
 Recent Files,^pipe(jgmenu_run ob --cmd="bl-recent-files-pipemenu -rl15" --tag="bl-recent-files-pipemenu"),emblem-favorite
 ^sep()
-User Settings,^checkout(bl-preferences),preferences-desktop
-System Settings,^checkout(bl-system),applications-system
+User Settings,^checkout(bl-user-settings),preferences-desktop
+System Settings,^checkout(bl-system-settings),applications-system
 ^sep()
 Help &amp; Resources,^checkout(bl-help-menu),help-contents
-Display Keybinds,^pipe(jgmenu_run ob --cmd="bl-kb-pipemenu" --tag="bl-kb-pipemenu"),applications-development
 ^sep()
 All Applications,^checkout(apps),applications-other
 ^sep()
@@ -46,19 +45,18 @@ Exit,bl-exit,system-shutdown
 
 ^tag(bl-utilities)
 Back,^back()
-Take Screenshot,^pipe(bl-scrot-pipemenu),camera-photo
-BLOB Themes Manager,bl-obthemes,distributor-logo-bunsenlabs
-SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu"),folder-remote-ssh
-Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu"),folder-remote
 App Finder,xfce4-appfinder --disable-server,xfce4-appfinder
 Catfish File Finder,catfish,catfish
+Take Screenshot,^pipe(bl-scrot-pipemenu),camera-photo
+SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu"),folder-remote-ssh
+Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu"),folder-remote
 # These two utilities are available if you uncomment the line.
 # Pipe menu to install and use Dropbox:
 #Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu"),dropbox
 # Utility to set language if login greeter does not offer that option:
 #Choose Language,bl-setlocale,locale
 
-^tag(bl-preferences)
+^tag(bl-user-settings)
 Back,^back()
 BunsenLabs Session,^checkout(bl-blConfig),distributor-logo-bunsenlabs
 Openbox,^checkout(bl-obConfig),openbox
@@ -68,6 +66,7 @@ Keybinds,^checkout(bl-xbindkeysConfig),preferences-desktop-keyboard
 #Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor"),picom
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu"),conky-manager
 Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu"),tint2
+BLOB Themes Manager,bl-obthemes,distributor-logo-bunsenlabs
 Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
 Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
@@ -77,11 +76,13 @@ Power Management,xfce4-power-manager-settings,xfce4-power-manager-settings
 dmenu,^checkout(bl-dmenuconfig),applications-development
 gmrun,^checkout(bl-gmrunconfig),gmrun
 Display,^checkout(bl-DisplaySettings),video-display
+Network Connections,nm-connection-editor,network
 
 ^tag(bl-blConfig)
 Back,^back()
 Edit autostart,bl-text-editor ~/.config/bunsen/autostart
 Edit environment,bl-text-editor ~/.config/bunsen/environment
+^sep()
 ^sep(Manuals)
 bunsenlabs-session,x-terminal-emulator -T 'man bunsenlabs-session' -e man bunsenlabs-session
 xdg-autostart,x-terminal-emulator -T 'man bl-xdg-autostart' -e man bl-xdg-autostart
@@ -106,15 +107,20 @@ Sync theme with GTK3,jgmenu_run init --apply-gtktheme
 man page,x-terminal-emulator -T 'man jgmenu' -e man jgmenu
 tutorial,x-terminal-emulator -T 'man jgmenututorial' -e man jgmenututorial
 
-Keybinds,^tag(bl-xbindkeysConfig)
+^tag(bl-xbindkeysConfig)
 Back,^back()
-Edit .xbindkeysrc,bl-text-editor ~/.xbindkeysrc
-Restart,sh -c 'pkill -x xbindkeys; xbindkeys_autostart'
+Display Keybinds in menu, ^pipe(jgmenu_run ob --cmd="bl-kb-pipemenu --kbmenu" --tag="bl-kb-pipemenu-kbmenu")
+Display Keybinds in new window,bl-kb-pipemenu --gui
 ^sep()
+Backup and Edit openbox rc file,bl-kb-pipemenu --rcedit
+Backup and Edit .xbindkeysrc,bl-kb-pipemenu --xbkedit
+Reconfigure openbox,openbox --reconfigure
+Restart xbindkeys,sh -c 'pkill -x xbindkeys; xbindkeys_autostart'
+#^sep()
 # Next entry requires tk
 #Show Keybinds,xbindkeys_show
 ^sep(Help)
-man page,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys
+man xbindkeys,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys
 
 ^tag(bl-dmenuconfig)
 Back,^back()
@@ -134,11 +140,11 @@ ARandR Screen Layout Editor,arandr
 ^sep(Help)
 man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
 
-^tag(bl-system)
+^tag(bl-system-settings)
 Back,^back()
-inxi - Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -F -d -J -l -o -p -r -u -x -z -c 2 | less -R",applications-development
-BunsenLabs Install Info,x-terminal-emulator -T 'BunsenLabs install info (Q to close)' -e less '/etc/bunsen/bunsen_install'
+inxi - Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -F -d -J -l -o -p -r -u -xxx -z -c 2 | less -R",applications-development
 #Hardinfo GUI system profiler,hardinfo,applications-development
+BunsenLabs Install Info,x-terminal-emulator -T 'BunsenLabs install info (Q to close)' -e less '/etc/bunsen/bunsen_install'
 ^sep()
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop,htop
@@ -153,4 +159,3 @@ Edit Debian Alternatives,galternatives,galternatives
 About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace,distributor-logo-bunsenlabs
 
 ^tag(apps)
-
