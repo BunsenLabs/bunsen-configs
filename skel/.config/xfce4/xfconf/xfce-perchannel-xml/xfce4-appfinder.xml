@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-appfinder" version="1.0">
-  </property>
+  <property name="hide-category-pane" type="bool" value="false"/>
   <property name="enable-service" type="bool" value="false"/>
 </channel>
