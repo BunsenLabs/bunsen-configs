@@ -47,12 +47,9 @@ bunsen-configs-lite
 ===================
 
 This package holds slightly modified user config files, intended to
-be appropriate for a system installed from a CD.
+be appropriate for a system installed on older hardware.
 
-At present, the differences from bunsen-configs are:
-
-*) Use Paper icon theme instead of Papirus. This saves some install size
- and also memory use.
+At present, the main differences from bunsen-configs are:
 
 *) Use Liberation and Inconsolata fonts instead of Noto.
  This gives a big install size saving at the cost of language support.
