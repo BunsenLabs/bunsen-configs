@@ -27,9 +27,9 @@ border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #cccccc 0
 border_color = #828282 0
-background_color_hover = #cccccc 0
+#background_color_hover = #cccccc 0
 border_color_hover = #828282 0
-background_color_pressed = #cccccc 0
+#background_color_pressed = #cccccc 0
 border_color_pressed = #828282 0
 
 # Background 2: Active task
@@ -40,9 +40,9 @@ border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #ffffff 60
 border_color = #d8d8d8 0
-background_color_hover = #000000 0
+background_color_hover = #ffffff 40
 border_color_hover = #d8d8d8 0
-background_color_pressed = #514320 90
+background_color_pressed = #ffffff 40
 border_color_pressed = #d8d8d8 0
 
 # Background 3: Default task (inactive tasks that are not iconified)
@@ -53,9 +53,9 @@ border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #133356 0
 border_color = #000000 0
-background_color_hover = #133356 0
+#background_color_hover = #000000 0
 border_color_hover = #000000 0
-background_color_pressed = #133356 0
+#background_color_pressed = #000000 0
 border_color_pressed = #000000 0
 
 # Background 4: Urgent task
@@ -79,9 +79,9 @@ border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #ececec 40
 border_color = #000000 0
-background_color_hover = #808384 25
+#background_color_hover = #000000 0
 border_color_hover = #000000 0
-background_color_pressed = #808384 25
+#background_color_pressed = #000000 0
 border_color_pressed = #000000 0
 
 # Background 6: Active taskbar
@@ -92,30 +92,30 @@ border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #ffffff 60
 border_color = #5d8185 0
-background_color_hover = #000000 0
+background_color_hover = #ffffff 50
 border_color_hover = #5d8185 0
-background_color_pressed = #000000 0
+background_color_pressed = #ffffff 50
 border_color_pressed = #5d8185 0
 
 # Background 7: Tooltip
 rounded = 1
-border_width = 1
+border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #292D31 100
-border_color = #292D31 100
-background_color_hover = #000000 0
+background_color = #fff0ed 100
+border_color = #ff9e8b 100
+#background_color_hover = #000000 0
 border_color_hover = #000000 0
-background_color_pressed = #000000 0
+#background_color_pressed = #000000 0
 border_color_pressed = #000000 0
 
 #-------------------------------------
 # Panel
 panel_items = PTSCP
-panel_size = 99% 30
+panel_size = 100% 30
 panel_margin = 0 0
-panel_padding = 6 0 0
+panel_padding = 8 0 0
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
@@ -179,10 +179,10 @@ task_font_color = #d8d8d8 60
 task_active_font_color = #d8d8d8 100
 task_urgent_font_color = #ffffff 100
 task_iconified_font_color = #d8d8d8 60
-task_icon_asb = 70 0 0
+task_icon_asb = 100 0 0
 task_active_icon_asb = 100 0 0
 task_urgent_icon_asb = 100 0 0
-task_iconified_icon_asb = 50 0 0
+task_iconified_icon_asb = 80 0 0
 task_background_id = 3
 task_active_background_id = 2
 task_urgent_background_id = 4
@@ -206,7 +206,7 @@ systray_name_filter =
 #-------------------------------------
 # Launcher - Panel item = L
 launcher_padding = 8 4 4
-launcher_background_id = 5
+launcher_background_id = 0
 launcher_icon_background_id = 0
 launcher_icon_size = 0
 launcher_icon_asb = 100 0 0
@@ -233,7 +233,7 @@ time2_format =
 time1_font = Sans bold 12
 time1_timezone =
 time2_timezone =
-clock_font_color = #353535 100
+clock_font_color = #222222 100
 clock_padding = 6 0 6
 clock_background_id = 5
 
@@ -275,7 +275,7 @@ tooltip_show_timeout = 0
 tooltip_hide_timeout = 0
 tooltip_padding = 8 8
 tooltip_background_id = 7
-tooltip_font_color = #d3dae3 100
+tooltip_font_color = #222222 100
 tooltip_font = Sans normal 10
 
 #-------------------------------------
@@ -293,13 +293,13 @@ button_uwheel_command =
 button_dwheel_command =
 button_font_color = #ffffff 100
 button_padding = 2 2
-button_background_id = 5
+button_background_id = 6
 button_centered = 1
 button_max_icon_size = 28
 
 # Exit dialog (Power icon)
 button = new
-#button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
+#button_icon = /usr/share/images/bunsen/exit/dark/poweroff.png
 button_icon = system-shutdown-symbolic
 button_text =
 button_tooltip = Logout/Shutdown...
@@ -309,7 +309,7 @@ button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
 button_font_color = #ffffff 100
-button_padding = 2 2
+button_padding = 6 2
 button_background_id = 5
 button_centered = 1
 button_max_icon_size = 20

@@ -1,5 +1,5 @@
 #---------------------------------------------
-# TINT2 CONFIG FILE "boron-vertical-light.tint2rc"
+# TINT2 CONFIG FILE "boron-light-vertical.tint2rc"
 #
 ## Bunsenlabs User config files
 ## All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
@@ -38,7 +38,7 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #ffffff 60
+background_color = #ffffff 80
 border_color = #d8d8d8 0
 background_color_hover = #000000 0
 border_color_hover = #d8d8d8 0
@@ -77,11 +77,11 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #ececec 40
+background_color = #ececec 50
 border_color = #000000 0
-background_color_hover = #808384 25
+background_color_hover = #808384 0
 border_color_hover = #000000 0
-background_color_pressed = #808384 25
+background_color_pressed = #808384 0
 border_color_pressed = #000000 0
 
 # Background 6: Active taskbar
@@ -90,7 +90,7 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #ffffff 60
+background_color = #ffffff 80
 border_color = #5d8185 0
 background_color_hover = #000000 0
 border_color_hover = #5d8185 0
@@ -142,7 +142,7 @@ scale_relative_to_screen_height = 0
 # Taskbar - Panel item = T
 taskbar_mode = multi_desktop
 taskbar_hide_if_empty = 0
-taskbar_padding = 6 0 6
+taskbar_padding = 8 0 6
 # (the last number determines icon spacing)
 
 taskbar_background_id = 5
@@ -179,10 +179,10 @@ task_font_color = #d8d8d8 60
 task_active_font_color = #d8d8d8 100
 task_urgent_font_color = #ffffff 100
 task_iconified_font_color = #d8d8d8 60
-task_icon_asb = 70 0 0
+task_icon_asb = 100 0 0
 task_active_icon_asb = 100 0 0
 task_urgent_icon_asb = 100 0 0
-task_iconified_icon_asb = 50 0 0
+task_iconified_icon_asb = 80 0 0
 task_background_id = 3
 task_active_background_id = 2
 task_urgent_background_id = 4
@@ -229,7 +229,7 @@ time1_format = %H:%M
 #time1_format = %l:%M%P
 time2_format =
 #font example
-#time1_font = Futura Bk Bold 12
+#time1_font = Futura Bk BT bold 10
 time1_font = Sans bold 12
 time1_timezone =
 time2_timezone =
@@ -299,7 +299,7 @@ button_max_icon_size = 28
 
 # Exit dialog (Power icon)
 button = new
-#button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
+#button_icon = /usr/share/images/bunsen/exit/dark/poweroff.png
 button_icon = system-shutdown-symbolic
 button_text =
 button_tooltip = Logout/Shutdown...
