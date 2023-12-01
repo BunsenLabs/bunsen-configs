@@ -2,7 +2,7 @@
 
 <channel name="xfce4-notifyd" version="1.0">
   <property name="notify-location" type="uint" value="2"/>
-  <property name="theme" type="string" value="default"/>
+  <property name="theme" type="string" value="Default"/>
   <property name="initial-opacity" type="double" value="1"/>
   <property name="expire-timeout" type="int" value="30"/>
   <property name="do-slideout" type="bool" value="true"/>
@@ -10,6 +10,7 @@
     <property name="known_applications" type="array">
       <value type="string" value="nm-applet"/>
       <value type="string" value="notify-send"/>
+      <value type="string" value="org.freedesktop.network-manager-applet"/>
       <value type="string" value="Xfce4-notifyd settings"/>
     </property>
   </property>
