@@ -64,6 +64,8 @@ xset r rate 250 25
 ## Configure touchpad. See 'man synaptics' for more info.
 ## (Now might be using libinput instead of synaptics.)
 synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 2>/dev/null
+## alternative:
+#synclient VertEdgeScroll=0 VertTwoFingerScroll=0 HorizEdgeScroll=0 TapButton1=1 TapButton2=3 TapButton3=2 PalmDetect=1 PalmMinWidth=4 PalmMinZ=100
 
 ## Disable touchpad while typing
 syndaemon -i .5 -K -t -R -d &
