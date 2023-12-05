@@ -1,3 +1,15 @@
+bunsen-configs (12.5-1) boron; urgency=medium
+
+  * xfce4-appfinder: display categories by default.
+  * xfce notifications: enable logging, timeout to 30s, 
+     set GTK theme to "default".
+  * Set default theme to Boron-Aqua.
+  * Adjust Boron tint2 configuration.
+  * Picom: adjust shadows and inactive window transparency.
+  * Use Material-Solarized-Suru++ icons in default menu.
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 05 Dec 2023 15:19:35 +0900
+
 bunsen-configs (12.4-1) boron; urgency=medium
 
   * bl-user-setup: set 20s persistence for notification popups.
