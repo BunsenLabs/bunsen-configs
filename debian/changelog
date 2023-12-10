@@ -1,3 +1,10 @@
+bunsen-configs (12.5.1-1) boron; urgency=medium
+
+  * tint2: set "panel_monitor = 1" on vertical panels.
+  * tint2rc: change symlink to new default boron-dark-vertical.tint2rc.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 10 Dec 2023 18:33:48 +0900
+
 bunsen-configs (12.5-1) boron; urgency=medium
 
   * xfce4-appfinder: display categories by default.
