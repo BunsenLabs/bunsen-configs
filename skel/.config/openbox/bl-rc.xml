@@ -46,7 +46,7 @@
   </placement>
 
   <theme>
-    <name>Boron-light-aqua</name>
+    <name>Boron-aqua</name>
     <titleLayout>NDSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.

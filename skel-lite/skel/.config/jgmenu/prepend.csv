@@ -89,7 +89,7 @@ xdg-autostart,x-terminal-emulator -T 'man bl-xdg-autostart' -e man bl-xdg-autost
 
 ^tag(bl-obConfig)
 Back,^back()
-GUI Settings,obconf --config-file ~/.config/openbox/bl-rc.xml
+obconf - GUI Config Tool,obconf --config-file ~/.config/openbox/bl-rc.xml
 ^sep()
 Edit bl-rc.xml,bl-text-editor ~/.config/openbox/bl-rc.xml
 ^sep()
