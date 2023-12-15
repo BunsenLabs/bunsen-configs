@@ -1,3 +1,12 @@
+bunsen-configs (12.5.2-1) boron; urgency=medium
+
+  * Openbox: change theme from Boron-light-aqua to Boron-aqua.
+  * Pnmixer: icon theme to Numix-Bunsen-Circle-aqua.
+  * Menu: User Settings: Openbox: rename "GUI Settings" 
+     to "obconf - GUI Config Tool".
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 15 Dec 2023 16:23:40 +0900
+
 bunsen-configs (12.5.1-1) boron; urgency=medium
 
   * tint2: set "panel_monitor = 1" on vertical panels.
