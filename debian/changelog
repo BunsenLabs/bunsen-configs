@@ -1,3 +1,10 @@
+bunsen-configs (12.5.3-1) boron; urgency=medium
+
+  * autostart: add  synclient: VertTwoFingerScroll=1
+  * dillo: set start page to bookmarks, home page to BL forum.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 15 Jan 2024 10:35:45 +0900
+
 bunsen-configs (12.5.2-1) boron; urgency=medium
 
   * Openbox: change theme from Boron-light-aqua to Boron-aqua.
