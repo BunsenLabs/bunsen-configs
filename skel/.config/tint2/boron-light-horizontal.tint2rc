@@ -1,5 +1,5 @@
 #---------------------------------------------
-# TINT2 CONFIG FILE "boron-dark.tint2rc"
+# TINT2 CONFIG FILE "boron-light-horizontal.tint2rc"
 #
 ## Bunsenlabs User config files
 ## All default BunsenLabs user config files are located in /usr/share/bunsen/skel.
@@ -38,7 +38,7 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #ffffff 20
+background_color = #ffffff 60
 border_color = #d8d8d8 0
 background_color_hover = #ffffff 40
 border_color_hover = #d8d8d8 0
@@ -77,7 +77,7 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #595959 50
+background_color = #ececec 40
 border_color = #000000 0
 #background_color_hover = #000000 0
 border_color_hover = #000000 0
@@ -90,21 +90,21 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #8a8a8a 50
+background_color = #ffffff 60
 border_color = #5d8185 0
-#background_color_hover = #000000 0
+background_color_hover = #ffffff 50
 border_color_hover = #5d8185 0
-#background_color_pressed = #000000 0
+background_color_pressed = #ffffff 50
 border_color_pressed = #5d8185 0
 
 # Background 7: Tooltip
 rounded = 1
-border_width = 1
+border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #2c2c2c 100
-border_color = #232323 100
+background_color = #fff0ed 100
+border_color = #ff9e8b 100
 #background_color_hover = #000000 0
 border_color_hover = #000000 0
 #background_color_pressed = #000000 0
@@ -115,7 +115,7 @@ border_color_pressed = #000000 0
 panel_items = PTSCP
 panel_size = 100% 30
 panel_margin = 0 0
-panel_padding = 6 0 0
+panel_padding = 8 0 0
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
@@ -182,7 +182,7 @@ task_iconified_font_color = #d8d8d8 60
 task_icon_asb = 100 0 0
 task_active_icon_asb = 100 0 0
 task_urgent_icon_asb = 100 0 0
-task_iconified_icon_asb = 50 0 0
+task_iconified_icon_asb = 80 0 0
 task_background_id = 3
 task_active_background_id = 2
 task_urgent_background_id = 4
@@ -210,7 +210,7 @@ launcher_background_id = 0
 launcher_icon_background_id = 0
 launcher_icon_size = 0
 launcher_icon_asb = 100 0 0
-launcher_icon_theme = Numix-Bunsen-Circle-aqua
+launcher_icon_theme = Numix-Bunsen-Circle-aqua-Light
 launcher_icon_theme_override = 0
 startup_notifications = 0
 launcher_tooltip = 1
@@ -233,7 +233,7 @@ time2_format =
 time1_font = Sans bold 12
 time1_timezone =
 time2_timezone =
-clock_font_color = #ECECEC 100
+clock_font_color = #222222 100
 clock_padding = 6 0 6
 clock_background_id = 5
 
@@ -275,7 +275,7 @@ tooltip_show_timeout = 0
 tooltip_hide_timeout = 0
 tooltip_padding = 8 8
 tooltip_background_id = 7
-tooltip_font_color = #f7f7f7 100
+tooltip_font_color = #222222 100
 tooltip_font = Sans normal 10
 
 #-------------------------------------
@@ -293,14 +293,14 @@ button_uwheel_command =
 button_dwheel_command =
 button_font_color = #ffffff 100
 button_padding = 2 2
-button_background_id = 5
+button_background_id = 6
 button_centered = 1
 button_max_icon_size = 28
 
 # Exit dialog (Power icon)
 button = new
-button_icon = /usr/share/images/bunsen/exit/light/poweroff.png
-#button_icon = system-shutdown-symbolic
+#button_icon = /usr/share/images/bunsen/exit/dark/poweroff.png
+button_icon = system-shutdown-symbolic
 button_text =
 button_tooltip = Logout/Shutdown...
 button_lclick_command = bl-exit
