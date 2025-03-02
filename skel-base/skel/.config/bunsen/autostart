@@ -81,7 +81,9 @@ syndaemon -i .5 -K -t -R -d &
 #[ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ] && \
 #  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-hash lxpolkit 2>/dev/null && lxpolkit &
+#hash lxpolkit 2>/dev/null && lxpolkit &
+
+# now using mate-polkit, started by /etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop
 
 #######################################################
 ######## window-manager-dependent applications ########
@@ -141,6 +143,9 @@ esac
 #######################################################
 
 ### Following entries apply to all window managers: ###
+
+## xfce4-power-manager now needs to be explicitly started
+xfce4-power-manager &
 
 ## Volume control for systray
 #pnmixer &
