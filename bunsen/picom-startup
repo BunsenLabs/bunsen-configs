@@ -48,6 +48,8 @@
 
 # Daemonize process. Fork to background after initialization.
 # Causes issues with certain (badly-written) drivers.
+# This option can only be set here from the command line,
+# and setting it in the user's configuration file will have no effect.
 # In a BunsenLabs sesssion, picom is forked anyway, so this setting is not needed.
 #--daemon
 
@@ -82,8 +84,9 @@
 #
 #--force-win-blend
 
-# Use X Sync fence to sync clients' draw calls, to make sure all draw
-# calls are finished before picom starts drawing. Needed on nvidia-drivers
-# with GLX backend for some users.
+# Use X Sync fence to wait for the completion of rendering of other windows,
+# before using their content to render the current screen.
+#
+# Required for explicit sync drivers, such as nvidia.
 #
 #--xrender-sync-fence
