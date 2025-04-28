@@ -21,3 +21,4 @@ calendar.bunsen etc/calendar
 Xsession.d etc/X11
 greetd etc
 nwg-hello etc
+mime usr/share
