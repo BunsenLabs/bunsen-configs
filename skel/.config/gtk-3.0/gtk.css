@@ -13,3 +13,8 @@
 
 /* padding for lxterminal and some others */
 VteTerminal, vte-terminal { padding: 5px; }
+
+/* xfce4-panel settings */
+.xfce4-panel#XfcePanelWindow {
+   border-radius: 10px;
+}
