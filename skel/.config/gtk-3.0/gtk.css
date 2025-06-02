@@ -15,6 +15,6 @@
 VteTerminal, vte-terminal { padding: 5px; }
 
 /* xfce4-panel settings */
-.xfce4-panel#XfcePanelWindow {
+.xfce4-panel.panel-1#XfcePanelWindow {
    border-radius: 10px;
 }
