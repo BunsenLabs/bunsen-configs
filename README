@@ -56,10 +56,18 @@ At present, the main differences from bunsen-configs are:
 
 *) Do not use a compositor, to save some memory use.
 
+bunsen-configs-base
+===================
+
+This package holds modified user config files, intended to
+be appropriate for a system installed using the "base" package list.
+
+
 NOTE FOR DEVELOPERS:
-The user config files in skel/ are installed in both packages, but
-in bunsen-configs-lite any files in skel-lite/skel/ will overwrite
-the equivalent files installed from skel/.
+The user config files in skel/ are installed in all three packages, but
+in bunsen-configs-lite or bunsen-configs-base any files 
+in skel-lite/skel/ or skel-base/skel
+will overwrite the equivalent files installed from skel/.
 
 Bugs
 ----
