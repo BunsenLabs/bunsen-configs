@@ -99,7 +99,8 @@ openbox)
     xcape -e 'Super_L=Super_L|space'
 
     ## Set a wallpaper
-    nitrogen --restore
+    #nitrogen --restore
+    xwwall --restore
 
     ## Composition
     ## NOTE: composition must be started before tint2
@@ -109,8 +110,10 @@ openbox)
     ## Start the Conky session (the default conkyrc will run if no sessions have been set)
     bl-conky-session &
 
-    ## Start the tint2 session (the default tint2 will run if no sessions have been set)
-    ( sleep 2; bl-tint2-session ) &
+    ## Start the panel
+    #( sleep 2; bl-tint2-session ) &
+
+    xfce4-panel &
 
     ;;
     # End of openbox application group.
@@ -141,7 +144,8 @@ esac
 xfce4-power-manager &
 
 ## Volume control for systray
-pnmixer &
+# xfce4-panel has a volume plugin
+#pnmixer &
 
 ## Start Clipboard manager
 xfce4-clipman &

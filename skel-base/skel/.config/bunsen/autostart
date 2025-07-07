@@ -99,7 +99,8 @@ openbox)
     xcape -e 'Super_L=Super_L|space'
 
     ## Set a wallpaper
-    nitrogen --restore
+    #nitrogen --restore
+    xwwall --restore
 
     ## Composition
     ## NOTE: composition must be started before tint2
@@ -111,13 +112,15 @@ openbox)
     ## The "base" install has no bl-conky-session script, so start conky directly:
     conky -c ~/.config/conky/BL-Default-conky.conf &
 
-    ## Start the tint2 session (the default tint2 will run if no sessions have been set)
+    ## Start the panel)
     # ( sleep 2; bl-tint2-session ) &
     ## The "base" install has no bl-tint2-session script, so start tint2 directly:
-    ( sleep 2; tint2 -c ~/.config/tint2/tint2rc ) &
+    #( sleep 2; tint2 -c ~/.config/tint2/tint2rc ) &
+
+    xfce4-panel &
 
     ## Install bunsen-utilities and bunsen-pipemenus
-    ## to get all the conky and tint2 management utilities.
+    ## to get all the conky (and tint2) management utilities.
 
     ;;
     # End of openbox application group.
