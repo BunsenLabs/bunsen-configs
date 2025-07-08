@@ -150,10 +150,10 @@ BunsenLabs Install Info,x-terminal-emulator -T 'BunsenLabs install info (Q to cl
 Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop,htop
 Install Favourite Packages,^pipe(bl-install-pipemenu),synaptic
-Synaptic Package Manager,sh -c 'pkexec synaptic',synaptic
+Synaptic Package Manager,sh -c 'pkexec.wrapper synaptic',synaptic
 Login Settings,sh -c 'pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf',lightdm-settings
 Login Interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
-GParted Partition Manager,sh -c 'pkexec gparted',gparted
+GParted Partition Manager,sh -c 'pkexec.wrapper gparted',gparted
 Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",applications-internet
 Edit Debian Alternatives,galternatives,galternatives
 ^sep()
