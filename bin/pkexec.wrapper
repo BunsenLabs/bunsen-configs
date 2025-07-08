@@ -1,0 +1,13 @@
+#!/bin/sh
+
+hash pkexec >/dev/null 2>&1 || {
+    echo "$0: this utility needs pkexec to function." >&2
+    exit 1
+}
+
+if [ -n "$WAYLAND_DISPLAY" ]
+then
+    /usr/bin/pkexec env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" XDG_RUNTIME_DIR=/run/user/0 "$@"
+else
+    /usr/bin/pkexec "$@"
+fi
