@@ -39,6 +39,7 @@ Recommends: bunsen-conky (>= 11.1-1),
  xcape,
  xfce4-appfinder,
  xfce4-panel,
+ xfce4-panel-profiles,
  xwwall,
  yad
 Suggests: bunsen-blob,
