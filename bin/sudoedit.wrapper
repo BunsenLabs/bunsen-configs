@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# wrapper to run sudoedit using a GUI text editor, with some precautions
+
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
+
+# use SUDO_EDITOR if it is already set,
+# or use bl-text-editor if it is set,
+# otherwise use bl-cli-editor (uses "editor" which should always point to something)
+current_blte=''
+blte_path=$( command -v bl-text-editor ) && current_blte=$(readlink -f "$blte_path")
+our_editor="${SUDO_EDITOR:-$current_blte}"
+our_editor="${our_editor:-bl-cli-editor}"
+# make sure editor keeps the prompt till it is closed, else sudoedit thinks it's finished editing
+case ${our_editor##*/}
+in
+    geany)  # $our_editor holds the full path, in case a non-standard location is being used
+        export SUDO_EDITOR="$our_editor --new-instance"
+        ;;
+    mousepad)
+        export SUDO_EDITOR="$our_editor --disable-server"
+        ;;
+    gedit)
+        export SUDO_EDITOR="$our_editor --wait"
+        ;;
+    featherpad)
+        export SUDO_EDITOR="$our_editor --standalone"
+        ;;
+    kate)
+        export SUDO_EDITOR="$our_editor --block"
+        ;;
+    scite)  # scite always blocks the prompt
+        export SUDO_EDITOR="$our_editor"
+        ;;
+    bl-cli-editor)
+        export SUDO_EDITOR="$our_editor"
+        ;;
+    *)
+        export SUDO_EDITOR="/usr/bin/bl-cli-editor" # fallback
+        ;;
+esac
+
+sudoedit -A  -p 'Please enter your password to edit this file.' -- "$@"
