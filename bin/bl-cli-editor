@@ -1,3 +1,45 @@
-#!/bin/sh
+#!/bin/bash
 
-x-terminal-emulator -T "${1##*/} - CLI Editor" -e editor "$@"
+# Make sure the script does not return the prompt until the terminal is closed.
+termname=$( readlink -f "$( which x-terminal-emulator )" )
+termname=${termname##*/}
+badterm_msg="$0: $termname is not supported.
+Please choose a different x-terminal-emulator."
+case $termname # cope with terminal inconsistencies
+in
+    lxterminal)
+        termcmd=(lxterminal --no-remote -T '<TITLE>' -e) # otherwise lxterminal does not start a new process
+        ;;
+    mate-terminal.wrapper)
+        termcmd=(mate-terminal --disable-factory -t "$title" -x) # mate-terminal.wrapper does not support --disable-factory
+        ;;
+# gnome terminal now waits if invoked as x-terminal-emulator
+#                gnome-terminal.wrapper)
+#                    termcmd=(gnome-terminal --wait) # gnome-terminal.wrapper does not support --wait
+#                    [[ -n $title ]] && termcmd+=(-t "$title") # but gnome-terminal needs -t for -T option
+#                    termcmd+=(--) # -x is deprecated
+#                    ;;
+    tilix.wrapper)
+        termcmd=(tilix --new-process -t '<TITLE>'-e) # tilix.wrapper does not support --new-process
+        ;;
+    qterminal|terminology|sakura)
+        echo "$badterm_msg" >&2
+        exit 1
+        ;;
+    *)
+        termcmd=(x-terminal-emulator -T '<TITLE>' -e) # the normal case
+        ;;
+esac
+
+# cli editor might not be able to handle multiple files
+for f in "$@"
+do
+    [[ -r "$f" ]] || {
+        echo "${0}: cannot read $f" >&2
+        continue
+    }
+    title="${f##*/} - CLI Editor"
+    "${termcmd[@]/'<TITLE>'/$title}" editor "$f" &
+done
+
+wait
