@@ -27,7 +27,7 @@ if (( $# > 0 )); then
     # Use the MIME type of the first file passed to us to determine the
     # playback profile.
 #    if [[ -s "$URI" && "$(file --mime-type --brief "$URI")" =~ ^audio/ ]]; then
-    # file now reports eg mp4 files as mime-type video, use mpv itself to check instead:
+    # "file" now reports eg mp4 files as mime-type video, use mpv itself to check instead:
     if [[ -s "$URI" && "$(mpv --term-playing-msg='${=vid:no}' --msg-level=cplayer=no,ffmpeg/demuxer=no,display-tags=no --quiet --vo=null --ao=null --frames=1 --no-cache --no-config -- "$URI")" = no ]]; then
         MPV_PROFILE=audio-only
     else
