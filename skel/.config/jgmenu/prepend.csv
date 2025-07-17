@@ -50,7 +50,7 @@ Take Screenshot,^pipe(bl-scrot-pipemenu),camera-photo
 SSH,^pipe(jgmenu_run ob --cmd="bl-sshconfig-pipemenu" --tag="bl-sshconfig-pipemenu"),folder-remote-ssh
 Remote Desktop,^pipe(jgmenu_run ob --cmd="bl-remote-desktop-pipemenu" --tag="bl-remote-desktop-pipemenu"),folder-remote
 # These two utilities are available if you uncomment the line.
-# Pipe menu to install and use Dropbox:
+# Pipe menu to install and use Dropbox (needs debugging for Carbon):
 #Dropbox,^pipe(jgmenu_run ob --cmd="bl-dropbox-pipemenu" --tag="bl-dropbox-pipemenu"),dropbox
 # Utility to set language if login greeter does not offer that option:
 #Choose Language,bl-setlocale,locale
@@ -60,15 +60,18 @@ Back,^back()
 BunsenLabs Session,^checkout(bl-blConfig),distributor-logo-bunsenlabs
 Openbox,^checkout(bl-obConfig),openbox
 jgmenu,^checkout(bl-jgmenuConfig),jgmenu
+#Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu"),tint2
+xfce4-panel,^checkout(bl-xfce4panelConfig),xfce4-panel
 Keybinds,^checkout(bl-xbindkeysConfig),preferences-desktop-keyboard
 Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor"),picom
 Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu"),conky-manager
-Tint2,^pipe(jgmenu_run ob --cmd="bl-tint2-pipemenu" --tag="bl-tint2-pipemenu"),tint2
-BLOB Themes Manager,bl-obthemes,distributor-logo-bunsenlabs
+# bl-obthemes temporarily disabled pending checking for Carbon
+#BLOB Themes Manager,bl-obthemes,distributor-logo-bunsenlabs
 Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
 Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
-Wallpaper,nitrogen,preferences-desktop-wallpaper,nitrogen
+Wallpaper,xwwall,preferences-desktop-wallpaper
+#Wallpaper (nitrogen),nitrogen,preferences-desktop-wallpaper
 Notifications,xfce4-notifyd-config,org.xfce.notification
 Power Management,xfce4-power-manager-settings,xfce4-power-manager-settings
 dmenu,^checkout(bl-dmenuconfig),applications-development
@@ -104,6 +107,12 @@ Sync theme with OpenBox,jgmenu_run init --apply-obtheme
 ^sep(Help)
 man page,x-terminal-emulator -T 'man jgmenu' -e man jgmenu
 tutorial,x-terminal-emulator -T 'man jgmenututorial' -e man jgmenututorial
+
+^tag(bl-xfce4panelConfig)
+Back,^back()
+xfce4-panel Preferences,xfce4-panel -p
+xfce4-panel Profiles,xfce4-panel-profiles
+man xfce4-panel,x-terminal-emulator -T 'man xfce4-panel' -e man xfce4-panel
 
 ^tag(bl-xbindkeysConfig)
 Back,^back()
@@ -141,7 +150,7 @@ man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
 
 ^tag(bl-system-settings)
 Back,^back()
-inxi - Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -F -d -J -l -o -p -r -u -xxx -z -c 2 | less -R",applications-development
+inxi - Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -e -m -d -J -l -o -p -r -u -xxx -z -c 2 | less -R",applications-development
 Hardinfo GUI system profiler,hardinfo,applications-development
 BunsenLabs Install Info,x-terminal-emulator -T 'BunsenLabs install info (Q to close)' -e less '/etc/bunsen/bunsen_install',distributor-logo-bunsenlabs
 ^sep()
@@ -149,8 +158,9 @@ Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pip
 Task Manager (htop),x-terminal-emulator -T 'htop task manager' -e htop,htop
 Install Favourite Packages,^pipe(bl-install-pipemenu),synaptic
 Synaptic Package Manager,sh -c 'pkexec.wrapper synaptic',synaptic
-Login Settings,sh -c 'pkexec bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf',lightdm-settings
+Login Settings,sudoedit.wrapper /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf,lightdm-settings
 Login Interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
+Show Lightdm Config,x-terminal-emulator -T 'Lightdm Config' -e bash -c "lightdm --show-config; printf '\n%s' 'Press any key to close'; read -srn1",lightdm-settings
 GParted Partition Manager,sh -c 'pkexec.wrapper gparted',gparted
 Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",applications-internet
 Edit Debian Alternatives,galternatives,galternatives
