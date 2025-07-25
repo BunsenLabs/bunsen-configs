@@ -1,3 +1,27 @@
+bunsen-configs (13.2-1) carbon; urgency=medium
+
+  * [01micko] Add many Wayland compatibility fixes
+    - add bunsenlabs-wayland.desktop for Wayland session
+    - link bunsenlab-session-wayland -> bunsenlabs-session
+    - populate wayland/skel with autostart and some configs
+    - add some Wayland session documentation
+  * [01micko] Update grub text colours and lightdm gtk theme.
+  * [01micko] Add mime type for linux kernel image.
+  * Update icon and gtk theme settings.
+  * Use xwwall instead of nitrogen.
+  * Use xfce4-panel instead of tint2, add configs.
+  * Use mate-polkit instead of lxpolkit.
+  * Picom: update configuration syntax for picom 12.5-1
+    - use --backend glx by default
+  * Add pkexec wrapper script for Wayland compatibility.
+  * Use sudoedit wrapper script instead of pkexec to edit files as root.
+  * Update menu to accomodate recent changes.
+  * bl-mpv: improve handling of local audio file.
+  * Add some bugfixes and dependency updates.
+  * Use Debian Standards-Version: 4.7.2
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 17 Jul 2025 18:16:57 +0900
+
 bunsen-configs (13.1-1) carbon; urgency=medium
 
   * Make bunsenlabs session files compatible with a future wayland session.
