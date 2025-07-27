@@ -1,3 +1,9 @@
+bunsen-configs (13.2.1-1) carbon; urgency=medium
+
+  * /etc/grub.d/15_bunsen-tty: update code to eliminate deprecation warnings.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 27 Jul 2025 17:14:29 +0900
+
 bunsen-configs (13.2-1) carbon; urgency=medium
 
   * [01micko] Add many Wayland compatibility fixes
