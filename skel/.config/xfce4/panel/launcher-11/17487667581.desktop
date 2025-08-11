@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=BunsenLabs Menu
+Comment=
+Exec=jgmenu_run
+Icon=distributor-logo-bunsenlabs-dark
+Path=
+Terminal=false
+StartupNotify=false
