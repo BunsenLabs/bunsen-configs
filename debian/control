@@ -14,6 +14,7 @@ Architecture: all
 Depends: ${misc:Depends}
 Recommends: bunsen-conky (>= 11.1-1),
  bunsen-docs,
+ bunsen-exit,
  bunsen-images (>= 11.3-1),
  bunsen-pipemenus,
  bunsen-yaru-gtk,
@@ -69,6 +70,7 @@ Architecture: all
 Depends: ${misc:Depends}
 Recommends: bunsen-conky,
  bunsen-docs,
+ bunsen-exit,
  bunsen-images-base,
  bunsen-pipemenus,
  bunsen-yaru-gtk,
@@ -123,7 +125,8 @@ Description: config files for lite BunsenLabs Linux
 Package: bunsen-configs-base
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: bunsen-images-base,
+Recommends: bunsen-exit,
+ bunsen-images-base,
  bunsen-yaru-gtk,
  bunsen-thunar,
  dmz-cursor-theme,
