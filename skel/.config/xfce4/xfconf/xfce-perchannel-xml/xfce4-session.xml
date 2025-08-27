@@ -1,0 +1,10 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-session" version="1.0">
+  <property name="shutdown" type="empty">
+    <property name="LockScreen" type="bool" value="true"/>
+  </property>
+  <property name="general" type="empty">
+    <property name="LockCommand" type="string" value="bl-exit --lock"/>
+  </property>
+</channel>
