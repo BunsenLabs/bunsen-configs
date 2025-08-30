@@ -8,12 +8,12 @@ if test -n "$1"; then
 fi
 
 BUNSEN_SESSION_TYPE=x11
+export BUNSEN_SESSION_TYPE
 
 # check who calls here
 case $0 in
     *bunsenlabs-session-wayland)
         BUNSEN_SESSION_TYPE=wayland
-        export BUNSEN_SESSION_TYPE
     ;;
 esac
 
