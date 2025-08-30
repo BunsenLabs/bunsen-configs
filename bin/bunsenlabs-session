@@ -7,13 +7,13 @@ if test -n "$1"; then
   exit
 fi
 
-BL_SESSION=xorg
+BUNSEN_SESSION_TYPE=x11
 
 # check who calls here
 case $0 in
     *bunsenlabs-session-wayland)
-        BL_SESSION=wayland
-        export BL_SESSION
+        BUNSEN_SESSION_TYPE=wayland
+        export BUNSEN_SESSION_TYPE
     ;;
 esac
 
@@ -27,14 +27,14 @@ usr_resources="$HOME/.Xresources"
 default_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart'
 bl_autostart='/usr/lib/bunsen/configs/bunsen-autostart'
 
-if [ "$BL_SESSION" = 'wayland' ]; then
+if [ "$BUNSEN_SESSION_TYPE" = 'wayland' ]; then
     usr_autostart="$usr_confdir/bunsen/autostart-wayland"
     usr_envfile="$usr_confdir/bunsen/environment-wayland"
     default_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart-wayland'
 fi
 
 # Export keyboard layout from /etc/default/keyboard
-if [ "$BL_SESSION" = 'wayland' ]; then
+if [ "$BUNSEN_SESSION_TYPE" = 'wayland' ]; then
     . /etc/default/keyboard
     [ -n "$XKBMODEL" ] && export XKB_DEFAULT_MODEL=$XKBMODEL
     [ -n "$XKBLAYOUT" ] && export XKB_DEFAULT_LAYOUT=$XKBLAYOUT
@@ -44,7 +44,7 @@ if [ "$BL_SESSION" = 'wayland' ]; then
 fi
 
 # Clean up after GDM (GDM sets the number of desktops to one).
-if [ "$BL_SESSION" = 'xorg' ]; then
+if [ "$BUNSEN_SESSION_TYPE" = 'x11' ]; then
     xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
       -remove _NET_DESKTOP_NAMES \
       -remove _NET_CURRENT_DESKTOP 2> /dev/null
@@ -65,13 +65,13 @@ then
 
     # Merge ~/.Xresources
     # (usually done by /etc/X11/Xsession.d/30x11-common_xresources)
-    if [ "$BL_SESSION" = 'xorg' ]; then
+    if [ "$BUNSEN_SESSION_TYPE" = 'x11' ]; then
         test -r "$usr_resources" && xrdb -merge "$usr_resources" || echo "$0: cannot merge $usr_resources" >&2
     fi
 
     # Set up the user environment for X sessions.
     # (usually sourced by /etc/X11/Xsession.d/40x11-common_xsessionrc)
-    if [ "$BL_SESSION" = 'xorg' ]; then
+    if [ "$BUNSEN_SESSION_TYPE" = 'x11' ]; then
         test -r "$usr_xsessionrc" && . "$usr_xsessionrc" || echo "$0: cannot source $usr_xsessionrc" >&2
     fi
 
@@ -92,7 +92,7 @@ test -r "$usr_envfile" && . "$usr_envfile" || echo "$0: cannot source $usr_envfi
 }
 
 # Set default window manager.
-if [ "$BL_SESSION" = 'wayland' ]; then
+if [ "$BUNSEN_SESSION_TYPE" = 'wayland' ]; then
     win_man=labwc
 else
     win_man=openbox
@@ -118,7 +118,7 @@ fi
 
 hash "$win_man" 2>/dev/null || { echo "$0: Window manager command \"$win_man\" not found" >&2; exit 1;}
 
-[ "$BL_SESSION" = 'wayland' ] && sleep 1 # temporary fix for lightdm on wayland https://forums.bunsenlabs.org/viewtopic.php?pid=137666#p137666
+[ "$BUNSEN_SESSION_TYPE" = 'wayland' ] && sleep 1 # temporary fix for lightdm on wayland https://forums.bunsenlabs.org/viewtopic.php?pid=137666#p137666
 
 # Run the window manager.
 case "$win_man" in

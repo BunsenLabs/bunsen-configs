@@ -4,7 +4,7 @@
 bl_usr_confdir="${XDG_CONFIG_HOME:-$HOME/.config}/bunsen"
 usr_autostart="$bl_usr_confdir/autostart"
 
-if [ "$BL_SESSION" = 'wayland' ]; then
+if [ "$BUNSEN_SESSION_TYPE" = 'wayland' ]; then
     usr_autostart="$bl_usr_confdir/autostart-wayland"
 fi
 
