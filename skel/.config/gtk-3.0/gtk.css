@@ -15,6 +15,13 @@
 VteTerminal, vte-terminal { padding: 5px; }
 
 /* xfce4-panel settings */
+
 .xfce4-panel.panel-1#XfcePanelWindow {
    border-radius: 10px;
 }
+
+#pulseaudio-button > box > image { -gtk-icon-transform: scale(0.6); }
+
+/* in trixie x-p-m is no longer a plugin, and this does not affect the icon size */
+#xfce4-power-manager-plugin > box > image { -gtk-icon-transform: scale(0.7); }
+
