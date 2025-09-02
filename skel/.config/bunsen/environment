@@ -20,7 +20,8 @@ command -v gnome-keyring-daemon >/dev/null && export $(gnome-keyring-daemon --st
 
 ## Modify xdg-open behaviour, and others.
 # "BunsenLabs" will be interpreted as X-generic
-export XDG_CURRENT_DESKTOP=BunsenLabs
+# (now set in /usr/share/xsessions/bunsenlabs.desktop, but can be overridden here)
+#export XDG_CURRENT_DESKTOP=BunsenLabs:XFCE
 
 # Disable overlay scrollbars
 export GTK_OVERLAY_SCROLLING=0

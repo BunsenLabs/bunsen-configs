@@ -5,3 +5,4 @@ Exec=/usr/bin/bunsenlabs-session
 TryExec=/usr/bin/bunsenlabs-session
 Icon=bunsenlabs
 Type=Application
+DesktopNames=BunsenLabs;XFCE;

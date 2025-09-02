@@ -5,3 +5,4 @@ Exec=/usr/bin/bunsenlabs-session-wayland
 TryExec=/usr/bin/bunsenlabs-session-wayland
 Icon=bunsenlabs
 Type=Application
+DesktopNames=BunsenLabs-Wayland;labwc;wlroots;
