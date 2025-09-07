@@ -24,13 +24,13 @@ usr_setupflagfile="$usr_confdir/bunsen/bl-setup"
 usr_xsessionrc="$HOME/.xsessionrc"
 usr_resources="$HOME/.Xresources"
 
-default_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart'
+default_usr_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart'
 bl_autostart='/usr/lib/bunsen/configs/bunsen-autostart'
 
 if [ "$BUNSEN_SESSION_TYPE" = 'wayland' ]; then
     usr_autostart="$usr_confdir/bunsen/autostart-wayland"
     usr_envfile="$usr_confdir/bunsen/environment-wayland"
-    default_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart-wayland'
+    default_usr_autostart='/usr/share/bunsen/skel/.config/bunsen/autostart-wayland'
 fi
 
 # Export keyboard layout from /etc/default/keyboard
@@ -87,8 +87,8 @@ test -r "$usr_envfile" && . "$usr_envfile" || echo "$0: cannot source $usr_envfi
 
 # At least try to ensure user has an autostart file.
 [ -e "$usr_autostart" ] || {
-    echo "$0: ERROR $usr_autostart does not exist, copying in $default_autostart" >&2
-    cp "$default_autostart" "$usr_autostart"
+    echo "$0: ERROR $usr_autostart does not exist, copying in $default_usr_autostart" >&2
+    cp "$default_usr_autostart" "$usr_autostart"
 }
 
 # Set default window manager.
@@ -123,10 +123,10 @@ hash "$win_man" 2>/dev/null || { echo "$0: Window manager command \"$win_man\" n
 # Run the window manager.
 case "$win_man" in
 openbox)
-    exec /usr/bin/openbox --config-file "$usr_confdir/openbox/bl-rc.xml" --startup "$bl_autostart"
+    exec /usr/bin/openbox --config-file "$usr_confdir/bunsen/openbox/rc.xml" --startup "$bl_autostart"
     ;;
 labwc)
-    exec /usr/bin/labwc --startup "$bl_autostart"
+    exec /usr/bin/labwc --config-dir "$usr_confdir/bunsen/labwc" --startup "$bl_autostart"
     ;;
 *)
 # NOTE: in this case $bl_autostart and $usr_autostart are run in a subshell and cannot export variables.
