@@ -1,3 +1,12 @@
+bunsen-configs (13.3-1) carbon; urgency=medium
+
+  * Adjust directory structure of openbox and labwc config files in ~/.config
+  * bunsenlabs-session: export BUNSEN_SESSION_TYPE as x11 or wayland,
+     BunsenLabs utilities can refer to this.
+  * Add various tweaks and bugfixes.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 08 Sep 2025 14:30:47 +0900
+
 bunsen-configs (13.2.1-1) carbon; urgency=medium
 
   * /etc/grub.d/15_bunsen-tty: update code to eliminate deprecation warnings.
