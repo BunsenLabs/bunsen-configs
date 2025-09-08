@@ -46,7 +46,7 @@
   </placement>
 
   <theme>
-    <name>Boron-aqua</name>
+    <name>bunsen-yaru-bark-dark</name>
     <titleLayout>NDSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -97,22 +97,22 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-        <name>Sans</name>
-        <size>10</size>
-        <!-- font size in points -->
-        <weight>normal</weight>
-        <!-- 'bold' or 'normal' -->
-        <slant>normal</slant>
-        <!-- 'italic' or 'normal' -->
+      <name>Sans</name>
+      <size>10</size>
+      <!-- font size in points -->
+      <weight>normal</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-        <name>Sans</name>
-        <size>10</size>
-        <!-- font size in points -->
-        <weight>normal</weight>
-        <!-- 'bold' or 'normal' -->
-        <slant>normal</slant>
-        <!-- 'italic' or 'normal' -->
+      <name>Sans</name>
+      <size>10</size>
+      <!-- font size in points -->
+      <weight>normal</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
   </theme>
 
@@ -195,40 +195,72 @@
 
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
-      <action name="GoToDesktop"><to>left</to><wrap>no</wrap></action>
+      <action name="GoToDesktop">
+        <to>left</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="C-A-Right">
-      <action name="GoToDesktop"><to>right</to><wrap>no</wrap></action>
+      <action name="GoToDesktop">
+        <to>right</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="C-A-Up">
-      <action name="GoToDesktop"><to>up</to><wrap>no</wrap></action>
+      <action name="GoToDesktop">
+        <to>up</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="C-A-Down">
-      <action name="GoToDesktop"><to>down</to><wrap>no</wrap></action>
+      <action name="GoToDesktop">
+        <to>down</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="S-A-Left">
-      <action name="SendToDesktop"><to>left</to><wrap>no</wrap></action>
+      <action name="SendToDesktop">
+        <to>left</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="S-A-Right">
-      <action name="SendToDesktop"><to>right</to><wrap>no</wrap></action>
+      <action name="SendToDesktop">
+        <to>right</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="S-A-Up">
-      <action name="SendToDesktop"><to>up</to><wrap>no</wrap></action>
+      <action name="SendToDesktop">
+        <to>up</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="S-A-Down">
-      <action name="SendToDesktop"><to>down</to><wrap>no</wrap></action>
+      <action name="SendToDesktop">
+        <to>down</to>
+        <wrap>no</wrap>
+      </action>
     </keybind>
     <keybind key="W-F1">
-      <action name="GoToDesktop"><to>1</to></action>
+      <action name="GoToDesktop">
+        <to>1</to>
+      </action>
     </keybind>
     <keybind key="W-F2">
-      <action name="GoToDesktop"><to>2</to></action>
+      <action name="GoToDesktop">
+        <to>2</to>
+      </action>
     </keybind>
     <keybind key="W-F3">
-      <action name="GoToDesktop"><to>3</to></action>
+      <action name="GoToDesktop">
+        <to>3</to>
+      </action>
     </keybind>
     <keybind key="W-F4">
-      <action name="GoToDesktop"><to>4</to></action>
+      <action name="GoToDesktop">
+        <to>4</to>
+      </action>
     </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
@@ -470,22 +502,34 @@
       </mousebind>
 
       <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
+        <action name="GoToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
+        <action name="GoToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
       <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
+        <action name="GoToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
+        <action name="GoToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
       <mousebind button="A-S-Up" action="Click">
-        <action name="SendToDesktop"><to>previous</to></action>
+        <action name="SendToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="A-S-Down" action="Click">
-        <action name="SendToDesktop"><to>next</to></action>
+        <action name="SendToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
     </context>
 
@@ -553,7 +597,9 @@
       <mousebind button="Right" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
-        <action name="ShowMenu"><menu>client-menu</menu></action>
+        <action name="ShowMenu">
+          <menu>client-menu</menu>
+        </action>
       </mousebind>
     </context>
 
@@ -713,10 +759,14 @@
         <action name="ToggleMaximize"/>
       </mousebind>
       <mousebind button="Middle" action="Click">
-        <action name="ToggleMaximize"><direction>vertical</direction></action>
+        <action name="ToggleMaximize">
+          <direction>vertical</direction>
+        </action>
       </mousebind>
       <mousebind button="Right" action="Click">
-        <action name="ToggleMaximize"><direction>horizontal</direction></action>
+        <action name="ToggleMaximize">
+          <direction>horizontal</direction>
+        </action>
       </mousebind>
     </context>
 
@@ -733,22 +783,34 @@
 
     <context name="Desktop">
       <mousebind button="Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
+        <action name="GoToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
+        <action name="GoToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
       <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
+        <action name="GoToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
+        <action name="GoToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
       <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
+        <action name="GoToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
+        <action name="GoToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -776,16 +838,24 @@
 
     <context name="MoveResize">
       <mousebind button="Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
+        <action name="GoToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
+        <action name="GoToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
       <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
+        <action name="GoToDesktop">
+          <to>previous</to>
+        </action>
       </mousebind>
       <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
+        <action name="GoToDesktop">
+          <to>next</to>
+        </action>
       </mousebind>
     </context>
   </mouse>
@@ -801,29 +871,29 @@
     <file>debian-menu.xml</file> -->
     <file>bl-menu.xml</file>
     <hideDelay>200</hideDelay>
-  <!-- if a press-release lasts longer than this setting (in milliseconds), the
+    <!-- if a press-release lasts longer than this setting (in milliseconds), the
        menu is hidden again -->
     <middle>no</middle>
-  <!-- center submenus vertically about the parent entry -->
+    <!-- center submenus vertically about the parent entry -->
     <submenuShowDelay>100</submenuShowDelay>
-  <!-- time to delay before showing a submenu after hovering over the parent
+    <!-- time to delay before showing a submenu after hovering over the parent
        entry.
        if this is a negative value, then the delay is infinite and the
        submenu will not be shown until it is clicked on -->
     <submenuHideDelay>400</submenuHideDelay>
-  <!-- time to delay before hiding a submenu when selecting another
+    <!-- time to delay before hiding a submenu when selecting another
        entry in parent menu
        if this is a negative value, then the delay is infinite and the
        submenu will not be hidden until a different submenu is opened -->
     <applicationIcons>yes</applicationIcons>
-  <!-- controls if icons appear in the client-list-(combined-)menu -->
+    <!-- controls if icons appear in the client-list-(combined-)menu -->
     <manageDesktops>yes</manageDesktops>
-  <!-- show the manage desktops section in the client-list-(combined-)menu -->
+    <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
 
   <applications>
-    <!--
-  # this is an example with comments through out. use these to make your
+  <!--
+  # this is an example with comments throughout. use these to make your
   # own rules, but without the comments of course.
   # you may use one or more of the name/class/role/title/type rules to specify
   # windows to match
@@ -834,18 +904,18 @@
               title="the window's _OB_APP_TITLE property (see obxprop)"
                type="the window's _OB_APP_TYPE property (see obxprob)..
                       (if unspecified, then it is 'dialog' for child windows)">
-  # you may set only one of name/class/role/title/type, or you may use more
-  # than one together to restrict your matches.
+    # you may set only one of name/class/role/title/type, or you may use more
+    # than one together to restrict your matches.
 
-  # the name, class, role, and title use simple wildcard matching such as those
-  # used by a shell. you can use * to match any characters and ? to match
-  # any single character.
+    # the name, class, role, and title use simple wildcard matching such as those
+    # used by a shell. you can use * to match any characters and ? to match
+    # any single character.
 
-  # the type is one of: normal, dialog, splash, utility, menu, toolbar, dock,
-  #    or desktop
+    # the type is one of: normal, dialog, splash, utility, menu, toolbar, dock,
+    #    or desktop
 
-  # when multiple rules match a window, they will all be applied, in the
-  # order that they appear in this list
+    # when multiple rules match a window, they will all be applied, in the
+    # order that they appear in this list
 
 
     # each rule element can be left out or set to 'default' to specify to not
@@ -902,7 +972,8 @@
   </application>
 
   # end of the example
--->
+  -->
+
     <!-- Ensure new windows are always given focus.
     See: https://wiki.archlinux.org/index.php/openbox#Windows_load_behind_the_active_window
     Remove this entry if it conflicts with some app's configuration. -->
