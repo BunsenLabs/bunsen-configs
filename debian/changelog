@@ -1,3 +1,11 @@
+bunsen-configs (13.3.1-1) carbon; urgency=medium
+
+  * Fix menu entry for jgmenu "sync theme with openbox"
+  * Set jgmenu icons to labbe-icons-bark
+  * Add Recommends: xfce4-screensaver
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 14 Sep 2025 15:40:08 +0900
+
 bunsen-configs (13.3-1) carbon; urgency=medium
 
   * Adjust directory structure of openbox and labwc config files in ~/.config
