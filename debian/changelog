@@ -1,3 +1,12 @@
+bunsen-configs (12.8-1) boron; urgency=low
+
+  * calendar.bunsen: add attribution and slight update.
+  * docs: rename and create copies for b-c-lite and b-c-base
+  * Xsession.d/21bunsen-lightdm-locale: add extra link to reference
+  * bugfix tint2 in b-c-base autostart
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 24 Sep 2025 19:49:06 +0900
+
 bunsen-configs (12.7-1) boron; urgency=medium
 
   * bunsen-configs-base: menu: comment out unavailable printer pipemenu.
