@@ -1,3 +1,10 @@
+bunsen-configs (13.3.2-1) boron; urgency=medium
+
+  * ~/.fehbg: make executable so xwwall will set default wallpaper
+  * ~/.config/bunsen/autostart: add comment about xfce4-panel volume plugin
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 24 Sep 2025 16:19:43 +0900
+
 bunsen-configs (13.3.1-1) carbon; urgency=medium
 
   * Fix menu entry for jgmenu "sync theme with openbox"
