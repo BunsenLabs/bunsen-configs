@@ -1,4 +1,4 @@
-bunsen-configs (13.3.3-1) boron; urgency=medium
+bunsen-configs (13.3.3-1) carbon; urgency=medium
 
   * jgmenu: set default menu theme to match default bark-dark openbox
 
