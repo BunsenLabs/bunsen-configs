@@ -5,7 +5,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# for qt5 apps ( needs qt5-style-plugins and libqt5svg5 )
+# for qt5 and qt6 apps
 export QT_QPA_PLATFORMTHEME=gtk2
 
 # include sbin in PATH
