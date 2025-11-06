@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-terminal" version="1.0">
+  <property name="font-name" type="string" value="Monospace 10"/>
+  <property name="color-use-theme" type="bool" value="true"/>
+  <property name="font-allow-bold" type="bool" value="true"/>
+  <property name="title-mode" type="string" value="TERMINAL_TITLE_REPLACE"/>
+  <property name="scrolling-lines" type="uint" value="5000"/>
+  <property name="font-use-system" type="bool" value="false"/>
+  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
+  <property name="background-darkness" type="double" value="0.94999999999999996"/>
+  <property name="color-bold-use-default" type="bool" value="true"/>
+  <property name="color-bold-is-bright" type="bool" value="false"/>
+</channel>
