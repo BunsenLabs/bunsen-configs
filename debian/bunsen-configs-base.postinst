@@ -15,7 +15,7 @@ MAN1='/usr/share/man/man1'
 GREETD="/etc/greetd/greetd.conf"
 
 case $1 in
-configure|abort-upgrade|abort-deconfigure|abort-remove)
+configure)
     if command -v bl-alternatives >/dev/null
     then
         bl-alternatives update
