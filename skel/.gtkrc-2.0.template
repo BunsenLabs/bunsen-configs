@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "%USERHOME%/.gtkrc-2.0.mine"
-gtk-theme-name="bunsen-yaru-bark-dark"
-gtk-icon-theme-name="labbe-icons-bark"
+gtk-theme-name="bunsen-yaru-sage-dark"
+gtk-icon-theme-name="labbe-icons-sage"
 gtk-font-name="Sans 10"
 gtk-cursor-theme-name="DMZ-White"
 gtk-cursor-theme-size=0
