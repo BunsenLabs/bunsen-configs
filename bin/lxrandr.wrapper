@@ -6,7 +6,7 @@
 # This wrapper script comments out that line so it will run on other desktops.
 
 config_file=$HOME/.config/autostart/lxrandr-autostart.desktop
-bad_line_regex='^[[:blank:]]*OnlyShowIn='
+comment_line_regex='^[[:blank:]]*OnlyShowIn='
 
 lxrandr
 
@@ -17,7 +17,7 @@ lxrandr
     exit 1
 }
 
-sed -i "/$bad_line_regex/ s/^/#/" "$config_file" || {
+sed -i "/$comment_line_regex/ s/^/#/" "$config_file" || {
     echo "${0}: sed error" >&2
     exit 1
 }
