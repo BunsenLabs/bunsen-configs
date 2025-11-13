@@ -1,1 +1,1 @@
-feh --no-fehbg --bg-scale --image-bg '#999999' '/usr/share/images/bunsen/wallpapers/default/default' 
+feh --no-fehbg --bg-fill --image-bg '#666666' '/usr/share/images/bunsen/wallpapers/default/default' 
