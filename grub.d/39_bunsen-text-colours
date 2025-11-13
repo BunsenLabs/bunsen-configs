@@ -29,6 +29,9 @@ EOF
 # This should be the canonical path.
 BL_GRUB_BACKGROUND='/boot/grub/images/bunsen/default.png'
 
+# resolve symlink
+BL_GRUB_BACKGROUND=$( readlink -f "$BL_GRUB_BACKGROUND" )
+
 # Set these colours if default BL background image is detected.
 BL_TEXT_COLORS='color_normal=light-gray/black
 color_highlight=light-green/black
