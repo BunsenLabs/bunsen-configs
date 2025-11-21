@@ -3,6 +3,7 @@
 # wrapper to run sudoedit using a GUI text editor, with some precautions
 
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
+export GTK_THEME="Adwaita"
 
 # use SUDO_EDITOR if it is already set,
 # or use bl-text-editor if it is set,
