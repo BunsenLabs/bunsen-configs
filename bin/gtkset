@@ -1,0 +1,99 @@
+#!/bin/bash
+# script to launch GTK4 apps with the current GTK3 theme
+# the chosen theme must support GTK4
+set -eu
+
+app=$1
+shift
+hash "$app" || {
+    echo "${0}: command ${app} not found" >&2
+    exit 1
+}
+
+gtk3_file=~/.config/gtk-3.0/settings.ini
+[[ -r $gtk3_file ]] || {
+    echo "${0}: WARNING unable to read ${gtk3_file}, no theming will be applied." >&2
+    "$app" "$@"
+    exit
+}
+
+gtk3_theme=$( sed -nE 's/[[:blank:]]*gtk-theme-name[[:blank:]]*=[[:blank:]]*([^[:blank:]]+).*$/\1/p' "$gtk3_file" )
+[[ -n $gtk3_theme ]] || {
+    echo "${0}: WARNING unable to determine GTK3 theme, no theming will be applied." >&2
+    "$app" "$@"
+    exit
+}
+
+home_theme_dir="${HOME}/.local/share/themes"
+home_theme_dir_old="${HOME}/.themes"
+sys_theme_dir=/usr/share/themes
+
+if [[ -d $home_theme_dir/$gtk3_theme/gtk-4.0 ]]
+then
+    source_dir=$home_theme_dir/$gtk3_theme/gtk-4.0
+elif [[ -d $home_theme_dir_old/$gtk3_theme/gtk-4.0 ]]
+then
+    source_dir=$home_theme_dir_old/$gtk3_theme/gtk-4.0
+elif [[ -d $sys_theme_dir/$gtk3_theme/gtk-4.0 ]]
+then
+    source_dir=$sys_theme_dir/$gtk3_theme/gtk-4.0
+else
+    echo "${0}: cannot find theme ${gtk3_theme} gtk4 directory, using environment variable to set theme." >&2
+    GTK_THEME="$gtk3_theme" "$app" "$@"
+    exit
+fi
+
+target_dir="${HOME}/.config/gtk-4.0"
+mkdir -p "$target_dir"
+  
+gresource_file=${source_dir}/gtk.gresource
+src_css=${source_dir}/gtk.css
+src_dark=${source_dir}/gtk-dark.css
+out_css=${target_dir}/gtk.css
+out_dark=${target_dir}/gtk-dark.css
+
+get_resource_path() {
+    # Expect a single line like: @import url("resource:///com/ubuntu/themes/foo/4.0/gtk.css");
+    sed -nE 's@^[[:space:]]*\@import[[:space:]]+url\("resource://(/[^"]+)"\);.*@\1@p' "$1"
+# this sed command returns 1 if the pattern '^[[:space:]]*\@import' is not found:
+#    sed -nE '/^[[:space:]]*\@import/{s@^[[:space:]]*\@import[[:space:]]+url\("resource://(/[^"]+)"\);.*@\1@p;q0};q1' "$file"
+}
+
+bkp_sfx=".$(date +"%Y%m%d-%H%M%S")"
+
+cleanup() {
+    for i in "${out_css}" "${out_dark}"
+    do
+        [[ -e ${i}${bkp_sfx} ]] && mv -f "${i}${bkp_sfx}" "${i}"
+    done
+}
+
+extract_if_needed () {
+    local srcfile=$1 outfile=$2 res
+    res=$(get_resource_path "$srcfile")
+    if [[ -n $res ]] && [[ -r $gresource_file ]]
+    then
+        gresource extract "$gresource_file" "$res" > "$outfile"
+    else
+        cp -f "$srcfile" "$outfile"
+    fi
+}
+
+trap 'cleanup' EXIT
+
+[[ -r $src_css && -r $src_dark ]] || {
+    echo "${0}: cannot find css files ${src_css} and ${src_dark}, using environment variable to set theme." >&2
+    GTK_THEME="$gtk3_theme" "$app" "$@"
+    exit
+}
+
+# if user css files exist, move them aside before copying
+for i in "$out_css" "$out_dark"
+do
+    [[ -e $i ]] && mv "$i" "${i}${bkp_sfx}"
+done
+
+extract_if_needed "$src_css" "$out_css"
+extract_if_needed "$src_dark" "$out_dark"
+
+"$app" "$@"
