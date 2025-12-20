@@ -144,7 +144,7 @@ man page,x-terminal-emulator -T 'man gmrun' -e man gmrun
 ^tag(bl-DisplaySettings)
 Back,^back()
 #ARandR Screen Layout Editor,arandr
-lxrandr Monitor Settings Editor,lxrandr.wrapper
+Lxrandr Display Settings Editor,lxrandr.wrapper
 ^sep(Help)
 How To Set Screen Resolution,x-www-browser "https://forums.bunsenlabs.org/viewtopic.php?pid=117065#p117065",help-contents
 man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
