@@ -66,9 +66,9 @@ xset r rate 250 25
 
 ## Configure touchpad. See 'man synaptics' for more info.
 ## (Now might be using libinput instead of synaptics.)
-synclient VertEdgeScroll=1 HorizEdgeScroll=1 VertTwoFingerScroll=1 TapButton1=1 2>/dev/null
-## alternative:
-#synclient VertEdgeScroll=0 VertTwoFingerScroll=0 HorizEdgeScroll=0 TapButton1=1 TapButton2=3 TapButton3=2 PalmDetect=1 PalmMinWidth=4 PalmMinZ=100
+synclient VertEdgeScroll=0 VertTwoFingerScroll=1 HorizEdgeScroll=0 TapButton1=1 TapButton2=3 TapButton3=2 PalmDetect=1 PalmMinWidth=4 PalmMinZ=100
+## simpler alternative:
+#synclient VertEdgeScroll=1 HorizEdgeScroll=1 VertTwoFingerScroll=1 TapButton1=1
 
 ## Disable touchpad while typing
 syndaemon -i .5 -K -t -R -d &
@@ -80,8 +80,6 @@ syndaemon -i .5 -K -t -R -d &
 ## GNOME PolicyKit authentication
 #[ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ] && \
 #  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
-#hash lxpolkit 2>/dev/null && lxpolkit &
 
 # now using mate-polkit, started by /etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop
 
@@ -112,8 +110,10 @@ openbox)
     ## The "base" install has no bl-conky-session script, so start conky directly:
     conky -c ~/.config/conky/BL-Default-conky.conf &
 
-    ## Start the panel)
-    # ( sleep 2; bl-tint2-session ) &
+    ## Start the panel
+
+    ## if using tint2, the default tint2 will run if no sessions have been set
+    #( sleep 2; bl-tint2-session ) &
     ## The "base" install has no bl-tint2-session script, so start tint2 directly:
     #( sleep 2; tint2 -c ~/.config/tint2/tint2rc ) &
 
@@ -173,7 +173,8 @@ fi
 ## Many of them are from the 'Off Topic' subforums of those sites,
 ## so they are likely to be abstract, out-of-context...
 ## ... and possibly Not Safe For Work, children, or your mental health in general.
-## Uncomment the following line to enable this (adjust the sleep seconds to taste).
+## Install bunsen-fortune and uncomment the following line to enable this
+## (adjust the sleep seconds to taste)
 #(sleep 20; bl-fortune) &
 
 ## Run the XDG autostart stuff. This requires python3-xdg to be installed.

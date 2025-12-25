@@ -81,10 +81,7 @@ syndaemon -i .5 -K -t -R -d &
 #[ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ] && \
 #  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-#hash lxpolkit 2>/dev/null && lxpolkit &
-
 # now using mate-polkit, started by /etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop
-
 
 #######################################################
 ######## window-manager-dependent applications ########
@@ -167,7 +164,8 @@ fi
 ## Many of them are from the 'Off Topic' subforums of those sites,
 ## so they are likely to be abstract, out-of-context...
 ## ... and possibly Not Safe For Work, children, or your mental health in general.
-## Uncomment the following line to enable this (adjust the sleep seconds to taste).
+## Install bunsen-fortune and uncomment the following line to enable this
+## (adjust the sleep seconds to taste)
 #(sleep 20; bl-fortune) &
 
 ## Run the XDG autostart stuff. This requires python3-xdg to be installed.

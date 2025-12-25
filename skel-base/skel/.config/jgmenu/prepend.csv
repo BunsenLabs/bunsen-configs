@@ -40,7 +40,7 @@ Help &amp; Resources,^checkout(bl-help-menu),help-contents
 All Applications,^checkout(apps),applications-other
 ^sep()
 Lock Screen,bl-exit --lock,system-lock-screen
-#or this?
+#bl-lock comes with bunsen-utilities which is not part of the "base" system
 #Lock Screen,bl-lock,system-lock-screen
 # see https://github.com/BunsenLabs/bunsen-exit/pull/6#issuecomment-2078489417
 Exit,bl-exit,system-shutdown
@@ -71,9 +71,9 @@ Keybinds,^checkout(bl-xbindkeysConfig),preferences-desktop-keyboard
 # Uncomment the next line if you have installed picom
 #Compositor,^pipe(jgmenu_run ob --cmd="bl-compositor" --tag="bl-compositor"),picom
 #Conky,^pipe(jgmenu_run ob --cmd="bl-conky-pipemenu" --tag="bl-conky-pipemenu"),conky-manager
-# bl-obthemes temporarily disabled pending checking for Carbon
+# bl-obthemes now available for Carbon
 #BLOB Themes Manager,bl-obthemes,distributor-logo-bunsenlabs
-Appearance,sh -c 'lxappearance; bl-reload-gtk23',preferences-desktop-theme
+Appearance,sh -c 'nwg-look; bl-reload-gtk23',preferences-desktop-theme
 #Reload GTK,bl-reload-gtk23,preferences-desktop-theme
 Font configuration,bl-text-editor ~/.config/fontconfig/fonts.conf,preferences-desktop-font
 Wallpaper,xwwall,preferences-desktop-wallpaper
@@ -149,7 +149,7 @@ man page,x-terminal-emulator -T 'man gmrun' -e man gmrun
 ^tag(bl-DisplaySettings)
 Back,^back()
 #ARandR Screen Layout Editor,arandr
-lxrandr Monitor Settings Editor,lxrandr.wrapper
+Lxrandr Display Settings Editor,lxrandr.wrapper
 ^sep(Help)
 How To Set Screen Resolution,x-www-browser "https://forums.bunsenlabs.org/viewtopic.php?pid=117065#p117065",help-contents
 man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
