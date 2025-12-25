@@ -14,10 +14,10 @@ bunsen-configs (13.4-1) carbon; urgency=medium
 
 bunsen-configs (13.3.4-1) carbon; urgency=medium
 
-  * Recommends: Replace bunsen-yaru-gtk and labbe-icons-* with 
+  * Recommends: Replace bunsen-yaru-gtk and labbe-icons-* with
      bunsen-themes-base and bunsen-icons-base (which depend on them)
   * Move xfce4-panel round corners configuration back from GTK3 to Picom.
-  * bunsen-configs-base: fonts.conf: replace DejaVu with Liberation 
+  * bunsen-configs-base: fonts.conf: replace DejaVu with Liberation
      in font aliases.
   * Edit some comments.
 
