@@ -1,3 +1,17 @@
+bunsen-configs (13.4-1) carbon; urgency=medium
+
+  * xfce4-panel: provide vertical and horizontal config, default vertical.
+  * Replace arandr with lxrandr for display settings.
+  * Set default theme to Sage.
+  * Add Carbon Conky config.
+  * Set boot grub menu selected text color to light-green.
+  * Add gtkset utility for launching gtk4 apps with some theming.
+  * Bugfix: picom.conf: inhibit transparency of screensaver window.
+  * Improve synclient touchpad config.
+  * Add various small comments etc.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 25 Dec 2025 17:03:52 +0900
+
 bunsen-configs (13.3.4-1) carbon; urgency=medium
 
   * Recommends: Replace bunsen-yaru-gtk and labbe-icons-* with 
