@@ -1,3 +1,9 @@
+bunsen-configs (13.4.1-1) carbon; urgency=medium
+
+  * skel/.fehbg: add missing sh shebang.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 25 Dec 2025 17:56:15 +0900
+
 bunsen-configs (13.4-1) carbon; urgency=medium
 
   * xfce4-panel: provide vertical and horizontal config, default vertical.
