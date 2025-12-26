@@ -197,8 +197,20 @@ If it is not present, the import of config files from $skeldir
 will be repeated, overwriting any user modifications.
 (However, backups will be made of overwritten files.)" > "$flagfile"
 
+    # on first run, catch any newly installed theme settings like cursor
+    [[ $g_install = t ]] && {
+        if hash bl-reload-gtk23
+        then
+            log 'refreshing gtk settings with bl-reload-gtk23'
+            bl-reload-gtk23 --force || log 'bl-reload-gtk23 failed'
+        else
+            log 'bl-reload-gtk23 is not available'
+        fi
+    }
+
     # Update record of skel checksum if script finishes with no errors
     echo "$wholeskelsum" > "$datadir/skelsum"
+
 }
 
 ##############
@@ -340,14 +352,14 @@ cleantmp() {
 ask_overwrite() {
     local skelfile targetfile name tmpdir tmpsrc msg ret
     skelfile=$1
-    name=${skelfile#${skeldir}/}
+    name=${skelfile#"${skeldir}"/}
     name=${name%.template}
     targetfile=${TARGETDIR}/${name}
     name='~/'$name # for display to user
     if [[ $skelfile = *.template ]]
     then
         tmpdir=$( mktemp -d )
-        tmpsrc=${tmpdir}/${skelfile#${skeldir}/}
+        tmpsrc=${tmpdir}/${skelfile#"${skeldir}"/}
         tmpsrc=${tmpsrc%.template}
         mkdir -p "${tmpsrc%/*}"
         sed "s|%USERHOME%|$HOME|g" "$skelfile" > "$tmpsrc"
@@ -523,7 +535,7 @@ check_skel_contents() {
 copy_dirs() {
     for dir in "${dirs_to_copy[@]}"
     do
-        destdir="$TARGETDIR/${dir#$skeldir/}"
+        destdir="$TARGETDIR/${dir#"$skeldir"/}"
         [[ -d $destdir ]] && continue
         log "Making new directory $destdir"
         mkdir -p "$destdir" || die "Unable to create directory $destdir"
@@ -536,7 +548,7 @@ copy_dirs() {
 copy_links() {
     for link in "${links_to_copy[@]}"
     do
-        destlink="$TARGETDIR/${link#$skeldir/}"
+        destlink="$TARGETDIR/${link#"$skeldir"/}"
         if [[ -e $destlink ]]
         then
             log "$destlink exists: not importing symlink."
@@ -595,7 +607,7 @@ copy_file() {
 copy_files() {
     for file in "${files_to_copy[@]}"
     do
-        destfile="$TARGETDIR/${file#$skeldir/}"
+        destfile="$TARGETDIR/${file#"$skeldir"/}"
 
         cachesum=0
         if [[ $have_filecache = t ]]
@@ -635,7 +647,7 @@ copy_files() {
                 then
                     log "New file: $file, copying"
                     copy_file "$file" "$destfile"
-                    notify "Imported new file ${destfile#$TARGETDIR/}"
+                    notify "Imported new file ${destfile#"$TARGETDIR"/}"
                     continue
                 else
                     log "New file: set default 'Yes'"
@@ -650,7 +662,7 @@ copy_files() {
                 then
                     log "User file ${destfile%.template} unchanged from default, copying new file."
                     copy_file "$file" "$destfile"
-                    notify "Updated file ${destfile#$TARGETDIR/}"
+                    notify "Updated file ${destfile#"$TARGETDIR"/}"
                     continue
                 else
                     log "User file ${destfile%.template} unchanged: set default 'Yes'"
@@ -671,7 +683,7 @@ Overwrite with the new version?'
                 then
                     log "New file: $file, copying"
                     copy_file "$file" "$destfile"
-                    notify "Imported new file ${destfile#$TARGETDIR/}"
+                    notify "Imported new file ${destfile#"$TARGETDIR"/}"
                     continue
                 else
                     log "No data: need to confirm user choice about ${destfile%.template}."
