@@ -1,3 +1,12 @@
+bunsen-configs (13.5.1-1) carbon; urgency=medium
+
+  * bl-user-setup: on first run, apply gtk "prefer-dark" setting.
+  * Rename skel/.config/blob/ to skel/.config/blobs/
+  * Add wrapper script bl-menu to run X11 or Wayland menu as appropriate.
+  * xfce4-panel.xml: remove symlink, vertical and horizontal variants.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 11 Jan 2026 13:48:15 +0900
+
 bunsen-configs (13.5-1) carbon; urgency=medium
 
   * bl-user-setup: refresh gtk settings after first run.
