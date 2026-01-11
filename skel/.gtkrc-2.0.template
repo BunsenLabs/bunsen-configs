@@ -1,4 +1,4 @@
-# DO NOT EDIT! This file will be overwritten by LXAppearance.
+# DO NOT EDIT! This file will be overwritten by ngw-look.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "%USERHOME%/.gtkrc-2.0.mine"
