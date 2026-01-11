@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# small wrapper to launch right menu for x11 or wayland
+
+x11_menu=jgmenu_run
+wayland_menu=''
+
+# BUNSEN_SESSION_TYPE is exported by bunsenlabs-session
+case $BUNSEN_SESSION_TYPE in
+x11)
+    menucmd=$x11_menu
+    ;;
+wayland)
+    menucmd=$wayland_menu
+    ;;
+*)
+    echo "$0: unexpected session type: $BUNSEN_SESSION_TYPE" >&2
+    exit 1
+    ;;
+esac
+
+[ -z "$menucmd" ] && {
+    echo "$0: no $menucmd is set for session type: $BUNSEN_SESSION_TYPE" >&2
+    exit 1
+}
+
+exec "$menucmd"
