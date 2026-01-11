@@ -197,8 +197,16 @@ If it is not present, the import of config files from $skeldir
 will be repeated, overwriting any user modifications.
 (However, backups will be made of overwritten files.)" > "$flagfile"
 
-    # on first run, catch any newly installed theme settings like cursor
+    # on first run, set gtk colour preference to dark
+    # and catch any newly installed theme settings like cursor
     [[ $g_install = t ]] && {
+        if hash gsettings
+        then
+            log 'setting gtk theme preference to dark' # users can change this setting in nwg-look
+            gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" || log 'gsettings failed to set color-scheme'
+        else
+            log 'gsettings is not available'
+        fi
         if hash bl-reload-gtk23
         then
             log 'refreshing gtk settings with bl-reload-gtk23'
