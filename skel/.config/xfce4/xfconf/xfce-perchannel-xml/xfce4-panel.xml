@@ -27,8 +27,9 @@
         <value type="int" value="3"/>
         <value type="int" value="10"/>
         <value type="int" value="12"/>
-        <value type="int" value="14"/>
         <value type="int" value="4"/>
+        <value type="int" value="14"/>
+        <value type="int" value="2"/>
         <value type="int" value="5"/>
         <value type="int" value="8"/>
       </property>
@@ -66,7 +67,7 @@
       <property name="known-indicators" type="array">
         <value type="string" value="libayatana-application.so"/>
       </property>
-      <property name="square-icons" type="bool" value="false"/>
+      <property name="square-icons" type="bool" value="true"/>
     </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -77,6 +78,7 @@
       <property name="rows" type="uint" value="1"/>
       <property name="workspace-scrolling" type="bool" value="false"/>
     </property>
+    <property name="plugin-2" type="string" value="power-manager-plugin"/>
     <property name="plugin-3" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
