@@ -10,5 +10,6 @@
   <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
   <property name="background-darkness" type="double" value="0.94999999999999996"/>
   <property name="color-bold-use-default" type="bool" value="true"/>
-  <property name="color-bold-is-bright" type="bool" value="false"/>
+  <property name="color-bold-is-bright" type="bool" value="true"/>
+  <property name="shortcuts-no-menukey" type="bool" value="true"/>
 </channel>

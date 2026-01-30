@@ -24,8 +24,11 @@ but provide more flexibility than Picom */
 }
 */
 
-/* pulseaudio button is much too big */
-#pulseaudio-button > box > image { -gtk-icon-transform: scale(0.6); }
+/* some buttons are too big */
 
-/* in trixie x-p-m is no longer a plugin, and this does not affect the icon size */
-/* #xfce4-power-manager-plugin > box > image { -gtk-icon-transform: scale(0.7); } */
+#pulseaudio-button * { -gtk-icon-transform: scale(0.6); }
+
+#xfce4-power-manager-plugin * { -gtk-icon-transform: scale(0.4); }
+
+#battery-14 * { -gtk-icon-transform: scale(0.6); }
+/* adjust the "#14" to match the widget ID of your battery plugin */
