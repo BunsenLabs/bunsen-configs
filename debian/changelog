@@ -1,3 +1,13 @@
+bunsen-configs (13.6-1) carbon; urgency=medium
+
+  * Final pre-release tweaks:
+    - xfce4-terminal: prevent grabbing of F10 and F1 keys
+    - xfce4-panel: adjust power/battery plugins and icons
+    - update xfce4-panel profiles
+    - adjust gtk3 scaling of xfce4-panel plugin icons
+
+ -- John Crawley <john@bunsenlabs.org>  Sat, 31 Jan 2026 17:23:38 +0900
+
 bunsen-configs (13.5.1-1) carbon; urgency=medium
 
   * bl-user-setup: on first run, apply gtk "prefer-dark" setting.
