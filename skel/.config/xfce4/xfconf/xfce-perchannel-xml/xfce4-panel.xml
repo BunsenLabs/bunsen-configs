@@ -94,10 +94,10 @@
         <value type="string" value="nm-applet"/>
       </property>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="polkit-mate-authentication-agent-1"/>
-        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="clipman"/>
         <value type="string" value="networkmanager applet"/>
+        <value type="string" value="polkit-mate-authentication-agent-1"/>
+        <value type="string" value="xfce4-power-manager"/>
       </property>
       <property name="single-row" type="bool" value="false"/>
       <property name="square-icons" type="bool" value="true"/>
