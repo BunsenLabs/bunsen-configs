@@ -1,3 +1,11 @@
+bunsen-configs (13.6.2-1) carbon; urgency=medium
+
+  * bl-user-setup: on install initialize
+     gtk-theme, icon-theme, cursor-theme and font-name in gsettings.
+     On its first run, nwg-look will use these. 
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 06 Feb 2026 15:49:19 +0900
+
 bunsen-configs (13.6.1-1) carbon; urgency=medium
 
   * xfce4-panel: small adjustments to icon positioning etc.
