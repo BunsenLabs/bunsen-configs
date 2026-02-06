@@ -201,9 +201,17 @@ will be repeated, overwriting any user modifications.
     # and catch any newly installed theme settings like cursor
     [[ $g_install = t ]] && {
         if hash gsettings
-        then
-            log 'setting gtk theme preference to dark' # users can change this setting in nwg-look
+        then # TODO parse the appropriate settings from gtk3 settings.ini and apply them to gsettings here (use parseKeyFile() from bl-obthemes)
+            log 'setting gtk theme preference to dark' # users can change these settings in nwg-look
             gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" || log 'gsettings failed to set color-scheme'
+            log 'setting gtk theme to bunsen-yaru-sage-dark'
+            gsettings set org.gnome.desktop.interface gtk-theme "bunsen-yaru-sage-dark" || log 'gsettings failed to set gtk-theme'
+            log 'setting icon theme to labbe-icons-sage'
+            gsettings set org.gnome.desktop.interface icon-theme "labbe-icons-sage" || log 'gsettings failed to set icon-theme'
+            log 'setting cursor theme to DMZ-White'
+            gsettings set org.gnome.desktop.interface cursor-theme "DMZ-White" || log 'gsettings failed to set cursor-theme'
+            log 'setting font name to Sans 10'
+            gsettings set org.gnome.desktop.interface font-name "Sans 10" || log 'gsettings failed to set font-name'
         else
             log 'gsettings is not available'
         fi
