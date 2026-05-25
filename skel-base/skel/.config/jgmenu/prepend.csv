@@ -157,7 +157,7 @@ man xrandr,x-terminal-emulator -T 'man xrandr' -e man xrandr
 ^tag(bl-system-settings)
 Back,^back()
 inxi - Quick System Info,x-terminal-emulator -T 'inxi system info  (Q to close)' -e bash -c "inxi -e -m -d -J -l -o -p -r -u -xxx -z -c 2 | less -R",applications-development
-#Hardinfo GUI system profiler,hardinfo,applications-development
+#Hardinfo GUI system profiler,hardinfo2,applications-development
 BunsenLabs Install Info,x-terminal-emulator -T 'BunsenLabs install info (Q to close)' -e less '/etc/bunsen/bunsen_install',distributor-logo-bunsenlabs
 ^sep()
 #Printers,^pipe(jgmenu_run ob --cmd="bl-printing-pipemenu" --tag="bl-printing-pipemenu"),printer
