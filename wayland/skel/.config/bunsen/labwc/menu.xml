@@ -1,0 +1,457 @@
+<openbox_menu>
+<!-- defining submenus -->
+
+    <menu id="bl-xfce4panelConfig" label="xfce4-panel" icon="xfce4-panel" >
+        <item label="xfce4-panel Preferences" icon="" >
+            <action name="Execute" command="xfce4-panel -p" />
+        </item>
+        <item label="xfce4-panel Profiles" icon="" >
+            <action name="Execute" command="xfce4-panel-profiles" />
+        </item>
+        <item label="man xfce4-panel" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man xfce4-panel&apos; -e man xfce4-panel" />
+        </item>
+    </menu>
+
+    <menu id="bl-blConfig" label="BunsenLabs Session" icon="distributor-logo-bunsenlabs" >
+        <item label="Edit autostart" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/bunsen/autostart-wayland" />
+        </item>
+        <item label="Edit environment" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/bunsen/environment-wayland" />
+        </item>
+        <separator />
+        <separator label="Manuals" />
+        <item label="bunsenlabs-session" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man bunsenlabs-session&apos; -e man bunsenlabs-session" />
+        </item>
+        <item label="xdg-autostart" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man bl-xdg-autostart&apos; -e man bl-xdg-autostart" />
+        </item>
+    </menu>
+
+    <menu id="bl-xbindkeysConfig" label="Keybinds" icon="preferences-desktop-keyboard" >
+        <menu id="bl-kb-pipemenu-kbmenu" label="Display Keybinds in menu" icon="" execute="bl-kb-pipemenu --kbmenu" />
+        <item label="Display Keybinds in new window" icon="" >
+            <action name="Execute" command="bl-kb-pipemenu --gui" />
+        </item>
+        <separator />
+        <item label="Backup and Edit openbox rc file" icon="" >
+            <action name="Execute" command="bl-kb-pipemenu --rcedit" />
+        </item>
+        <item label="Backup and Edit .xbindkeysrc" icon="" >
+            <action name="Execute" command="bl-kb-pipemenu --xbkedit" />
+        </item>
+        <item label="Reconfigure openbox" icon="" >
+            <action name="Execute" command="openbox --reconfigure" />
+        </item>
+        <item label="Restart xbindkeys" icon="" >
+            <action name="Execute" command="sh -c &apos;pkill -x xbindkeys; xbindkeys_autostart&apos;" />
+        </item>
+        <separator label="Help" />
+        <item label="man xbindkeys" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man xbindkeys&apos; -e man xbindkeys" />
+        </item>
+    </menu>
+
+    <menu id="bl-labwcConfig" label="labwc" icon="labwc" >
+        <item label="Edit rc.xml" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/bunsen/labwc/rc.xml" />
+        </item>
+        <item label="Edit menu.xml" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/bunsen/labwc/menu.xml" />
+        </item>
+        <separator />
+        <item label="Reconfigure" icon="" >
+            <action name="Execute" command="labwc --reconfigure" />
+        </item>
+    </menu>
+
+    <menu id="bl-DisplaySettings" label="Display settings" icon="video-display" >
+        <item label="Lxrandr Display Settings Editor" icon="" >
+            <action name="Execute" command="lxrandr.wrapper" />
+        </item>
+        <separator label="Help" />
+        <item label="How To Set Screen Resolution" icon="help-contents" >
+            <action name="Execute" command="x-www-browser &quot;https://forums.bunsenlabs.org/viewtopic.php?pid=117065#p117065&quot;" />
+        </item>
+        <item label="man xrandr" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man xrandr&apos; -e man xrandr" />
+        </item>
+    </menu>
+
+    <menu id="bl-obConfig" label="Openbox" icon="openbox" >
+        <item label="obconf - GUI Config Tool" icon="" >
+            <action name="Execute" command="obconf --config-file ~/.config/bunsen/openbox/rc.xml" />
+        </item>
+        <separator />
+        <item label="Edit rc.xml" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/bunsen/openbox/rc.xml" />
+        </item>
+        <separator />
+        <item label="Reconfigure" icon="" >
+            <action name="Execute" command="openbox --reconfigure" />
+        </item>
+        <item label="Restart" icon="" >
+            <action name="Execute" command="openbox --restart" />
+        </item>
+    </menu>
+
+    <menu id="bl-toficonfig" label="tofi" icon="applications-development" >
+        <item label="Edit Config File" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/tofi/config" />
+        </item>
+        <separator label="Help" />
+        <item label="man page" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man tofi&apos; -e man dmenu" />
+        </item>
+    </menu>
+
+    <menu id="bl-gmrunconfig" label="gmrun" icon="gmrun" >
+        <item label="Edit Config File" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.gmrunrc" />
+        </item>
+        <separator label="Help" />
+        <item label="man page" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man gmrun&apos; -e man gmrun" />
+        </item>
+    </menu>
+
+    <menu id="bl-user-settings" label="User Settings" icon="preferences-desktop" >
+        <menu id="bl-blConfig" />
+        <menu id="bl-labwcConfig" />
+<!--        <menu id="bl-jgmenuConfig" /> -->
+        <menu id="bl-xfce4panelConfig" />
+        <menu id="bl-xbindkeysConfig" />
+        <!--
+        <menu id="bl-compositor" label="Compositor" icon="picom" execute="bl-compositor" />
+        -->
+        <menu id="bl-conky-pipemenu" label="Conky" icon="conky-manager" execute="bl-conky-pipemenu" />
+<!--
+		<item label="BLOB Themes Manager" icon="distributor-logo-bunsenlabs" >
+            <action name="Execute" command="bl-obthemes" />
+        </item>
+-->
+        <item label="Appearance" icon="preferences-desktop-theme" >
+            <action name="Execute" command="nwg-look" />
+        </item>
+        <!--
+        <item label="Reload GTK" icon="preferences-desktop-theme" >
+            <action name="Execute" command="bl-reload-gtk23" />
+        </item>
+        -->
+        <item label="Font configuration" icon="preferences-desktop-font" >
+            <action name="Execute" command="bl-text-editor ~/.config/fontconfig/fonts.conf" />
+        </item>
+        <item label="Wallpaper" icon="preferences-desktop-wallpaper" >
+            <action name="Execute" command="xwwall" />
+        </item>
+        <item label="Notifications" icon="org.xfce.notification" >
+            <action name="Execute" command="xfce4-notifyd-config" />
+        </item>
+        <item label="Power Management" icon="xfce4-power-manager-settings" >
+            <action name="Execute" command="xfce4-power-manager-settings" />
+        </item>
+        <menu id="bl-toficonfig" />
+        <menu id="bl-gmrunconfig" />
+        <menu id="bl-DisplaySettings" />
+        <item label="Network Connections" icon="preferences-system-network" >
+            <action name="Execute" command="nm-connection-editor" />
+        </item>
+    </menu>
+
+    <menu id="bl-system-settings" label="System Settings" icon="applications-system" >
+        <item label="inxi - Quick System Info" icon="applications-development" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;inxi system info  (Q to close)&apos; -e bash -c &quot;inxi -e -m -d -J -l -o -p -r -u -xxx -z -c 2 | less -R&quot;" />
+        </item>
+        <item label="Hardinfo GUI system profiler" icon="applications-development" >
+            <action name="Execute" command="hardinfo2" />
+        </item>
+        <item label="BunsenLabs Install Info" icon="distributor-logo-bunsenlabs" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;BunsenLabs install info (Q to close)&apos; -e less &apos;/etc/bunsen/bunsen_install&apos;" />
+        </item>
+        <separator />
+        <menu id="bl-printing-pipemenu" label="Printers" icon="printer" execute="bl-printing-pipemenu" />
+        <item label="Task Manager (htop)" icon="htop" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;htop task manager&apos; -e htop" />
+        </item>
+        <menu id="bl-install-pipemenu" label="Install Favourite Packages" icon="synaptic" execute="bl-install-pipemenu" />
+        <item label="Synaptic Package Manager" icon="synaptic" >
+            <action name="Execute" command="sh -c &apos;pkexec.wrapper synaptic&apos;" />
+        </item>
+        <item label="Login Settings" icon="lightdm-settings" >
+            <action name="Execute" command="sudoedit.wrapper /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf" />
+        </item>
+        <item label="Login Interface" icon="lightdm-settings" >
+            <action name="Execute" command="lightdm-gtk-greeter-settings-pkexec" />
+        </item>
+        <item label="Show Lightdm Config" icon="lightdm-settings" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;Lightdm Config&apos; -e bash -c &quot;lightdm --show-config; printf &apos;\n%s&apos; &apos;Press any key to close&apos;; read -srn1&quot;" />
+        </item>
+        <item label="GParted Partition Manager" icon="gparted" >
+            <action name="Execute" command="sh -c &apos;pkexec.wrapper gparted&apos;" />
+        </item>
+        <item label="Set Default Browser" icon="applications-internet" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;Select Default Browser&apos; -e sh -c &apos;sudo update-alternatives --config x-www-browser; sleep 5&apos;" />
+        </item>
+        <item label="Edit Debian Alternatives" icon="galternatives" >
+            <action name="Execute" command="galternatives" />
+        </item>
+        <separator />
+        <item label="About Bunsen Alternatives" icon="distributor-logo-bunsenlabs" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+    </menu>
+
+    <menu id="bl-utilities" label="Utilities" icon="system-run" >
+        <item label="App Finder" icon="org.xfce.appfinder" >
+            <action name="Execute" command="xfce4-appfinder --disable-server" />
+        </item>
+        <item label="Catfish File Finder" icon="org.xfce.catfish" >
+            <action name="Execute" command="catfish" />
+        </item>
+        <menu id="bl-scrot-pipemenu" label="Take Screenshot" icon="camera-photo" execute="bl-scrot-pipemenu" />
+        <menu id="bl-sshconfig-pipemenu" label="SSH" icon="folder-remote-ssh" execute="bl-sshconfig-pipemenu" />
+        <menu id="bl-remote-desktop-pipemenu" label="Remote Desktop" icon="folder-remote" execute="bl-remote-desktop-pipemenu" />
+    </menu>
+
+    <menu id="bl-jgmenuConfig" label="jgmenu" icon="jgmenu" >
+        <item label="Edit Menu Content" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/jgmenu/prepend.csv" />
+        </item>
+        <item label="Edit Menu Settings" icon="" >
+            <action name="Execute" command="bl-text-editor ~/.config/jgmenu/jgmenurc" />
+        </item>
+        <separator />
+        <item label="Sync theme with OpenBox" icon="" >
+            <action name="Execute" command="JGMENU_RCXML=~/.config/bunsen/openbox/rc.xml jgmenu_run init --apply-obtheme" />
+        </item>
+        <separator label="Help" />
+        <item label="man page" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man jgmenu&apos; -e man jgmenu" />
+        </item>
+        <item label="tutorial" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &apos;man jgmenututorial&apos; -e man jgmenututorial" />
+        </item>
+    </menu>
+
+<!-- help menu section -->
+    <menu id="Tint2WWW" label="Tint2" icon="" >
+        <item label="Tint2 Wiki: FAQ" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://gitlab.com/o9000/tint2/wikis/FAQ&quot;" />
+        </item>
+        <item label="Tint2 Wiki: Configuration" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md&quot;" />
+        </item>
+        <item label="Tint2 Forum Thread" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://forums.bunsenlabs.org/viewtopic.php?id=254&quot;" />
+        </item>
+        <item label="Tint2 man page" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;Tint2 man page&quot; -e man tint2" />
+        </item>
+        <item label="Conky &amp; Tint2 Manager Help" icon="" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+    </menu>
+
+    <menu id="ObWWW" label="Openbox Website" icon="" >
+        <item label="Openbox Homepage" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://openbox.org/&quot;" />
+        </item>
+        <item label="Openbox Getting Started" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://openbox.org/wiki/Help:Getting_started&quot;" />
+        </item>
+        <item label="Openbox Documentation" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://openbox.org/wiki/Help:Contents&quot;" />
+        </item>
+        <item label="Openbox FAQs" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://openbox.org/wiki/Help:FAQ&quot;" />
+        </item>
+    </menu>
+
+    <menu id="DebianWWW" label="Debian" icon="" >
+        <item label="Debian Documentation" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://www.debian.org/doc/&quot;" />
+        </item>
+        <item label="Debian Handbook" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://debian-handbook.info/browse/stable/&quot;" />
+        </item>
+        <item label="Debian Reference" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://www.debian.org/doc/manuals/debian-reference/&quot;" />
+        </item>
+        <item label="Wiki" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://wiki.debian.org/&quot;" />
+        </item>
+        <item label="FAQsFromDebianUser" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://wiki.debian.org/FAQsFromDebianUser&quot;" />
+        </item>
+        <item label="Forum" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://forums.debian.net/&quot;" />
+        </item>
+        <item label="Package Search" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://www.debian.org/distrib/packages&quot;" />
+        </item>
+        <item label="Package Tracker" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://tracker.debian.org/&quot;" />
+        </item>
+        <item label="Security Tracker" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://security-tracker.debian.org/tracker/&quot;" />
+        </item>
+    </menu>
+
+    <menu id="OpenboxWWW" label="Openbox" icon="" >
+        <menu id="ObWWW" />
+        <item label="ArchWiki Openbox Guide" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://wiki.archlinux.org/index.php/Openbox&quot;" />
+        </item>
+        <item label="Debian Wiki Openbox Guide" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://wiki.debian.org/Openbox&quot;" />
+        </item>
+        <item label="Urukramas Openbox Guide" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://urukrama.wordpress.com/openbox-faq/&quot;" />
+        </item>
+    </menu>
+
+    <menu id="ConkyWWW" label="Conky" icon="" >
+        <item label="Conky Wiki" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://github.com/brndnmtthws/conky/wiki&quot;" />
+        </item>
+        <item label="Conky Archive" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://web.archive.org/web/20160325091248/https://crunchbang.org/forums/viewtopic.php?pid=371424&quot;" />
+        </item>
+        <item label="Conky man pages" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;Conky man page&quot; -e man conky" />
+        </item>
+        <item label="Conky &amp; Tint2 Manager Help" icon="" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+    </menu>
+
+    <menu id="ThemesWWW" label="Theme Resources" icon="" >
+        <item label="Bunsenlabs on DeviantArt" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://bunsenlabs.deviantart.com/&quot;" />
+        </item>
+        <item label="Box-Look.org" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://www.box-look.org&quot;" />
+        </item>
+        <item label="gnome-look.org" icon="" >
+            <action name="Execute" command="x-www-browser &quot;http://gnome-look.org/&quot;" />
+        </item>
+    </menu>
+
+    <menu id="BLhelp" label="Bunsen Help Files" icon="" >
+        <item label="How to Edit Menu" icon="" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;How to Edit the Menu&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-menu.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+        <item label="About BLOB" icon="" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About BLOB&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-blob.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+        <item label="Conky &amp; Tint2 Manager Help" icon="" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+        <item label="About BunsenLabs Autostart" icon="" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About BunsenLabs Autostart&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-blautostart.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+        <item label="About Bunsen Alternatives" icon="" >
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+        </item>
+    </menu>
+
+    <menu id="bl-help-menu" label="Help &amp; Resources" icon="help-contents" >
+        <separator label="Online Help" />
+        <item label="Getting Started" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://forums.bunsenlabs.org/viewforum.php?id=21&quot;" />
+        </item>
+        <item label="Tutorials" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://forums.bunsenlabs.org/viewforum.php?id=25&quot;" />
+        </item>
+        <item label="Basic Help &amp; Support" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://forums.bunsenlabs.org/viewforum.php?id=2&quot;" />
+        </item>
+        <item label="Scripts, Tutorials &amp; Tips" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://forums.bunsenlabs.org/viewforum.php?id=9&quot;" />
+        </item>
+        <menu id="DebianWWW" />
+        <item label="Arch Wiki" icon="" >
+            <action name="Execute" command="x-www-browser &quot;https://wiki.archlinux.org/index.php/Table_of_contents&quot;" />
+        </item>
+        <separator />
+        <menu id="OpenboxWWW" />
+        <menu id="Tint2WWW" />
+        <menu id="ConkyWWW" />
+        <separator />
+        <menu id="ThemesWWW" />
+        <separator />
+        <separator label="man pages" />
+        <item label="Compositor" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;Compositor man page&quot; -e man picom" />
+        </item>
+        <item label="jgmenu" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;jgmenu man page&quot; -e man jgmenu" />
+        </item>
+        <item label="dmenu" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;dmenu man page&quot; -e man dmenu" />
+        </item>
+        <item label="gmrun" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;gmrun man page&quot; -e man gmrun" />
+        </item>
+        <item label="xrandr" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;xrandr man page&quot; -e man xrandr" />
+        </item>
+        <item label="bunsenlabs-session" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;bunsenlabs-session man page&quot; -e man bunsenlabs-session" />
+        </item>
+        <item label="bl-xdg-autostart" icon="" >
+            <action name="Execute" command="x-terminal-emulator -T &quot;bl-xdg-autostart man page&quot; -e man bl-xdg-autostart" />
+        </item>
+        <separator />
+        <menu id="BLhelp" />
+    </menu>
+<!-- end of help menu section -->
+
+<!-- root menu starts here -->
+
+    <menu id="root-menu">
+        <item label="Run Program" icon="system-run" >
+            <action name="Execute" command="gmrun" />
+        </item>
+        <separator />
+        <item label="Terminal" icon="utilities-terminal" >
+            <action name="Execute" command="x-terminal-emulator" />
+        </item>
+        <item label="Web Browser" icon="applications-internet" >
+            <action name="Execute" command="x-www-browser" />
+        </item>
+        <item label="File Manager" icon="system-file-manager" >
+            <action name="Execute" command="bl-file-manager" />
+        </item>
+        <item label="Text Editor" icon="accessories-text-editor" >
+            <action name="Execute" command="bl-text-editor" />
+        </item>
+        <item label="Media Player" icon="multimedia-player" >
+            <action name="Execute" command="bl-media-player" />
+        </item>
+        <separator />
+        <item label="Quick Screenshot+Upload" icon="camera-photo" >
+            <action name="Execute" command="bl-image-upload" />
+        </item>
+        <separator />
+        <menu id="bl-utilities" />
+        <menu id="bl-places-pipemenu" label="Places" icon="folder" execute="bl-places-pipemenu" />
+        <menu id="bl-recent-files-pipemenu" label="Recent Files" icon="emblem-favorite" execute="bl-recent-files-pipemenu -rl15" />
+        <separator />
+        <menu id="bl-user-settings" />
+        <menu id="bl-system-settings" />
+        <separator />
+        <menu id="bl-help-menu" />
+        <separator />
+        <menu id="labwc-menu-generator" label="All Applications" icon="applications-other" execute="labwc-menu-generator --icons --pipemenu" />
+		<separator />
+        <item label="Lock Screen" icon="system-lock-screen" >
+            <action name="Execute" command="bl-lock" />
+        </item>
+        <item label="Exit" icon="system-shutdown" >
+            <action name="Execute" command="bl-exit" />
+        </item>
+    </menu>
+</openbox_menu>
