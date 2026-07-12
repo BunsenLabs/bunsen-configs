@@ -32,3 +32,5 @@ but provide more flexibility than Picom */
 
 #battery-14 * { -gtk-icon-transform: scale(0.6); }
 /* adjust the "#14" to match the widget ID of your battery plugin */
+
+#xfce4-clipman-plugin * { -gtk-icon-transform: scale(0.5); }
