@@ -15,8 +15,11 @@
 # To set your keyboard layout, you need to modify your X config:
 # http://www.google.com/search?q=how+to+set+keyboard+layout+xorg
 
+# gnome-keyring-daemon is now started by /usr/lib/systemd/user/gnome-keyring-daemon.service
+# installed by gnome-keyring, so the entry here is unnecessary.
+# see: https://wiki.archlinux.org/title/GNOME/Keyring
 ## GNOME Keyring
-command -v gnome-keyring-daemon >/dev/null && export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
+#command -v gnome-keyring-daemon >/dev/null && export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
 
 ## Modify xdg-open behaviour, and others.
 # "BunsenLabs" will be interpreted as X-generic
