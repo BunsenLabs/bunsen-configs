@@ -3,6 +3,6 @@ Name=BunsenLabs Wayland
 Comment=Log in to a BunsenLabs Wayland session
 Exec=/usr/bin/bunsenlabs-session-wayland
 TryExec=/usr/bin/bunsenlabs-session-wayland
-Icon=bunsenlabs
+Icon=bunsenlabs-wayland
 Type=Application
 DesktopNames=BunsenLabs-Wayland;labwc;wlroots;
