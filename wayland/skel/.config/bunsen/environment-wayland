@@ -4,19 +4,28 @@
 # See more info with command 'bl-user-setup --help'
 
 #
-# User-specific variables for a BunsenLabs session
-# can be placed here in ~/.config/bunsen/environment.
-# If set in ~/.xsessionrc instead, they will apply for all X sessions.
+# User-specific variables for a BunsenLabs Wayland session
+# can be placed here in ~/.config/bunsen/environment-wayland.
+# If set in ~/.config/labwc/environment instead, they will apply for all labwc sessions.
+
+# See: https://github.com/labwc/labwc/blob/master/docs/environment
+# for more info about setting environment variables for labwc.
+
+# Your keyboard layout is set in /etc/default/keyboard by the installer,
+# and /usr/bin/bunsenlabs-session refers to that to set wayland keyboard environment variables.
+# You can change those here if they aren't what you want, eg:
+# XKB_DEFAULT_LAYOUT=jp
+# XKB_DEFAULT_MODEL=pc105
 
 # To set your language for displaying messages and time/date formats, use the following:
 #LANG=en_CA.UTF8
 # This is unnecessary if you are using the LightDM GTK greeter which has a locale chooser widget.
 
-# To set your keyboard layout, you need to modify your X config:
-# http://www.google.com/search?q=how+to+set+keyboard+layout+xorg
-
+# gnome-keyring-daemon is now started by /usr/lib/systemd/user/gnome-keyring-daemon.service
+# installed by gnome-keyring, so the entry here is unnecessary.
+# see: https://wiki.archlinux.org/title/GNOME/Keyring
 ## GNOME Keyring
-command -v gnome-keyring-daemon >/dev/null && export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
+#command -v gnome-keyring-daemon >/dev/null && export $(gnome-keyring-daemon --start --components=pkcs11,secrets)
 
 ## Modify xdg-open behaviour, and others.
 # "BunsenLabs" will be interpreted as X-generic
@@ -25,3 +34,6 @@ command -v gnome-keyring-daemon >/dev/null && export $(gnome-keyring-daemon --st
 
 # Disable overlay scrollbars
 export GTK_OVERLAY_SCROLLING=0
+
+# grim will put screenshots here
+export GRIM_DEFAULT_DIR=~/Pictures/screenshots
