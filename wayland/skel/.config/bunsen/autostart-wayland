@@ -26,15 +26,18 @@
 ## http://forums.bunsenlabs.org (registration required)
 ##
 
-## NOTE: if you are using X you should not be running this file,
+## NOTE: if you are using X11 you should not be running this file,
 ## so edit 'autostart' instead.
 
 ## WINDOW MANAGER / COMPOSITOR
-## Do not edit the next line unless you have also installed any
+## Do not edit the following line unless you have also installed any
 ## necessary other programs for the different window manager / compositor,
 ## and edited the window-manager-dependent section later in this file.
 ## Use the window manager's or compositor's actual command, not name.
 ## This should be the first uncommented line in this file:
+## NOTE: if you are using wayland you don't need to reset this if using 'labwc'
+## however it can be changed to some other compositor like sway, hyprland, river etc.
+## (The variable "window_manager" here refers to a Wayland compositor.)
 window_manager=labwc
 
 # test if chosen window manager is actually running (you should probably not edit this line)
@@ -42,8 +45,6 @@ pgrep -x -u "$USER" "$window_manager" || { echo "$0: Window manager $window_mana
 
 ### SETTINGS START
 
-## Add keyboard mapping.
-#xmodmap -e "keysym Insert = Multi_key"
 
 ### TOUCHPAD: comment out the next two entries if you don't have one
 
@@ -54,74 +55,89 @@ pgrep -x -u "$USER" "$window_manager" || { echo "$0: Window manager $window_mana
 
 ### SETTINGS END
 
-## GNOME PolicyKit authentication
-#[ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ] && \
-#  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
+## PolicyKit authentication
 #hash lxpolkit 2>/dev/null && lxpolkit &
-
 # now using mate-polkit, started by /etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop
 
+# xss-lock is now launched by bl-xss-lock (if xfce4-screensaver is not running)
+# installed and started by bunsen-exit
+
 #######################################################
-######## window-manager-dependent applications ########
-# these will be things like panels, conky, wallpaper etc
+######## compositor (called "window_manager" here) dependent applications ########
+# these could be be things like panels, conky, wallpaper etc
 
 case "$window_manager" in
 labwc)
-    ## The following applications will only be started in an labwc session.
+    ## The following applications will only be started in a labwc session.
     ## Add a new clause for your window manager, if different.
 
-    ## wallpaper
-    if [ -r "$HOME/.azotebg" ]; then
-        . $HOME/.azotebg &
-    else
-        swaybg -i /usr/share/images/bunsen/wallpapers/default/default -m stretch &
-    fi
+    ## Start the Conky session (the default conkyrc will run if no sessions have been set)
+    # bl-conky-session &
+    ## The "base" install has no bl-conky-session script, so start conky directly:
+    #conky -c ~/.config/conky/BL-Default-conky.conf &
 
-    ## Start the panel
-    sfwbar &
+	# set background wallpaper
+	xwwall --restore
 
+    ## There is not yet a conky setup for Carbon on Wayland
     ## Start the Conky session (the default conkyrc will run if no sessions have been set)
     #bl-conky-session &
 
     ## start clipboard if installed
-    type cliphist >/dev/null 2>&1 && wl-paste --watch cliphist store &
+    #type cliphist >/dev/null 2>&1 && wl-paste --watch cliphist store &
+    ## now using xfce4-clipman-plugin in xfce4-panel which works on both X11 and Wayland
+
+    ## Start Panel
+    xfce4-panel &
 
     ## start screen lock daemon
-    swayidle -w \
-	    timeout 360 'gtklock -d &' \
-	    timeout 720 'wlopm --off \*' \
-	    resume 'wlopm --on \*' \
-       	before-sleep 'gtklock -d &' >/dev/null 2>&1 &
+    ## unnecessary with xfce4-screensaver?
+    ## started by /etc/xdg/autostart/bunsen-exit-xfce4-screensaver.desktop
+
+#    swayidle -w \
+#	    timeout 360 'gtklock -d &' \
+#	    timeout 720 'wlopm --off \*' \
+#	    resume 'wlopm --on \*' \
+#       	before-sleep 'gtklock -d &' >/dev/null 2>&1 &
 
     ;;
     # End of labwc application group.
 
-## Vague possibility for sway
+## clause for sway
 #sway)
-#   true
+#    launch something &
 #   ;;
 
-## Vague possibility for hyprland
-#hyprland)
-#    true
+## clause for river
+#river)
+#    launch something different &
 #    ;;
 
 esac
 
-####### end of window-manager-dependent section #######
+####### end of compositor dependent section #######
 #######################################################
 
 ### Following entries apply to all compositors: ###
 
+## xfce4-power-manager now needs to be explicitly started
+xfce4-power-manager &
+
+## Start Clipboard manager
+# now using xfce4-clipman-plugin in xfce4-panel
+
 ## Start Thunar Daemon, if set as bl-file-manager
+(
+sleep 2
 if [ "$(readlink -f "$(which bl-file-manager)")" = "$(which thunar)" ]
 then
     thunar --daemon &
 fi
+) &
 
 ## bl-welcome - post-installation script, will not run in a live session
 ## and only runs once. Safe to remove.
+## Not provided in base install.
 #(sleep 10; bl-welcome --firstrun) &
 
 ## bl-fortune - have the system come up with a little adage
