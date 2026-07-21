@@ -10,8 +10,11 @@ in
     lxterminal)
         termcmd=(lxterminal --no-remote -T '<TITLE>' -e) # otherwise lxterminal does not start a new process
         ;;
+    xfce4-terminal.wrapper)
+        termcmd=(xfce4-terminal --disable-server -T '<TITLE>' -x) # xfce4-terminal.wrapper does not support --disable-server
+        ;;
     mate-terminal.wrapper)
-        termcmd=(mate-terminal --disable-factory -t "$title" -x) # mate-terminal.wrapper does not support --disable-factory
+        termcmd=(mate-terminal --disable-factory -t '<TITLE>' -x) # mate-terminal.wrapper does not support --disable-factory
         ;;
 # gnome terminal now waits if invoked as x-terminal-emulator
 #                gnome-terminal.wrapper)
