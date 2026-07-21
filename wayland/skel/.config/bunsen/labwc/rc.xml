@@ -482,9 +482,16 @@
         <action name="Lower" />
         <action name="Unfocus" />
       </mousebind>
+
+  <!--
+    this entry disabled because it clashes with
+    Shift key modifier of Drag&Drop
+  -->
+<!--
       <mousebind button="S-Left" action="Press">
         <action name="SendToDesktop" to="left" wrap="yes" />
       </mousebind>
+-->
       <mousebind button="A-Left" action="Press">
         <action name="SendToDesktop" to="right" wrap="yes" />
       </mousebind>
