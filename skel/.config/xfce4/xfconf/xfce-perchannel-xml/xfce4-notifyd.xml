@@ -20,4 +20,5 @@
   <property name="log-level" type="string" value="always"/>
   <property name="log-level-apps" type="string" value="all"/>
   <property name="notify-location" type="string" value="top-right"/>
+  <property name="date-time-custom-format" type="string" value="%a %H:%M:%S"/>
 </channel>
