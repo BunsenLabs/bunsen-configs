@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Labwc Generate Menu
+Comment=Generate Menu
+Exec=lab-gen-menu
+Terminal=false
+Type=Application
+Categories=
+GenericName=
+Hidden=true
