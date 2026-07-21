@@ -28,7 +28,7 @@ but provide more flexibility than Picom */
 
 #pulseaudio-button * { -gtk-icon-transform: scale(0.6); }
 
-#xfce4-power-manager-plugin * { -gtk-icon-transform: scale(0.4); }
+#xfce4-power-manager-plugin * { -gtk-icon-transform: scale(0.5); }
 
 #battery-14 * { -gtk-icon-transform: scale(0.6); }
 /* adjust the "#14" to match the widget ID of your battery plugin */
