@@ -10,6 +10,9 @@
     <property name="general-notification" type="bool" value="true"/>
     <property name="show-panel-label" type="int" value="1"/>
     <property name="show-presentation-indicator" type="bool" value="true"/>
+    <property name="blank-on-ac" type="int" value="0"/>
+    <property name="dpms-on-ac-sleep" type="uint" value="0"/>
+    <property name="dpms-on-ac-off" type="uint" value="0"/>
     <property name="lock-screen-suspend-hibernate" type="bool" value="true"/>
   </property>
 </channel>
