@@ -4,9 +4,9 @@
 # to generate man files from executables' --help options,
 # using help2man.
 # Tested on Dash, should work with other POSIX shells.
-# Version 20220126
+# Version 20250802
 
-#    Copyright (C) 2018-2022  John Crawley <john@bunsenlabs.org>
+#    Copyright (C) 2018-2025  John Crawley <john@bunsenlabs.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -54,12 +54,20 @@
 
 set -e
 
+command -v help2man >/dev/null || {
+    echo "${0}: this script needs help2man" >&2
+    exit 1
+}
 src_name=$(dpkg-parsechangelog -S Source) || {
-    echo "$0: Not in debian source directory?" >&2
+    echo "${0}: Not in debian source directory?" >&2
     exit 1
 }
 pkg_name="$src_name" # will be replaced if <packagename>.*.genman-list found
-pkg_ver=$(dpkg-parsechangelog -S Version)
+pkg_ver=$(dpkg-parsechangelog -S Version) || {
+    echo "$0: Failed to determine package version." >&2
+    exit 1
+}
+
 # default if genman-list file has no digit in name
 default_section=1
 
@@ -97,14 +105,19 @@ Arguments:
             Return everything in the package debian/ directory
             to the state it was in before running the script.
 
-    --test <executable>
+    --test <executable> [optional extra arguments]
             Display the manpage that would be generated for this file.
             Nothing is changed in the source directory.
 
-    --makeone <executable>
+    --makeone <executable> [optional extra arguments]
             Generate a single man file for this one executable and
             place it in the working directory (package source root).
             (You will still need to add it to debian/<package>.manpages.)
+
+            Any extra arguments to --test or --makeone will be
+            passed directly to help2man.
+            This might be useful if a particular executable
+            accepts only short options, using --help-option='-h'
 
     -h --help
             Show this message.
@@ -180,7 +193,7 @@ build_mans() (
 # pass "executable" file (it need not actually be executable in the source)
 mk_man() (
     exec="$1"
-    cmd=${1##*/}
+    cmd=${exec##*/}
     manfile="${manpg_dir}/${cmd}.${section}"
     execflag=false
     mkdir -p "$manpg_dir"
@@ -198,17 +211,21 @@ mk_man() (
     echo "$manfile" >> "${manpages_file}"
 )
 
-# pass "executable" file
+# for --test or --makeone pass all script arguments to this function as they are
 # output is piped to 'man -l -' for inspection
-# or by --create option to make single file in current directory
+# or by --makeone option to make single file in current directory
 test_man() (
     createflag=false
-    [ "$1" = '--create' ] && {
-        createflag=true
-        shift
-    }
-    exec="$1"
-    cmd=${1##*/}
+    mode=$1
+    exec=$2
+    shift 2 # Now "$@" are extra arguments to forward to help2man
+    case "$mode" in
+        --makeone)  createflag=true ;;
+        --test)     createflag=false ;;
+        *)          echo "${0} test_man(): unknown mode: $mode" >&2
+                    exit 1 ;;
+    esac
+    cmd=${exec##*/}
     manfile=./"${cmd}.${section}"
     execflag=false
     [ -x "$exec" ] && execflag=true
@@ -218,9 +235,9 @@ test_man() (
     [ -z "$desc" ] && desc="$default_desc"
     if [ "$createflag" = false ]
     then
-        help2man ./"$exec" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" | man -l -
+        help2man ./"$exec" "$@" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" | man -l -
     else
-        help2man ./"$exec" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" > "$manfile"
+        help2man ./"$exec" "$@" --no-info --no-discard-stderr --version-string="$cmd $pkg_ver" --section="$section" --name="$desc" --include="$include_file" | sed "s|$HOME|~|g" > "$manfile"
     fi
     [ "$execflag" = false ] && chmod -x "$exec"
 )
@@ -240,25 +257,15 @@ case $1 in
     done
     exit 0
     ;;
---test)
-    [ -n "$2" ] || { echo "Please pass a file to test." >&2; exit 1;}
+--test|--makeone)
+    [ -n "$2" ] || { echo "Please pass a file to test or make a manpage for." >&2; exit 1;}
+    [ -f "$2" ] || { echo "$2 is not a regular file." >&2; exit 1;}
     section="$default_section"
     include_file="$(mktemp)"
     cat <<EOF > "$include_file"
 $includes
 EOF
-    test_man "$2"
-    rm -f "$include_file"
-    exit
-    ;;
---makeone)
-    [ -n "$2" ] || { echo "Please pass a file to make a manpage for." >&2; exit 1;}
-    section="$default_section"
-    include_file="$(mktemp)"
-    cat <<EOF > "$include_file"
-$includes
-EOF
-    test_man --create "$2"
+    test_man "${@}"
     rm -f "$include_file"
     exit
     ;;
@@ -293,6 +300,7 @@ cat <<EOF > "$include_file"
 $includes
 EOF
 
+found_list=false
 for list in debian/*.genman-list
 do
     [ -f "$list" ] || continue
@@ -315,11 +323,16 @@ do
     build_mans "$list"
 done
 
+[ "$found_list" = true ] && exit 0
+
 # simple option
-if [ "$found_list" != true ] && [ -f debian/genman-list ]
+if [ -f debian/genman-list ]
 then
     section="$default_section"
     manpages_file=debian/manpages
     manpg_dir=debian/genman-pages
     build_mans debian/genman-list
+else
+    echo "${0}: no genman list files were found!"
+    exit 1
 fi
