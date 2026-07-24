@@ -34,11 +34,11 @@
 ## necessary other programs for the different window manager / compositor,
 ## and edited the window-manager-dependent section later in this file.
 ## Use the window manager's or compositor's actual command, not name.
-## This should be the first uncommented line in this file:
+## This should be the FIRST uncommented line in this file:
+window_manager=labwc
 ## NOTE: if you are using wayland you don't need to reset this if using 'labwc'
 ## however it can be changed to some other compositor like sway, hyprland, river etc.
 ## (The variable "window_manager" here refers to a Wayland compositor.)
-window_manager=labwc
 
 # test if chosen window manager is actually running (you should probably not edit this line)
 pgrep -x -u "$USER" "$window_manager" || { echo "$0: Window manager $window_manager is not running." >&2 ; exit 1;}
