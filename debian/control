@@ -173,3 +173,43 @@ Description: config files for minimal BunsenLabs Linux
  Unused menu items are removed and the autostart script is adjusted.
  Memory usage and disk space should be slightly lower
  than with the standard configs package.
+
+Package: bunsen-configs-wayland-plugin
+Architecture: all
+Depends: ${misc:Depends},
+ bunsen-configs-base(>= 13.7)|bunsen-configs-lite(>= 13.7)|bunsen-configs(>= 13.7),
+ bunsen-exit,
+ gtklock,
+ labwc,
+ lightdm,
+ lightdm-gtk-greeter,
+ pkexec,
+ polkitd-pkla,
+ python3,
+ python3-xdg,
+ ssh-askpass-gnome,
+ xfce4-panel,
+ xss-lock,
+ xwwall,
+ yad
+Recommends: grim,
+ slurp,
+ tofi
+Suggests: fonts-liberation,
+ fonts-inconsolata,
+ qt5-gtk-platformtheme,
+ libqt5svg5,
+ librsvg2-common,
+ xfce4-clipman,
+ xfce4-screenshooter
+Description: config files to add a Wayland session to BunsenLabs Linux
+ Various configuration files for Wayland on BunsenLabs Linux.
+ Contains user config files to be added to an existing BunsenLabs system
+ to provide an optional Wayland session at login.
+ .
+ This experimental package relies on having a BunsenLabs X11 system
+ already set up; it adds only the extra configuration needed to enable
+ an optional Wayland session, and depends on some extra packages needed.
+ .
+ Some packages which are Recommends of the regular bunsen-configs
+ packages are Depends of this package.
