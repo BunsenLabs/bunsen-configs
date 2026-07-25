@@ -1,8 +1,8 @@
-bunsen-configs-wayland
-======================
+bunsen-configs-wayland-plugin
+=============================
 
-This package holds configuration files and scripts that are featured
-on a Bunsen Labs Wayland installation.
+This package holds configuration files and scripts to add a Wayland session
+to an existing BunsenLabs Carbon system.
 
 The main content is:
 
@@ -12,3 +12,10 @@ from a desktop file in /usr/share/wayland-sessions.
 *) A collection of user configuration files templates,
 stored in /usr/share/bunsen/skel. Installation of these user files is
 triggered from the Bunsenlabs Wayland session.
+
+*) Dependencies on the necessary, or desirable, additional packages needed,
+notably labwc the default wayland compositor.
+Others include xwwall gtklock xss-lock grim slurp and tofi.
+
+Most of the utilities currently installed on a BunsenLabs Carbon X11 system
+also run on Wayland.

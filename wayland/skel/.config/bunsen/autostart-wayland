@@ -34,10 +34,11 @@
 ## necessary other programs for the different window manager / compositor,
 ## and edited the window-manager-dependent section later in this file.
 ## Use the window manager's or compositor's actual command, not name.
-## This should be the FIRST uncommented line in this file:
+## It can be changed to some other Wayland compositor like sway, hyprland, river etc.
+
+## This must be the FIRST uncommented line in this file:
 window_manager=labwc
-## NOTE: if you are using wayland you don't need to reset this if using 'labwc'
-## however it can be changed to some other compositor like sway, hyprland, river etc.
+
 ## (The variable "window_manager" here refers to a Wayland compositor.)
 
 # test if chosen window manager is actually running (you should probably not edit this line)
@@ -76,8 +77,8 @@ labwc)
     ## The "base" install has no bl-conky-session script, so start conky directly:
     #conky -c ~/.config/conky/BL-Default-conky.conf &
 
-	# set background wallpaper
-	xwwall --restore
+    # set background wallpaper
+    xwwall --restore
 
     ## There is not yet a conky setup for Carbon on Wayland
     ## Start the Conky session (the default conkyrc will run if no sessions have been set)
@@ -91,14 +92,15 @@ labwc)
     xfce4-panel &
 
     ## start screen lock daemon
-    ## unnecessary with xfce4-screensaver?
-    ## started by /etc/xdg/autostart/bunsen-exit-xfce4-screensaver.desktop
+    ## xfce4-screensaver is not yet wayland-ready, so using xss-lock
+    ## started by /etc/xdg/autostart/bl-xss-lock.desktop and bl-xss-lock
+    ## provided that xfce4-screensaver is not running
 
 #    swayidle -w \
-#	    timeout 360 'gtklock -d &' \
-#	    timeout 720 'wlopm --off \*' \
-#	    resume 'wlopm --on \*' \
-#       	before-sleep 'gtklock -d &' >/dev/null 2>&1 &
+#       timeout 360 'gtklock -d &' \
+#       timeout 720 'wlopm --off \*' \
+#       resume 'wlopm --on \*' \
+#           before-sleep 'gtklock -d &' >/dev/null 2>&1 &
 
     ;;
     # End of labwc application group.
@@ -145,10 +147,10 @@ fi
 ## Many of them are from the 'Off Topic' subforums of those sites,
 ## so they are likely to be abstract, out-of-context...
 ## ... and possibly Not Safe For Work, children, or your mental health in general.
-## Uncomment the following line to enable this (adjust the sleep seconds to taste).
+## Install bunsen-fortune and uncomment the following line to enable this
+## (adjust the sleep seconds to taste)
 #(sleep 20; bl-fortune) &
 
 ## Run the XDG autostart stuff. This requires python3-xdg to be installed.
 ## See 'bl-xdg-autostart --list' for list of autostarted applications.
 bl-xdg-autostart
-

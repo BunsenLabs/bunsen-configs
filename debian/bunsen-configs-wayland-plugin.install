@@ -1,2 +1,3 @@
 wayland/wayland-sessions usr/share
 wayland/skel usr/share/bunsen
+wayland/hicolor usr/share/icons

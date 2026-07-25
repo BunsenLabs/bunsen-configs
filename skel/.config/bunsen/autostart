@@ -30,11 +30,12 @@
 ## so edit 'autostart-wayland' instead.
 
 ## WINDOW MANAGER
-## Do not edit the next line unless you have also installed any
+## Do not edit the following line unless you have also installed any
 ## necessary other programs for the different window manager,
 ## and edited the window-manager-dependent section later in this file.
 ## Use the window manager's actual command, not name.
-## This should be the first uncommented line in this file:
+
+## This must be the FIRST uncommented line in this file:
 window_manager=openbox
 
 # test if chosen window manager is actually running (you should probably not edit this line)
