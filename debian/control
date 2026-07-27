@@ -11,7 +11,8 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 
 Package: bunsen-configs
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
+ xfce4-clipman-plugin
 Recommends: bunsen-conky (>= 11.1-1),
  bunsen-docs,
  bunsen-exit,
@@ -43,7 +44,6 @@ Recommends: bunsen-conky (>= 11.1-1),
  xfce4-panel,
  xfce4-panel-profiles,
  xfce4-battery-plugin,
- xfce4-clipman-plugin,
  xfce4-indicator-plugin,
  xfce4-power-manager,
  xfce4-power-manager-plugins,
@@ -70,10 +70,14 @@ Description: config files for BunsenLabs Linux
  Contains user config files to be copied into a new user's home directory,
  scripts and desktop files to set up the bl-alternatives system,
  and some other system configuration files.
+ .
+ NOTE xfce4-clipman-plugin is a temporary dependency,
+ to make sure xfce4-panel configuration is not broken by the upgrade.
 
 Package: bunsen-configs-lite
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
+ xfce4-clipman-plugin
 Recommends: bunsen-conky,
  bunsen-docs,
  bunsen-exit,
@@ -100,7 +104,6 @@ Recommends: bunsen-conky,
  xbindkeys,
  xcape,
  xfce4-panel,
- xfce4-clipman-plugin,
  xfce4-pulseaudio-plugin,
  xfce4-screensaver,
  xss-lock,
@@ -129,10 +132,14 @@ Description: config files for lite BunsenLabs Linux
  This package provides some modified files for a light system.
  Memory usage and disk space should be slightly lower
  than with the standard configs package.
+ .
+ NOTE xfce4-clipman-plugin is a temporary dependency,
+ to make sure xfce4-panel configuration is not broken by the upgrade.
 
 Package: bunsen-configs-base
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
+ xfce4-clipman-plugin
 Recommends: bunsen-exit,
  bunsen-icons-base,
  bunsen-images-base,
@@ -155,7 +162,6 @@ Recommends: bunsen-exit,
  xbindkeys,
  xcape,
  xfce4-panel,
- xfce4-clipman-plugin,
  xfce4-screensaver,
  xss-lock,
  xwwall,
@@ -180,6 +186,9 @@ Description: config files for minimal BunsenLabs Linux
  Unused menu items are removed and the autostart script is adjusted.
  Memory usage and disk space should be slightly lower
  than with the standard configs package.
+ .
+ NOTE xfce4-clipman-plugin is a temporary dependency,
+ to make sure xfce4-panel configuration is not broken by the upgrade.
 
 Package: bunsen-configs-wayland-plugin
 Architecture: all
