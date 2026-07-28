@@ -1,8 +1,33 @@
+bunsen-configs (13.7-1) carbon; urgency=medium
+
+  * Add bunsen-configs-wayland-plugin package
+     This package adds a Wayland session to the lightdm login options,
+     and ships the necessary extra files to set up a basic
+     BunsenLabs Wayland session.
+  * The Wayland plugin package:
+    - add  rc.xml and menu.xml for labwc
+    - add config files for other apps used in the Wayland session
+  * Adjust the other bunsen-configs* packages to allow a Wayland session.
+     In particular, bunsen/autostart no longer launches xfce4-clipman
+     because it is a panel plugin.
+  * On xfce4-panel:
+    - replace xfce4-clipman in the systray with xfce4-clipman-plugin
+       (this happens on both X11 and Wayland so the same xfce4-panel config
+        can be used for both)
+    - adjust GTK3 scaling on plugin icons for best compromise between
+       vertical and horizontal panels
+    - the BL flame icon brings up a menu on both X11 and Wayland
+  * Update some other miscellaneous settings, add some bugfixes.
+  * For more details see the commit log: 
+     https://github.com/BunsenLabs/bunsen-configs/commits/carbon/
+
+ -- John Crawley <john@bunsenlabs.org>  Tue, 28 Jul 2026 14:37:43 +0900
+
 bunsen-configs (13.6.2-1) carbon; urgency=medium
 
   * bl-user-setup: on install initialize
      gtk-theme, icon-theme, cursor-theme and font-name in gsettings.
-     On its first run, nwg-look will use these. 
+     On its first run, nwg-look will use these.
 
  -- John Crawley <john@bunsenlabs.org>  Fri, 06 Feb 2026 15:49:19 +0900
 
