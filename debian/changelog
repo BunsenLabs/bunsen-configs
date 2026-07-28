@@ -18,7 +18,7 @@ bunsen-configs (13.7-1) carbon; urgency=medium
        vertical and horizontal panels
     - the BL flame icon brings up a menu on both X11 and Wayland
   * Update some other miscellaneous settings, add some bugfixes.
-  * For more details see the commit log: 
+  * For more details see the commit log:
      https://github.com/BunsenLabs/bunsen-configs/commits/carbon/
 
  -- John Crawley <john@bunsenlabs.org>  Tue, 28 Jul 2026 14:37:43 +0900
