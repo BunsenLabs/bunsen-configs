@@ -1,0 +1,4 @@
+killall swaybg >/dev/null 2>&1
+swaybg \
+ -o Virtual-1 -m stretch -c 999999 -i '/home/john/Pictures/wallpapers/bunsen/default/default' \
+>/dev/null 2>&1 &
