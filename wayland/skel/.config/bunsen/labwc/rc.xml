@@ -365,9 +365,11 @@
     </keybind>
 
     <!-- "ToggleShowDesktop" will be available in a future labwc release. -->
+<!--
     <keybind key="W-d">
       <action name="ToggleShowDesktop" />
     </keybind>
+-->
 
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
@@ -400,16 +402,16 @@
 
     <!-- A bit of tiling -->
     <keybind key="W-Left">
-      <action name="SnapToEdge" direction="left" combine="yes" />
+      <action name="SnapToEdge" direction="left" />
     </keybind>
     <keybind key="W-Right">
-      <action name="SnapToEdge" direction="right" combine="yes" />
+      <action name="SnapToEdge" direction="right" />
     </keybind>
     <keybind key="W-Up">
-      <action name="SnapToEdge" direction="up" combine="yes" />
+      <action name="SnapToEdge" direction="up" />
     </keybind>
     <keybind key="W-Down">
-      <action name="SnapToEdge" direction="down" combine="yes" />
+      <action name="SnapToEdge" direction="down" />
     </keybind>
 
     <!-- SnapToRegion via W-Numpad -->
