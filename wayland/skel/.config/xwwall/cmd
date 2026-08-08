@@ -1,4 +1,4 @@
 killall swaybg >/dev/null 2>&1
 swaybg \
- -o VGA-1 -m stretch -c 999999 -i '/usr/share/images/bunsen/wallpapers/default/default' \
+ -o '*' -m stretch -c 999999 -i '/usr/share/images/bunsen/wallpapers/default/default' \
 >/dev/null 2>&1 &
