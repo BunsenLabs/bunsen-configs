@@ -17,7 +17,7 @@ mpv etc
 sysctl.d etc
 apt.conf.d etc/apt
 calendar.bunsen etc/calendar
-Xsession.d etc/X11
+X11 etc
 greetd etc
 nwg-hello etc
 mime usr/share

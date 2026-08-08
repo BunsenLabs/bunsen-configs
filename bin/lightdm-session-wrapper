@@ -1,0 +1,19 @@
+#!/bin/sh
+# This wrapper script chooses between X11 and Wayland session starters,
+# referring to $XDG_SESSION_TYPE.
+#
+# NOTE X sessions started via startx will show $XDG_SESSION_TYPE as
+# "tty" not "x11".
+
+case $XDG_SESSION_TYPE in
+x11|tty)
+	exec /etc/X11/Xsession "$@" # standard Debian X11 session startup
+	;;
+wayland)
+	exec /etc/X11/Wsession "$@" # BunsenLabs adaptation for Wayland
+	;;
+*)
+	echo "$XDG_SESSION_TYPE unknown" >&2
+	exit 1
+	;;
+esac
