@@ -42,7 +42,7 @@ window_manager=labwc
 ## (The variable "window_manager" here refers to a Wayland compositor.)
 
 # test if chosen window manager is actually running (you should probably not edit this line)
-pgrep -x -u "$USER" "$window_manager" || { echo "$0: Window manager $window_manager is not running." >&2 ; exit 1;}
+pgrep -x -u "$USER" "$window_manager" >/dev/null || { echo "$0: Window manager $window_manager is not running." >&2 ; exit 1;}
 
 ### SETTINGS START
 
@@ -80,9 +80,16 @@ labwc)
     # set background wallpaper
     xwwall --restore
 
-    ## There is not yet a conky setup for Carbon on Wayland
     ## Start the Conky session (the default conkyrc will run if no sessions have been set)
-    #bl-conky-session &
+    #bl-conky-session & # the default session brings up the X11 conky
+    if command -v bl-conky-session >/dev/null
+    then
+    ## Add Wayland conkys to ~/.config/conky/conky-wayland-sessionfile
+        bl-conky-session conky-wayland-sessionfile &
+    else
+    ## The "base" install has no bl-conky-session script, so start conky directly:
+        conky -c ~/.config/conky/BL-Carbon-wayland-conky.conf &
+    fi
 
     ## start clipboard if installed
     #type cliphist >/dev/null 2>&1 && wl-paste --watch cliphist store &
