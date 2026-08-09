@@ -1,0 +1,11 @@
+
+# DO NOT USE THIS FILE
+
+# The Bunsenlabs Wayland autostart file is
+# ~/.config/bunsen/autostart-wayland
+#
+# While labwc will also refer to this file,
+# putting commands here will cause unnecessary confusion.
+#
+# To edit your startup session, please edit:
+# ~/.config/bunsen/autostart-wayland

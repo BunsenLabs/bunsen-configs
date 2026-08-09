@@ -1,0 +1,11 @@
+
+# DO NOT USE THIS FILE
+
+# The Bunsenlabs Wayland environment file is
+# ~/.config/bunsen/environment-wayland
+#
+# While labwc will also refer to this file,
+# putting entries here will cause unnecessary confusion.
+#
+# To edit your Wayland environment, please edit:
+# ~/.config/bunsen/environment-wayland
