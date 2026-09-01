@@ -72,11 +72,6 @@ labwc)
     ## The following applications will only be started in a labwc session.
     ## Add a new clause for your window manager, if different.
 
-    ## Start the Conky session (the default conkyrc will run if no sessions have been set)
-    # bl-conky-session &
-    ## The "base" install has no bl-conky-session script, so start conky directly:
-    #conky -c ~/.config/conky/BL-Default-conky.conf &
-
     # set background wallpaper
     xwwall --restore
 
@@ -88,8 +83,9 @@ labwc)
         bl-conky-session conky-wayland-sessionfile &
     else
     ## The "base" install has no bl-conky-session script, so start conky directly:
-        conky -c ~/.config/conky/BL-Carbon-wayland-conky.conf &
+        conky -c ~/.config/conky/BL-Carbon-conky.conf &
     fi
+    # BL-Carbon-conky.conf will run OK on Wayland
 
     ## start clipboard if installed
     #type cliphist >/dev/null 2>&1 && wl-paste --watch cliphist store &
