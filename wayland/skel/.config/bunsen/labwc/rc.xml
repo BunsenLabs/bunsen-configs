@@ -308,6 +308,9 @@
     <keybind key="W-m">
       <action name="Execute" command="bl-media-player" />
     </keybind>
+    <keybind key="W-v">
+      <action name="Execute" command="pavucontrol" />
+    </keybind>
     <keybind key="W-l">
       <action name="Execute" command="bl-lock" />
     </keybind>
@@ -364,6 +367,40 @@
       <action name="GoToDesktop" to="2" />
     </keybind>
 
+    <keybind key="W-F1">
+      <action name="GoToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-F2">
+      <action name="GoToDesktop" to="2" />
+    </keybind>
+
+<!--
+    If you add more desktops than the BL default 2,
+    and want to be able to send windows there, add more keybinds here.
+    These keybinds are used by bl-conky-session when launching conkys
+    that have been assigned a specific desktop.
+-->
+    <keybind key="W-A-1">
+      <action name="SendToDesktop" to="1" follow="no" wrap="yes" />
+    </keybind>
+    <keybind key="W-A-2">
+      <action name="SendToDesktop" to="2" follow="no" wrap="yes" />
+    </keybind>
+<!--
+    <keybind key="W-A-3">
+      <action name="SendToDesktop" to="3" follow="no" wrap="yes" />
+    </keybind>
+    <keybind key="W-A-4">
+      <action name="SendToDesktop" to="4" follow="no" wrap="yes" />
+    </keybind>
+    <keybind key="W-A-5">
+      <action name="SendToDesktop" to="5" follow="no" wrap="yes" />
+    </keybind>
+    <keybind key="W-A-6">
+      <action name="SendToDesktop" to="6" follow="no" wrap="yes" />
+    </keybind>
+-->
+
     <!-- "ToggleShowDesktop" will be available in a future labwc release. -->
 <!--
     <keybind key="W-d">
@@ -412,6 +449,20 @@
     </keybind>
     <keybind key="W-Down">
       <action name="SnapToEdge" direction="down" />
+    </keybind>
+
+    <!-- quarter-screen tiling -->
+    <keybind key="W-A-Left">
+      <action name="SnapToRegion" region="bottom-left" />
+    </keybind>
+    <keybind key="W-A-Right">
+      <action name="SnapToRegion" region="top-right" />
+    </keybind>
+    <keybind key="W-A-Up">
+      <action name="SnapToRegion" region="top-left" />
+    </keybind>
+    <keybind key="W-A-Down">
+      <action name="SnapToRegion" region="bottom-right" />
     </keybind>
 
     <!-- SnapToRegion via W-Numpad -->
@@ -489,20 +540,25 @@
     this entry disabled because it clashes with
     Shift key modifier of Drag&Drop
   -->
-<!--
+  <!--
       <mousebind button="S-Left" action="Press">
         <action name="SendToDesktop" to="left" wrap="yes" />
       </mousebind>
--->
+  -->
+  <!--
+    this entry clashes with  <mousebind button="A-Left" action="Drag">
+  -->
+  <!--
       <mousebind button="A-Left" action="Press">
         <action name="SendToDesktop" to="right" wrap="yes" />
       </mousebind>
+  -->
       <mousebind button="W-Left" action="Drag">
         <action name="Move" />
       </mousebind>
     </context>
 
-<!--
+  <!--
     <context name="Border">
       <mousebind button="Left" action="Press">
         <action name="Focus" />
@@ -512,7 +568,7 @@
         <action name="Resize" />
       </mousebind>
     </context>
--->
+  -->
     <context name="Top">
       <mousebind button="Left" action="Drag">
         <action name="Resize" />
@@ -789,7 +845,7 @@
       <!-- <scrollButton>274</scrollButton> -->
       <!-- <sendEventsMode>yes</sendEventsMode> -->
       <!-- <calibrationMatrix>1 0 0 0 1 0</calibrationMatrix> -->
-      <scrollFactor>2.0</scrollFactor>
+      <!-- <scrollFactor>1.0</scrollFactor> -->
     </device>
   </libinput>
 
