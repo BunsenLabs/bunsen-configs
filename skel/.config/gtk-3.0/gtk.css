@@ -11,6 +11,9 @@
 
 /* end of stepper code */
 
+/* Remove dotted lines from GTK 3 applications */
+undershoot.top, undershoot.right, undershoot.bottom, undershoot.left { background-image: none; }
+
 /* padding for lxterminal and some others */
 VteTerminal, vte-terminal { padding: 5px; }
 
