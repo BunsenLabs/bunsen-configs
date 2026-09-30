@@ -199,7 +199,7 @@
         </item>
         <separator />
         <item label="About Bunsen Alternatives" icon="distributor-logo-bunsenlabs" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
     </menu>
 
@@ -250,7 +250,7 @@
             <action name="Execute" command="x-terminal-emulator -T &quot;Tint2 man page&quot; -e man tint2" />
         </item>
         <item label="Conky &amp; Tint2 Manager Help" icon="" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
     </menu>
 
@@ -323,7 +323,7 @@
             <action name="Execute" command="x-terminal-emulator -T &quot;Conky man page&quot; -e man conky" />
         </item>
         <item label="Conky &amp; Tint2 Manager Help" icon="" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
     </menu>
 
@@ -341,19 +341,19 @@
 
     <menu id="BLhelp" label="Bunsen Help Files" icon="" >
         <item label="How to Edit Menu" icon="" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;How to Edit the Menu&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-menu.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;How to Edit the Menu&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-menu.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
         <item label="About BLOB" icon="" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About BLOB&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-blob.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About BLOB&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-blob.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
         <item label="Conky &amp; Tint2 Manager Help" icon="" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;Conky &amp; Tint2 Manager Help&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-conkytint2-manager.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
         <item label="About BunsenLabs Autostart" icon="" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About BunsenLabs Autostart&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-blautostart.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About BunsenLabs Autostart&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-blautostart.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
         <item label="About Bunsen Alternatives" icon="" >
-            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace" />
+            <action name="Execute" command="yad --button=&quot;OK&quot;:0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace" />
         </item>
     </menu>
 

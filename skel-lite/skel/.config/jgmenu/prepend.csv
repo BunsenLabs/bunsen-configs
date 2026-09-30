@@ -166,6 +166,6 @@ GParted Partition Manager,sh -c 'pkexec.wrapper gparted',gparted
 Set Default Browser,"""x-terminal-emulator -T 'Select Default Browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",applications-internet
 Edit Debian Alternatives,galternatives,galternatives
 ^sep()
-About Bunsen Alternatives,yad --button="OK":0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace,distributor-logo-bunsenlabs
+About Bunsen Alternatives,yad --button="OK":0 --center --name=bunsenlabs --window-icon=distributor-logo-bunsenlabs --text-info --title="About Bunsen Alternatives" --filename="/usr/share/bunsen/docs/helpfiles/helpfile-bl-alternatives.txt" --width=900 --height=700 --fontname=Monospace,distributor-logo-bunsenlabs
 
 ^tag(apps)
