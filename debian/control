@@ -208,9 +208,11 @@ Depends: ${misc:Depends},
  xwwall,
  yad
 Recommends: grim,
+ pulseaudio-utils,
  slurp,
  tofi
-Suggests: fonts-liberation,
+Suggests: brightnessctl|ddcutil,
+ fonts-liberation,
  fonts-inconsolata,
  qt5-gtk-platformtheme,
  libqt5svg5,
