@@ -331,6 +331,7 @@
     <keybind key="W-x">
       <action name="Execute" command="bl-exit" />
     </keybind>
+    <!-- pactl commands need pulseaudio-utils -->
     <keybind key="XF86_AudioLowerVolume">
       <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ -5%" />
     </keybind>
@@ -340,13 +341,25 @@
     <keybind key="XF86_AudioMute">
       <action name="Execute" command="pactl set-sink-mute @DEFAULT_SINK@ toggle" />
     </keybind>
+    <!-- For brightness control on laptops install brightnessctl -->
     <keybind key="XF86_MonBrightnessUp">
       <action name="Execute" command="brightnessctl set +10%" />
     </keybind>
     <keybind key="XF86_MonBrightnessDown">
       <action name="Execute" command="brightnessctl set 10%-" />
     </keybind>
-
+    <!-- For brightness control of external monitors install ddcutil -->
+    <!-- See 'ddcutil detect' to find I2C bus number -->
+    <!-- sleep-multiplier may need raising to 0.3 or 0.5 if display is slow -->
+    <!-- Those two settings speed up the response slightly. -->
+<!--
+    <keybind key="XF86_MonBrightnessUp">
+      <action name="Execute" command="ddcutil --bus 2 --sleep-multiplier 0.2  setvcp 10 + 10" />
+    </keybind>
+    <keybind key="XF86_MonBrightnessDown">
+      <action name="Execute" command="ddcutil --bus 2 --sleep-multiplier 0.2  setvcp 10 - 10" />
+    </keybind>
+-->
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop" to="left" wrap="no" />
@@ -729,12 +742,15 @@
         <!-- openbox default, swap with above line to activate -->
         <action name="ShowMenu" menu="client-list-combined-menu" />
       </mousebind>
+      <!-- COMMENT OUT the following two mousebinds to prevent mouse scrolling
+      on the desktop from changing desktop -->
       <mousebind direction="Up" action="Scroll">
         <action name="GoToDesktop" to="left" wrap="yes" />
       </mousebind>
       <mousebind direction="Down" action="Scroll">
         <action name="GoToDesktop" to="right" wrap="yes" />
       </mousebind>
+
     </context>
 
   </mouse>

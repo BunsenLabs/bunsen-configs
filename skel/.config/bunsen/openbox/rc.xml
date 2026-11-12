@@ -783,6 +783,8 @@
     </context>
 
     <context name="Desktop">
+      <!-- COMMENT OUT the following two mousebinds to prevent mouse scrolling
+      on the desktop from changing desktop -->
       <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
@@ -793,6 +795,7 @@
           <to>next</to>
         </action>
       </mousebind>
+
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>

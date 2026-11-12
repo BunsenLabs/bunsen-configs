@@ -128,7 +128,7 @@
         -->
         <menu id="bl-conky-pipemenu" label="Conky" icon="conky-manager" execute="bl-conky-pipemenu" />
 <!--
-		<item label="BLOB Themes Manager" icon="distributor-logo-bunsenlabs" >
+        <item label="BLOB Themes Manager" icon="distributor-logo-bunsenlabs" >
             <action name="Execute" command="bl-obthemes" />
         </item>
 -->
@@ -446,7 +446,7 @@
         <menu id="bl-help-menu" />
         <separator />
         <menu id="labwc-menu-generator" label="All Applications" icon="applications-other" execute="labwc-menu-generator --icons --pipemenu" />
-		<separator />
+        <separator />
         <item label="Lock Screen" icon="system-lock-screen" >
             <action name="Execute" command="bl-lock" />
         </item>
