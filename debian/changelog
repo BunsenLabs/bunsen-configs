@@ -1,3 +1,20 @@
+bunsen-configs (13.8-1) carbon; urgency=medium
+
+  * Fix initial wallpaper setting on Wayland.
+  * Rework session files to better handle Wayland:
+    - Add /etc/X11/Wsession by analogy with /etc/X11/Xsession
+    - Add /usr/bin/lightdm-session-wrapper to choose X11 or Wayland session,
+       and set it as session wrapper in lightdm.conf.d/50_bunsen.conf
+    - Merge .Xresources (for xwayland apps) after compositor has started.
+  * Tweak the default X11 conky file and use it in Wayland sessions too.
+  * Improve labwc's rc.xml
+  * Thunar-volman: disable automounting by default - it's user configurable.
+  * Improve yad window icons on Wayland.
+  * Improve support of keyboard volume and brightness setting.
+  * Add various comments and small code improvements.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 13 Nov 2026 17:54:43 +0900
+
 bunsen-configs (13.7-1) carbon; urgency=medium
 
   * Add bunsen-configs-wayland-plugin package
