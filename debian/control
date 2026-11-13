@@ -12,6 +12,7 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-configs
 Package: bunsen-configs
 Architecture: all
 Depends: ${misc:Depends},
+ bunsen-common,
  xfce4-clipman-plugin
 Recommends: bunsen-conky (>= 11.1-1),
  bunsen-docs,
@@ -80,6 +81,7 @@ Architecture: all
 Depends: ${misc:Depends},
  xfce4-clipman-plugin
 Recommends: bunsen-conky,
+ bunsen-common,
  bunsen-docs,
  bunsen-exit,
  bunsen-images-base,
@@ -141,7 +143,8 @@ Package: bunsen-configs-base
 Architecture: all
 Depends: ${misc:Depends},
  xfce4-clipman-plugin
-Recommends: bunsen-exit,
+Recommends: bunsen-common,
+ bunsen-exit,
  bunsen-icons-base,
  bunsen-images-base,
  bunsen-themes-base,
