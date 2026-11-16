@@ -926,7 +926,10 @@
     <windowrule identifier="gmrun" matchOnce="false" serverDecoration="no">
       <action name="AutoPlace" policy="center" />
     </windowrule>
-    <windowrule identifier="system-log-out" matchOnce="false" serverDecoration="no">
+    <windowrule identifier="bl-exit" matchOnce="false" serverDecoration="no">
+      <action name="AutoPlace" policy="center" />
+    </windowrule>
+    <windowrule identifier="bunsenlabs" matchOnce="false" serverDecoration="no">
       <action name="AutoPlace" policy="center" />
     </windowrule>
   </windowRules>
