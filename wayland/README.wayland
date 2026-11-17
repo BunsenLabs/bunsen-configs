@@ -15,7 +15,7 @@ triggered from the Bunsenlabs Wayland session.
 
 *) Dependencies on the necessary, or desirable, additional packages needed,
 notably labwc the default wayland compositor.
-Others include xwwall gtklock xss-lock grim slurp and tofi.
+Others include xwwall swaybg gtklock xss-lock grim slurp and tofi.
 
 Most of the utilities currently installed on a BunsenLabs Carbon X11 system
 also run on Wayland.
