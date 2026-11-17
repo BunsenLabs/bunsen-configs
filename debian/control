@@ -64,8 +64,8 @@ Suggests: bunsen-blob,
  tk,
  xfce4-notifyd,
  xfce4-screenshooter
-Replaces: bunsen-configs-lite, bunsen-configs-base, bunsen-conky (<< 11.1-1)
-Breaks: bunsen-conky (<< 11.1-1)
+Replaces: bunsen-configs-lite, bunsen-configs-base, bunsen-conky (<< 11.1-1), bunsen-configs-wayland-plugin(<< 13.8.1)
+Breaks: bunsen-conky (<< 11.1-1), bunsen-configs-wayland-plugin(<< 13.8.1)
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}, bunsen-configs-lite, bunsen-configs-base
 Description: config files for BunsenLabs Linux
@@ -125,8 +125,8 @@ Suggests: bunsen-blob,
  xfce4-notifyd,
  xfce4-screenshooter
 Provides: ${diverted-files}
-Replaces: bunsen-configs, bunsen-configs-base, bunsen-conky (<< 11.1-1)
-Breaks: bunsen-conky (<< 11.1-1)
+Replaces: bunsen-configs, bunsen-configs-base, bunsen-conky (<< 11.1-1), bunsen-configs-wayland-plugin(<< 13.8.1)
+Breaks: bunsen-conky (<< 11.1-1), bunsen-configs-wayland-plugin(<< 13.8.1)
 Conflicts: ${diverted-files}, bunsen-configs, bunsen-configs-base
 Description: config files for lite BunsenLabs Linux
  Various configuration files for BunsenLabs Linux.
@@ -180,8 +180,8 @@ Suggests: fonts-liberation,
  librsvg2-common,
  xfce4-screenshooter
 Provides: ${diverted-files}
-Replaces: bunsen-configs, bunsen-configs-lite, bunsen-conky (<< 11.1-1)
-Breaks: bunsen-conky (<< 11.1-1)
+Replaces: bunsen-configs, bunsen-configs-lite, bunsen-conky (<< 11.1-1), bunsen-configs-wayland-plugin(<< 13.8.1)
+Breaks: bunsen-conky (<< 11.1-1), bunsen-configs-wayland-plugin(<< 13.8.1)
 Conflicts: ${diverted-files}, bunsen-configs, bunsen-configs-lite
 Description: config files for minimal BunsenLabs Linux
  Various configuration files for BunsenLabs Linux.
@@ -200,7 +200,7 @@ Description: config files for minimal BunsenLabs Linux
 Package: bunsen-configs-wayland-plugin
 Architecture: all
 Depends: ${misc:Depends},
- bunsen-configs-base(>= 13.7)|bunsen-configs-lite(>= 13.7)|bunsen-configs(>= 13.7),
+ bunsen-configs-base(>= 13.8.1)|bunsen-configs-lite(>= 13.8.1)|bunsen-configs(>= 13.8.1),
  bunsen-exit,
  gtklock,
  labwc,
