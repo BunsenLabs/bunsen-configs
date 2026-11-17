@@ -352,12 +352,13 @@
     <!-- See 'ddcutil detect' to find I2C bus number -->
     <!-- sleep-multiplier may need raising to 0.3 or 0.5 if display is slow -->
     <!-- Those two settings speed up the response slightly. -->
+    <!-- (replace '- -' with two consecutive hyphens when uncommenting the code below; xml commenting issue) -->
 <!--
     <keybind key="XF86_MonBrightnessUp">
-      <action name="Execute" command="ddcutil --bus 2 --sleep-multiplier 0.2  setvcp 10 + 10" />
+      <action name="Execute" command="ddcutil - -bus 2 - -sleep-multiplier 0.2  setvcp 10 + 10" />
     </keybind>
     <keybind key="XF86_MonBrightnessDown">
-      <action name="Execute" command="ddcutil --bus 2 --sleep-multiplier 0.2  setvcp 10 - 10" />
+      <action name="Execute" command="ddcutil - -bus 2 - -sleep-multiplier 0.2  setvcp 10 - 10" />
     </keybind>
 -->
     <!-- Keybindings for desktop switching -->
